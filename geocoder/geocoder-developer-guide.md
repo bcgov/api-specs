@@ -3,7 +3,7 @@
 This guide is aimed at developers and web masters that would like to incorporate the Physical Address Geocoder into their applications and websites.
 <br>
 ##Introduction
-The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [Swagger definition](https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder.json). You can explore the API in the [API Console](http://apps.gov.bc.ca/pub/api-explorer/?url=https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder.json) . To simplify integration of the online geocoder into your client web application, you can use the [Javascript API](http://apps.gov.bc.ca/pub/geocoder/js/geocode.js) 
+The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [Swagger definition](https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder.json). You can explore the API in the [API Console](http://apps.gov.bc.ca/pub/api-explorer/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json) . To simplify integration of the online geocoder into your client web application, you can use the [Javascript API](http://apps.gov.bc.ca/pub/geocoder/js/geocode.js) 
 <br>
 ##API Changes in v2.0.1
 There are no API changes in v2.0.1
