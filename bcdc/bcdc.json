@@ -1,0 +1,247 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "BC Data Catalogue API",
+        "description": "This API provides information about datasets in the BC Data Catalogue.",
+        "termsOfService": "http://www.data.gov.bc.ca/local/dbc/docs/license/API_Terms_of_Use.pdf",
+        "contact": {
+            "name": "Data BC",
+            "url": "http://data.gov.bc.ca/",
+            "email": "datacat@gov.bc.ca"
+        },
+        "license": {
+            "name": "Open Government License - British Columbia",
+            "url": "http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf"
+        },
+        "version": "3.0.0"
+    },
+    "host": "catalogue.data.gov.bc.ca",
+    "basePath": "/api/3",
+    "tags": [
+        {
+            "name": "action",
+            "description": "CKAN’s Action API is a powerful, RPC-style API that exposes all of CKAN’s core features to API clients.",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://docs.ckan.org/en/ckan-2.3.2/api/index.html"
+            }
+        }
+    ],
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "security": [
+        {
+            "githubAccessCode": [
+                "user",
+                "user:email",
+                "user:follow",
+                "public_repo",
+                "repo",
+                "repo_deployment",
+                "repo:status",
+                "delete_repo",
+                "notifications",
+                "gist",
+                "read:repo_hook",
+                "write:repo_hook",
+                "admin:repo_hook",
+                "read:org",
+                "write:org",
+                "admin:org",
+                "read:public_key",
+                "write:public_key",
+                "admin:public_key"
+            ]
+        },
+        {
+            "internalApiKey": []
+        }
+    ],
+    "paths": {
+        "/action/package_list": {
+            "get": {
+                "description": "Returns the names of all indexed packages (datasets)",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The offset (index) of the first package to return",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of packages to be returned per page",
+                        "type": "integer",
+                        "default": 100
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of packages"
+                    }
+                }
+            }
+        },
+        "/action/package_search": {
+            "get": {
+                "description": "Searches for packages (datasets) matching the specified query terms",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "A query string",
+                        "type": "string",
+                        "default": "\"Okanagan Lake\""
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of packages"
+                    }
+                }
+            }
+        },
+        "/action/package_show": {
+            "get": {
+                "description": "Returns metadata about the package (dataset) corresponding to the specified unique name",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The package name",
+                        "type": "string",
+                        "default": "grizzly-bear-population-units"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A package metadata object"
+                    }
+                }
+            }
+        },
+        "/action/organization_list": {
+            "get": {
+                "description": "Returns the names of all indexed organizations",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The offset (index) of the first organizations to return",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of organizations to be returned per page",
+                        "type": "integer",
+                        "default": 100
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of organizations"
+                    }
+                }
+            }
+        },
+        "/action/tag_list": {
+            "get": {
+                "description": "Returns the names of all indexed tags",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The offset (index) of the first tag to return",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of tags to be returned per page",
+                        "type": "integer",
+                        "default": 100
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of tags"
+                    }
+                }
+            }
+        },
+        "/action/status_show": {
+            "get": {
+                "description": "Returns the site status",
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the site status, version, installed extensions"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "githubAccessCode": {
+            "type": "oauth2",
+            "scopes": {
+                "user": "Grants read/write access to profile info only. Note that this scope includes user:email and user:follow.",
+                "user:email": "Grants read access to a user’s email addresses.",
+                "user:follow": "Grants access to follow or unfollow other users.",
+                "public_repo": "Grants read/write access to code, commit statuses, and deployment statuses for public repositories and organizations.",
+                "repo": "Grants read/write access to code, commit statuses, and deployment statuses for public and private repositories and organizations.",
+                "repo_deployment": "Grants access to deployment statuses for public and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, without granting access to the code.",
+                "repo:status": "Grants read/write access to public and private repository commit statuses. This scope is only necessary to grant other users or services access to private repository commit statuses without granting access to the code.",
+                "delete_repo": "Grants access to delete adminable repositories.",
+                "notifications": "Grants read access to a user’s notifications. repo also provides this access.",
+                "gist": "Grants write access to gists.",
+                "read:repo_hook": "Grants read and ping access to hooks in public or private repositories.",
+                "write:repo_hook": "Grants read, write, and ping access to hooks in public or private repositories.",
+                "admin:repo_hook": "Grants read, write, ping, and delete access to hooks in public or private repositories.",
+                "read:org": "Read-only access to organization, teams, and membership.",
+                "write:org": "Publicize and unpublicize organization membership.",
+                "admin:org": "Fully manage organization, teams, and memberships.",
+                "read:public_key": "List and view details for public keys.",
+                "write:public_key": "Create, list, and view details for public keys.",
+                "admin:public_key": "Fully manage public keys."
+            },
+            "flow": "accessCode",
+            "authorizationUrl": "https://github.com/login/oauth/authorize",
+            "tokenUrl": "https://github.com/login/oauth/access_token"
+        },
+        "internalApiKey": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "ckan_api_key"
+        }
+    }
+}
