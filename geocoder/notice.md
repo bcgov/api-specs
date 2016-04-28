@@ -1,7 +1,7 @@
 The BC Physical Address Geocoder is Copyright Province of British Columbia and makes use of the following software packages:
 
 Name | Description | Copyright Owner | License
---- | --- | ---
+--- | --- | --- | ---
 Apache Commons | Database connection pooling, general use library functions |	| Apache License, Version 2.0
 Apache Spring Framework | REST API framework | | Apache License, Version 2.0
 GeoTools	| Coordinate re-projection | |	GNU Lesser General Public License v2.1
