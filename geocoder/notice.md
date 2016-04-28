@@ -7,4 +7,4 @@ Apache Spring Framework | REST API framework | Rod Johnson, Juergen Hoeller, Kei
 GeoTools	| Coordinate re-projection | Open Source Geospatial Foundation |	GNU Lesser General Public License v2.1
 JTS Topology Suite | Geometry objects and manipulation functions | Vivid Solutions Inc |	GNU Lesser General Public License v2
 Oracle JDBC |	Database access | Oracle | Oracle Technology Network Development and Distribution License
-SLF4j |	Logging framework |	 | MIT License
+SLF4j |	Logging framework |	QOS.ch | MIT License
