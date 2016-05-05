@@ -17,7 +17,7 @@
     },
     "externalDocs": {
         "description": "BC Route Planner Web Site",
-        "url": "http://apps.gov.bc.ca/pub/geocoder"
+        "url": "https://catalogue.data.gov.bc.ca/dataset/bc-route-planner"
     },
     "tags": [
         {

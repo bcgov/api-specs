@@ -3,7 +3,7 @@
     "info": {
         "title": "BC Data Catalogue API",
         "description": "This API provides information about datasets in the BC Data Catalogue.",
-        "termsOfService": "http://www.data.gov.bc.ca/local/dbc/docs/license/API_Terms_of_Use.pdf",
+        "termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
         "contact": {
             "name": "Data BC",
             "url": "http://data.gov.bc.ca/",
@@ -11,7 +11,7 @@
         },
         "license": {
             "name": "Open Government License - British Columbia",
-            "url": "http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf"
+            "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
         },
         "version": "3.0.0"
     },

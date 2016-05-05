@@ -6,9 +6,9 @@
         "version": "2.0.0",
         "license": {
             "name": "Open Government License - British Columbia",
-            "url": "http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf"
+            "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
         },
-        "termsOfService": "http://www.data.gov.bc.ca/local/dbc/docs/license/API_Terms_of_Use.pdf",
+        "termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
         "contact": {
             "name": "DataBC",
             "url": "http://data.gov.bc.ca/",
@@ -17,7 +17,7 @@
     },
     "externalDocs": {
         "description": "Physical Address Geocoder Web Site",
-        "url": "http://apps.gov.bc.ca/pub/geocoder"
+        "url": "https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service"
     },
     "tags": [
         {
