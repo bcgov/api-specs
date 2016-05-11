@@ -51,7 +51,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -68,14 +68,14 @@
                     {
                         "name": "addressString",
                         "in": "query",
-                        "description": "Examples: 525 Superior Street, Victoria, BC<br>301-780 Blanshard St, Victoria, BC<br>Johnson St and Government St, Victoria, BC.<br> Civic or intersection address as a single string. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#addressString target=\"_blank\">addressString</a>",
+                        "description": "Examples: 525 Superior Street, Victoria, BC<br>301-780 Blanshard St, Victoria, BC<br>Johnson St and Government St, Victoria, BC.<br> Civic or intersection address as a single string. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#addressString target=\"_blank\">addressString</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -99,7 +99,7 @@
                     {
                         "name": "interpolation",
                         "in": "query",
-                        "description": "accessPoint interpolation method. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#interpolation target=\"_blank\">interpolation</a>",
+                        "description": "accessPoint interpolation method. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#interpolation target=\"_blank\">interpolation</a>",
                         "type": "string",
                         "required": false,
                         "default": "adaptive",
@@ -128,7 +128,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -146,7 +146,7 @@
                     {
                         "name": "minScore",
                         "in": "query",
-                        "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
+                        "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
                         "type": "integer",
                         "required": false,
                         "default": 1
@@ -154,28 +154,28 @@
                     {
                         "name": "matchPrecision",
                         "in": "query",
-                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
+                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "matchPrecisionNot",
                         "in": "query",
-                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to exclude from results. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecisionNot target=\"_blank\">matchPrecisionNot</a>",
+                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to exclude from results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecisionNot target=\"_blank\">matchPrecisionNot</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "siteName",
                         "in": "query",
-                        "description": "A string containing the name of the building, facility, or institution (e.g., Duck Building, Casa Del Mar, Crystal Garden, Bluebird House).See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#siteName target=\"_blank\">siteName</a>",
+                        "description": "A string containing the name of the building, facility, or institution (e.g., Duck Building, Casa Del Mar, Crystal Garden, Bluebird House).See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteName target=\"_blank\">siteName</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "unitDesignator",
                         "in": "query",
-                        "description": "The type of unit within a house or building. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#unitDesignator target=\"_blank\">unitDesignator</a>",
+                        "description": "The type of unit within a house or building. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#unitDesignator target=\"_blank\">unitDesignator</a>",
                         "type": "string",
                         "required": false,
                         "enum": [
@@ -214,35 +214,35 @@
                     {
                         "name": "civicNumber",
                         "in": "query",
-                        "description": "The official number assigned to a site by an address authority. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#civicNumber target=\"_blank\">civicNumber</a>",
+                        "description": "The official number assigned to a site by an address authority. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumber target=\"_blank\">civicNumber</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "civicNumberSuffix",
                         "in": "query",
-                        "description": "A letter or fraction that follows the civic number (e.g., the A in 1039A Bledsoe St). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#civicNumberSuffix target=\"_blank\">civicNumberSuffix</a>",
+                        "description": "A letter or fraction that follows the civic number (e.g., the A in 1039A Bledsoe St). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumberSuffix target=\"_blank\">civicNumberSuffix</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetName",
                         "in": "query",
-                        "description": "The official name of the street as assigned by an address authority (e.g., the Douglas in 1175 Douglas Street). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetName target=\"_blank\">streetName</a>",
+                        "description": "The official name of the street as assigned by an address authority (e.g., the Douglas in 1175 Douglas Street). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetName target=\"_blank\">streetName</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetType",
                         "in": "query",
-                        "description": "The type of street as assigned by a municipality (e.g., the ST in 1175 DOUGLAS St). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetType target=\"_blank\">streetType</a>",
+                        "description": "The type of street as assigned by a municipality (e.g., the ST in 1175 DOUGLAS St). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetType target=\"_blank\">streetType</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetDirection",
                         "in": "query",
-                        "description": "The abbreviated compass direction as defined by Canada Post and B.C. civic addressing authorities. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
+                        "description": "The abbreviated compass direction as defined by Canada Post and B.C. civic addressing authorities. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
                         "type": "string",
                         "required": false,
                         "enum": [
@@ -262,14 +262,14 @@
                     {
                         "name": "streetQualifier",
                         "in": "query",
-                        "description": "Example: the Bridge in Johnson St Bridge. The qualifier of a street name. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetQulifier target=\"_blank\">streetQualifier</a>",
+                        "description": "Example: the Bridge in Johnson St Bridge. The qualifier of a street name. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier target=\"_blank\">streetQualifier</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "localityName",
                         "in": "query",
-                        "description": "The name of the locality assigned to a given site by an address authority. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#localityName target=\"_blank\">localityName</a>",
+                        "description": "The name of the locality assigned to a given site by an address authority. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName target=\"_blank\">localityName</a>",
                         "type": "string",
                         "required": false
                     },
@@ -298,14 +298,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
@@ -319,21 +319,21 @@
                     {
                         "name": "extrapolate",
                         "in": "query",
-                        "description": "If true, uses supplied parcelPoint to derive an appropriate accessPoint.           See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#extrapolate target=\"_blank\">extrapolate</a>",
+                        "description": "If true, uses supplied parcelPoint to derive an appropriate accessPoint.           See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#extrapolate target=\"_blank\">extrapolate</a>",
                         "type": "boolean",
                         "required": false
                     },
                     {
                         "name": "parcelPoint",
                         "in": "query",
-                        "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>",
+                        "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>",
                         "type": "string",
                         "required": false
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of matching sites or intersections and their physical locations. See <a href='https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#resource-representations-in-http-responses' target=\"_blank\">addresses response</a>"
+                        "description": "A list of matching sites or intersections and their physical locations. See <a href='https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#resource-representations-in-http-responses' target=\"_blank\">addresses response</a>"
                     }
                 }
             }
@@ -348,7 +348,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -379,7 +379,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -403,7 +403,7 @@
                     {
                         "name": "interpolation",
                         "in": "query",
-                        "description": "accessPoint interpolation method. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#interpolation target=\"_blank\">interpolation</a>",
+                        "description": "accessPoint interpolation method. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#interpolation target=\"_blank\">interpolation</a>",
                         "type": "string",
                         "required": false,
                         "default": "adaptive",
@@ -431,7 +431,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -449,7 +449,7 @@
                     {
                         "name": "minScore",
                         "in": "query",
-                        "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
+                        "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
                         "type": "integer",
                         "required": false,
                         "default": 1
@@ -457,28 +457,28 @@
                     {
                         "name": "matchPrecision",
                         "in": "query",
-                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
+                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "matchPrecisionNot",
                         "in": "query",
-                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to exclude from results. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecisionNot target=\"_blank\">matchPrecisionNot</a>",
+                        "description": "Example: street,locality.  A comma separated list of individual match precision levels to exclude from results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecisionNot target=\"_blank\">matchPrecisionNot</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "siteName",
                         "in": "query",
-                        "description": "A string containing the name of the building, facility, or institution (e.g., Duck Building, Casa Del Mar, Crystal Garden, Bluebird House).See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#siteName target=\"_blank\">siteName</a>",
+                        "description": "A string containing the name of the building, facility, or institution (e.g., Duck Building, Casa Del Mar, Crystal Garden, Bluebird House).See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteName target=\"_blank\">siteName</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "unitDesignator",
                         "in": "query",
-                        "description": "The type of unit within a house or building. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#unitDesignator target=\"_blank\">unitDesignator</a>",
+                        "description": "The type of unit within a house or building. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#unitDesignator target=\"_blank\">unitDesignator</a>",
                         "type": "string",
                         "required": false,
                         "enum": [
@@ -517,35 +517,35 @@
                     {
                         "name": "civicNumber",
                         "in": "query",
-                        "description": "The official number assigned to a site by an address authority. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#civicNumber target=\"_blank\">civicNumber</a>",
+                        "description": "The official number assigned to a site by an address authority. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumber target=\"_blank\">civicNumber</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "civicNumberSuffix",
                         "in": "query",
-                        "description": "A letter or fraction that follows the civic number (e.g., the A in 1039A Bledsoe St). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#civicNumberSuffix target=\"_blank\">civicNumberSuffix</a>",
+                        "description": "A letter or fraction that follows the civic number (e.g., the A in 1039A Bledsoe St). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumberSuffix target=\"_blank\">civicNumberSuffix</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetName",
                         "in": "query",
-                        "description": "The official name of the street as assigned by an address authority (e.g., the Douglas in 1175 Douglas Street). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetName target=\"_blank\">streetName</a>",
+                        "description": "The official name of the street as assigned by an address authority (e.g., the Douglas in 1175 Douglas Street). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetName target=\"_blank\">streetName</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetType",
                         "in": "query",
-                        "description": "The type of street as assigned by a municipality (e.g., the ST in 1175 DOUGLAS St). See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetType target=\"_blank\">streetType</a>",
+                        "description": "The type of street as assigned by a municipality (e.g., the ST in 1175 DOUGLAS St). See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetType target=\"_blank\">streetType</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "streetDirection",
                         "in": "query",
-                        "description": "The abbreviated compass direction as defined by Canada Post and B.C. civic addressing authorities. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
+                        "description": "The abbreviated compass direction as defined by Canada Post and B.C. civic addressing authorities. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
                         "type": "string",
                         "required": false,
                         "enum": [
@@ -572,7 +572,7 @@
                     {
                         "name": "localityName",
                         "in": "query",
-                        "description": "The name of the locality assigned to a given site by an address authority. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
+                        "description": "The name of the locality assigned to a given site by an address authority. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection target=\"_blank\">streetDirection</a>",
                         "type": "string",
                         "required": false
                     },
@@ -601,14 +601,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
@@ -622,21 +622,21 @@
                     {
                         "name": "extrapolate",
                         "in": "query",
-                        "description": "If true, uses supplied parcelPoint to derive an appropriate accessPoint.           See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#extrapolate target=\"_blank\">extrapolate</a>",
+                        "description": "If true, uses supplied parcelPoint to derive an appropriate accessPoint.           See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#extrapolate target=\"_blank\">extrapolate</a>",
                         "type": "boolean",
                         "required": false
                     },
                     {
                         "name": "parcelPoint",
                         "in": "query",
-                        "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>",
+                        "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>",
                         "type": "string",
                         "required": false
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of matching occupants, sites, and their physical locations. Response document will contain one <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#about-query-representation\" target=\"_blank\">About Query Representation</a> and one <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a> for each matching occupant."
+                        "description": "A list of matching occupants, sites, and their physical locations. Response document will contain one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#about-query-representation\" target=\"_blank\">About Query Representation</a> and one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a> for each matching occupant."
                     }
                 }
             }
@@ -651,7 +651,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -668,7 +668,7 @@
                     {
                         "name": "point",
                         "in": "query",
-                        "description": "Example: -122.377,50.121  Centre point of search. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#point target=\"_blank\">point</a>",
+                        "description": "Example: -122.377,50.121  Centre point of search. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#point target=\"_blank\">point</a>",
                         "type": "string",
                         "required": true
                     },
@@ -682,7 +682,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -700,7 +700,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -724,7 +724,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The nearest site in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                        "description": "The nearest site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
                     }
                 }
             }
@@ -739,7 +739,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -777,7 +777,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -795,7 +795,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -819,7 +819,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The nearest occupant in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
+                        "description": "The nearest occupant in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
                     }
                 }
             }
@@ -834,7 +834,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -865,7 +865,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -899,7 +899,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The nearest intersection in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
+                        "description": "The nearest intersection in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
                     }
                 }
             }
@@ -914,7 +914,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -945,7 +945,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -971,7 +971,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -995,7 +995,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected sites that are near a given point in order of closest to farther. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                        "description": "A list of selected sites that are near a given point in order of closest to farther. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
                     }
                 }
             }
@@ -1010,7 +1010,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1048,7 +1048,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1074,7 +1074,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -1098,7 +1098,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected occupants that are near a given point in order of closest to farther. Each occupant is returned as a <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus a <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
+                        "description": "A list of selected occupants that are near a given point in order of closest to farther. Each occupant is returned as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
                     }
                 }
             }
@@ -1113,7 +1113,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1144,7 +1144,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": true,
                         "default": 4326,
@@ -1186,7 +1186,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected intersections near a given point. Each intersection is in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
+                        "description": "A list of selected intersections near a given point. Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
                     }
                 }
             }
@@ -1201,7 +1201,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1218,14 +1218,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1251,7 +1251,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -1275,7 +1275,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected sites within a given area. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                        "description": "A list of selected sites within a given area. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
                     }
                 }
             }
@@ -1290,7 +1290,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1307,7 +1307,7 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": true
                     },
@@ -1321,7 +1321,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1347,7 +1347,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -1371,7 +1371,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected occupants within the given area. Each occupant is returned in a <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
+                        "description": "A list of selected occupants within the given area. Each occupant is returned in a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
                     }
                 }
             }
@@ -1386,7 +1386,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormattarget=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormattarget=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1403,14 +1403,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1452,7 +1452,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "A list of selected intersections within the given area. Each intersection is in Each intersection is in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
+                        "description": "A list of selected intersections within the given area. Each intersection is in Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
                     }
                 }
             }
@@ -1474,7 +1474,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1491,7 +1491,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1509,7 +1509,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -1533,7 +1533,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The site with the requested siteID in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                        "description": "The site with the requested siteID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
                     }
                 }
             }
@@ -1555,7 +1555,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1572,7 +1572,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1590,7 +1590,7 @@
                     {
                         "name": "locationDescriptor",
                         "in": "query",
-                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
                         "type": "string",
                         "required": false,
                         "default": "any",
@@ -1614,7 +1614,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
+                        "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgovapi-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
                     }
                 }
             }
@@ -1636,7 +1636,7 @@
                     {
                         "name": "outputFormat",
                         "in": "path",
-                        "description": "Results format. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
                         "type": "string",
                         "required": true,
                         "default": "json",
@@ -1653,7 +1653,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1671,7 +1671,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The Intersection with the requested intersectionID in <a href=\"https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
+                        "description": "The Intersection with the requested intersectionID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
                     }
                 }
             }
