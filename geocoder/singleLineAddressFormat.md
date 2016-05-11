@@ -2,11 +2,17 @@
 
 An address may be represented by a single line (string) in one of the formats listed below. 
 
-In each format, a term in square brackets is optional, a term in square brackets followed by an asterisk means the term may appear zero or more times, and a term in square brackets followed by a plus sign means the term may appear one or more times.  A term in brace brackets (e.g., {streetDirection}) may appear in none or one of the multiple places indicated (e.g., Central St, N Central St, or Central St N, but not N Central St NE). frontGate is the double dash delimiter (e.g., “--“) 
+In each format, a term in square brackets is optional, a term in square brackets followed by an asterisk means the term may appear zero or more times, and a term in square brackets followed by a plus sign means the term may appear one or more times. 
+
+A term in brace brackets may appear in none or one of the multiple places indicated. Brace brackets are used for terms that may appear before or after another term. More specifically, streetDirection and streetType may appear before or after streetName but not both. Note also, that a given address can't have more than one streetDirection or streetType as per [Canada Post Guidelines]((https://www.canadapost.ca/tools/pg/manual/PGaddress-e.asp?ecid=murl10006450#1418611)  
+
+frontGate is the double dash delimiter as in “--“ . 
 
 ##Format 1 – Civic address
 
 {occupantName[,]}[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate civicNumber[civicNumberSuffix] {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier], localityName, provinceCode
+
+streetDirection and streetType may appear before or after streetName but an address may have 
 
 
 ##Format 2 – Non-civic address
