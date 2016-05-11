@@ -12,8 +12,6 @@ frontGate is the double dash delimiter as in “--“ .
 
 {occupantName[,]}[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate civicNumber[civicNumberSuffix] {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier], localityName, provinceCode
 
-streetDirection and streetType may appear before or after streetName but an address may have 
-
 
 ##Format 2 – Non-civic address
 
