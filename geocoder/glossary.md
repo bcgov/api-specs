@@ -94,7 +94,7 @@ Term | Definition
 <a name="tags">tags</a> | A list of tags separated by semicolons (e.g., schools;courts;employment). A tag is a word used to describe the type of occupant you are searching for.
 <a name="unitNumber">unitNumber</a> | The number of the unit, suite, or apartment within a house or building.
 <a name="unitNumberSuffix">unitNumberSuffix</a> | A letter that follows the unit number as in Unit 1A.
-<a name="unitDesignator">unitDesignator</a> | The type of unit(e.g., APT, SUITE, and UNIT) and is abbreviated if such an abbreviation is defined. The set of all unit designators MUST include those defined in the Addressing Guidelines by Canada Post and is the responsibility of DataBC to maintain this set.
+<a name="unitDesignator">unitDesignator</a> | The type of unit (e.g., APT, SUITE, and UNIT) and is abbreviated if such an abbreviation is defined. The set of all unit designators MUST include those defined in the Addressing Guidelines by Canada Post and is the responsibility of DataBC to maintain this set.
 <a name="version">version</a> | Software version of the REST Web Service
 <a name="websiteUrl">websiteUrl</a> | Web site URL of occupant
 
