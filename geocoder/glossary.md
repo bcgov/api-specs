@@ -55,8 +55,8 @@ Term | Definition
 <a name="matchPrecisionNot">matchPrecisionNot</a> | A comma-separated list of matchPrecision levels to exclude from request results. For example, &matchPrecisionNot=unit,site will exclude matches at the unit and site levels.
 <a name="maxDistance">maxDistance</a> | The maximum distance (in metres) to search from the given point.  If not specified, the maximum distance is unlimited.
 <a name="maxResults">maxResults</a> | Maximum number of matched addresses to return for each input address. The default is 1.
-<a name="minDegree">minDegree</a> | Minimum degree an intersection can have to be included in results. A dead-end has a degree of 1.
-<a name="minDegree">minDegree</a> | The maximum degree an intersection can have to be included in results. A four-way stop has a degree of 4.
+<a name="minDegree">minDegree</a> | Minimum degree an intersection can have to be included in results. A dead-end has a degree of 1. The default is 2.
+<a name="maxDegree">maxDegree</a> | The maximum degree an intersection can have to be included in results. A four-way stop has a degree of 4. The default is 100.
 <a name="minScore">minScore</a> | The minimum score an address match must have before it is included in the results. Scores range between 0 and 100 inclusive. The default is 0.
 <a name="naicsCode">naicsCode</a> | NAICS code assigned to occupant. For more information, see [NAICS Canada](http://www.statcan.gc.ca/pub/12-501-x/12-501-x2012001-eng.pdf)
 <a name="narrativeLocation">narrativeLocation</a> | Turn-by-turn directions to the site. A narrative typically starts at the closest known, named physical feature to the site as in the following:<br>From Tlell, travel north on highway 16 till you see a big golden spruce tree on your left, hike west for about one kilometre.
