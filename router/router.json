@@ -88,14 +88,14 @@
                     {
                         "name": "points",
                         "in": "query",
-                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points target='_blank'>points</a>",
+                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -172,21 +172,21 @@
                     {
                         "name": "fromPoints",
                         "in": "query",
-                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A comma-separated list of origin points. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A comma-separated list of origin points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "toPoints",
                         "in": "query",
-                        "description": "Example: -124.972951,49.715181,-123.139464,49.704015. A comma-separated list of destination points. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+                        "description": "Example: -124.972951,49.715181,-123.139464,49.704015. A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -264,14 +264,14 @@
                     {
                         "name": "points",
                         "in": "query",
-                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points target='_blank'>points</a>",
+                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -349,14 +349,14 @@
                     {
                         "name": "points",
                         "in": "query",
-                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points target='_blank'>points</a>",
+                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
