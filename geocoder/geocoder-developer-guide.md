@@ -106,19 +106,19 @@ Attribute Name |	Type
 ####Intersection Address Representation
 Attribute Name |	Type
 ---------------------: | ---
-[fullAddress](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#fullAddress) |	String
-[intersectionName](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#intersectionName) |	String
-[localityName](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#localityName) |	String
-[provinceCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#provinceCode]) |	String
-[score](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#score) |	Integer
-[matchPrecision](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecision) |	String
-[precisionPoints](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#precisionPoints) |	Integer
-[provinceCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#provinceCode) |	String
-[matchPrecision](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#matchPrecision) |	String
-[precisionPoints](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#precisionPoints) |	Integer
-[faults](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#faults) |	String
-[intersectionID](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#intersectionID) |	String
-[degree](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#degree) |	String
+[fullAddress](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullAddress) |	String
+[intersectionName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#intersectionName) |	String
+[localityName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName) |	String
+[provinceCode](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode]) |	String
+[score](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#score) |	Integer
+[matchPrecision](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision) |	String
+[precisionPoints](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#precisionPoints) |	Integer
+[provinceCode](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode) |	String
+[matchPrecision](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision) |	String
+[precisionPoints](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#precisionPoints) |	Integer
+[faults](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#faults) |	String
+[intersectionID](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#intersectionID) |	String
+[degree](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#degree) |	String
 
 
 
@@ -128,20 +128,20 @@ The occupants/addresses resource is similar to the addresses resource. Its respo
 ####Occupant Representation
 Attribute Name |	Type
 ---------------------: | ---
-[occupantName](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#occupantName) |	string
-[occupantID](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#occupantID) |	string
-[occupantAliasAddress](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#occupantAliasAddress) |	string
-[occupantDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#occupantDescription) |	string
-[contactEmail](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#contactEmail) |	string
-[contactPhone](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#contactPhone) |	string
-[contactFax](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#contactFax) |	string
-[websiteUrl](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#websiteUrl) |	string
-[imageUrl](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#imageUrl) |	string
-[keywords](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#keywords) |	string
-[businessCategoryClass](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#businessCategoryClass) |	string
-[businessCategoryDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#businessCategoryDescription) |	string
-[naicsCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#naicsCode) |	string
-[dateOccupantUpdated](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#dateOccupantUpdated) |	string
-[dateOccupantAdded](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#dateOccupantAdded) |	string
-[custodianId](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#custodianId) |	string
-[sourceDataId](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/geocoder/glossary.md#sourceDataId) |	string
+[occupantName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantName) |	string
+[occupantID](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantID) |	string
+[occupantAliasAddress](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantAliasAddress) |	string
+[occupantDescription](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantDescription) |	string
+[contactEmail](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactEmail) |	string
+[contactPhone](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactPhone) |	string
+[contactFax](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactFax) |	string
+[websiteUrl](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#websiteUrl) |	string
+[imageUrl](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#imageUrl) |	string
+[keywords](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#keywords) |	string
+[businessCategoryClass](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#businessCategoryClass) |	string
+[businessCategoryDescription](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#businessCategoryDescription) |	string
+[naicsCode](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#naicsCode) |	string
+[dateOccupantUpdated](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#dateOccupantUpdated) |	string
+[dateOccupantAdded](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#dateOccupantAdded) |	string
+[custodianId](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#custodianId) |	string
+[sourceDataId](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#sourceDataId) |	string
