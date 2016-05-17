@@ -37,7 +37,7 @@
         "https"
     ],
     "produces": [
-        "application/json"
+        "application/json","application/vnd.geo+json","application/vnd.google-earth.kml+xml","application/xhtml+xml","application/gml+xml","text/csv","application/zip"
     ],
     "paths": {
         "/addresses.{outputFormat}": {
