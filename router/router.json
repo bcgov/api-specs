@@ -172,14 +172,14 @@
                     {
                         "name": "fromPoints",
                         "in": "query",
-                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A comma-separated list of origin points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+                        "description": "Example: -123.707942,48.778691,-123.537850,48.382005. A comma-separated list of origin points. The number of fromPoints times the number of toPoints shouldn't exceed 100 or the request will timeout.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "toPoints",
                         "in": "query",
-                        "description": "Example: -124.972951,49.715181,-123.139464,49.704015. A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+                        "description": "Example: -124.972951,49.715181,-123.139464,49.704015. A comma-separated list of destination points. The number of fromPoints times the number of toPoints shouldn't exceed 100 or the request will timeout. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
                         "type": "string",
                         "required": true
                     },
