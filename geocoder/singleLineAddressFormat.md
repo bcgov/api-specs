@@ -6,7 +6,7 @@ In each format, a term in square brackets is optional, a term in square brackets
 
 A term in brace brackets may appear in none or one of the multiple places indicated. Brace brackets are used for terms that may appear before or after another term. More specifically, streetDirection and streetType may appear before or after streetName. Note also, that a given address can't have more than one streetDirection as per [Canada Post Guidelines](https://www.canadapost.ca/tools/pg/manual/PGaddress-e.asp?ecid=murl10006450#1418611)  
 
-frontGate is the double dash delimiter as in “--“ . 
+frontGate is the double dash separator as in “--“ . 
 
 ##Format 1 – Civic address
 
