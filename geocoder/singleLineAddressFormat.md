@@ -79,31 +79,31 @@ UVIC Main Campus -- 3800 Finnerty Rd, Saanich, BC
 
 ###Example 5.	Civic addresses with a unit within a named complex 
 
-PAD 2, HAPPY MOBILE HOME PARK -- 1200 NORTH PARK RD, SHAWNIGAN LAKE, BC 
-ROOM 103A, CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC 
-ROOM 230, WEST BLOCK, ROYAL JUBILEE HOSPITAL -- 1952 BAY ST, VICTORIA, BC 
+PAD 2, HAPPY MOBILE HOME PARK -- 1200 NORTH PARK RD, SHAWNIGAN LAKE, BC   
+ROOM 103A, CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC   
+ROOM 230, WEST BLOCK, ROYAL JUBILEE HOSPITAL -- 1952 BAY ST, VICTORIA, BC   
 
 ###Example 6.	Non-civic addresses with a unit within a named complex 
 
-PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC 
-PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC 
+PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
+PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC   
 
 
 ### Example 7.	Non-civic addresses containing a street, locality, and  province 
 
-WILLOW DRIVE, 70 MILE HOUSE, BC 
-HORSE LAKE ROAD, 100 MILE HOUSE, BC
-JOHNSON ST BRIDGE, VICTORIA, BC 
+WILLOW DRIVE, 70 MILE HOUSE, BC   
+HORSE LAKE ROAD, 100 MILE HOUSE, BC  
+JOHNSON ST BRIDGE, VICTORIA, BC   
 
 ###Example 8.	Non-civic addresses containing only locality and province 
 
-PEACE RIVER REGIONAL DISTRICT, BC 
-100 MILE HOUSE, BC 
+PEACE RIVER REGIONAL DISTRICT, BC   
+100 MILE HOUSE, BC   
 PYPER LAKE, BC 
 
 ###Example 9.	Intersection addresses 
 
-Douglas St and Johnson St, Victoria, BC
+Douglas St and Johnson St, Victoria, BC  
 Douglas St and Gorge Rd E and Hillside Ave, Victoria, BC
 
  
