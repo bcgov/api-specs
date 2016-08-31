@@ -111,10 +111,10 @@ Douglas St and Gorge Rd E and Hillside Ave, Victoria, BC
 On input, the addresses and occupant/addresses resources can also handle the following alternatives to single-line address format:
 
 1.	Unit without a frontGate:
-PAD 2, 1200 NORTH PARK RD, SHAWNIGAN LAKE, BC 
+Pad 433, 2785 Wallbank Rd., Shawnigan Lake, BC
 
 2.	Unit number without a frontGate and unitDesignator (as per Canada Post):
-2-1200 NORTH PARK RD, SHAWNIGAN LAKE, BC 
+433-2785 Wallbank Rd., Shawnigan Lake, BC
 
 3.	Unit following street (as per Canada Post):
-1200 NORTH PARK RD PAD 2, SHAWNIGAN LAKE, BC 
+2785 Wallbank Rd. Pad 433, Shawnigan Lake, BC
