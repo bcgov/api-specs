@@ -65,6 +65,48 @@
         }
     ],
     "paths": {
+        "/action/tag_list": {
+            "get": {
+                "description": "Returns the names of all indexed tags",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The offset (index) of the first tag to return",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of tags to be returned per page",
+                        "type": "integer",
+                        "default": 100
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of tags"
+                    }
+                }
+            }
+        },
+        "/action/status_show": {
+            "get": {
+                "description": "Returns the site status",
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the site status, version, installed extensions"
+                    }
+                }
+            }
+        },
         "/action/package_list": {
             "get": {
                 "description": "Returns the names of all indexed packages (datasets)",
@@ -138,6 +180,325 @@
                 }
             }
         },
+        "/action/package_activity_list": {
+            "get": {
+                "description": "Returns a package's activity stream",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the package",
+                        "type": "string",
+                        "default": "grizzly-bear-population-units"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Where to start getting activity items from",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of activities to return",
+                        "type": "integer",
+                        "default": 31
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of activities"
+                    }
+                }
+            }
+        },
+        "/action/package_activity_list_html": {
+            "get": {
+                "description": "The activity stream is rendered as a snippet of HTML meant to be included in an HTML pag, i.e it doesn't have any header or footer.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the package",
+                        "type": "string",
+                        "default": "grizzly-bear-population-units"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Where to start getting activity items from",
+                        "type": "integer",
+                        "default": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of activities to return",
+                        "type": "integer",
+                        "default": 31
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of activities rendered as HTML snippet"
+                    }
+                }
+            }
+        },
+        "/action/package_autocomplete": {
+            "get": {
+                "description": "Return a list of datasets that match a string",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "The string to query",
+                        "type": "string",
+                        "default": "\"Okanagan Lake\""
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of resource formats to return",
+                        "type": "integer",
+                        "default": 10
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of datasets that match a string"
+                    }
+                }
+            }
+        },
+        "/action/package_relationships_list": {
+            "get": {
+                "description": "Return a dataset's relationships",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the first package",
+                        "type": "string",
+                        "default": "grizzly-bear-population-units"
+                    },
+                    {
+                        "name": "id2",
+                        "in": "query",
+                        "description": "The id or name of the second package",
+                        "type": "string",
+                        "default": "important-fossil-areas"
+                    },
+                    {
+                        "name": "rel",
+                        "in": "query",
+                        "description": "relationship as string",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of dataset relationships"
+                    }
+                }
+            }
+        },
+        "/action/package_revision_list": {
+            "get": {
+                "description": "Return a dataset's revision as a list of dictionaries",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the dataset",
+                        "type": "string",
+                        "default": "grizzly-bear-population-units"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of dataset revisions"
+                    }
+                }
+            }
+        },
+        "/action/organization_activity_list": {
+            "get": {
+                "description": "Return an organization's activity stream",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of an organization's activities"
+                    }
+                }
+            }
+        },
+        "/action/organization_activity_list_html": {
+            "get": {
+                "description": "Return an organization's activity stream as HTML",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of an organization's activities in HTML"
+                    }
+                }
+            }
+        },
+        "/action/organization_follower_count": {
+            "get": {
+                "description": "Return the number of followers of an organization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "response": {
+                    "200": {
+                        "description": "Count of organization followers"
+                    }
+                }
+            }
+        },
+        "/action/organization_follower_list": {
+            "get": {
+                "description": "Return a list of users that are following a given organization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "response": {
+                    "200": {
+                        "description": "List of organization followers"
+                    }
+                }
+            }
+        },
+        "/action/organization_list_for_user": {
+            "get": {
+                "description": "Return the organizations that the user has a given permission for",
+                "parameters": [
+                    {
+                        "name": "permission",
+                        "in": "query",
+                        "description": "The permission the user has against the returned organization",
+                        "type": "string",
+                        "default": "\"edit_group\""
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "response": {
+                    "200": {
+                        "description": "List of organizations for given permission"
+                    }
+                }
+            }
+        },
+        "/action/organization_revision_list": {
+            "get": {
+                "description": "Return an organization's revisions",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The name or id of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "response": {
+                    "200": {
+                        "description": "List of an organization's revisions"
+                    }
+                }
+            }
+        },
+        "/action/organization_show": {
+            "get": {
+                "description": "Return the details of an organization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id or name of the organization",
+                        "type": "string",
+                        "default": "ministry-of-agriculture"
+                    },
+                    {
+                        "name": "include_datasets",
+                        "in": "query",
+                        "description": "include a list of the organization's datasets",
+                        "type": "boolean",
+                        "default": true
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "response": {
+                    "200": {
+                        "description": "List organization details"
+                    }
+                }
+            }
+        },
         "/action/organization_list": {
             "get": {
                 "description": "Returns the names of all indexed organizations",
@@ -167,23 +528,71 @@
                 }
             }
         },
-        "/action/tag_list": {
+        "/action/organization_autocomplete": {
             "get": {
-                "description": "Returns the names of all indexed tags",
+                "description": "Return a list of organization names that contain a string",
                 "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "The string to search for",
+                        "type": "string",
+                        "default": "ministry"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of organizations to return (optional)",
+                        "type": "integer",
+                        "defaults": 20
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of organizations"
+                    }
+                }
+            }
+        },
+        "/action/resource_search": {
+            "get": {
+                "description": "Returns a dictionary with two fields ``count`` and ``results``.             The ``count`` field contains the total number of Resources                found without the limit or query parameters having an effect.             The ``results`` field is a list of dictized Resource objects.             The query parameter is a required field. It is a string in                the form ``{field}:{term}`` or a list of strings, each of the             same form. Within each string, ``{field}`` is a field or extra             field on the Resource domain object.",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "The search criteria string or list of strings of the form ``{field}:{term1}``",
+                        "type": "string",
+                        "default": "format:csv"
+                    },
+                    {
+                        "name": "fields",
+                        "in": "query",
+                        "description": "Depreciated",
+                        "type": "string"
+                    },
+                    {
+                        "name": "order_by",
+                        "in": "query",
+                        "description": "A field on the resource model that orders the results",
+                        "type": "string"
+                    },
                     {
                         "name": "offset",
                         "in": "query",
-                        "description": "The offset (index) of the first tag to return",
+                        "description": "Apply an offset to the query",
                         "type": "integer",
                         "default": 0
                     },
                     {
                         "name": "limit",
                         "in": "query",
-                        "description": "The number of tags to be returned per page",
+                        "description": "Apply a limit to the query",
                         "type": "integer",
-                        "default": 100
+                        "default": 0
                     }
                 ],
                 "tags": [
@@ -191,20 +600,81 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of tags"
+                        "description": "Search for resources"
                     }
                 }
             }
         },
-        "/action/status_show": {
+        "/action/resource_show": {
             "get": {
-                "description": "Returns the site status",
+                "description": "Return the metadata of a resource",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id of the resource",
+                        "type": "string",
+                        "default": "e6c8bb1d-3726-418b-9b7e-1d97a9bbb817"
+                    },
+                    {
+                        "name": "include_tracking",
+                        "in": "query",
+                        "description": "Add tracking information to dataset",
+                        "type": "boolean",
+                        "default": false
+                    }
+                ],
                 "tags": [
                     "action"
                 ],
                 "responses": {
                     "200": {
-                        "description": "Returns the site status, version, installed extensions"
+                        "description": "Return metadata of a resource"
+                    }
+                }
+            }
+        },
+        "/action/related_list": {
+            "get": {
+                "description": "Returns a dataset's related items.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id or name of the dataset (optional)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataset",
+                        "in": "query",
+                        "description": "Dataset dictionary of the dataset (optional)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "type_filter",
+                        "in": "query",
+                        "description": "The type of related item to show (optional)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "The order to sort the related items in",
+                        "type": "string"
+                    },
+                    {
+                        "name": "featured",
+                        "in": "query",
+                        "description": "whether or not to restrict the results to only featured items",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "action"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search for related items"
                     }
                 }
             }
