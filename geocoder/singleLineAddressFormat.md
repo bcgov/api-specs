@@ -6,11 +6,15 @@ In each format, a term in square brackets is optional, a term in square brackets
 
 A term in brace brackets may appear in none or one of the multiple places indicated. Brace brackets are used for terms that may appear before or after another term. More specifically, streetDirection and streetType may appear before or after streetName. Note also, that a given address can't have more than one streetDirection as per [Canada Post Guidelines](https://www.canadapost.ca/tools/pg/manual/PGaddress-e.asp?ecid=murl10006450#1418611)  
 
-Civic number suffix (if present) should be placed after the civic number as follows:
+Civic number suffix,if present, should be placed after the civic number as follows:
 
-1. Without a space between the civic number and the civic number suffix, if the suffix is alpha (i.e. a letter)
+1. Without a space between the civic number and the civic number suffix, if the suffix is a letter character (e.g.,"A")
 
 2. With one space between the civic number and the civic number suffix, if the suffix is a fraction
+3. A fractional suffix can be a string containing <numerator>/<denominator> as in "1/2", or it can be a single, UTF-8 fraction character. 
+
+Unit number suffix, if present,  should be place after unitNumber without a space in between.
+
 
 frontGate is the double dash separator as in “--“ . 
 
