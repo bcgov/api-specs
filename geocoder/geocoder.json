@@ -459,7 +459,7 @@
                         "in": "query",
                         "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
                         "type": "string",
-                        "required": false
+                        "required": false,
                         "default":"OCCUPANT"
                     },
                     {
