@@ -726,7 +726,7 @@
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false,
+                        "required": false
                     }
                 ],
                 "responses": {
