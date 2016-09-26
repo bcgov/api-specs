@@ -11,8 +11,8 @@
         "termsOfService": "http://www.data.gov.bc.ca/local/dbc/docs/license/API_Terms_of_Use.pdf",
         "contact": {
             "name": "Data BC",
-            "url": "http://data.gov.bc.ca/",
-            "email": "datacat@gov.bc.ca"
+            "url": "https://forms.gov.bc.ca/databc-contact-us/",
+            "email": "DataBCBA@gov.bc.ca"
         }
     },
     "externalDocs": {
