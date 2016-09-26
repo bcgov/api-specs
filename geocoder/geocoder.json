@@ -998,6 +998,13 @@
                         "type": "integer",
                         "required": false,
                         "default": 0
+                    },
+                    {
+                        "name": "excludeUnits",
+                        "in": "query",
+                        "description": "If true, excludes sites that are units of a parent site",
+                        "type": "boolean",
+                        "required": false
                     }
                 ],
                 "responses": {
@@ -1278,6 +1285,13 @@
                         "type": "integer",
                         "required": false,
                         "default": 0
+                    },
+                    {
+                        "name": "excludeUnits",
+                        "in": "query",
+                        "description": "If true, excludes sites that are units of a parent site",
+                        "type": "boolean",
+                        "required": false
                     }
                 ],
                 "responses": {
