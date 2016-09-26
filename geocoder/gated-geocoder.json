@@ -794,7 +794,7 @@
                         "in": "query",
                         "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
                         "type": "string",
-                        "required": true
+                        "required": false
                     },
                     {
                         "name": "outputSRS",
@@ -1065,7 +1065,7 @@
                         "in": "query",
                         "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
                         "type": "string",
-                        "required": true
+                        "required": false
                     },
                     {
                         "name": "maxDistance",
@@ -1359,7 +1359,7 @@
                         "in": "query",
                         "description": "Example: schools;courts;employment<br>A list of tags separated by semicolons.",
                         "type": "string",
-                        "required": true
+                        "required": false
                     },
                     {
                         "name": "outputSRS",
