@@ -1,6 +1,6 @@
 #Single-Line Address Format Specification
 
-An address may be represented by a single line (string) in one of the formats listed below. 
+A physical address may be represented by a single line (string) in one of the formats listed below. 
 
 In each format, a term in square brackets is optional, a term in square brackets followed by an asterisk means the term may appear zero or more times, and a term in square brackets followed by a plus sign means the term may appear one or more times. 
 
