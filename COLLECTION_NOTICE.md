@@ -1,4 +1,4 @@
-*The following text applies only to APIs with API consoles containing a link to this collection notice*
+*The following text applies only to APIs with swagger specs registered with the DataBC API gateway*
 
 ## Collection Notice
 
