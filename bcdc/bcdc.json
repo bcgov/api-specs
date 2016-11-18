@@ -2,18 +2,18 @@
     "swagger": "2.0",
     "info": {
         "title": "BC Data Catalogue API",
-        "description": "This API provides information about datasets in the BC Data Catalogue.",
+        "description": "This API provides live access to the BC Data Catalogue. Further documentation on the API is available from http://docs.ckan.org/en/latest/ Confirm the version of the API available from the catalogue by requesting https://catalogue.data.gov.bc.ca/api/3/action/status_show ",
         "termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
         "contact": {
             "name": "Data BC",
             "url": "http://data.gov.bc.ca/",
-            "email": "datacat@gov.bc.ca"
+            "email": "data@gov.bc.ca"
         },
         "license": {
             "name": "Open Government License - British Columbia",
             "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
         },
-        "version": "3.0.0"
+        "version": "3.0.1"
     },
     "host": "catalogue.data.gov.bc.ca",
     "basePath": "/api/3",
@@ -23,7 +23,7 @@
             "description": "CKAN’s Action API is a powerful, RPC-style API that exposes all of CKAN’s core features to API clients.",
             "externalDocs": {
                 "description": "Find out more",
-                "url": "http://docs.ckan.org/en/ckan-2.3.2/api/index.html"
+                "url": "http://docs.ckan.org/en/ckan-2.5.3/api/index.html"
             }
         }
     ],
