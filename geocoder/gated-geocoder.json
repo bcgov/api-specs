@@ -313,14 +313,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.0792,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.01659,49.2296.  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
@@ -617,14 +617,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.07929,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.0165,49.2296.  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
