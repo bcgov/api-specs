@@ -1,11 +1,11 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "BC Geographical Names Web Service",
-        "description": "Geographical names are more than labels on maps and road signs. They can reveal patterns of settlement, exploration and migration, and mirror outside influences to our history - aspects of the heritage and promise of an area that might otherwise be overlooked or forgotten by visitors and later generations.",
-        "version": "3.1.0",
+        "title": "BC Geographical Names Web Service - REST API",
+        "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, including name status and details about the corresponding geographic feature.",
+        "version": "3.x.x",
         "license": {
-            "name": "Copyright 2016 Province of British Columbia - Access only",
+            "name": "Crown Copyright",
             "url": "http://www2.gov.bc.ca/gov/content/home/copyright"
         },
         "contact": {
@@ -14,13 +14,26 @@
         }
     },
     "externalDocs": {
-        "description": "BC Geographical Names Office Webpage",
+        "description": "BC Geographical Names Office",
         "url": "http://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/historic-places/geographical-names"
     },
     "tags": [
         {
-            "name": "Names"
+            "name": "search"
+        },
+        {
+            "name": "name"
+        },
+        {
+            "name": "feature"
+        },
+        {
+            "name": "feature taxonomy"
+        },
+        {
+            "name": "name authority"
         }
+
     ],
     "host": "apps.gov.bc.ca",
     "basePath": "/pub/bcgnws",
@@ -28,28 +41,42 @@
         "http"
     ],
     "produces": [
-        "text/xml",
-        "text/csv"
+        "application/json","application/vnd.google-earth.kml+xml","text/xml","text/csv"
     ],
     "paths": {
         "/names/search": {
             "get": {
-                "description": "Searches all names or all official names by name; wildcard characters “*” are allowed.",
+                "description": "Search for information about geographical names by the text of the name itself.  The response will include both official and unofficial names.  Various options and filter parameters are available to refine the search.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
                         "name": "name",
                         "in": "query",
-                        "description": "Feature Name (can include wildcards *)",
+                        "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "exactSpelling",
                         "in": "query",
-                        "description": "possible values include: 0 - (default) use partial smart matching, 1 - edit and swap distance matching not performed.",
+                        "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
                         "type": "integer",
                         "required": false,
                         "default": 0,
@@ -59,117 +86,142 @@
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "featureClass",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 0
+                        "default": "*"
                     },
                     {
-                        "name": "itemsPerPage",
+                        "name": "featureCategory",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 25,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "string",
+                        "required": false,
+                        "default": "relevance",
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            "relevance",
+                            "name",
+                            "featureType",
+                            "decisionDate"
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
+                        "type": "integer",
                         "required": false,
-                        "default": "json",
+                        "default": 4326,
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
+                        "required": false,
+                        "enum": [
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 20
                     },
                     {
-                        "name": "sortBy",
+                        "name": "startIndex",
                         "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
                         "required": false,
-                        "default": "score,name"
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Name search result"
+                        "description": "A list of names matching the search criteria"
                     }
                 }
             }
         },
         "/names/official/search": {
             "get": {
-                "description": "Searches all names or all official names by name; wildcard characters “*” are allowed.",
+                "description": "Search for information about official geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
                         "name": "name",
                         "in": "query",
-                        "description": "Feature Name (can include wildcards *)",
+                        "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "exactSpelling",
                         "in": "query",
-                        "description": "possible values include: 0 - (default) use partial smart matching, 1 - edit and swap distance matching not performed.",
+                        "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
                         "type": "integer",
                         "required": false,
                         "default": 0,
@@ -179,117 +231,142 @@
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "featureClass",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 0
+                        "default": "*"
                     },
                     {
-                        "name": "itemsPerPage",
+                        "name": "featureCategory",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 25,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "string",
+                        "required": false,
+                        "default": "relevance",
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            "relevance",
+                            "name",
+                            "featureType",
+                            "decisionDate"
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
+                        "type": "integer",
                         "required": false,
-                        "default": "json",
+                        "default": 4326,
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
+                        "required": false,
+                        "enum": [
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 20
                     },
                     {
-                        "name": "sortBy",
+                        "name": "startIndex",
                         "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
                         "required": false,
-                        "default": "score,name"
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Name search result"
+                        "description": "A list of names matching the search criteria"
                     }
                 }
             }
         },
         "/names/notOfficial/search": {
             "get": {
-                "description": "Searches all names or all official names by name; wildcard characters “*” are allowed.",
+                "description": "Search for information about unofficial geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
                         "name": "name",
                         "in": "query",
-                        "description": "Feature Name (can include wildcards *)",
+                        "description": "A filter to search based on the the text of the name itself.  Use the asterisk (*) as a wildcard character.  For example 'vancouv*'",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "exactSpelling",
                         "in": "query",
-                        "description": "possible values include: 0 - (default) use partial smart matching, 1 - edit and swap distance matching not performed.",
+                        "description": "If the 'name' parameter is specified, 'exactSpelling' specifies whether to include only names that exactly match the search text (exactSpelling=1), or whether to also include names with similar spellings (exactSpelling=0)",
                         "type": "integer",
                         "required": false,
                         "default": 0,
@@ -299,945 +376,954 @@
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "featureClass",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 0
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
-                        "enum": [
-                            25,
-                            50,
-                            100,
-                            200
-                        ]
-                    },
-                    {
-                        "name": "outputFormat",
-                        "in": "query",
-                        "description": "Defines output format",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
                         "type": "string",
                         "required": false,
-                        "default": "json",
-                        "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
-                        ]
+                        "default": "*"
                     },
                     {
-                        "name": "outputStyle",
+                        "name": "featureCategory",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
-                        "enum": [
-                            "summary",
-                            "detail"
-                        ]
+                        "default": "*"
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "featureType",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": "*"
                     },
                     {
                         "name": "sortBy",
                         "in": "query",
-                        "description": "Sort Results",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
                         "type": "string",
                         "required": false,
-                        "default": "score,name"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Name search result"
-                    }
-                }
-            }
-        },
-        "/names/soundlike": {
-            "get": {
-                "description": "________________________________________",
-                "tags": [
-                    "Names"
-                ],
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Feature Name (can include wildcards *)",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "startIndex",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 0
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
+                        "default": "relevance",
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
-                        ]
-                    },
-                    {
-                        "name": "outputFormat",
-                        "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
-                        "required": false,
-                        "default": "json",
-                        "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
-                        ]
-                    },
-                    {
-                        "name": "outputStyle",
-                        "in": "query",
-                        "description": "Defines output style",
-                        "type": "string",
-                        "required": false,
-                        "default": "detail",
-                        "enum": [
-                            "summary",
-                            "detail"
-                        ]
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "Defines output EPSG CRS",
-                        "type": "integer",
-                        "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
-                        "required": false,
-                        "default": "name"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Soundlike search result"
-                    }
-                }
-            }
-        },
-        "/names/official/inside": {
-            "get": {
-                "description": "Returns all names, all official names, or notOfficial names inside or intersected by a given bounding box.",
-                "tags": [
-                    "Names"
-                ],
-                "parameters": [
-                    {
-                        "name": "bbox",
-                        "in": "query",
-                        "description": "Returns all names, all official names, or notOfficial names inside or intersected by a given bounding box. Format: bbox=minLon,minLat,maxLon,maxLat. Example: -127.132,50.474,-126.872,50.626",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
-                        "required": false,
-                        "default": "name",
-                        "enum": [
-                            "undefined",
+                            "relevance",
                             "name",
                             "featureType",
                             "decisionDate"
                         ]
                     },
                     {
-                        "name": "itemsPerPage",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
                         "type": "integer",
                         "required": false,
-                        "default": 25,
+                        "default": 4326,
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "embed",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
                         "required": false,
-                        "default": "kml",
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 20
+                    },
+                    {
+                        "name": "startIndex",
+                        "in": "query",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Inside search result"
+                        "description": "A list of names matching the search criteria"
+                    }
+                }
+            }
+        },
+        "/names/inside": {
+            "get": {
+                "description": "Search for information about geographical names that correspond to features within a geographic bounding box.  Various options and filter parameters are available to refine the search.",
+                "tags": [
+                    "search",
+                    "name"
+                ],
+                "parameters": [
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
+                        "name": "bbox",
+                        "in": "query",
+                        "description": "A geographic bounding box defining the search area.  Must be specified as a string of the form 'minLongitude,minLatitude,maxLongitude,maxLatitude' (WGS84). e.g. -119,49,-118,50",
+                        "type": "string",
+                        "required": true
+                    },                    
+                    {
+                        "name": "featureClass",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureCategory",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "string",
+                        "required": false,
+                        "default": "name",
+                        "enum": [
+                            "name",
+                            "featureType",
+                            "decisionDate"
+                        ]
+                    },
+                    {
+                        "name": "outputSRS",
+                        "in": "query",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
+                        "type": "integer",
+                        "required": false,
+                        "default": 4326,
+                        "enum": [
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
+                        "required": false,
+                        "enum": [
+                            0,
+                            1
+                        ]
+                    },
+                    {
+                        "name": "outputStyle",
+                        "in": "query",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
+                        "type": "string",
+                        "required": false,
+                        "default": "summary",
+                        "enum": [
+                            "summary",
+                            "detail"
+                        ]
+                    },
+                    {
+                        "name": "itemsPerPage",
+                        "in": "query",
+                        "description": "The number of search results to return (1-200)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 20
+                    },
+                    {
+                        "name": "startIndex",
+                        "in": "query",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 1,
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of names matching the search criteria"
                     }
                 }
             }
         },
         "/names/near": {
             "get": {
-                "description": "Returns all names, all official names, or notOfficial names within a given distance (in km) of a given point.",
+                "description": "Search for information about geographical names that correspond to features within a geographic area defined by a centre point and a radius.  Various options and filter parameters are available to refine the search.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
                         "name": "featurePoint",
                         "in": "query",
-                        "description": "Compound output consisting of lat and lon or easting and northing in meters (BC Albers, UTM Zones) show in detail mode only for XML and CSV formats. Example: -123.307,48.473",
+                        "description": "A geographic coordinate specifying the centre point of the search area.  Must be specified as a string of the form 'longitude,latitude' (WGS84).  e.g. -120,51",
                         "type": "string",
                         "required": true
                     },
                     {
                         "name": "distance",
                         "in": "query",
-                        "description": "in km",
-                        "type": "integer",
-                        "required": true,
-                        "default": 5
-                    },
-                    {
-                        "name": "official",
-                        "in": "query",
-                        "description": "Limit to official or unofficial names",
-                        "type": "integer",
-                        "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
-                        "required": false,
-                        "default": "name",
-                        "enum": [
-                            "undefined",
-                            "name",
-                            "featureType",
-                            "decisionDate"
-                        ]
-                    },
-                    {
-                        "name": "startIndex",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
-                        "enum": [
-                            25,
-                            50,
-                            100,
-                            200
-                        ]
-                    },
-                    {
-                        "name": "outputFormat",
-                        "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
-                        "required": false,
-                        "default": "kml",
-                        "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
-                        ]
-                    },
-                    {
-                        "name": "outputStyle",
-                        "in": "query",
-                        "description": "Defines output style",
-                        "type": "string",
-                        "required": false,
-                        "default": "detail",
-                        "enum": [
-                            "summary",
-                            "detail"
-                        ]
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "Defines output EPSG CRS",
-                        "type": "integer",
-                        "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Near search result"
-                    }
-                }
-            }
-        },
-        "/names/official/near": {
-            "get": {
-                "description": "Returns all names, all official names, or notOfficial names within a given distance (in km) of a given point.",
-                "tags": [
-                    "Names"
-                ],
-                "parameters": [
-                    {
-                        "name": "featurePoint",
-                        "in": "query",
-                        "description": "Compound output consisting of lat and lon or easting and northing in meters (BC Albers, UTM Zones) show in detail mode only for XML and CSV formats. Example: -123.307,48.473",
+                        "description": "A radius (in kilometres) around the centre point.",
                         "type": "string",
                         "required": true
+                    },                       
+                    {
+                        "name": "featureClass",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
                     },
                     {
-                        "name": "distance",
+                        "name": "featureCategory",
                         "in": "query",
-                        "description": "in km",
-                        "type": "integer",
-                        "required": true,
-                        "default": 5
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
                     },
                     {
                         "name": "sortBy",
                         "in": "query",
-                        "description": "Sort Results",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
                         "type": "string",
                         "required": false,
                         "default": "name",
                         "enum": [
-                            "undefined",
                             "name",
                             "featureType",
                             "decisionDate"
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
                         "type": "integer",
                         "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
+                        "default": 4326,
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "embed",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
                         "required": false,
-                        "default": "kml",
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Near search result"
-                    }
-                }
-            }
-        },
-        "/names/notOfficial/near": {
-            "get": {
-                "description": "Returns all names, all official names, or notOfficial names within a given distance (in km) of a given point.",
-                "tags": [
-                    "Names"
-                ],
-                "parameters": [
-                    {
-                        "name": "featurePoint",
-                        "in": "query",
-                        "description": "Compound output consisting of lat and lon or easting and northing in meters (BC Albers, UTM Zones) show in detail mode only for XML and CSV formats. Example: -123.307,48.473",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "distance",
-                        "in": "query",
-                        "description": "in km",
-                        "type": "integer",
-                        "required": true,
-                        "default": 5
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Sort Results",
-                        "type": "string",
-                        "required": false,
-                        "default": "name",
-                        "enum": [
-                            "undefined",
-                            "name",
-                            "featureType",
-                            "decisionDate"
-                        ]
+                        "default": 20
                     },
                     {
                         "name": "startIndex",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
+                        "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
-                        "enum": [
-                            25,
-                            50,
-                            100,
-                            200
-                        ]
-                    },
-                    {
-                        "name": "outputFormat",
-                        "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
-                        "required": false,
-                        "default": "kml",
-                        "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "uri"
-                        ]
-                    },
-                    {
-                        "name": "outputStyle",
-                        "in": "query",
-                        "description": "Defines output style",
-                        "type": "string",
-                        "required": false,
-                        "default": "detail",
-                        "enum": [
-                            "summary",
-                            "detail"
-                        ]
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "Defines output EPSG CRS",
-                        "type": "integer",
-                        "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Near search result"
+                        "description": "A list of names matching the search criteria"
                     }
                 }
             }
         },
         "/names/decisions/recent": {
             "get": {
-                "description": "Returns all naming decisions made within the last x days.",
+                "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) within the last X days.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
                         "name": "days",
                         "in": "query",
-                        "description": "Maximum age of decision in days (default 30)",
+                        "description": "The number of days used to define the time window of naming decisions to search.  The number is interpreted as searching for 'names affected by decisions within the last X days'.",
                         "type": "integer",
                         "required": true,
                         "default": 30
                     },
                     {
-                        "name": "official",
+                        "name": "featureClass",
                         "in": "query",
-                        "description": "Limit to official or unofficial names",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 1
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureCategory",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
                     },
                     {
                         "name": "sortBy",
                         "in": "query",
-                        "description": "Sort Results",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
                         "type": "string",
                         "required": false,
-                        "default": "decisionDate",
+                        "default": "name",
                         "enum": [
-                            "undefined",
                             "name",
                             "featureType",
                             "decisionDate"
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
                         "type": "integer",
                         "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
+                        "default": 4326,
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "embed",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
                         "required": false,
-                        "default": "json",
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "rss",
-                            "atom",
-                            "uri"
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 20
+                    },
+                    {
+                        "name": "startIndex",
+                        "in": "query",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Recent decisions search result"
+                        "description": "A list of names matching the search criteria"
+                    }
+                }
+            }
+        },
+        "/names/decisions/year": {
+            "get": {
+                "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) in a given year.",
+                "tags": [
+                    "search",
+                    "name"
+                ],
+                "parameters": [
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "The year in which to search for names affected by naming decisions'.",
+                        "type": "integer",
+                        "required": true,
+                    },
+                    {
+                        "name": "featureClass",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureCategory",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "string",
+                        "required": false,
+                        "default": "name",
+                        "enum": [
+                            "name",
+                            "featureType",
+                            "decisionDate"
+                        ]
+                    },
+                    {
+                        "name": "outputSRS",
+                        "in": "query",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
+                        "type": "integer",
+                        "required": false,
+                        "default": 4326,
+                        "enum": [
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "embed",
+                        "in": "query",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
+                        "required": false,
+                        "enum": [
+                            0,
+                            1
+                        ]
+                    },
+                    {
+                        "name": "outputStyle",
+                        "in": "query",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
+                        "type": "string",
+                        "required": false,
+                        "default": "summary",
+                        "enum": [
+                            "summary",
+                            "detail"
+                        ]
+                    },
+                    {
+                        "name": "itemsPerPage",
+                        "in": "query",
+                        "description": "The number of search results to return (1-200)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 20
+                    },
+                    {
+                        "name": "startIndex",
+                        "in": "query",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 1,
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of names matching the search criteria"
                     }
                 }
             }
         },
         "/names/changes": {
             "get": {
-                "description": "Returns all names that have changed within the specified date range",
+                "description": "Search for information about geographical names which have changed most recently within a specified time window.  Changes may include status cupdates and metadata corrections.",
                 "tags": [
-                    "Names"
+                    "search",
+                    "name"
                 ],
                 "parameters": [
                     {
-                        "name": "fromDate",
+                        "name": "outputFormat",
                         "in": "query",
-                        "description": "The oldest change date for which to fetch names",
+                        "description": "The format of the output.",
                         "type": "string",
                         "required": true,
-                        "default": "2016-03-21"
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                        ]
+                    },
+                    {
+                        "name": "fromDate",
+                        "in": "query",
+                        "description": "Defines the earliest date (YYYY-MM-DD format) of the change time window for the search",
+                        "type": "integer",
+                        "required": true,
                     },
                     {
                         "name": "toDate",
                         "in": "query",
-                        "description": "The most recent change date for which to fetch names ",
-                        "type": "string",
-                        "required": false,
-                        "default": "2016-04-21"
+                        "description": "Defines the latest date (YYYY-MM-DD format) of the change time window for the search",
+                        "type": "integer",
+                        "required": true,
                     },
                     {
-                        "name": "official",
+                        "name": "featureClass",
                         "in": "query",
-                        "description": "Limit to official or unofficial names",
-                        "type": "integer",
+                        "description": "A filter to limit the search to names associated with features of a certain 'class'  The value of this parameter should be a 'featureClassCode' value returned by the /featureClasses resource, or an asterisk (*) to request that all feature classes be included.",
+                        "type": "string",
                         "required": false,
-                        "default": 1
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureCategory",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'category'  The value of this parameter should be a 'featureCategoryCode' value returned by the /featureCategories resource, or an asterisk (*) to request that all feature categories be included.",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
+                    },
+                    {
+                        "name": "featureType",
+                        "in": "query",
+                        "description": "A filter to limit the search to names associated with features of a certain 'type'  The value of this parameter should be a 'featureTypeCode' value returned by the /featureTypes resource, or an asterisk (*) to request that all feature types be included",
+                        "type": "string",
+                        "required": false,
+                        "default": "*"
                     },
                     {
                         "name": "sortBy",
                         "in": "query",
-                        "description": "Sort Results",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
                         "type": "string",
                         "required": false,
-                        "default": "changeDate",
+                        "default": "name",
                         "enum": [
-                            "undefined",
                             "name",
-                            "changeDate",
                             "featureType",
                             "decisionDate"
                         ]
                     },
                     {
-                        "name": "startIndex",
+                        "name": "outputSRS",
                         "in": "query",
-                        "description": "Defines 'page' in selected records",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries.",
                         "type": "integer",
                         "required": false,
-                        "default": 1
-                    },
-                    {
-                        "name": "itemsPerPage",
-                        "in": "query",
-                        "description": "Defines 'page' in selected records",
-                        "type": "integer",
-                        "required": false,
-                        "default": 25,
+                        "default": 4326,
                         "enum": [
-                            25,
-                            50,
-                            100,
-                            200
+                            4326,
+                            4269,
+                            3005,
+                            3857,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
                         ]
                     },
                     {
-                        "name": "outputFormat",
+                        "name": "embed",
                         "in": "query",
-                        "description": "Defines output format",
-                        "type": "string",
+                        "description": "A flag to indicate whether to embed the corresponding 'feature' into each matching name",
+                        "type": "integer",
                         "required": false,
-                        "default": "json",
                         "enum": [
-                            "xml",
-                            "csv",
-                            "rdf",
-                            "json",
-                            "kml",
-                            "rss",
-                            "atom",
-                            "uri"
+                            0,
+                            1
                         ]
                     },
                     {
                         "name": "outputStyle",
                         "in": "query",
-                        "description": "Defines output style",
+                        "description": "A flag indicating whether to include with each matching name a succinct list of attributes (summary), or a comprehensive list of attributes (detail)",
                         "type": "string",
                         "required": false,
-                        "default": "detail",
+                        "default": "summary",
                         "enum": [
                             "summary",
                             "detail"
                         ]
                     },
                     {
-                        "name": "outputSRS",
+                        "name": "itemsPerPage",
                         "in": "query",
-                        "description": "Defines output EPSG CRS",
+                        "description": "The number of search results to return (1-200)",
                         "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            3005,
-                            3857,
-                            4326,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911,
-                            32607,
-                            32608,
-                            32609,
-                            32610,
-                            32611,
-                            26707,
-                            26708,
-                            26709,
-                            26710,
-                            26711
-                        ]
+                        "default": 20
+                    },
+                    {
+                        "name": "startIndex",
+                        "in": "query",
+                        "description": "The index of the first record to be returned (>= 1)",
+                        "type": "integer",
+                        "required": false,
+                        "default": 1,
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Changes search result"
+                        "description": "A list of names matching the search criteria"
+                    }
+                }
+            }
+        },
+        "/names/{nameId}.{outputFormat}": {
+            "get": {
+                "description": "Get information about the geographical name with the specified nameId.",
+                "tags": [
+                    "name"
+                ],
+                "parameters": [
+                    {
+                        "name": "nameId",
+                        "in": "path",
+                        "description": "The unique identifier for a name",
+                        "type": "integer",
+                        "required": true,
+                    },
+                    {
+                        "name": "outputFormat",
+                        "in": "path",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml",
+                            "kml",
+                            "csv",
+                            "html"
+                        ]
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Information about the name with the specified nameId"
+                    }
+                }
+            }
+        },
+        "/features/{featureId}": {
+            "get": {
+                "description": "Get information about the geographical feature with the specified featureId.",
+                "tags": [
+                    "feature"
+                ],
+                "parameters": [
+                    {
+                        "name": "featureId",
+                        "in": "path",
+                        "description": "The unique identifier for a feature",
+                        "type": "integer",
+                        "required": true,
+                    }                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Information about the feature with the specified featureId (XML format only)"
+                    }
+                }
+            }
+        },
+        "/featureClasses": {
+            "get": {
+                "description": "Gets a list of all feature classes used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+                "tags": [
+                    "feature taxonomy"
+                ],
+                "parameters": [  
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml"
+                        ]
+                    }                  
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of feature classes"
+                    }
+                }
+            }
+        },
+        "/featureCategories": {
+            "get": {
+                "description": "Gets a list of all feature categories used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+                "tags": [
+                    "feature taxonomy"
+                ],
+                "parameters": [  
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml"
+                        ]
+                    }                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of feature categories"
+                    }
+                }
+            }
+        },        
+        "/featureTypes": {
+            "get": {
+                "description": "Gets a list of all feature types used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
+                "tags": [
+                    "feature taxonomy"
+                ],
+                "parameters": [      
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml"
+                        ]
+                    }                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of feature types"
+                    }
+                }
+            }
+        },
+        "/nameAuthorities": {
+            "get": {
+                "description": "Gets a list of all name authorities responsible for naming decisions of the geographical names in the BC Geographical Names Information System (BCGNIS)",
+                "tags": [
+                    "name authority"
+                ],
+                "parameters": [ 
+                    {
+                        "name": "outputFormat",
+                        "in": "query",
+                        "description": "The format of the output.",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "xml"
+                        ]
+                    }                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of name authorities"
                     }
                 }
             }
         }
+
+
+
+
     }
 }
