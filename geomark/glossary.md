@@ -21,11 +21,6 @@ Term | Definition
 <a name="numVertices">Vertex Count (numVertices)</a> | Number of vertices in all polygon boundaries of the geomark. A polygon without holes has a single, outer boundary, a polygon with one hole has one outer boundary and one inner boundary.
 <a name="validationError">Validation Error (validationError)</a> | Detailed validation error message if geometry is not valid; blank otherwise.
 <a name=""></a> | 
-
-
-
-
-
 <a name="accessNotes">accessNotes</a> | Contains additional information that is helpful in determining the access location and any restrictions on mode of access (e.g., boat only, floatplane only).
 <a name="accessPoint">accessPoint</a> | A point that lies on the curb or road edge of the site's assigned street and in the middle of a site’s driveway or access lane. If a site has no driveway or access lane, the accessPoint will be located in the middle of the entrance walkway.
 <a name="accessPointRetireDate">accessPointRetireDate</a> | The date the access point was retired.
