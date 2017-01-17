@@ -63,7 +63,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -179,7 +179,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -208,7 +208,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -324,7 +324,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -353,7 +353,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -469,7 +469,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -498,7 +498,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -601,7 +601,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -630,7 +630,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -740,7 +740,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -769,7 +769,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -873,7 +873,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -902,7 +902,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -910,7 +910,7 @@
                         "in": "query",
                         "description": "The year in which to search for names affected by naming decisions'.",
                         "type": "integer",
-                        "required": true,
+                        "required": true
                     },
                     {
                         "name": "featureClass",
@@ -1005,7 +1005,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -1034,7 +1034,7 @@
                             "json",
                             "xml",
                             "kml",
-                            "csv",
+                            "csv"
                         ]
                     },
                     {
@@ -1042,14 +1042,14 @@
                         "in": "query",
                         "description": "Defines the earliest date (YYYY-MM-DD format) of the change time window for the search",
                         "type": "integer",
-                        "required": true,
+                        "required": true
                     },
                     {
                         "name": "toDate",
                         "in": "query",
                         "description": "Defines the latest date (YYYY-MM-DD format) of the change time window for the search",
                         "type": "integer",
-                        "required": true,
+                        "required": true
                     },
                     {
                         "name": "featureClass",
@@ -1144,7 +1144,7 @@
                         "description": "The index of the first record to be returned (>= 1)",
                         "type": "integer",
                         "required": false,
-                        "default": 1,
+                        "default": 1
                     }
                 ],
                 "responses": {
@@ -1166,7 +1166,7 @@
                         "in": "path",
                         "description": "The unique identifier for a name",
                         "type": "integer",
-                        "required": true,
+                        "required": true
                     },
                     {
                         "name": "outputFormat",
@@ -1203,7 +1203,7 @@
                         "in": "path",
                         "description": "The unique identifier for a feature",
                         "type": "integer",
-                        "required": true,
+                        "required": true
                     }                   
                 ],
                 "responses": {
