@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+        <title>Geocoder</title>
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=".">Geocoder</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href=".">Home</a>
+                    </li>
+                    <li >
+                        <a href="faults/">Faults</a>
+                    </li>
+                    <li >
+                        <a href="glossary/">Glossary</a>
+                    </li>
+                    <li >
+                        <a href="notice/">Notice</a>
+                    </li>
+                    <li >
+                        <a href="roadmap/">Roadmap</a>
+                    </li>
+                    <li >
+                        <a href="singleLineAddressFormat/">singleLineAddressFormat</a>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="faults/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#bc-physical-address-geocoder">BC Physical Address Geocoder</a></li>
+        <li class="main "><a href="#developer-guide">Developer Guide</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#api-changes-in-v201">API Changes in v2.0.1</a></li>
+            <li><a href="#resource-overview">Resource Overview</a></li>
+            <li><a href="#addresses-resource">Addresses Resource</a></li>
+            <li><a href="#occupantaddresses-resource">Occupant/addresses Resource</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="bc-physical-address-geocoder">BC Physical Address Geocoder</h1>
+<h1 id="developer-guide">Developer Guide</h1>
+<p>This guide is aimed at developers and web masters that would like to incorporate the Physical Address Geocoder into their applications and websites.
+<br></p>
+<h2 id="introduction">Introduction</h2>
+<p>The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the Swagger definition of the <a href="https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json">anonymous geocoder</a> or the <a href="https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/gated-geocoder.json">gated geocoder</a>. You can explore the API in the API console for the <a href="http://apps.gov.bc.ca/pub/api-explorer/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json">anonymous geocoder</a> or the <a href="http://apps.gov.bc.ca/pub/api-explorer/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/gated-geocoder.json">gated geocoder</a>. To simplify integration of the online geocoder into your client web application, you can use the <a href="http://apps.gov.bc.ca/pub/geocoder/js/geocode.js">Javascript API</a> 
+<br></p>
+<h2 id="api-changes-in-v201">API Changes in v2.0.1</h2>
+<p>There are no API changes in v2.0.1</p>
+<h2 id="resource-overview">Resource Overview</h2>
+<p>The Online Geocoder offers resources for validating and geocoding an address (including public and related business occupants); finding a given site, intersection, and occupant; and finding sites, intersections, and occupants near a point or within an area. 
+The current baseUrl for the online geocoder is:<br>
+http://apps.gov.bc.ca/pub/geocoder<br><br>
+The baseUrl for the online geocoder under the HTTP Secure protocol is:<br> 
+https://apps.gov.bc.ca/pub/geocoder</p>
+<h2 id="addresses-resource">Addresses Resource</h2>
+<p>The addresses resource represents all addresses in the geocoder. A request on this resource to find a query address will return one or more matching addresses that are standardized and geocoded (i.e., given a point location on the earth). </p>
+<p>A query address can be specified in two different ways:</p>
+<ol>
+<li>A single address string containing all elements of an address as in:<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?addressString=525%20superior%20st,%20victoria,%20bc<br><br> </li>
+<li>Individual address elements as in:<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?civicNumber=525&amp;streetName=superior&amp;streetType=st&amp;localityName=victoria&amp;provinceCode=BC</li>
+</ol>
+<p>Here are some more example geocoder requests:</p>
+<ol>
+<li>Geocode 456 Gorge Rd E, Victoria, BC<br> 
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=456%20Gorge%20Rd%20e%20victoria%20bc<br><br></li>
+<li>Geocode 7-955 13th Ave, Valemount, BC<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=7-955%2013th%20ave,%20Valemount,bc<br><br> </li>
+<li>Geocode the intersection at Johnson and Government<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=johnson%20and%20government<br><br> </li>
+<li>Geocode 5671 Malibu Terrace, Nanaimo, BC and return results in GEOJSON and BC Albers projection<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?outputSRS=3005&amp;addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br></li>
+<li>Geocode 5670 Malibu Terrace, Nanaimo and return the location along the road centreline for using in routing<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.kml?locationDescriptor=routingPoint&amp;addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br></li>
+<li>Geocode 5670 Malibu Terrace, Nanaimo and return accessPoint set back four metres from the curb towards the inside of the property. Note that only accessPoints can be set back<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.kml?locationDescriptor=accessPoint&amp;setBack=4&amp;addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br>  </li>
+<li>Geocode 5671 Malibu Terrace, Nanaimo, BC without interpolation. In other words, if the geocoder doesn’t have a site with a civic number of 5671, it will fail instead of looking for an address range that contains 5671<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?interpolation=none&amp;addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br></li>
+<li>Geocode 200 Gorge Rd W, Saanich, BC and limit results to Victoria. It will return 200 Gorge Rd E, Victoria, BC since Gorge Rd E is in Victoria<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?localities=victoria&amp;addressString=200%20gorge%20rd%20w%20saanich%20bc<br><br> </li>
+<li>Geocode 1434 Graham St, Kelowna, BC and limit results to ten matches within the greater Kelowna area<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?&amp;bbox=-119.8965522070019%2C49.70546831817266%2C-119.2157397287486%2C50.06954472056336&amp;addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC&amp;maxResults=10<br><br></li>
+<li>Geocode 1434 Graham St, Kelowna, BC and limit results to ten street-level matches<br>
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?&amp;addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC%20&amp;matchPrecision=street&amp;maxResults=10<br><br> </li>
+<li>Extrapolate the known location of 12 Bushby St from a parcelPoint to get an accessPoint<br> 
+http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?setBack=0&amp;minScore=1&amp;maxResults=1&amp;maxDistance=0&amp;interpolation=adaptive&amp;echo=true&amp;outputSRS=4326&amp;addressString=12%20bushby%20st%20victoria%20bc&amp;locationDescriptor=any&amp;extrapolate=true&amp;parcelPoint=-123.349174,2048.407134<br><br> </li>
+<li>Find the nearest courthouse to a given point<br>
+http://apps.gov.bc.ca/pub/geocoder/occupants/nearest.geojson?point=-123.7064038,48.8498537&amp;tags=courts<br><br>
+<br></li>
+</ol>
+<h3 id="resource-representations-in-http-responses">Resource representations in HTTP Responses</h3>
+<p>The addresses resource will return a document in the requested format and spatial reference system.  Documents in formats that support a header record (e.g., XHTML, KML, GEOJSON, GEOJSONP, GML) will contain a single About Query representation describing the query and its execution, and one or more site address or intersection address representations. Documents in formats that don’t support a header record (e.g., CSV, SHPZ), will contain one or more site/intersection address representations.</p>
+<h4 id="about-query-representation">About Query Representation</h4>
+<table>
+<thead>
+<tr>
+<th align="right">Attribute Name</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#searchTimestamp">searchTimestamp</a></td>
+<td>Datetime</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#executionTime">executionTime</a></td>
+<td>Real</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#version">version</a></td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore">minScore</a></td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#maxResults">maxResults</a></td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#echo">echo</a></td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#interpolation">interpolation</a></td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS">outputSRS</a></td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#setBack">setBack</a></td>
+<td>Real</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="site-address-representation">Site Address Representation</h4>
+<table>
+<thead>
+<tr>
+<th align="right">Attribute Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullAddress">fullAddress</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#score">score</a></td>
+<td>integer</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision">matchPrecision</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision">precisionPoints</a></td>
+<td>integer</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#faults">faults</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteName">siteName</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#unitDesignator">unitDesignator</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#unitNumber">unitNumber</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#unitNumberSuffix">unitNumberSuffix</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumber">civicNumber</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumberSuffix">civicNumberSuffix</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetName">streetName</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetType">streetType</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isStreetTypePrefix">isStreetTypePrefix</a></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection">streetDirection</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isStreetDirectionPrefix">isStreetDirectionPrefix</a></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier">streetQualifier</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName">localityName</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode">provinceCode</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationPositionalAccuracy">locationPositionalAccuracy</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor">locationDescriptor</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteID">siteID</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#blockID">blockID</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullSiteDescriptor">fullSiteDescriptor</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#narrativeLocation">narrativeLocation</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#accessNotes">accessNotes</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteStatus">siteStatus</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteRetireDate">siteRetireDate</a></td>
+<td>Date</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#changeDate">changeDate</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isPrimary">isPrimary</a></td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="intersection-address-representation">Intersection Address Representation</h4>
+<table>
+<thead>
+<tr>
+<th align="right">Attribute Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullAddress">fullAddress</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#intersectionName">intersectionName</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName">localityName</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode]">provinceCode</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#score">score</a></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision">matchPrecision</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#precisionPoints">precisionPoints</a></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode">provinceCode</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision">matchPrecision</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#precisionPoints">precisionPoints</a></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#faults">faults</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#intersectionID">intersectionID</a></td>
+<td>String</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#degree">degree</a></td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h2 id="occupantaddresses-resource">Occupant/addresses Resource</h2>
+<p>The occupants/addresses resource is similar to the addresses resource. Its response will include an About Query representation plus one site representation and occupant representation for each address matched.</p>
+<h4 id="occupant-representation">Occupant Representation</h4>
+<table>
+<thead>
+<tr>
+<th align="right">Attribute Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantName">occupantName</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantID">occupantID</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantAliasAddress">occupantAliasAddress</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantDescription">occupantDescription</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactEmail">contactEmail</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactPhone">contactPhone</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#contactFax">contactFax</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#websiteUrl">websiteUrl</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#imageUrl">imageUrl</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#keywords">keywords</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#businessCategoryClass">businessCategoryClass</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#businessCategoryDescription">businessCategoryDescription</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#naicsCode">naicsCode</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#dateOccupantUpdated">dateOccupantUpdated</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#dateOccupantAdded">dateOccupantAdded</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#custodianId">custodianId</a></td>
+<td>string</td>
+</tr>
+<tr>
+<td align="right"><a href="https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#sourceDataId">sourceDataId</a></td>
+<td>string</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 0.16.1
+Build Date UTC : 2017-01-17 20:26:48
+-->

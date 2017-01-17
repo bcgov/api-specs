@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Glossary - Geocoder</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="..">Geocoder</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../faults/">Faults</a>
+                    </li>
+                    <li class="active">
+                        <a href="./">Glossary</a>
+                    </li>
+                    <li >
+                        <a href="../notice/">Notice</a>
+                    </li>
+                    <li >
+                        <a href="../roadmap/">Roadmap</a>
+                    </li>
+                    <li >
+                        <a href="../singleLineAddressFormat/">singleLineAddressFormat</a>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../faults/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../notice/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#geocoder-glossary-of-terms">Geocoder Glossary of Terms</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="geocoder-glossary-of-terms">Geocoder Glossary of Terms</h1>
+<table>
+<thead>
+<tr>
+<th align="right">Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a name="accessNotes">accessNotes</a></td>
+<td>Contains additional information that is helpful in determining the access location and any restrictions on mode of access (e.g., boat only, floatplane only).</td>
+</tr>
+<tr>
+<td align="right"><a name="accessPoint">accessPoint</a></td>
+<td>A point that lies on the curb or road edge of the site's assigned street and in the middle of a site’s driveway or access lane. If a site has no driveway or access lane, the accessPoint will be located in the middle of the entrance walkway.</td>
+</tr>
+<tr>
+<td align="right"><a name="accessPointRetireDate">accessPointRetireDate</a></td>
+<td>The date the access point was retired.</td>
+</tr>
+<tr>
+<td align="right"><a name="accessPointStatus">accessPointStatus</a></td>
+<td>The status of the access point (active, or retired). A civic access point is usually only Retired if the associated site is renumbered, destroyed, or combined with another site. A non-civic access point is usually retired when its associated site is assigned a civic number or the site becomes unoccupied.</td>
+</tr>
+<tr>
+<td align="right"><a name="adaptiveAddressInterpolation">Adaptive Address Interpolation</a></td>
+<td>The process of inferring the location of a site with a given <a href="#civicNumber">civic number</a> using a road centreline, an address range, and other known site locations for a given block face. Adaptive interpolation uses the ratio (civicNumber - precedingKnownCivicNumber) / (followingKnownCivicNumber - precedingKnownCivicNumber) and the locations of the preceding, known civic number and the following, known civic number.</td>
+</tr>
+<tr>
+<td align="right"><a name="addressString">addressString</a></td>
+<td><a href="#civicAddress">Civic address</a> or <a href="#intersectionAddress">intersection address</a> as a single string in <a href="https://github.com/bcgov/api-specs/blob/master/geocoder/singleLineAddressFormat.md">Single-line Address Format</a>. If not present in an address request, individual address elements, such as <a href="#streetName">streetName</a>, <a href="#localityName">localityName</a>, and <a href="#provinceCode">provinceCode</a> must be provided.<br>In an occupant/addresses resource, <a href="#addressString">addressString</a> represents an <a href="#occupantName">Occupant name</a> followed by a frontGate delimiter ('--') followed by an optional address.</td>
+</tr>
+<tr>
+<td align="right"><a name="addressMatch">Address match</a></td>
+<td>Conveys site address match quality through <a href="#score">score</a>, <a href="#matchPrecision">precision</a>, and <a href="#faults">faults</a> properties. <a href="#faults">faults</a> is a data type that defines a list of faults. Each fault contains the nature of the fault, the address property affected, and the fault penalty. precisionPoints defines the points assigned to each match precision level. <a href="#matchPrecision">MatchPrecision</a> is an enumeration of all precision levels. <a href="#matchFaultPenalty">MatchFaultPenalty</a> defines the penalty value of each possible fault. Penalties are subtracted from the appropriate precision level points to arrive at a <a href="#score">score</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="blockID">blockID</a></td>
+<td>The unique, immutable identifier of a road segment in the Integrated Transportation Network that a matched address is located on.</td>
+</tr>
+<tr>
+<td align="right"><a name="bbox">bbox</a></td>
+<td>A rectangular geographic area used to filter results of a query. Coordinates are specified as xmin,ymin,xmax,ymax . By default, coordinates are longitude minimum, latitude minimum, longitude maximum, latitude maximum in the default <a href="#outputSRS">output SRS</a>, 4326 (WGS84).</td>
+</tr>
+<tr>
+<td align="right"><a name="businessCategoryClass">businessCategoryClass</a></td>
+<td><a href="#naics">NAICS</a> name of category class associated with occupant.</td>
+</tr>
+<tr>
+<td align="right"><a name="businessCategoryDescription">businessCategoryDescription</a></td>
+<td>Description of <a href="#naics">NAICS</a> Category associated with occupant.</td>
+</tr>
+<tr>
+<td align="right"><a name="centre">centre</a></td>
+<td>The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. centre and <a href="#maxDistance">maxDistance</a> together define a search area.</td>
+</tr>
+<tr>
+<td align="right"><a name="changeDate">changeDate</a></td>
+<td>The date a site address or intersection address was last changed.</td>
+</tr>
+<tr>
+<td align="right"><a name="civicAddress">Civic Address</a></td>
+<td>The address of a site as assigned by an addressing authority such as a municipality. A civic address includes a <a href="#civicNumber">civicNumber</a>, <a href="#civicNumberSuffix">civicNumberSuffix</a>, and the <a href="#localityName">localityName</a> is that assigned by the address authority, not Canada Post. Here are some examples:<br>840 Esquimalt Rd, Esquimalt, BC<br>2317 MOODY AVE Kamloops, BC<br>Apt 1 -- 1207 Douglas St, Victoria, BC<br>525 Superior St, Victoria,BC<br>4251A Rockbank Pl, West Vancouver, BC<br>4450 Happy Valley Rd, Metchosin, BC<br>Unit 110 -- 408 East Kent Ave S, Vancouver, BC <br>2050 SW Marine Dr,Vancouver,BC<br>420 Gorge Rd E, Victoria, BC<br>130A Hall St,Nelson,BC<br>Unit 1 -- 7467 Aspen Blvd, Pemberton, BC<br>Pad 2, 2097 Wildflower Rd,Shawnigan Lake, BC<br>Port Alice Health Centre -- 1090 Marine Dr, Port Alice, BC<br>Royal Athletic Park -- 1014 Caledonia Ave, Victoria,BC</td>
+</tr>
+<tr>
+<td align="right"><a name="civicNumber">civicNumber</a></td>
+<td>The number assigned to a site on a street by an address authority (e.g., the 1175 in 1175 Douglas St, Victoria, BC).</td>
+</tr>
+<tr>
+<td align="right"><a name="civicNumberSuffix">civicNumberSuffix</a></td>
+<td>A letter or fraction that follows the <a href="#civicNumber">civic number</a>. There should be no space between a civic number and a letter (e.g., Unit 1A) and one space between a civic number and a fraction (e.g., Suite 3 1/2)</td>
+</tr>
+<tr>
+<td align="right"><a name="contactEmail">contactEmail</a></td>
+<td>Contact email address of occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="contactFax">contactFax</a></td>
+<td>Contact fax number of occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="contactPhone">contactPhone</a></td>
+<td>Contact phone number of occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="custodianId">custodianId</a></td>
+<td>Unique id assigned to custodian of occupant data.</td>
+</tr>
+<tr>
+<td align="right"><a name="dateOccupantUpdated">dateOccupantUpdated</a></td>
+<td>The date the occupant was last updated in the Geographic Site Registry.</td>
+</tr>
+<tr>
+<td align="right"><a name="dateOccupantAdded">dateOccupantAdded</a></td>
+<td>The date the occupant was added to the Geographic Site Registry.</td>
+</tr>
+<tr>
+<td align="right"><a name="degree">degree</a></td>
+<td>The number of road segments that intersection at an intersection. The degree of a dead-end is 1. The degree of a 4-way intersection is 4.</td>
+</tr>
+<tr>
+<td align="right"><a name="echo">echo</a></td>
+<td>Include unmatched address details such as site name in results.</td>
+</tr>
+<tr>
+<td align="right"><a name="endDate">endDate</a></td>
+<td>The ending date of a time period formatted as YYYY-MM-DD .</td>
+</tr>
+<tr>
+<td align="right"><a name="executionTime">executionTime</a></td>
+<td>Query execution time in milliseconds</td>
+</tr>
+<tr>
+<td align="right"><a name="extrapolate">extrapolate</a></td>
+<td>If true, uses supplied parcelPoint to derive an appropriate accessPoint. If extrapolate=true and no parcelPoint is provided or if extrapolate= false and a parcelPoint is provided, no extrapolation is performed and locationDescriptor is used to determine type of point to return.</td>
+</tr>
+<tr>
+<td align="right"><a name="faults">faults</a></td>
+<td>A list of faults the geocoder found with a given address match. Each fault contains the nature of the fault, the address element affected, and the fault penalty. Here is the <a href="https://github.com/bcgov/api-specs/blob/master/geocoder/faults.md">complete list of faults</a>  .</td>
+</tr>
+<tr>
+<td align="right"><a name="frontDoorPoint">frontDoorPoint</a></td>
+<td>A point representing the position of the front door or main entrance to a house or building.</td>
+</tr>
+<tr>
+<td align="right"><a name="fullAddress">fullAddress</a></td>
+<td>The cleaned, standardized, and validated address of a site or intersection as a single string in <a href="https://github.com/bcgov/api-specs/blob/master/geocoder/singleLineAddressFormat.md">Single-line Address Format</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="fullSiteDescriptor">fullSiteDescriptor</a></td>
+<td>That portion of <a href="#fullAddress">fullAddress</a> that precedes the <a href="#civicNumber">civic number</a> (in the case of a civic address) or the <a href="#localityName">localityName</a> (in the case of a non-civic address). Here is an example:<br>RM 104, Student Union Building -- University of Victoria</td>
+</tr>
+<tr>
+<td align="right"><a name="geomark">geomark</a></td>
+<td>A point, line, or polygon of interest that can be shared in a variety of formats and map projections. Geomarks are created by the <a href="https://apps.gov.bc.ca/pub/geomark/">Geomark Service</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="geomarkURL">geomarkURL</a></td>
+<td>The URL of a polygon geomark that should be used by the geocoder as a bounding box in the /bgeo/sites/within query. Point and line geomarks will not work. When specifying this URL programmatically, it should be url-encoded without format and projection parameters.</td>
+</tr>
+<tr>
+<td align="right"><a name="imageUrl">imageUrl</a></td>
+<td>URL of an occupant's photo or picture</td>
+</tr>
+<tr>
+<td align="right"><a name="interpolatedSite">Interpolated Site</a></td>
+<td>A <a href="#site">site</a> whose <a href="#civicNumber">civic number</a> is assumed to be valid because it lies within a known address range and whose location was interpolated using the address range (e.g., <a href="#linearAddressInterpolation">linear address interpolation</a>) or the address range plus the locations of known sites (e.g., <a href="#adaptiveAddressInterpolation">adaptive address interpolation</a>).</td>
+</tr>
+<tr>
+<td align="right"><a name="interpolation">interpolation</a></td>
+<td>In the case of a block level match, the method of interpolation to determine how far down the block the <a href="#accessPoint">accessPoint</a> should be. The geocoder supports <a href="#linearAddressInterpolation">linear</a> and <a href="#adaptiveAddressInterpolation">adaptive</a> interpolation.</td>
+</tr>
+<tr>
+<td align="right"><a name="intersection">Intersection</a></td>
+<td>A dead-end or the intersection of two or more roads.</td>
+</tr>
+<tr>
+<td align="right"><a name="intersectionID">intersectionID</a></td>
+<td>A unique and immutable identifier assigned to a given intersection in the Integrated Transportation Network.</td>
+</tr>
+<tr>
+<td align="right"><a name="intersectionAddress">Intersection Address</a></td>
+<td>The intersection of two or more named streets as a single string. Here are some examples: <br>Douglas St and Gorge Rd E and Hillside Ave, Victoria, BC<br>48th Ave W and Marine Dr SW, Vancouver, BC</td>
+</tr>
+<tr>
+<td align="right"><a name="intersectionName">intersectionName</a></td>
+<td>The <a href="#streetName">street name</a>, <a href="#streetType">type</a>, <a href="#streetDirection">direction</a>, and <a href="#streetQualifier">qualifier</a> of all streets that meet at a given intersection. Here are some examples:<br>Douglas St and Gorge Rd E and Hillside Ave<br>48th Ave W and Marine Dr SW</td>
+</tr>
+<tr>
+<td align="right"><a name="isPrimary">isPrimary</a></td>
+<td>True if primary accessPoint of the associated site.</td>
+</tr>
+<tr>
+<td align="right"><a name="keywords">keywords</a></td>
+<td>semi-colon delimited list of keywords associated with occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="linearAddressInterpolation">Linear Address Interpolation</a></td>
+<td>The process of inferring the location of a <a href="#site">site</a> with a given <a href="#civicNumber">civic number</a> using a road centreline and address range for a given block face. Linear interpolation uses the ratio (civicNumber - blockFaceMinCivicNumber) / (blockFaceMaxCivicNumber - blockFaceMinCivicNumber) and the locations of the beginning and end of the block.</td>
+</tr>
+<tr>
+<td align="right"><a name="localityName">localityName</a></td>
+<td>The name of the locality assigned to a given <a href="#site">site</a> by an address authority such as a municipality, Regional District, Indian Reserve, First Nations government, or the Department of National Defense. It may also be an official name of a natural feature from the <a href="http://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/historic-places/geographical-names">BC Geographical Names Information System (BCGNIS)</a>. A locality name that starts with a directional is not abbreviated (e.g., North Vancouver, not N Vancouver). Spelling of localities that are place names or natural feature names MUST match that published by BCGNIS.</td>
+</tr>
+<tr>
+<td align="right"><a name="localityType">localityType</a></td>
+<td>The type of address authority that assigned the <a href="#localityName">localityName</a> to the address.</td>
+</tr>
+<tr>
+<td align="right"><a name="location">location</a></td>
+<td>The coordinate pair of the matched location in the requested <a href="#outputSRS">projection</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="locationPositionalAccuracy">locationPositionalAccuracy</a></td>
+<td>The positional accuracy of the location of a site as follows:<br>high – observed or measured using GPS or survey instruments, or digitized off imagery with a resolution of 1m or better<br>medium – derived from parcel boundaries or from a point known to be inside a parcel that contains the site<br>low – interpolated along a block face address range<br>Coarse – position represents an entire street, locality, or province</td>
+</tr>
+<tr>
+<td align="right"><a name="locationDescriptor">locationDescriptor</a></td>
+<td>Describes the nature of the address location. Values include <a href="#accessPoint">accessPoint</a>, <a href="#frontDoorPoint">frontDoorPoint</a>, <a href="#parcelPoint">parcelPoint</a>, <a href="#rooftopPoint">rooftopPoint</a>, and <a href="#routingPoint">routingPoint</a>. As an input parameter, a value of any is allowed. When any is specified, a point type other than accessPoint will be returned if one is defined; otherwise, an accessPoint will be returned.</td>
+</tr>
+<tr>
+<td align="right"><a name="mainLocation">Main Location</a></td>
+<td>A geometric point representing the rooftop, front door, or centre of the property.</td>
+</tr>
+<tr>
+<td align="right"><a name="matchFaultPenalty">matchFaultPenalty</a></td>
+<td>Defines the penalty value of each possible fault. Penalties are subtracted from the appropriate precision level points to arrive at a match score.</td>
+</tr>
+<tr>
+<td align="right"><a name="matchPrecision">matchPrecision</a></td>
+<td>The level of precision of an address match. Here are the nine levels from the most precise to least precise:<br>OCCUPANT – the site occupant name matched<br>SITE – the site name matched<br>UNIT – the unit number, unit number suffix, and unit designator matched<br>CIVIC_NUMBER – the civic number matched<br>INTERSECTION – the intersection matched<br>BLOCK – the civic number falls within a known block range<br>STREET – the street name, street direction, and street type matched<br>LOCALITY – the locality matched<br>PROVINCE - no match<br>When used as an input parameter, matchPrecision is a comma-separated list of matchPrecision levels. Only matches with a matchPrecision in this list will be included in the request results. For example, matchPrecision=STREET will only include street-level matches.</td>
+</tr>
+<tr>
+<td align="right"><a name="matchPrecisionNot">matchPrecisionNot</a></td>
+<td>A comma-separated list of matchPrecision levels to exclude from request results. For example, &amp;matchPrecisionNot=UNIT,SITE will exclude matches at the unit and site levels.</td>
+</tr>
+<tr>
+<td align="right"><a name="maxDistance">maxDistance</a></td>
+<td>The maximum distance (in metres) to search from the given point.  If not specified, the maximum distance is unlimited.</td>
+</tr>
+<tr>
+<td align="right"><a name="maxResults">maxResults</a></td>
+<td>Maximum number of matched addresses to return for each input address. The default is 1.</td>
+</tr>
+<tr>
+<td align="right"><a name="minDegree">minDegree</a></td>
+<td>Minimum degree an intersection can have to be included in results. A dead-end has a degree of 1. The default is 2.</td>
+</tr>
+<tr>
+<td align="right"><a name="maxDegree">maxDegree</a></td>
+<td>The maximum degree an intersection can have to be included in results. A four-way stop has a degree of 4. The default is 100.</td>
+</tr>
+<tr>
+<td align="right"><a name="minScore">minScore</a></td>
+<td>The minimum score an address match must have before it is included in the results. Scores range between 0 and 100 inclusive. The default is 0.</td>
+</tr>
+<tr>
+<td align="right"><a name="naicsCode">naicsCode</a></td>
+<td>NAICS code assigned to occupant. For more information, see <a href="http://www.statcan.gc.ca/pub/12-501-x/12-501-x2012001-eng.pdf">NAICS Canada</a></td>
+</tr>
+<tr>
+<td align="right"><a name="narrativeLocation">narrativeLocation</a></td>
+<td>Turn-by-turn directions to the site from a named location on the Integrated Transportion Network as in the following:<br>From Tlell, travel north on Highway 16 till you see a big golden spruce tree on your left, hike west for about one kilometre.</td>
+</tr>
+<tr>
+<td align="right"><a name="nonCivicAddress">Non-civic Address</a></td>
+<td>An address that has no civicNumber. It must have a <a href="#siteName">siteName</a>, <a href="#localityName">localityName</a>, and <a href="#provinceCode">provinceCode</a>. It may also have street elements (e.g., <a href="#streetName">streetName</a>, <a href="#streetType">streetType</a>), a <a href="#narrativeLocation">narrative location</a>, and <a href="#accessNotes">accessNotes</a>. Landmarks and remote industrial sites typically have non-civic addresses.</td>
+</tr>
+<tr>
+<td align="right"><a name="occupant">Occupant</a></td>
+<td>An occupant is a business, government office, public facility, landmark, named natural feature, or named infrastructure that occupies a given <a href="#siteAddress">site address</a>. The occupant may be permanent or seasonal but not transient (e.g., not a booth at an event). Examples are:<br><em>Terrace Hearing Clinic Ltd, 4550 Lakelse Ave, Terrace, BC</em><br><em>Victoria General Hospital, 1 Hospital Way, Victoria, BC</em><br><em>W.A.C. Bennett Dam, Hudson's Hope, BC</em><br><em>105 km Post, HWY 97 S, Kersley, BC</em><br><em>Thetis Lake, Langford, BC</em></td>
+</tr>
+<tr>
+<td align="right"><a name="occupantAliasAddress">occupantAliasAddress</a></td>
+<td>Address for display purposes. Useful when you want an occupant to display a recognizable localityName instead of the municipally-correct one (e.g., Brentwood Bay instead Central Saanich).</td>
+</tr>
+<tr>
+<td align="right"><a name="occupantDescription">occupantDescription</a></td>
+<td>Occupant description</td>
+</tr>
+<tr>
+<td align="right"><a name="occupantID">occupantID</a></td>
+<td>Unique id assigned to occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="occupantName">occupantName</a></td>
+<td>Name of occupant</td>
+</tr>
+<tr>
+<td align="right"><a name="outputFormat">outputFormat</a></td>
+<td>Format of request results. Allowed values are xhtml, kml, csv, shpz, geojson, geojsonp, gml</td>
+</tr>
+<tr>
+<td align="right"><a name="outputSRS">outputSRS</a></td>
+<td>The EPSG code of the spatial reference system used to state the coordination location of a named feature. It is ignored if KML output is specified since KML only supports 4326 (WGS84). Allowed values are:<br>3005: BC Albers<br>4326: WGS 84 (default)<br>26907-26911: NAD83/UTM Zones 7N through 11N<br>32607-32611: WGS84/UTM Zones 7N through 11N<br>26707-26711: NAD27/UTM Zones 7N through 11N</td>
+</tr>
+<tr>
+<td align="right"><a name="parcelPoint">parcelPoint</a></td>
+<td>A point representing a position known to be within the boundaries of a land parcel, usually the parcel centroid.</td>
+</tr>
+<tr>
+<td align="right"><a name="point">point</a></td>
+<td>The coordinates of the centre of a circle whose radius is defined by maxDistance. Together, centre and maxDistance define a search area. Format is x,y where x and y are coordinates in the specified outputSRS projection. By default, x is longitude and y is latitude in the default outputSRS projection of 4326 (WGS84).</td>
+</tr>
+<tr>
+<td align="right"><a name="precisionPoints">precisionPoints</a></td>
+<td>Defines the points assigned to each match precision level.</td>
+</tr>
+<tr>
+<td align="right"><a name="provinceCode">provinceCode</a></td>
+<td>The ISO 3166-2 Sub-Country Code for British Columbia, which is BC.</td>
+</tr>
+<tr>
+<td align="right"><a name="rooftopPoint">rooftopPoint</a></td>
+<td>A point representing the roof of a house or building.</td>
+</tr>
+<tr>
+<td align="right"><a name="routingPoint">routingPoint</a></td>
+<td>A point lying on a road centreline and directly in front of a site's accessPoint. A routing point is intended for use by routing algorithms to finding routes between addresses.</td>
+</tr>
+<tr>
+<td align="right"><a name="score">score</a></td>
+<td>A number between 0 and 100 representing the quality of an address match; 100 is a perfect match; 0 means no match. Score is computed by taking the precision points and subtracting penalty points for each fault found.</td>
+</tr>
+<tr>
+<td align="right"><a name="searchTimestamp">searchTimestamp</a></td>
+<td>Date/time search was completed (in format yyyy-mm-dd hh:mm:ss.sss)</td>
+</tr>
+<tr>
+<td align="right"><a name="setBack">setBack</a></td>
+<td>The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored on input if locationDescriptor not set to accessPoint.</td>
+</tr>
+<tr>
+<td align="right"><a name="site">site</a></td>
+<td>A constructed geographic feature in British Columbia with known coordinates (latitude/longitude) and a site address that is needed in the conduct of provincial business. Examples of constructed geographic features include houses, cabins, permanent campsites, mobile home and RV parks, units within houses and buildings, buildings within complexes, stores, malls, offices, industrial plants, bandshell, golf courses, hospitals, universities, recreation centres, places of worship, parks, municipal pumping stations, hydro sub-stations, wharves, airports, train stations, and landmarks.</td>
+</tr>
+<tr>
+<td align="right"><a name="siteAddress">Site Address</a></td>
+<td>A <a href="#civicAddress">civic address</a> or <a href="#nonCivicAddress">non-civic address</a> associated with a given <a href="#site">site</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="siteID">siteID</a></td>
+<td>A unique identifier assigned to every site in B.C. They are currently not immutable. matchPrecision levels other than unit, site, and civicNumber don’t return a siteID.</td>
+</tr>
+<tr>
+<td align="right"><a name="siteName">siteName</a></td>
+<td>A string containing the name of a <a href="#site">site</a> (e.g., Duck Building, Casa Del Mar, Crystal Garden, Bluebird House). A business name should only be used if it is permanently affixed to the site and the site has no other, more generic name. If a site is a unit within a complex, it may have a sitename in addition to a <a href="#unitNumber">unitNumber</a> and <a href="#unitNumberSuffix">unitNumberSuffix</a>.</td>
+</tr>
+<tr>
+<td align="right"><a name="siteRetireDate">siteRetireDate</a></td>
+<td>The date a <a href="#site">site</a> was retired.</td>
+</tr>
+<tr>
+<td align="right"><a name="siteStatus">siteStatus</a></td>
+<td>A <a href="#site">site</a> is usually retired when it is destroyed or combined with another site. Allowed values are active or retired.</td>
+</tr>
+<tr>
+<td align="right"><a name="sourceDataId">sourceDataId</a></td>
+<td>Id assigned to an <a href="#occupant">occupant</a> by its data custodian. custodianId plus sourcDataId is unique within geocoder.</td>
+</tr>
+<tr>
+<td align="right"><a name="spatialReferenceSystem">spatialReferenceSystem</a></td>
+<td>The EPSG code of the spatial reference system used to state the coordination location of a named feature. It is ignored if KML output is specified since KML only supports 4326 (WGS84). Allowed values are:<br>3005: BC Albers<br>4326: WGS 84 (default)<br>26907-26911: NAD83/UTM Zones 7N through 11N<br>32607-32611: WGS84/UTM Zones 7N through 11N<br>26707-26711: NAD27/UTM Zones 7N through 11N</td>
+</tr>
+<tr>
+<td align="right"><a name="startDate">startDate</a></td>
+<td>The starting date of a time period formatted as YYYY-MM-DD</td>
+</tr>
+<tr>
+<td align="right"><a name="streetCentreline">Street Centreline</a></td>
+<td>A line that is parallel to the street edges and located in the middle of the roadway. A street centreline exists even on streets that have no painted lines on them (e.g., a residential or unpaved street). A street centreline is oriented in the direction of increasing civic numbers. In the case of blocks that have continuous numbering that goes up on one side and down the other the street centreline is oriented in the direction of the lowest block range.</td>
+</tr>
+<tr>
+<td align="right"><a name="streetDirection">streetDirection</a></td>
+<td>The abbreviated compass direction as defined by Canada Post and B.C. civic addressing authorities . The complete list is C, E, N, NE, NO, NW, O, SE, SO, SW, and W. All street directions except C are defined by Canada Post. On input, the French streetDirections NO, O, and SO are mapped to NW, W, and SW respectively.</td>
+</tr>
+<tr>
+<td align="right"><a name="streetName">streetName</a></td>
+<td>The official name of the street recognized by a municipality (e.g., Douglas in 1175 Douglas Street). Sometimes, its difficult to determine if a directional is part of a street name or not. For example, given the address 1640 East Kent Ave S, Vancouver, BC, is East part of the street name or a streetDirection? Given there is already a street Direction of "S" after the street type, East is likely part of the street name. A trickier example is North Park St. Is the word "North" a street direction or a part of the street name. Because it is not abbreviated, "North" is probably part of the street name. The street name in N Park St could be either Park or North Park.</td>
+</tr>
+<tr>
+<td align="right"><a name="streetType">streetType</a></td>
+<td>The type of street as assigned by a municipality (e.g., the ST in 1175 DOUGLAS ST) and is abbreviated if such an abbreviation exists. On input, French streetTypes are mapped to their English counterpart (e.g., Rue =&gt; St). The set of all street types is defined by the provincial Integration Transportation Network program.</td>
+</tr>
+<tr>
+<td align="right"><a name="streetQualifier">streetQualifier</a></td>
+<td>The qualifier of a street as assigned by a municipality (e.g., the Bridge in Johnson St Bridge). The set of all street qualifiers is defined by the provincial Integrated Transportion Network program. Here are some more qualifiers:<br>350, 420, Airport, Airstrip, Arm, Bay, Beach, Boardwalk, Boatlaunch, Brakecheck, Campground, Causeway, Chainoff, Chainup, Channel, Conn, Creek, Dam, Day Use Area, Diversion, Extension, Falls, Ferry, Flyover, Frtg, Hill, Hospital, Island, Lake, Marina, MHP, Offramp, Onramp, Overhead, Overpass, Parkinglot, Passage, Picnicarea, Pk, Point, Pullout, Ramp, Recsite, Restarea, River, School, Seabus, Shoreline, Snowshed, Station, Stub, Terminal,  TrailerCrt, Trailhead, Trestle, Tunnel, Underpass, Viaduct, WeighScale</td>
+</tr>
+<tr>
+<td align="right"><a name="tags">tags</a></td>
+<td>A list of tags separated by semicolons (e.g., schools;courts;employment). A tag is a word used to describe the type of occupant you are searching for.</td>
+</tr>
+<tr>
+<td align="right"><a name="unitNumber">unitNumber</a></td>
+<td>The number of the unit, suite, or apartment within a house or building.</td>
+</tr>
+<tr>
+<td align="right"><a name="unitNumberSuffix">unitNumberSuffix</a></td>
+<td>A letter that follows the unit number as in Unit 1A.</td>
+</tr>
+<tr>
+<td align="right"><a name="unitDesignator">unitDesignator</a></td>
+<td>The type of unit. Examples include APT, BLDG, BSMT, FLR, LOBBY, LWR, PAD, PH, REAR, RM, SIDE, SITE, SUITE, TH, UNIT, UPPR.</td>
+</tr>
+<tr>
+<td align="right"><a name="version">version</a></td>
+<td>Software version of the REST Web Service</td>
+</tr>
+<tr>
+<td align="right"><a name="websiteUrl">websiteUrl</a></td>
+<td>Web site URL of occupant</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
