@@ -27,8 +27,8 @@
         }
     ],
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "produces": [
         "application/json"
