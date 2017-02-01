@@ -42,8 +42,8 @@
     "host": "apps.gov.bc.ca",
     "basePath": "/pub/geomark",
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "paths": {
         "/geomarks/new": {
