@@ -38,7 +38,7 @@
     "host": "apps.gov.bc.ca",
     "basePath": "/pub/bcgnws",
     "schemes": [
-        "http"
+        "https"
     ],
     "produces": [
         "application/json","application/vnd.google-earth.kml+xml","text/xml","text/csv"
