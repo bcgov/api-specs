@@ -28,8 +28,8 @@
     "host": "www.bclaws.ca",
     "basePath": "/civix",
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "produces": [
         "text/xml",
