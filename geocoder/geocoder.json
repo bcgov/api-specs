@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Geocoder REST API",
-        "description": "This API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic and non-civic addresses in British Columbia. Please see our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
+        "description": "This API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic and non-civic addresses in British Columbia. CORS is enabled for gov.bc.ca only. Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
         "version": "2.0.0",
         "license": {
             "name": "Open Government License - British Columbia",
@@ -33,11 +33,17 @@
     "host": "apps.gov.bc.ca",
     "basePath": "/pub/geocoder",
     "schemes": [
-        "http",
-        "https"
+        "https",
+        "http"
     ],
     "produces": [
-        "application/json","application/vnd.geo+json","application/vnd.google-earth.kml+xml","application/xhtml+xml","application/gml+xml","text/csv","application/zip"
+        "application/json",
+        "application/vnd.geo+json",
+        "application/vnd.google-earth.kml+xml",
+        "application/xhtml+xml",
+        "application/gml+xml",
+        "text/csv",
+        "application/zip"
     ],
     "paths": {
         "/addresses.{outputFormat}": {
@@ -298,7 +304,7 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.07929,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
@@ -460,7 +466,7 @@
                         "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
                         "type": "string",
                         "required": false,
-                        "default":"OCCUPANT"
+                        "default": "OCCUPANT"
                     },
                     {
                         "name": "matchPrecisionNot",
@@ -602,7 +608,7 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792945083648,49.76287332290923,-126.0163386310997,49.79077056256354 .  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.07929,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },

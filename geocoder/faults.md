@@ -18,6 +18,8 @@ Name | Definition
 <a name="STREET.missing">Street Missing</a> | A given address didn't contain a street but one was found.
 <a name="STREET_DIRECTION.missing">Street Direction Missing</a> | A given address didn’t contain a street direction for a given street name and street type in a given locality but one was found.
 <a name="STREET_DIRECTION.notMatched">Street Direction Not Matched</a> | A given street direction for a given street name and street type in a given locality was not found. A match without the street direction is returned.
+<a name="STREET_DIRECTION.notPrefix">Street Direction Not Prefix</a> | A given street direction was placed before street name instead of after. A match with a correctly positioned street direction is returned.
+<a name="STREET_DIRECTION.notSuffix">Street Direction Not Suffix</a> | A given street direction was placed after street name instead of before. A match with a correctly positioned street direction is returned.
 <a name="STREET_DIRECTION.spelledWrong">Street Direction Spelled Wrong</a> | A given street direction was spelled wrong. A match with a correctly spelled street direction is returned.
 <a name="STREET_NAME.isAlias">Street Name Is Alias</a> | A given street name is an alias for the official street name. A match with the official street name is returned.
 <a name="STREET_NAME.missing">Street Name Missing</a> | A given address didn't contain a street name but one was found.
@@ -28,6 +30,8 @@ Name | Definition
 <a name="STREET_QUALIFIER.spelledWrong">Street Qualifier Spelled Wrong</a> | A given street qualifier was spelled wrong but was successfully corrected to match a known street qualifier.
 <a name="STREET_TYPE.missing">Street Type Missing</a> | A given address didn’t contain a street type for a given street name in a given locality but one was found.
 <a name="STREET_TYPE.notMatched">Street Type Not Matched</a> | A given street type for a given street name in a given locality was not found. A match containing the correct street type is returned.
+<a name="STREET_TYPE.notPrefix">Street Type Not Prefix</a> | A given street street was placed before street name instead of after. A match with a correctly positioned street type is returned.
+<a name="STREET_TYPE.notSuffix">Street Type Not Suffix</a> | A given street type was placed after street name instead of before. A match with a correctly positioned street type is returned.
 <a name="STREET_TYPE.spelledWrong">Street Type Spelled Wrong</A> | A given street type was spelled wrong but was successfully corrected to match a known street type.
 <a name="UNRECOGNIZED_ELEMENT.notAllowed">Unrecognized element notAllowed</a>	| There are unnecessary or redundant words in an address. For example, the following address has a redundant streetType (e.g., Road): 33457 COTTAGE LANE ROAD ABBOTSFORD BC. The following address has an unnecessary site name (e.g., ABERDEEN SQUARE) : ABERDEEN SQUARE 101-2764 BARNET HIGHWAY COQUITLAM BC
 Unit Designator Is Alias | A given unit designator is an alias of the official unit designator. A match containing the official unit designator is returned.
