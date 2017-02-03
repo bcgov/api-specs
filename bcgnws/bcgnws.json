@@ -38,6 +38,7 @@
     "host": "apps.gov.bc.ca",
     "basePath": "/pub/bcgnws",
     "schemes": [
+        "https",
         "http"
     ],
     "produces": [
@@ -46,6 +47,7 @@
     "paths": {
         "/names/search": {
             "get": {
+                "summary": "Search by name",
                 "description": "Search for information about geographical names by the text of the name itself.  The response will include both official and unofficial names.  Various options and filter parameters are available to refine the search.",
                 "tags": [
                     "search",
@@ -191,6 +193,7 @@
         },
         "/names/official/search": {
             "get": {
+                "summary": "Search by name, limit to official names only",
                 "description": "Search for information about official geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
                 "tags": [
                     "search",
@@ -336,6 +339,7 @@
         },
         "/names/notOfficial/search": {
             "get": {
+                "summary": "Search by name, limit to unofficial names only",
                 "description": "Search for information about unofficial geographical names by the text of the name itself.  Various options and filter parameters are available to refine the search.",
                 "tags": [
                     "search",
@@ -481,6 +485,7 @@
         },
         "/names/inside": {
             "get": {
+                "summary": "Search in a geographic area",
                 "description": "Search for information about geographical names that correspond to features within a geographic bounding box.  Various options and filter parameters are available to refine the search.",
                 "tags": [
                     "search",
@@ -613,6 +618,7 @@
         },
         "/names/near": {
             "get": {
+                "summary": "Search near to a geographic point",
                 "description": "Search for information about geographical names that correspond to features within a geographic area defined by a centre point and a radius.  Various options and filter parameters are available to refine the search.",
                 "tags": [
                     "search",
@@ -752,6 +758,7 @@
         },
         "/names/decisions/recent": {
             "get": {
+                "summary": "Search for names affected by recent naming decision",
                 "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) within the last X days.",
                 "tags": [
                     "search",
@@ -885,6 +892,7 @@
         },
         "/names/decisions/year": {
             "get": {
+                "summary": "Search for names affected by naming decisions in a given year",
                 "description": "Search for information about geographical names affected by naming 'decisions' made by the BC Geographical Names Office (naming authority) in a given year.",
                 "tags": [
                     "search",
@@ -1017,6 +1025,7 @@
         },
         "/names/changes": {
             "get": {
+                "summary": "Search for names with metadata changes in a given period",
                 "description": "Search for information about geographical names which have changed most recently within a specified time window.  Changes may include status cupdates and metadata corrections.",
                 "tags": [
                     "search",
@@ -1156,6 +1165,7 @@
         },
         "/names/{nameId}.{outputFormat}": {
             "get": {
+                "summary": "Get a name by its nameId",
                 "description": "Get information about the geographical name with the specified nameId.",
                 "tags": [
                     "name"
@@ -1193,6 +1203,7 @@
         },
         "/features/{featureId}": {
             "get": {
+                "summary": "Get a feature by its featureId",
                 "description": "Get information about the geographical feature with the specified featureId.",
                 "tags": [
                     "feature"
@@ -1215,6 +1226,7 @@
         },
         "/featureClasses": {
             "get": {
+                "summary": "Get all feature classes",
                 "description": "Gets a list of all feature classes used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
                 "tags": [
                     "feature taxonomy"
@@ -1242,6 +1254,7 @@
         },
         "/featureCategories": {
             "get": {
+                "summary": "Get all feature categories",
                 "description": "Gets a list of all feature categories used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
                 "tags": [
                     "feature taxonomy"
@@ -1269,6 +1282,7 @@
         },        
         "/featureTypes": {
             "get": {
+                "summary": "Get all feature types",
                 "description": "Gets a list of all feature types used by the BC Geographical Names Information System (BCGNIS).  Note: there are three levels of classification in the BCGNIS feature taxonomy: classes, categories and types.  A type is a subset of a category, and a category is a subset of a class.",
                 "tags": [
                     "feature taxonomy"
@@ -1296,6 +1310,7 @@
         },
         "/nameAuthorities": {
             "get": {
+                "summary": "Get all name authorities",
                 "description": "Gets a list of all name authorities responsible for naming decisions of the geographical names in the BC Geographical Names Information System (BCGNIS)",
                 "tags": [
                     "name authority"
