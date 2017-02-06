@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: WorkBC Job Posting API
   description: This API allows you to receive a feed of jobs from WorkBC's Job
-    Bank. Please see our <a
+    Board. Please see our <a
     href="https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice"
     target="_blank">data collection notice</a>.
   version: "1.0.0"
@@ -22,7 +22,7 @@ paths:
       summary: Major Projects
       description: |
         The Major Projects endpoint returns details of all of the
-        major projects defined in WorkBC's Job Bank. The response includes the
+        major projects defined in WorkBC's Job Board. The response includes the
         id and caption.
       responses:
         200:
@@ -42,7 +42,7 @@ paths:
       summary: Job Types
       description: |
         The Job Types endpoint returns details of all of the
-        job types defined in WorkBC's Job Bank. The response includes the
+        job types defined in WorkBC's Job Board. The response includes the
         id and caption.
       responses:
         200:
@@ -62,7 +62,7 @@ paths:
       summary: Regions
       description: |
         The Regions endpoint returns details of all of the
-        regions defined in WorkBC's Job Bank. The response includes the
+        regions defined in WorkBC's Job Board. The response includes the
         id and caption.
       responses:
         200:
@@ -117,7 +117,7 @@ paths:
         in: formData
         type: boolean
         description: When true, only include job postings that have a Major
-          Project associated with them.  When true, only include job postings
+          Project associated with them.  When false, only include job postings
           that do not have a Major Project associated with them. If not
           specified, the data is not filtered by major project, unless the
           MajorProjectID parameter is used.
@@ -125,7 +125,7 @@ paths:
         in: formData
         type: integer
         format: int32
-        description: The unique id of a major project within the Job Bank
+        description: The unique id of a major project within the WorkBC Job Board
           database. When specified, only job postings associated with the
           specified major project will be included in the response.
           This parameter has no effect if the MajorProjects parameter is
@@ -147,7 +147,7 @@ definitions:
     properties:
       JobID:
         type: integer
-        description: The unique id of the job in the JobBank database.
+        description: The unique id of the job in the WorkBC Job Board database.
       RecordType:
         $ref: '#/definitions/RecordType'
       JobTitle:
@@ -204,7 +204,7 @@ definitions:
     properties:
       ID:
         type: integer
-        description: The unique ID of the Major Project in the JobBank database.
+        description: The unique ID of the Major Project in the WorkBC Job Board database.
           Use this when restricting the Job Feed to only one Major Project.
       Caption:
         type: string
