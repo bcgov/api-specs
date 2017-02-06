@@ -2,12 +2,12 @@
     "swagger": "2.0",
     "info": {
         "title": "WorkBC Job Posting API",
-        "description": "This API allows you to receive a feed of jobs from WorkBC's Job Bank. Please see our <a href=\"https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice\" target=\"_blank\">data collection notice</a>.",
+        "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href=\"https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice\" target=\"_blank\">data collection notice</a>.",
         "version": "1.0.0"
     },
-    "host": "workbcjobs.api.gov.bc.ca",
     "basePath":  "/v1",
     "schemes": [
+        "http",
         "https"
     ],
     "produces": [
@@ -20,7 +20,7 @@
                     "Job Feed"
                 ],
                 "summary": "Major Projects",
-                "description": "The Major Projects endpoint returns details of all of the\nmajor projects defined in WorkBC's Job Bank. The response includes the\nid and caption.\n",
+                "description": "The Major Projects endpoint returns details of all of the\nmajor projects defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
                 "responses": {
                     "200": {
                         "description": "An array of major projects",
@@ -46,7 +46,7 @@
                     "Job Feed"
                 ],
                 "summary": "Job Types",
-                "description": "The Job Types endpoint returns details of all of the\njob types defined in WorkBC's Job Bank. The response includes the\nid and caption.\n",
+                "description": "The Job Types endpoint returns details of all of the\njob types defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
                 "responses": {
                     "200": {
                         "description": "An array of job types",
@@ -72,7 +72,7 @@
                     "Job Feed"
                 ],
                 "summary": "Regions",
-                "description": "The Regions endpoint returns details of all of the\nregions defined in WorkBC's Job Bank. The response includes the\nid and caption.\n",
+                "description": "The Regions endpoint returns details of all of the\nregions defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
                 "responses": {
                     "200": {
                         "description": "An array of regions",
@@ -134,14 +134,14 @@
                         "name": "majorProjects",
                         "in": "formData",
                         "type": "boolean",
-                        "description": "When true, only include job postings that have a Major Project associated with them.  When true, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used."
+                        "description": "When true, only include job postings that have a Major Project associated with them.  When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used."
                     },
                     {
                         "name": "majorProjectID",
                         "in": "formData",
                         "type": "integer",
                         "format": "int32",
-                        "description": "The unique id of a major project within the Job Bank database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used."
+                        "description": "The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used."
                     }
                 ],
                 "responses": {
@@ -167,7 +167,7 @@
             "properties": {
                 "JobID": {
                     "type": "integer",
-                    "description": "The unique id of the job in the JobBank database."
+                    "description": "The unique id of the job in the WorkBC Job Board database."
                 },
                 "RecordType": {
                     "$ref": "#/definitions/RecordType"
@@ -237,7 +237,7 @@
             "properties": {
                 "ID": {
                     "type": "integer",
-                    "description": "The unique ID of the Major Project in the JobBank database. Use this when restricting the Job Feed to only one Major Project."
+                    "description": "The unique ID of the Major Project in the WorkBC Job Board database. Use this when restricting the Job Feed to only one Major Project."
                 },
                 "Caption": {
                     "type": "string",
