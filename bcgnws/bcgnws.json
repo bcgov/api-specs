@@ -187,6 +187,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -333,6 +336,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -479,6 +485,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -612,6 +621,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -752,6 +764,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -886,6 +901,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -1019,6 +1037,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -1159,6 +1180,9 @@
                 "responses": {
                     "200": {
                         "description": "A list of names matching the search criteria"
+                    },
+                    "400": {
+                        "description": "A required parameter is missing or invalid"
                     }
                 }
             }
@@ -1197,6 +1221,9 @@
                 "responses": {
                     "200": {
                         "description": "Information about the name with the specified nameId"
+                    },
+                    "404": {
+                        "description": "The name with the given nameId doesn't exist, or the output format is invalid."
                     }
                 }
             }
@@ -1220,6 +1247,9 @@
                 "responses": {
                     "200": {
                         "description": "Information about the feature with the specified featureId (XML format only)"
+                    },
+                    "404": {
+                        "description": "The feature with the given featureId doesn't exist"
                     }
                 }
             }
