@@ -7,7 +7,6 @@
     },
     "basePath":  "/v1",
     "schemes": [
-        "http",
         "https"
     ],
     "produces": [
