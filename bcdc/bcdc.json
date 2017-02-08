@@ -67,6 +67,7 @@
     "paths": {
         "/action/tag_list": {
             "get": {
+                "summary": "Get a list of tags",
                 "description": "Returns the names of all indexed tags",
                 "parameters": [
                     {
@@ -96,6 +97,7 @@
         },
         "/action/status_show": {
             "get": {
+                "summary": "Get the site status",
                 "description": "Returns the site status",
                 "tags": [
                     "action"
@@ -109,6 +111,7 @@
         },
         "/action/package_list": {
             "get": {
+                "summary": "Get a list of all packages (datasets)",
                 "description": "Returns the names of all indexed packages (datasets)",
                 "parameters": [
                     {
@@ -138,6 +141,7 @@
         },
         "/action/package_search": {
             "get": {
+                "summary": "Find packages (datasets) matching query terms",
                 "description": "Searches for packages (datasets) matching the specified query terms",
                 "parameters": [
                     {
@@ -160,6 +164,7 @@
         },
         "/action/package_show": {
             "get": {
+                "summary": "Get metadata about one specific package (dataset)",
                 "description": "Returns metadata about the package (dataset) corresponding to the specified unique name",
                 "parameters": [
                     {
@@ -182,6 +187,7 @@
         },
         "/action/package_activity_list": {
             "get": {
+                "summary": "Get the activity stream of a package (dataset)",
                 "description": "Returns a package's activity stream",
                 "parameters": [
                     {
@@ -218,6 +224,7 @@
         },
         "/action/package_activity_list_html": {
             "get": {
+                "summary": "Get the activity stream of a package (dataset), HTML format",
                 "description": "The activity stream is rendered as a snippet of HTML meant to be included in an HTML pag, i.e it doesn't have any header or footer.",
                 "parameters": [
                     {
@@ -254,6 +261,7 @@
         },
         "/action/package_autocomplete": {
             "get": {
+                "summary": "Find packages (datasets) matching a query",
                 "description": "Return a list of datasets that match a string",
                 "parameters": [
                     {
@@ -283,6 +291,7 @@
         },
         "/action/package_relationships_list": {
             "get": {
+                "summary": "Get package (dataset) relationships",
                 "description": "Return a dataset's relationships",
                 "parameters": [
                     {
@@ -318,6 +327,7 @@
         },
         "/action/package_revision_list": {
             "get": {
+                "summary": "Get list of revisions for a package (dataset)",
                 "description": "Return a dataset's revision as a list of dictionaries",
                 "parameters": [
                     {
@@ -340,6 +350,7 @@
         },
         "/action/organization_activity_list": {
             "get": {
+                "summary": "Get the activity stream of an organization",
                 "description": "Return an organization's activity stream",
                 "parameters": [
                     {
@@ -362,6 +373,7 @@
         },
         "/action/organization_activity_list_html": {
             "get": {
+                "summary": "Get the activity stream of an organization, HTML format",
                 "description": "Return an organization's activity stream as HTML",
                 "parameters": [
                     {
@@ -384,6 +396,7 @@
         },
         "/action/organization_follower_count": {
             "get": {
+                "summary": "Get number of followers of an organization",
                 "description": "Return the number of followers of an organization",
                 "parameters": [
                     {
@@ -406,6 +419,7 @@
         },
         "/action/organization_follower_list": {
             "get": {
+                "summary": "Get users following an organization",
                 "description": "Return a list of users that are following a given organization",
                 "parameters": [
                     {
@@ -428,6 +442,7 @@
         },
         "/action/organization_list_for_user": {
             "get": {
+                "summary": "Get organizations that a user has a given permission for",
                 "description": "Return the organizations that the user has a given permission for",
                 "parameters": [
                     {
@@ -450,6 +465,7 @@
         },
         "/action/organization_revision_list": {
             "get": {
+                "summary": "Get organization revisions",
                 "description": "Return an organization's revisions",
                 "parameters": [
                     {
@@ -472,6 +488,7 @@
         },
         "/action/organization_show": {
             "get": {
+                "summary": "Get details of a specific organization",
                 "description": "Return the details of an organization",
                 "parameters": [
                     {
@@ -501,6 +518,7 @@
         },
         "/action/organization_list": {
             "get": {
+                "summary": "Get names of all organizations",
                 "description": "Returns the names of all indexed organizations",
                 "parameters": [
                     {
@@ -530,6 +548,7 @@
         },
         "/action/organization_autocomplete": {
             "get": {
+                "summary": "Get names of organizations that match a query string",
                 "description": "Return a list of organization names that contain a string",
                 "parameters": [
                     {
@@ -559,6 +578,7 @@
         },
         "/action/resource_search": {
             "get": {
+                "summary": "Find resources",
                 "description": "Returns a dictionary with two fields ``count`` and ``results``.             The ``count`` field contains the total number of Resources                found without the limit or query parameters having an effect.             The ``results`` field is a list of dictized Resource objects.             The query parameter is a required field. It is a string in                the form ``{field}:{term}`` or a list of strings, each of the             same form. Within each string, ``{field}`` is a field or extra             field on the Resource domain object.",
                 "parameters": [
                     {
@@ -607,6 +627,7 @@
         },
         "/action/resource_show": {
             "get": {
+                "summary": "Get metadata for a specific resource",
                 "description": "Return the metadata of a resource",
                 "parameters": [
                     {
@@ -636,6 +657,7 @@
         },
         "/action/related_list": {
             "get": {
+                "summary": "Gets items related to a package (dataset)",
                 "description": "Returns a dataset's related items.",
                 "parameters": [
                     {
