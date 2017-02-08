@@ -57,6 +57,7 @@
     "paths": {
         "/addresses.{outputFormat}": {
             "get": {
+                "summary": "Geocode an address",
                 "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
                 "tags": [
                     "sites",
@@ -361,6 +362,7 @@
         },
         "/occupants/addresses.{outputFormat}": {
             "get": {
+                "summary": "Geocode an address and identify site occupants",
                 "description": "Represents the set of occupants whose addresses best match a given query address. Every occupant has an associated site which has a standardized address and a coordinate location on the Earth.",
                 "tags": [
                     "occupants"
@@ -671,6 +673,7 @@
         },
         "/sites/nearest.{outputFormat}": {
             "get": {
+                "summary": "Find the site nearest to a geographic point",
                 "description": "Represents the site nearest a given point",
                 "tags": [
                     "sites"
@@ -772,6 +775,7 @@
         },
         "/occupants/nearest.{outputFormat}": {
             "get": {
+                "summary": "Find occupants of the site nearest to a geographic point",
                 "description": "Represents the closest occupant to a given point",
                 "tags": [
                     "occupants"
@@ -873,6 +877,7 @@
         },
         "/intersections/nearest.{outputFormat}": {
             "get": {
+                "summary": "Find nearest intersection to a geographic point",
                 "description": "Represents the closest intersection to a given point",
                 "tags": [
                     "intersections"
@@ -959,6 +964,7 @@
         },
         "/sites/near.{outputFormat}": {
             "get": {
+                "summary": "Find sites near to a geographic point",
                 "description": "Represents sites near a given point in the order of closest to farthest",
                 "tags": [
                     "sites"
@@ -1068,6 +1074,7 @@
         },
         "/occupants/near.{outputFormat}": {
             "get": {
+                "summary": "Find occupants of sites near to a geographic point",
                 "description": "Represents occupants near a given point in order of closest to farthest",
                 "tags": [
                     "occupants"
@@ -1184,6 +1191,7 @@
         },
         "/intersections/near.{outputFormat}": {
             "get": {
+                "summary": "Find intersections near to a geographic point",
                 "description": "Represents intersections near a given point",
                 "tags": [
                     "intersections"
@@ -1278,6 +1286,7 @@
         },
         "/sites/within.{outputFormat}": {
             "get": {
+                "summary": "Find sites in a geographic area",
                 "description": "Represents sites within a given area",
                 "tags": [
                     "sites"
@@ -1380,6 +1389,7 @@
         },
         "/occupants/within.{outputFormat}": {
             "get": {
+                "summary": "Find occupants of sites in a geographic area",
                 "description": "Represents all occupants within a given area",
                 "tags": [
                     "occupants"
@@ -1482,6 +1492,7 @@
         },
         "/intersections/within.{outputFormat}": {
             "get": {
+                "summary": "Find intersections in a geographic area",
                 "description": "Represents all intersections within a given area",
                 "tags": [
                     "intersections"
@@ -1569,6 +1580,7 @@
         },
         "/sites/{siteID}.{outputFormat}": {
             "get": {
+                "summary": "Get a site by its unique ID",
                 "description": "Represents an individual site",
                 "tags": [
                     "sites"
@@ -1656,6 +1668,7 @@
         },
         "/occupants/{occupantID}.{outputFormat}": {
             "get": {
+                "summary": "Get an occupant (of a site) by its unique ID",
                 "description": "Represents an individual occupant",
                 "tags": [
                     "occupants"
@@ -1743,6 +1756,7 @@
         },
         "/intersections/{intersectionID}.{outputFormat}": {
             "get": {
+                "summary": "Get an intersection by its unique ID",
                 "description": "Represents a individual intersection",
                 "tags": [
                     "intersections"
