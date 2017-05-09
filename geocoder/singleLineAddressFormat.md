@@ -83,7 +83,7 @@ streetQualifier |	BRIDGE
 localityName |	VICTORIA
 provinceCode |	BC
 
-###Example 4 - Civic address with an occupant
+### Example 4 - Civic address with an occupant
 
 UVIC Main Campus -- 3800 Finnerty Rd, Saanich, BC
 
