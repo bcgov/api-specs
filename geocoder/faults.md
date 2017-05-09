@@ -1,4 +1,4 @@
-#Geocoder Faults
+# Geocoder Faults
 Name | Definition
 -------: | ---------------
 <a name="CIVIC_NUMBER.missing">Civic Number Missing</a> | A given address didn't contain a civic number but one was found.
