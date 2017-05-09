@@ -1,4 +1,4 @@
-#Geocoder Roadmap
+# Geocoder Roadmap
 Version | Release Date | Features
 -------: | --------------- | -------------
 3.0 | September 2016 | High availability - no scheduled downtime for updates to software or data
