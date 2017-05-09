@@ -2,13 +2,13 @@
 # Developer Guide
 This guide is aimed at developers and web masters that would like to incorporate the Physical Address Geocoder into their applications and websites.
 <br>
-##Introduction
+## Introduction
 The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the Swagger definition of the [public geocoder](https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json) or the [gated geocoder](https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/gated-geocoder.json). You can explore the API in the API console for the [public geocoder](http://apps.gov.bc.ca/pub/api-explorer/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder.json) or the [gated geocoder](http://apps.gov.bc.ca/pub/api-explorer/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/gated-geocoder.json). To simplify integration of the online geocoder into your client web application, you can use the [Javascript API](http://apps.gov.bc.ca/pub/geocoder/js/geocode.js) 
 <br>
-##API Changes in v2.0.1
+## API Changes in v2.0.1
 There are no API changes in v2.0.1
 
-##Resource Overview
+## Resource Overview
 The Online Geocoder offers resources for validating and geocoding an address (including public and related business occupants); finding a given site, intersection, and occupant; and finding sites, intersections, and occupants near a point or within an area. 
 The current baseUrl for the public online geocoder is:<br>
 http://apps.gov.bc.ca/pub/geocoder<br><br>
@@ -17,10 +17,10 @@ https://apps.gov.bc.ca/pub/geocoder<br><br>
 The baseUrl for the gated online geocoder is:<br>
 https://geocoder.api.gov.bc.ca/
 
-##Cross-Origin Resource Sharing (CORS)
+## Cross-Origin Resource Sharing (CORS)
 CORS for the public geocoder is only enabled for gov.bc.ca. CORS for the gated geocoder is enabled for any domain. To request an apikey for the gated geocoder, please contact the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
 
-##Addresses Resource
+## Addresses Resource
 The addresses resource represents all addresses in the geocoder. A request on this resource to find a query address will return one or more matching addresses that are standardized and geocoded (i.e., given a point location on the earth). 
 
 A query address can be specified in two different ways:
@@ -58,10 +58,10 @@ http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?setBack=0&minScore=1&maxResul
 http://apps.gov.bc.ca/pub/geocoder/occupants/nearest.geojson?point=-123.7064038,48.8498537&tags=courts<br><br>
 <br>
 
-###Resource representations in HTTP Responses
+### Resource representations in HTTP Responses
 The addresses resource will return a document in the requested format and spatial reference system.  Documents in formats that support a header record (e.g., XHTML, KML, GEOJSON, GEOJSONP, GML) will contain a single About Query representation describing the query and its execution, and one or more site address or intersection address representations. Documents in formats that don’t support a header record (e.g., CSV, SHPZ), will contain one or more site/intersection address representations.
 
-####About Query Representation
+#### About Query Representation
 Attribute Name |	Type
 ---------------------: | --- |
 [searchTimestamp](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#searchTimestamp) | Datetime
@@ -74,7 +74,7 @@ Attribute Name |	Type
 [outputSRS](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS) | Integer
 [setBack](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#setBack) |Real 
  
-####Site Address Representation
+#### Site Address Representation
 Attribute Name |	Type
 ---------------------: | ---
 [fullAddress](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullAddress) |	String
@@ -108,7 +108,7 @@ Attribute Name |	Type
 [changeDate](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#changeDate) |	string
 [isPrimary](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isPrimary) |	string
 
-####Intersection Address Representation
+#### Intersection Address Representation
 Attribute Name |	Type
 ---------------------: | ---
 [fullAddress](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullAddress) |	String
@@ -127,10 +127,10 @@ Attribute Name |	Type
 
 
 
-##Occupant/addresses Resource
+## Occupant/addresses Resource
 The occupants/addresses resource is similar to the addresses resource. Its response will include an About Query representation plus one site representation and occupant representation for each address matched.
 
-####Occupant Representation
+#### Occupant Representation
 Attribute Name |	Type
 ---------------------: | ---
 [occupantName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#occupantName) |	string
