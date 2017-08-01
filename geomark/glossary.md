@@ -1,4 +1,4 @@
-#Geomark Glossary of Terms
+# Geomark Glossary of Terms
 Term | Definition
 ----: | -----------
 <a name="area">Area (area)</a> | Area of the placemark in hectares.
