@@ -125,6 +125,14 @@
                         "default": true
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
+                    },
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
