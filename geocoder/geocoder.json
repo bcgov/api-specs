@@ -133,6 +133,14 @@
                         "default": true
                     },
                     {
+                        "name": "autoComplete",
+                        "in": "query",
+                        "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -444,6 +452,14 @@
                         "required": false,
                         "default": true
                     },
+                    {
+                        "name": "autoComplete",
+                        "in": "query",
+                        "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
