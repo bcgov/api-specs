@@ -764,6 +764,14 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
@@ -858,6 +866,21 @@
                             "routingPoint"
                         ]
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "excludeUnits",
+                        "in": "query",
+                        "description": "If true, excludes sites that are units of a parent site",
+                        "type": "boolean",
+                        "required": false
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
@@ -1045,6 +1068,14 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
@@ -1147,6 +1178,21 @@
                             "routingPoint"
                         ]
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "excludeUnits",
+                        "in": "query",
+                        "description": "If true, excludes sites that are units of a parent site",
+                        "type": "boolean",
+                        "required": false
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
@@ -1335,6 +1381,14 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
@@ -1430,6 +1484,21 @@
                             "routingPoint"
                         ]
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "excludeUnits",
+                        "in": "query",
+                        "description": "If true, excludes sites that are units of a parent site",
+                        "type": "boolean",
+                        "required": false
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
