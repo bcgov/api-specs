@@ -127,7 +127,7 @@
                     {
                         "name": "brief",
                         "in": "query",
-                        "description": "If true, include only basic match and address details in results.",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
                         "type": "boolean",
                         "required": false,
                         "default": true
@@ -435,6 +435,14 @@
                         "description": "If true, include unmatched address details such as site name in results.",
                         "type": "boolean",
                         "default": false
+                    },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
                     },
                     {
                         "name": "setBack",
@@ -1571,6 +1579,14 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -1652,6 +1668,14 @@
                             "routingPoint"
                         ]
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": true
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
