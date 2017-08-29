@@ -777,7 +777,14 @@
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
                         "required": false
-                    }
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false
+                    }                    
                 ],
                 "responses": {
                     "200": {
@@ -873,13 +880,6 @@
                         "type": "boolean",
                         "required": false,
                         "default": false
-                    },
-                    {
-                        "name": "excludeUnits",
-                        "in": "query",
-                        "description": "If true, excludes sites that are units of a parent site",
-                        "type": "boolean",
-                        "required": false
                     },                    
                     {
                         "name": "setBack",
@@ -1081,7 +1081,14 @@
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
                         "required": false
-                    }
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false
+                    }                    
                 ],
                 "responses": {
                     "200": {
@@ -1185,13 +1192,6 @@
                         "type": "boolean",
                         "required": false,
                         "default": false
-                    },
-                    {
-                        "name": "excludeUnits",
-                        "in": "query",
-                        "description": "If true, excludes sites that are units of a parent site",
-                        "type": "boolean",
-                        "required": false
                     },                    
                     {
                         "name": "setBack",
@@ -1394,7 +1394,14 @@
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
                         "required": false
-                    }
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false
+                    }                    
                 ],
                 "responses": {
                     "200": {
@@ -1491,13 +1498,6 @@
                         "type": "boolean",
                         "required": false,
                         "default": false
-                    },
-                    {
-                        "name": "excludeUnits",
-                        "in": "query",
-                        "description": "If true, excludes sites that are units of a parent site",
-                        "type": "boolean",
-                        "required": false
                     },                    
                     {
                         "name": "setBack",
