@@ -776,14 +776,16 @@
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false
                     },
                     {
                         "name": "onlyCivic",
                         "in": "query",
                         "description": "If true, excludes sites without a civic address",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false                        
                     }                    
                 ],
                 "responses": {
@@ -1080,14 +1082,16 @@
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false                        
                     },
                     {
                         "name": "onlyCivic",
                         "in": "query",
                         "description": "If true, excludes sites without a civic address",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false                        
                     }                    
                 ],
                 "responses": {
@@ -1393,14 +1397,16 @@
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false                        
                     },
                     {
                         "name": "onlyCivic",
                         "in": "query",
                         "description": "If true, excludes sites without a civic address",
                         "type": "boolean",
-                        "required": false
+                        "required": false,
+                        "default": false                        
                     }                    
                 ],
                 "responses": {
