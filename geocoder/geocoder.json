@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Geocoder REST API",
-        "description": "This API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic and non-civic addresses in British Columbia. CORS is enabled for gov.bc.ca only. Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
+        "description": "This API represents address cleaning, correction, completion, geocoding, reverse geocoding, and proximity resources for intersection addresses, physical addresses and their occupants in British Columbia. CORS is enabled for gov.bc.ca only. Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
         "version": "2.0.0",
         "license": {
             "name": "Open Government License - British Columbia",
@@ -1603,6 +1603,96 @@
                 }
             }
         },
+       "/sites/{siteID}/subsites.{outputFormat}": {
+            "get": {
+                "summary": "Represents all subsites of a given site",
+                "description": "Represents all subsites of a given site",
+                "tags": [
+                    "sites"
+                ],
+                "parameters": [
+                    {
+                        "name": "siteID",
+                        "in": "path",
+                        "description": "A unique, but not immutable, site identifier.",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "outputFormat",
+                        "in": "path",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "geojson",
+                            "xhtml",
+                            "kml",
+                            "gml",
+                            "csv",
+                            "shpz"
+                        ]
+                    },
+                    {
+                        "name": "outputSRS",
+                        "in": "query",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "type": "integer",
+                        "required": false,
+                        "default": 4326,
+                        "enum": [
+                            4326,
+                            4269,
+                            3005,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "locationDescriptor",
+                        "in": "query",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "type": "string",
+                        "required": false,
+                        "default": "any",
+                        "enum": [
+                            "any",
+                            "accessPoint",
+                            "frontDoorPoint",
+                            "parcelPoint",
+                            "rooftopPoint",
+                            "routingPoint"
+                        ]
+                    },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
+                        "name": "setBack",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "integer",
+                        "required": false,
+                        "default": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns all subsites of a given site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                    }
+                }
+            }
+        },        
         "/sites/{siteID}.{outputFormat}": {
             "get": {
                 "summary": "Get a site by its unique ID",
