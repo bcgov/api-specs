@@ -39,8 +39,10 @@
         "application/json",
         "application/vnd.geo+json",
         "application/vnd.google-earth.kml+xml",
+        "application/xhtml+xml",
         "application/gml+xml",
-        "application/text+csv"
+        "text/csv",
+        "application/zip"
     ],
     "security": [
         {
@@ -133,6 +135,22 @@
                         "required": false,
                         "default": true
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "autoComplete",
+                        "in": "query",
+                        "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
@@ -278,7 +296,7 @@
                     {
                         "name": "streetQualifier",
                         "in": "query",
-                        "description": "Example: the Bridge in Johnson St Bridge. The qualifier of a street name. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQulifier target=\"_blank\">streetQualifier</a>",
+                        "description": "Example: the Bridge in Johnson St Bridge. The qualifier of a street name. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier target=\"_blank\">streetQualifier</a>",
                         "type": "string",
                         "required": false
                     },
@@ -314,14 +332,14 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -126.0792,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -126.07929,49.7628,-126.0163,49.7907.  A bounding box (xmin,ymin,xmax,ymax) that limits the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": false
                     },
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.01659,49.2296.  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
@@ -350,12 +368,6 @@
                 "responses": {
                     "200": {
                         "description": "A list of matching sites or intersections and their physical locations. See <a href='https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#resource-representations-in-http-responses' target=\"_blank\">addresses response</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -443,6 +455,22 @@
                         "type": "boolean",
                         "default": false
                     },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "autoComplete",
+                        "in": "query",
+                        "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
                     {
                         "name": "setBack",
                         "in": "query",
@@ -632,7 +660,7 @@
                     {
                         "name": "centre",
                         "in": "query",
-                        "description": "Example: -124.0165,49.2296.  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
+                        "description": "Example: -124.0165926,49.2296251 .  The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. This parameter must be specified together with 'maxDistance'. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#centre target='_blank'>centre</a>",
                         "type": "string",
                         "required": false
                     },
@@ -661,12 +689,6 @@
                 "responses": {
                     "200": {
                         "description": "A list of matching occupants, sites, and their physical locations. Response document will contain one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#about-query-representation\" target=\"_blank\">About Query Representation</a> and one <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a> for each matching occupant."
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -753,22 +775,33 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
-                    }
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false                        
+                    }                    
                 ],
                 "responses": {
                     "200": {
                         "description": "The nearest site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -854,6 +887,14 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -865,12 +906,6 @@
                 "responses": {
                     "200": {
                         "description": "The nearest occupant in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -952,12 +987,6 @@
                 "responses": {
                     "200": {
                         "description": "The nearest intersection in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1052,22 +1081,33 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
-                    }
+                        "required": false,
+                        "default": false                        
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false                        
+                    }                    
                 ],
                 "responses": {
                     "200": {
                         "description": "A list of selected sites that are near a given point in order of closest to farther. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1161,30 +1201,25 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
                         "type": "integer",
                         "required": false,
                         "default": 0
-                    },
-                    {
-                        "name": "excludeUnits",
-                        "in": "query",
-                        "description": "If true, excludes sites that are units of a parent site",
-                        "type": "boolean",
-                        "required": false
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "A list of selected occupants that are near a given point in order of closest to farther. Each occupant is returned as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1231,7 +1266,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": true,
                         "default": 4326,
@@ -1274,12 +1309,6 @@
                 "responses": {
                     "200": {
                         "description": "A list of selected intersections near a given point. Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1367,22 +1396,33 @@
                         "default": 0
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "excludeUnits",
                         "in": "query",
                         "description": "If true, excludes sites that are units of a parent site",
                         "type": "boolean",
-                        "required": false
-                    }
+                        "required": false,
+                        "default": false                        
+                    },
+                    {
+                        "name": "onlyCivic",
+                        "in": "query",
+                        "description": "If true, excludes sites without a civic address",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false                        
+                    }                    
                 ],
                 "responses": {
                     "200": {
                         "description": "A list of selected sites within a given area. Each site in the response document is structured as a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1429,7 +1469,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1469,6 +1509,14 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -1480,12 +1528,6 @@
                 "responses": {
                     "200": {
                         "description": "A list of selected occupants within the given area. Each occupant is returned in a <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1518,7 +1560,7 @@
                     {
                         "name": "bbox",
                         "in": "query",
-                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
+                        "description": "Example: -119.51,49.48,-119.53,49.50. A bounding box (xmin,ymin,xmax,ymax) used to limit the search area. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#bbox target=\"_blank\">bbox</a>",
                         "type": "string",
                         "required": true
                     },
@@ -1568,16 +1610,100 @@
                 "responses": {
                     "200": {
                         "description": "A list of selected intersections within the given area. Each intersection is in Each intersection is in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
         },
+       "/sites/{siteID}/subsites.{outputFormat}": {
+            "get": {
+                "summary": "Represents all subsites of a given site",
+                "description": "Represents all subsites of a given site",
+                "tags": [
+                    "sites"
+                ],
+                "parameters": [
+                    {
+                        "name": "siteID",
+                        "in": "path",
+                        "description": "A unique, but not immutable, site identifier.",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "outputFormat",
+                        "in": "path",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "type": "string",
+                        "required": true,
+                        "default": "json",
+                        "enum": [
+                            "json",
+                            "geojson",
+                            "xhtml",
+                            "kml",
+                            "gml",
+                            "csv",
+                            "shpz"
+                        ]
+                    },
+                    {
+                        "name": "outputSRS",
+                        "in": "query",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "type": "integer",
+                        "required": false,
+                        "default": 4326,
+                        "enum": [
+                            4326,
+                            4269,
+                            3005,
+                            26907,
+                            26908,
+                            26909,
+                            26910,
+                            26911
+                        ]
+                    },
+                    {
+                        "name": "locationDescriptor",
+                        "in": "query",
+                        "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
+                        "type": "string",
+                        "required": false,
+                        "default": "any",
+                        "enum": [
+                            "any",
+                            "accessPoint",
+                            "frontDoorPoint",
+                            "parcelPoint",
+                            "rooftopPoint",
+                            "routingPoint"
+                        ]
+                    },
+                    {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
+                        "name": "setBack",
+                        "in": "query",
+                        "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+                        "type": "integer",
+                        "required": false,
+                        "default": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns all subsites of a given site in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
+                    }
+                }
+            }
+        },        
         "/sites/{siteID}.{outputFormat}": {
             "get": {
                 "summary": "Get a site by its unique ID",
@@ -1645,6 +1771,14 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -1656,12 +1790,6 @@
                 "responses": {
                     "200": {
                         "description": "The site with the requested siteID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
@@ -1701,7 +1829,7 @@
                     {
                         "name": "outputSRS",
                         "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgovapi-specs/blob/master/geocoder/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
                         "type": "integer",
                         "required": false,
                         "default": 4326,
@@ -1733,6 +1861,14 @@
                         ]
                     },
                     {
+                        "name": "brief",
+                        "in": "query",
+                        "description": "If true, include only basic match and address details in results. Not supported for shp, csv, and gml formats.",
+                        "type": "boolean",
+                        "required": false,
+                        "default": false
+                    },                    
+                    {
                         "name": "setBack",
                         "in": "query",
                         "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -1743,13 +1879,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
+                        "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgovapi-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
                     }
                 }
             }
@@ -1808,12 +1938,6 @@
                 "responses": {
                     "200": {
                         "description": "The Intersection with the requested intersectionID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#intersection-address-representation\" target=\"_blank\">Intersection Address Representation</a>"
-                    },
-                    "400": {
-                        "description": "Bad request"
-                    },
-                    "401": {
-                        "description": "Invalid or missing api key"
                     }
                 }
             }
