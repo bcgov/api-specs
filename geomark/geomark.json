@@ -262,6 +262,18 @@
                         ]
                     },
                     {
+                        "name": "allowOverlap",
+                        "in": "formData",
+                        "description": "Select this option to allow overlapping geometries",
+                        "type": "boolean",
+                        "default": false,
+                        "required": false,
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    {
                         "name": "callback",
                         "in": "query",
                         "description": "The callback function a JSON result format would be wrapped in to support Ajax requests.",
