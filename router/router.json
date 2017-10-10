@@ -24,23 +24,11 @@
             "name": "directions"
         },
         {
-            "name": "routes"
-        },
-        {
             "name": "route"
         },
         {
-            "name": "routing"
+            "name": "distance"
         },
-        {
-            "name": "route planning"
-        },
-        {
-            "name": "shortest route"
-        },
-        {
-            "name": "fastest route"
-        }
     ],
     "host": "router.api.gov.bc.ca",
     "basePath": "/",
