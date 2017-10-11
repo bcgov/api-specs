@@ -28,7 +28,7 @@
         },
         {
             "name": "distance"
-        },
+        }
     ],
     "host": "router.api.gov.bc.ca",
     "basePath": "/",
