@@ -8,7 +8,6 @@
   "host": "workbcjobs.api.gov.bc.ca",
   "basePath": "/v1",
   "schemes": [
-    "http",
     "https"
   ],
   "produces": [
