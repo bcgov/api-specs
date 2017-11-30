@@ -79,7 +79,7 @@ Here is a sample json response:
     }
 
 
-##Route Resource
+## Route Resource
 The route resource represents the shortest or fastest route between given points and the length and duration of that route. Here are some examples:
 
 1. Shortest route in km and json between Duncan and Metchosin<br>https://router.api.gov.bc.ca/route.json?routeDescription=shortest%20route%20in%20km%20and%20json&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
@@ -88,7 +88,7 @@ The route resource represents the shortest or fastest route between given points
 
 3. Fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/route.html?routeDescription=fastest%20route%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
 
-###HTTP response
+### HTTP response
 The route resource will return the following representation:
 
 Attribute Name |	Type
@@ -210,7 +210,7 @@ Here is a sample json response:
 
 
 
-##Directions Resource
+##  Directions Resource
 The directions resource represents the turn-by-turn directions, shortest or fastest route between given points and the length and duration of that route. Here are some examples:
 
 1. Directions and shortest route in km and json between Duncan and Metchosin<br>https://router.api.gov.bc.ca/directions.json?routeDescription=directions%20Cand%20Cshortest%20route%20in%20km%20and%20json&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
@@ -219,7 +219,7 @@ The directions resource represents the turn-by-turn directions, shortest or fast
 
 3. Directions and fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/route.html?routeDescription=directions%20Cand%20Cfastest%20route%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
 
-###HTTP response
+### HTTP response
 The directions resource will return the following representation:
 
 Attribute Name |	Type
