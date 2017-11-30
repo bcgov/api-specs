@@ -1,5 +1,5 @@
-#BC Route Planner
-#Glossary of Terms
+# BC Route Planner
+# Glossary of Terms
 Term | Definition
 ----: | -----------
 <a name="criteria">criteria</a> | Routing criteria to optimize. One of shortest or fastest. Default is shortest.
