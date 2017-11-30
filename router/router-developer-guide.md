@@ -55,6 +55,7 @@ Here is a sample json response:
         "copyrightLicense": "http://www2.gov.bc.ca/gov/content/home/copyright",
         "srsCode": ​4326,
         "criteria": "shortest",
+        "distanceUnit":"km",
         "points": 
     
     [
@@ -71,8 +72,8 @@ Here is a sample json response:
                 ​55.3913904
             ]
         ],
+        "routeFound:true"
         "distance": ​1.17,
-        "distanceUnit": "km",
         "time": ​95,
         "timeText": "1 minutes 35 seconds"
     
@@ -121,6 +122,7 @@ Here is a sample json response:
         "copyrightLicense": "http://www2.gov.bc.ca/gov/content/home/copyright",
         "srsCode": ​4326,
         "criteria": "shortest",
+        "distanceUnit":"km",
         "points": 
     
     [
@@ -138,8 +140,8 @@ Here is a sample json response:
         ]
     
     ],
+    "routeFound:true",
     "distance": ​1.17,
-    "distanceUnit": "km",
     "time": ​95,
     "timeText": "1 minutes 35 seconds",
     "route": 
@@ -254,6 +256,7 @@ Here is a sample json response:
         "copyrightLicense": "http://www2.gov.bc.ca/gov/content/home/copyright",
         "srsCode": ​4326,
         "criteria": "shortest",
+        "distanceUnit":"km",
         "points": 
     
     [
@@ -271,8 +274,8 @@ Here is a sample json response:
         ]
     
     ],
+    "routeFound:true",
     "distance": ​1.17,
-    "distanceUnit": "km",
     "time": ​95,
     "timeText": "1 minutes 35 seconds",
     "route": 
