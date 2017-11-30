@@ -1,5 +1,5 @@
-#BC Route Planner
-#Developer Guide
+# BC Route Planner
+# Developer Guide
 This guide is aimed at developers and web masters that would like to incorporate the BC Route Planner into their applications and websites.
 <br>
 ##Introduction
