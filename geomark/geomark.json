@@ -1,23 +1,37 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "https://apps.gov.bc.ca/pub/geomark",
+            "description": "Production"
+        },
+        {
+            "url": "https://test.apps.gov.bc.ca/pub/geomark",
+            "description": "Test"
+        },
+        {
+            "url": "https://delivery.apps.gov.bc.ca/pub/geomark",
+            "description": "Delivery"
+        }
+    ],
     "info": {
         "title": "GeoMark Web Service REST API",
-        "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software.",
-        "termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
+        "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software. Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+        "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
         "contact": {
-            "name": "Data BC",
+            "name": "DataBC",
             "url": "http://data.gov.bc.ca/",
-            "email": "DataBCBA@gov.bc.ca"
+            "email": "IDDDBCLS@Victoria1.gov.bc.ca"
         },
         "license": {
             "name": "Open Government License - British Columbia",
-            "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
+            "url": "https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61"
         },
         "version": "4.1.2"
     },
     "externalDocs": {
-        "description": "Geomark Web Service Documentation",
-        "url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/geographic-data-and-services/geomark-webservice"
+        "description": "Geomark Web Service",
+        "url": "https://www2.gov.bc.ca/gov/content?id=F6BAF45131954020BCFD2EBCC456F084"
     },
     "tags": [
         {
@@ -39,12 +53,6 @@
             "name": "point"
         }
     ],
-    "host": "apps.gov.bc.ca",
-    "basePath": "/pub/geomark",
-    "schemes": [
-        "https",
-        "http"
-    ],
     "paths": {
         "/geomarks/new": {
             "post": {
@@ -52,165 +60,6 @@
                 "description": "Create a new geomark from the geometries read from the 'body' parameter or file.",
                 "tags": [
                     "create"
-                ],
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
-                "parameters": [
-                    {
-                        "name": "format",
-                        "in": "formData",
-                        "description": "The file format name extension of the input geometry.",
-                        "type": "string",
-                        "required": false,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
-                    },
-                    {
-                        "name": "srid",
-                        "in": "formData",
-                        "description": "The srid of the coordinate system the input geometries are in. If the file includes a coordinate system definition that will be used.",
-                        "type": "integer",
-                        "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
-                    },
-                    {
-                        "name": "resultFormat",
-                        "in": "formData",
-                        "description": "The file format the geomark info resource should be returned using.",
-                        "type": "string",
-                        "required": false,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
-                    },
-                    {
-                        "name": "multiple",
-                        "in": "formData",
-                        "description": "Boolean flag indicating if multiple geometries are to be used for the geomark (true) or only a single geometry from the first geometry (false).",
-                        "type": "boolean",
-                        "default": false,
-                        "required": false,
-                        "enum": [
-                            false,
-                            true
-                        ]
-                    },
-                    {
-                        "name": "allowOverlap",
-                        "in": "formData",
-                        "description": "When multiple=true select this option to allow overlapping geometries",
-                        "type": "boolean",
-                        "default": false,
-                        "required": false,
-                        "enum": [
-                            false,
-                            true
-                        ]
-                    },
-                    {
-                        "name": "callback",
-                        "in": "formData",
-                        "description": "The callback function a JSON result format would be wrapped in to support Ajax requests.",
-                        "type": "string",
-                        "required": false
-                    },
-                    {
-                        "name": "redirectUrl",
-                        "in": "formData",
-                        "description": "The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.",
-                        "type": "string",
-                        "required": false
-                    },
-                    {
-                        "name": "failureRedirectUrl",
-                        "in": "formData",
-                        "description": "The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.",
-                        "type": "string",
-                        "required": false
-                    },
-                    {
-                        "name": "bufferMetres",
-                        "in": "formData",
-                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
-                        "type": "integer",
-                        "required": false
-                    },
-                    {
-                        "name": "bufferJoin",
-                        "in": "formData",
-                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
-                        "type": "string",
-                        "required": false,
-                        "default": "ROUND",
-                        "enum": [
-                            "ROUND",
-                            "MITRE",
-                            "BEVEL"
-                        ]
-                    },
-                    {
-                        "name": "bufferCap",
-                        "in": "formData",
-                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
-                        "type": "string",
-                        "required": false,
-                        "default": "ROUND",
-                        "enum": [
-                            "ROUND",
-                            "SQUARE",
-                            "FLAT"
-                        ]
-                    },
-                    {
-                        "name": "bufferMitreLimit",
-                        "in": "formData",
-                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
-                        "type": "integer",
-                        "required": false,
-                        "default": 5
-                    },
-                    {
-                        "name": "bufferSegments",
-                        "in": "formData",
-                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
-                        "type": "integer",
-                        "required": false,
-                        "default": 8
-                    },
-                    {
-                        "name": "body",
-                        "in": "formData",
-                        "description": "The binary or character content representing the geometry or geometries",
-                        "required": false,
-                        "type": "string"
-                    }
                 ],
                 "responses": {
                     "302": {
@@ -222,6 +71,129 @@
                     "500": {
                         "description": "Internal Server Error."
                     }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "format": {
+                                        "description": "The file format name extension of the input geometry.",
+                                        "type": "string",
+                                        "enum": [
+                                            "json",
+                                            "xml",
+                                            "kml",
+                                            "kmz",
+                                            "shp",
+                                            "shpz",
+                                            "geojson",
+                                            "gml",
+                                            "wkt"
+                                        ]
+                                    },
+                                    "srid": {
+                                        "description": "The srid of the coordinate system the input geometries are in. If the file includes a coordinate system definition that will be used.",
+                                        "type": "integer",
+                                        "enum": [
+                                            4326,
+                                            3005,
+                                            26907,
+                                            26908,
+                                            26909,
+                                            26910,
+                                            26911
+                                        ],
+                                        "default": 4326
+                                    },
+                                    "resultFormat": {
+                                        "description": "The file format the geomark info resource should be returned using.",
+                                        "type": "string",
+                                        "enum": [
+                                            "json",
+                                            "xml",
+                                            "kml",
+                                            "kmz",
+                                            "shp",
+                                            "shpz",
+                                            "geojson",
+                                            "gml",
+                                            "wkt"
+                                        ]
+                                    },
+                                    "multiple": {
+                                        "description": "Boolean flag indicating if multiple geometries are to be used for the geomark (true) or only a single geometry from the first geometry (false).",
+                                        "type": "boolean",
+                                        "enum": [
+                                            false,
+                                            true
+                                        ],
+                                        "default": false
+                                    },
+                                    "allowOverlap": {
+                                        "description": "When multiple=true select this option to allow overlapping geometries",
+                                        "type": "boolean",
+                                        "enum": [
+                                            false,
+                                            true
+                                        ],
+                                        "default": false
+                                    },
+                                    "callback": {
+                                        "description": "The callback function a JSON result format would be wrapped in to support Ajax requests.",
+                                        "type": "string"
+                                    },
+                                    "redirectUrl": {
+                                        "description": "The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.",
+                                        "type": "string"
+                                    },
+                                    "failureRedirectUrl": {
+                                        "description": "The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.",
+                                        "type": "string"
+                                    },
+                                    "bufferMetres": {
+                                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
+                                        "type": "integer"
+                                    },
+                                    "bufferJoin": {
+                                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
+                                        "type": "string",
+                                        "enum": [
+                                            "ROUND",
+                                            "MITRE",
+                                            "BEVEL"
+                                        ],
+                                        "default": "ROUND"
+                                    },
+                                    "bufferCap": {
+                                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
+                                        "type": "string",
+                                        "enum": [
+                                            "ROUND",
+                                            "SQUARE",
+                                            "FLAT"
+                                        ],
+                                        "default": "ROUND"
+                                    },
+                                    "bufferMitreLimit": {
+                                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
+                                        "type": "integer",
+                                        "default": 5
+                                    },
+                                    "bufferSegments": {
+                                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
+                                        "type": "integer",
+                                        "default": 8
+                                    },
+                                    "body": {
+                                        "description": "The binary or character content representing the geometry or geometries",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -232,116 +204,137 @@
                 "tags": [
                     "create"
                 ],
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
                 "parameters": [
                     {
                         "name": "geomarkUrl",
                         "in": "query",
                         "description": "One or more geomark URLs or identifiers to create the new geomark from.",
-                        "type": "string",
-                        "required": true
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "https://apps.gov.bc.ca/pub/geomark/geomarks/gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "resultFormat",
                         "in": "query",
                         "description": "The file format the geomark info resource should be returned using.",
-                        "type": "string",
                         "required": false,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "allowOverlap",
-                        "in": "formData",
+                        "in": "query",
                         "description": "Select this option to allow overlapping geometries",
-                        "type": "boolean",
-                        "default": false,
                         "required": false,
-                        "enum": [
-                            false,
-                            true
-                        ]
+                        "schema": {
+                            "type": "boolean",
+                            "enum": [
+                              false,
+                              true
+                            ],
+                            "default": false
+                        }
                     },
                     {
                         "name": "callback",
                         "in": "query",
                         "description": "The callback function a JSON result format would be wrapped in to support Ajax requests.",
-                        "type": "string",
-                        "required": false
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "redirectUrl",
                         "in": "query",
                         "description": "The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.",
-                        "type": "string",
-                        "required": false
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "failureRedirectUrl",
                         "in": "query",
                         "description": "The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.",
-                        "type": "string",
-                        "required": false
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "bufferMetres",
                         "in": "query",
                         "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
-                        "type": "integer",
-                        "required": false
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
                     },
                     {
                         "name": "bufferJoin",
                         "in": "query",
                         "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
-                        "type": "string",
                         "required": false,
-                        "default": "ROUND",
-                        "enum": [
-                            "ROUND",
-                            "MITRE",
-                            "BEVEL"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ROUND",
+                                "MITRE",
+                                "BEVEL"
+                            ],
+                            "default": "ROUND"
+                        }
                     },
                     {
                         "name": "bufferCap",
                         "in": "query",
                         "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
-                        "type": "string",
                         "required": false,
-                        "default": "ROUND",
-                        "enum": [
-                            "ROUND",
-                            "SQUARE",
-                            "FLAT"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ROUND",
+                                "SQUARE",
+                                "FLAT"
+                            ],
+                            "default": "ROUND"
+                        }
                     },
                     {
                         "name": "bufferMitreLimit",
                         "in": "query",
                         "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
-                        "type": "integer",
                         "required": false,
-                        "default": 5
+                        "schema": {
+                            "type": "integer",
+                            "default": 5
+                        }
                     },
                     {
                         "name": "bufferSegments",
                         "in": "query",
                         "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
-                        "type": "integer",
                         "required": false,
-                        "default": 8
+                        "schema": {
+                            "type": "integer",
+                            "default": 8
+                        }
                     }
                 ],
                 "responses": {
@@ -365,44 +358,52 @@
                     {
                         "name": "geomarkId",
                         "in": "path",
-                        "description": "The unique identifier for the geomark (e.g. gm-abcdefghijklmnopqrstuv0bcislands).",
-                        "type": "string",
-                        "required": true
+                        "description": "The unique identifier for the geomark",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "fileFormatExtension",
                         "in": "path",
                         "description": "The file format name extension used to represent the geomark download.",
-                        "type": "string",
                         "required": true,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "srid",
                         "in": "query",
                         "description": "The srid of the coordinate system the geometry should be converted to.",
-                        "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                4326,
+                                3005,
+                                26907,
+                                26908,
+                                26909,
+                                26910,
+                                26911
+                            ],
+                            "default": 4326
+                        }
                     }
                 ],
                 "responses": {
@@ -432,44 +433,52 @@
                     {
                         "name": "geomarkId",
                         "in": "path",
-                        "description": "The unique identifier for the geomark (e.g. gm-abcdefghijklmnopqrstuv0bcislands).",
-                        "type": "string",
-                        "required": true
+                        "description": "The unique identifier for the geomark",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "fileFormatExtension",
                         "in": "path",
                         "description": "The file format name extension used to represent the geomark download.",
-                        "type": "string",
                         "required": true,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "srid",
                         "in": "query",
                         "description": "The srid of the coordinate system the geometry should be converted to.",
-                        "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                4326,
+                                3005,
+                                26907,
+                                26908,
+                                26909,
+                                26910,
+                                26911
+                            ],
+                            "default": 4326
+                        }
                     }
                 ],
                 "responses": {
@@ -499,44 +508,52 @@
                     {
                         "name": "geomarkId",
                         "in": "path",
-                        "description": "The unique identifier for the geomark (e.g. gm-abcdefghijklmnopqrstuv0bcislands).",
-                        "type": "string",
-                        "required": true
+                        "description": "The unique identifier for the geomark.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "fileFormatExtension",
                         "in": "path",
                         "description": "The file format name extension used to represent the geomark download.",
-                        "type": "string",
                         "required": true,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "srid",
                         "in": "query",
                         "description": "The srid of the coordinate system the geometry should be converted to.",
-                        "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                4326,
+                                3005,
+                                26907,
+                                26908,
+                                26909,
+                                26910,
+                                26911
+                            ],
+                            "default": 4326
+                        }
                     }
                 ],
                 "responses": {
@@ -566,44 +583,52 @@
                     {
                         "name": "geomarkId",
                         "in": "path",
-                        "description": "The unique identifier for the geomark (e.g. gm-abcdefghijklmnopqrstuv0bcislands).",
-                        "type": "string",
-                        "required": true
+                        "description": "The unique identifier for the geomark",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "fileFormatExtension",
                         "in": "path",
                         "description": "The file format name extension used to represent the geomark download.",
-                        "type": "string",
                         "required": true,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "srid",
                         "in": "query",
                         "description": "The srid of the coordinate system the geometry should be converted to.",
-                        "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                4326,
+                                3005,
+                                26907,
+                                26908,
+                                26909,
+                                26910,
+                                26911
+                            ],
+                            "default": 4326
+                        }
                     }
                 ],
                 "responses": {
@@ -633,44 +658,52 @@
                     {
                         "name": "geomarkId",
                         "in": "path",
-                        "description": "The unique identifier for the geomark (e.g. gm-abcdefghijklmnopqrstuv0bcislands).",
-                        "type": "string",
-                        "required": true
+                        "description": "The unique identifier for the geomark.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
                         "name": "fileFormatExtension",
                         "in": "path",
                         "description": "The file format name extension used to represent the geomark download.",
-                        "type": "string",
                         "required": true,
-                        "enum": [
-                            "json",
-                            "xml",
-                            "kml",
-                            "kmz",
-                            "shp",
-                            "shpz",
-                            "geojson",
-                            "gml",
-                            "wkt"
-                        ]
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     },
                     {
                         "name": "srid",
                         "in": "query",
                         "description": "The srid of the coordinate system the geometry should be converted to.",
-                        "type": "integer",
                         "required": false,
-                        "default": 4326,
-                        "enum": [
-                            4326,
-                            3005,
-                            26907,
-                            26908,
-                            26909,
-                            26910,
-                            26911
-                        ]
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                4326,
+                                3005,
+                                26907,
+                                26908,
+                                26909,
+                                26910,
+                                26911
+                            ],
+                            "default": 4326
+                        }
                     }
                 ],
                 "responses": {
@@ -689,5 +722,8 @@
                 }
             }
         }
+    },
+    "components": {
+        "schemas": {}
     }
 }
