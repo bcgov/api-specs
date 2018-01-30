@@ -1581,7 +1581,7 @@
                             ],
                             "default": "json"
                         },
-                        "example":, "json"
+                        "example": "json"
                     }
                 ],
                 "responses": {
