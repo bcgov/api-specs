@@ -57,8 +57,7 @@
                 },
         {
             "name": "parcels"
-        }        }
-        
+        }
     ],
     "security": [
         {
