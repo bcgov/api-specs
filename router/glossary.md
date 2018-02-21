@@ -23,4 +23,4 @@ Term | Definition
 <a name="time">time</a> | Route duration (in seconds)
 <a name="timeText">timeText</a> | Route duration in structured English (e.g., 1 hour and 15 minutes)
 <a name="version">version</a> | Software version of the Router Web Service
-<a name="visitOrder">visitOrder</a> | Visit order represents the position in the optimal order each input point should appear in. For example, a visitorOrder of [0,3,2,4,1] means input point 0 is output point 0, input point 1 is output point 3, input point 2 is output point 2, input point 3 is output point 4, and input point 4 is output point 1
+<a name="visitOrder">visitOrder</a> | Represents the position in the optimal order each input point should appear in. For example, a visitorOrder of [0,3,2,4,1] means input point 0 is output point 0, input point 1 is output point 3, input point 2 is output point 2, input point 3 is output point 4, and input point 4 is output point 1
