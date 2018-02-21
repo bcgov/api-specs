@@ -355,3 +355,285 @@ Here is a sample json response:
         ]
     
     }
+    
+    xxxxxxxxxxxxxxxxxxxxxx
+    
+    ## optimalRoute Resource
+The optimalRoute resource represents the shortest or fastest route between a start point and a series of end points reordered to minimize total route distance or time. Here are some examples:
+
+1. Shortest optimal route in km and json between the following addresses in Victoria, BC:
+
+1200 Douglas St, 1020 View St, 851 Broughton St, and 707 Fort St 
+
+<br>https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+   
+2. Fastest optimal route in km and kml between same addresses as example 1<brhttps://router.api.gov.bc.ca/optimalDirections.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+
+### HTTP response
+The optimalRoute resource will return the following representation:
+
+Attribute Name |	Type
+---------------------: | --- |
+[routeDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeDescription) | String
+[searchTimestamp](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#searchTimestamp) | Datetime
+[executionTime](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#executionTime) | Real
+[version](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#version) | String 
+[disclaimer](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#disclaimer) | String
+[privacyStatement](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#privacyStatement) | String
+[srsCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#srsCode) | Integer
+[criteria](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#criteria) | String
+[distanceUnit](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distanceUnit) | String
+[points](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points) | list of Point
+[routeFound](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeFound) | Boolean
+[distance](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distance) | String
+[time](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#time) | Integer
+[timeText](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#timeText) | String
+[route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
+[visitOrder](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#visitOrder) | list of Integer
+
+
+Here is a sample json response:
+{
+    
+        "routeDescription": "shortest distance in km and json",
+        "searchTimestamp": "2016-03-30 11:19:06.721",
+        "executionTime": ​0,
+        "version": "1.3.0",
+        "disclaimer": "http://www2.gov.bc.ca/gov/content/home/disclaimer",
+        "privacyStatement": "http://www2.gov.bc.ca/gov/content/home/privacy",
+        "copyrightNotice": "Copyright 2016 Province of British Columbia - Access only",
+        "copyrightLicense": "http://www2.gov.bc.ca/gov/content/home/copyright",
+        "srsCode": ​4326,
+        "criteria": "shortest",
+        "distanceUnit":"km",
+        "points": 
+    
+    [
+    
+    [
+    
+        ​-123.1485847,
+        ​55.3933927
+    
+    ],
+    
+        [
+            ​-123.1515025,
+            ​55.3913904
+        ]
+    
+    ],
+    "routeFound:true",
+    "distance": ​1.17,
+    "time": ​95,
+    "timeText": "1 minutes 35 seconds",
+    "route": 
+    [
+    
+    [
+    
+        ​-123.14858470195041,
+        ​55.39339267997931
+    
+    ],
+    [
+    
+        ​-123.14840793196278,
+        ​55.39338712528468
+    
+    ],
+    [
+    
+        ​-123.14761109235013,
+        ​55.39341636881418
+    
+    ],
+    [
+    
+        ​-123.14668144613537,
+        ​55.393617534494794
+    
+    ],
+    [
+    
+        ​-123.14503449525762,
+        ​55.39417521046494
+    
+    ],
+    [
+    
+        ​-123.14390833997521,
+        ​55.39236304295874
+    
+    ],
+    [
+    
+        ​-123.14305692485847,
+        ​55.39099288115634
+    
+    ],
+    [
+    
+        ​-123.1446450161482,
+        ​55.39068293699658
+    
+    ],
+    [
+    
+        ​-123.14784075650216,
+        ​55.390523867097286
+    
+    ],
+    
+            [
+                ​-123.15160701279896,
+                ​55.3907106829186
+            ]
+        ]
+    
+    }
+
+
+
+##  Directions Resource
+The directions resource represents the turn-by-turn directions, shortest or fastest route between given points and the length and duration of that route. Here are some examples:
+
+1. Directions and shortest route in km and json between Duncan and Metchosin<br>https://router.api.gov.bc.ca/directions.json?routeDescription=directions%20Cand%20Cshortest%20route%20in%20km%20and%20json&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
+   
+2. Directions and shortest route in km and kml between Duncan and Metchosin<br>https://router.api.gov.bc.ca/directions.kml?routeDescription=directions%20Cand%20Cshortest%20route%20in%20km%20and%20kml&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
+
+3. Directions and fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/route.html?routeDescription=directions%20Cand%20Cfastest%20route%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
+
+### HTTP response
+The directions resource will return the following representation:
+
+Attribute Name |	Type
+---------------------: | --- |
+[routeDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeDescription) | String
+[searchTimestamp](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#searchTimestamp) | Datetime
+[executionTime](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#executionTime) | Real
+[version](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#version) | String 
+[disclaimer](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#disclaimer) | String
+[privacyStatement](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#privacyStatement) | String
+[srsCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#srsCode) | Integer
+[criteria](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#criteria) | String
+[distanceUnit](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distanceUnit) | String
+[points](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points) | list of Point
+[routeFound](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeFound) | Boolean
+[distance](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distance) | String
+[time](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#time) | Integer
+[timeText](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#timeText) | String
+[route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
+[directions](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | list of String
+
+Here is a sample json response:
+
+    {
+    
+        "routeDescription": "shortest distance in km and json",
+        "searchTimestamp": "2016-03-30 11:19:40.879",
+        "executionTime": ​1,
+        "version": "1.3.0",
+        "disclaimer": "http://www2.gov.bc.ca/gov/content/home/disclaimer",
+        "privacyStatement": "http://www2.gov.bc.ca/gov/content/home/privacy",
+        "copyrightNotice": "Copyright 2016 Province of British Columbia - Access only",
+        "copyrightLicense": "http://www2.gov.bc.ca/gov/content/home/copyright",
+        "srsCode": ​4326,
+        "criteria": "shortest",
+        "distanceUnit":"km",
+        "points": 
+    
+    [
+    
+    [
+    
+        ​-123.1485847,
+        ​55.3933927
+    
+    ],
+    
+        [
+            ​-123.1515025,
+            ​55.3913904
+        ]
+    
+    ],
+    "routeFound:true",
+    "distance": ​1.17,
+    "time": ​95,
+    "timeText": "1 minutes 35 seconds",
+    "route": 
+    [
+    
+    [
+    
+        ​-123.14858470195041,
+        ​55.39339267997931
+    
+    ],
+    [
+    
+        ​-123.14840793196278,
+        ​55.39338712528468
+    
+    ],
+    [
+    
+        ​-123.14761109235013,
+        ​55.39341636881418
+    
+    ],
+    [
+    
+        ​-123.14668144613537,
+        ​55.393617534494794
+    
+    ],
+    [
+    
+        ​-123.14503449525762,
+        ​55.39417521046494
+    
+    ],
+    [
+    
+        ​-123.14390833997521,
+        ​55.39236304295874
+    
+    ],
+    [
+    
+        ​-123.14305692485847,
+        ​55.39099288115634
+    
+    ],
+    [
+    
+        ​-123.1446450161482,
+        ​55.39068293699658
+    
+    ],
+    [
+    
+        ​-123.14784075650216,
+        ​55.390523867097286
+    
+    ],
+    
+        [
+            ​-123.15160701279896,
+            ​55.3907106829186
+        ]
+    
+    ],
+    "directions": 
+    
+        [
+            "Continue onto Columbia Dr for 250 m",
+            "Turn right onto Hwy 39 for 400 m",
+            "Turn right onto Alberta Dr for 550 m",
+            "Finish!"
+        ]
+    
+    }
+
