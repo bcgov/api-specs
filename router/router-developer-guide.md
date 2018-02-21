@@ -459,10 +459,10 @@ The visitOrder values need a bit more explanation. The points in the request in 
 
 The response above is the response to the request in example 2 and contains the visitOrder 0,3,2,4,1. visitOrder represents the position in the optimal order each input point should appear in as follows:
 
-1200 Douglas St is zeroeth point (0)
-1020 View St is third point (3)
-851 Broughton St is second point (2)
-835 Fisgard St is fourth point (4)
+1200 Douglas St is zeroeth point (0)<br>
+1020 View St is third point (3)<br>
+851 Broughton St is second point (2)<br>
+835 Fisgard St is fourth point (4)<br>
 707 Fort St is first point (1)
 
 Your application can then use the visitOrder to write out the stops in the optimal order:
