@@ -364,11 +364,11 @@ The optimalRoute resource represents the shortest or fastest route between a sta
 
 1200 Douglas St, 1020 View St, 851 Broughton St, 835 Fisgard St, and 707 Fort St 
 
-https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
    
 2. Fastest optimal route in km and kml between same addresses as example 1
 
-https://router.api.gov.bc.ca/optimalDirections.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+https://router.api.gov.bc.ca/optimalRoute.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
 
 ### HTTP response
 The optimalRoute resource will return the following representation:
@@ -449,19 +449,46 @@ Here is a sample json response:
 	]
     }
 
+The visitOrder values need a bit more explanation. The points in the request in example 2 above are given in the following order:
+
+0. 1200 Douglas St
+1. 1020 View St
+2. 851 Broughton St
+3. 835 Fisgard St
+4. 707 Fort St
+
+The response above is the response to the request in example 2 and contains the visitOrder 0,3,2,4,1. visitOrder represents the position in the optimal order each input point should appear in as follows:
+
+0. 1200 Douglas St
+3. 1020 View St
+2. 851 Broughton St
+4. 835 Fisgard St
+1. 707 Fort St
+
+Your application can then use the visitOrder to write out the stops in the optimal order:
+
+0. 1200 Douglas St
+1. 707 Fort St
+2. 851 Broughton St
+3. 1020 View St
+4. 835 Fisgard St
 
 
 ##  optimalDirections Resource
 The optimalDirections resource represents the turn-by-turn directions, shortest or fastest route between given points and the length and duration of that route. Here are some examples:
 
-1. Directions and shortest route in km and json between Duncan and Metchosin<br>https://router.api.gov.bc.ca/directions.json?routeDescription=directions%20Cand%20Cshortest%20route%20in%20km%20and%20json&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
-   
-2. Directions and shortest route in km and kml between Duncan and Metchosin<br>https://router.api.gov.bc.ca/directions.kml?routeDescription=directions%20Cand%20Cshortest%20route%20in%20km%20and%20kml&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnits=km&apikey=myapikey<br>
+1. Shortest optimal route and directions in km and json between the following addresses in Victoria, BC:
 
-3. Directions and fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/route.html?routeDescription=directions%20Cand%20Cfastest%20route%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
+1200 Douglas St, 1020 View St, 851 Broughton St, 835 Fisgard St, and 707 Fort St 
+
+https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
+   
+2. Fastest optimal route and directions in km and kml between same addresses as example 1
+
+https://router.api.gov.bc.ca/optimalRoute.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
 
 ### HTTP response
-The directions resource will return the following representation:
+The optimalDirections resource will return the following representation:
 
 Attribute Name |	Type
 ---------------------: | --- |
