@@ -358,16 +358,18 @@ Here is a sample json response:
     
     xxxxxxxxxxxxxxxxxxxxxx
     
-    ## optimalRoute Resource
+## optimalRoute Resource
 The optimalRoute resource represents the shortest or fastest route between a start point and a series of end points reordered to minimize total route distance or time. Here are some examples:
 
 1. Shortest optimal route in km and json between the following addresses in Victoria, BC:
 
-1200 Douglas St, 1020 View St, 851 Broughton St, and 707 Fort St 
+1200 Douglas St, 1020 View St, 851 Broughton St, 835 Fisgard St, and 707 Fort St 
 
-<br>https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
    
-2. Fastest optimal route in km and kml between same addresses as example 1<brhttps://router.api.gov.bc.ca/optimalDirections.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
+2. Fastest optimal route in km and kml between same addresses as example 1
+
+https://router.api.gov.bc.ca/optimalDirections.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey<br>
 
 ### HTTP response
 The optimalRoute resource will return the following representation:
