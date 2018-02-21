@@ -6,7 +6,7 @@ This repo contains documentation and Open API Specification (AKA swagger specs) 
 
 ## Support Matrix
 * current: [OAS 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
-* depreciated: [OAS 2.0.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
+* deprecated: [OAS 2.0.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
 ### License
 
