@@ -22,7 +22,6 @@ The distance resource represents the length and duration of the shortest or fast
 3. Length of fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/distance.html?routeDescription=fastest%20distance%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
 
 ### HTTP Response
-
 The distance resource will return the following representation:
 
 Attribute Name |	Type
@@ -112,7 +111,8 @@ Attribute Name |	Type
 [route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
 
 Here is a sample json response:
-{
+
+    {
     
         "routeDescription": "shortest distance in km and json",
         "searchTimestamp": "2016-03-30 11:19:06.721",
@@ -355,8 +355,7 @@ Here is a sample json response:
         ]
     
     }
-    
-    xxxxxxxxxxxxxxxxxxxxxx
+
     
 ## optimalRoute Resource
 The optimalRoute resource represents the shortest or fastest route between a start point and a series of end points reordered to minimize total route distance or time. Here are some examples:
@@ -395,7 +394,8 @@ Attribute Name |	Type
 
 
 Here is a sample json response:
-`{
+
+    {
 	"routeDescription": "",
 	"searchTimestamp": "2018-02-20 16:36:39.254",
 	"executionTime": 332,
@@ -447,7 +447,7 @@ Here is a sample json response:
 		[-123.35928, 48.42914],
 		[-123.36002, 48.42919]
 	]
-}`
+    }
 
 
 
@@ -484,7 +484,7 @@ Attribute Name |	Type
 
 Here is a sample json response:
 
-`{
+    {
 	"routeDescription": "",
 	"searchTimestamp": "2018-02-20 16:09:36.298",
 	"executionTime": 325,
@@ -594,5 +594,4 @@ Here is a sample json response:
 		"text": "Finish!",
 		"point": [-123.36002, 48.42919]
 	}]
-}`
-
+    }
