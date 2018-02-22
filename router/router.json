@@ -964,7 +964,7 @@
                     {
                         "name": "roundTrip",
                         "in": "query",
-                        "description": "If true, route ends at start point.",
+                        "description": "If true, route ends at start point. Default is false.",
                         "required": false,
                         "schema": {
                             "type": "boolean",
@@ -1072,7 +1072,7 @@
                     {
                         "name": "roundTrip",
                         "in": "query",
-                        "description": "If true, route ends at start point.",
+                        "description": "If true, route ends at start point.Default is false.",
                         "required": false,
                         "schema": {
                             "type": "boolean",
@@ -1182,7 +1182,7 @@
                     {
                         "name": "roundTrip",
                         "in": "query",
-                        "description": "If true, route ends at start point.",
+                        "description": "If true, route ends at start point. Default is false.",
                         "required": false,
                         "schema": {
                             "type": "boolean",
@@ -1290,7 +1290,7 @@
                     {
                         "name": "roundTrip",
                         "in": "query",
-                        "description": "If true, route ends at start point.",
+                        "description": "If true, route ends at start point. Default is false.",
                         "required": false,
                         "schema": {
                             "type": "boolean",
