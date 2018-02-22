@@ -54,6 +54,9 @@
         },
         {
             "name": "occupants"
+                },
+        {
+            "name": "parcels"
         }
     ],
     "security": [
@@ -2219,6 +2222,51 @@
                 "responses": {
                     "200": {
                         "description": "The occupant with the requested occupantID in <a href=\"https://github.com/bcgov/api-specs/blob/master/geocoder/geocoder-developer-guide.md#site-address-representation\" target=\"_blank\">Site Address Representation</a> plus <a href=\"https://github.com/bcgovapi-specs/blob/master/geocoder/geocoder-developer-guide.md#occupant-representation\" target=\"_blank\">Occupant Representation</a>"
+                    }
+                }
+            }
+        },
+        "/parcels/pids/{siteID}.{outputFormat}": {
+            "get": {
+                "summary": "Get a comma-separated string of all pids for a given site",
+                "description": "Represents all parcel identifiers associated with an individual site",
+                "tags": [
+                    "parcels"
+                ],
+                "parameters": [
+                    {
+                        "name": "siteID",
+                        "in": "path",
+                        "description": "A unique, but not immutable, site identifier.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outputFormat",
+                        "in": "path",
+                        "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "geojson",
+                                "xhtml",
+                                "kml",
+                                "gml",
+                                "csv",
+                                "shpz"
+                            ],
+                            "default": "json"
+                        },
+                        "example": "json"
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A comma-separated string containing all the parcel identifiers associated with the requested siteID"
                     }
                 }
             }

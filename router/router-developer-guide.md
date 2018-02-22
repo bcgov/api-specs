@@ -22,7 +22,6 @@ The distance resource represents the length and duration of the shortest or fast
 3. Length of fastest route in miles and html between Duncan and Metchosin<br>https://router.api.gov.bc.ca/distance.html?routeDescription=fastest%20distance%20in%20km%20and%20html&points=-123.707942%2C48.778691%2C-123.537850%2C48.382005&outputSRS=4326&criteria=shortest&distanceUnit=mi&apikey=myapikey<br>
 
 ### HTTP Response
-
 The distance resource will return the following representation:
 
 Attribute Name |	Type
@@ -112,7 +111,8 @@ Attribute Name |	Type
 [route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
 
 Here is a sample json response:
-{
+
+    {
     
         "routeDescription": "shortest distance in km and json",
         "searchTimestamp": "2016-03-30 11:19:06.721",
@@ -354,4 +354,272 @@ Here is a sample json response:
             "Finish!"
         ]
     
+    }
+
+    
+## optimalRoute Resource
+The optimalRoute resource represents the shortest or fastest route between a start point and a series of end points reordered to minimize total route distance or time. Here are some examples:
+
+1. Shortest optimal route in km and json between the following addresses in Victoria, BC:
+
+1200 Douglas St, 1020 View St, 851 Broughton St, 835 Fisgard St, and 707 Fort St 
+
+https://router.api.gov.bc.ca/optimalRoute.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
+   
+2. Fastest optimal route in km and kml between same addresses as example 1
+
+https://router.api.gov.bc.ca/optimalRoute.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
+
+### HTTP response
+The optimalRoute resource will return the following representation:
+
+Attribute Name |	Type
+---------------------: | --- |
+[routeDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeDescription) | String
+[searchTimestamp](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#searchTimestamp) | Datetime
+[executionTime](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#executionTime) | Real
+[version](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#version) | String 
+[disclaimer](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#disclaimer) | String
+[privacyStatement](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#privacyStatement) | String
+[srsCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#srsCode) | Integer
+[criteria](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#criteria) | String
+[distanceUnit](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distanceUnit) | String
+[points](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points) | list of Point
+[routeFound](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeFound) | Boolean
+[distance](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distance) | String
+[time](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#time) | Integer
+[timeText](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#timeText) | String
+[visitOrder](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#visitOrder) | list of Integer
+[route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
+
+
+Here is a sample json response:
+
+    {
+	"routeDescription": "",
+	"searchTimestamp": "2018-02-20 16:36:39.254",
+	"executionTime": 332,
+	"routingExecutionTime": 16,
+	"optimizationExecutionTime": 313,
+	"version": "1.4.2",
+	"disclaimer": "http://www2.gov.bc.ca/gov/content/home/disclaimer",
+	"privacyStatement": "http://www2.gov.bc.ca/gov/content/home/privacy",
+	"copyrightNotice": "Copyright 2015 Province of British Columbia - Open Government License",
+	"copyrightLicense": "http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf",
+	"srsCode": 4326,
+	"criteria": "fastest",
+	"distanceUnit": "km",
+	"points": [
+		[-123.36517, 48.42545],
+		[-123.35587, 48.42445],
+		[-123.36057, 48.42323],
+		[-123.36002, 48.42915],
+		[-123.36479, 48.42455]
+	],
+	"routeFound": true,
+	"distance": 1.916,
+	"time": 157,
+	"timeText": "2 minutes 37 seconds",
+	"visitOrder": [0, 3, 2, 4, 1],
+	"route": [
+		[-123.36517, 48.42545],
+		[-123.36508, 48.42544],
+		[-123.36533, 48.42465],
+		[-123.36478, 48.42459],
+		[-123.36478, 48.42459],
+		[-123.36249, 48.42432],
+		[-123.36269, 48.42352],
+		[-123.36056, 48.42327],
+		[-123.36056, 48.42327],
+		[-123.35992, 48.42319],
+		[-123.35985, 48.42352],
+		[-123.35972, 48.42401],
+		[-123.3569, 48.42373],
+		[-123.35674, 48.42451],
+		[-123.35588, 48.42442],
+		[-123.35588, 48.42442],
+		[-123.35674, 48.42451],
+		[-123.35611, 48.42709],
+		[-123.35618, 48.42732],
+		[-123.35606, 48.42833],
+		[-123.35599, 48.42884],
+		[-123.35885, 48.42901],
+		[-123.35928, 48.42914],
+		[-123.36002, 48.42919]
+	]
+    }
+
+The visitOrder values need a bit more explanation. The points in the request in example 2 above are given in the following order:
+
+0. 1200 Douglas St
+1. 1020 View St
+2. 851 Broughton St
+3. 835 Fisgard St
+4. 707 Fort St
+
+The response above is the response to the request in example 2 and contains the visitOrder 0,3,2,4,1. visitOrder represents the position in the optimal order each input point should appear in as follows:
+
+1200 Douglas St is zeroeth point (0)<br>
+1020 View St is third point (3)<br>
+851 Broughton St is second point (2)<br>
+835 Fisgard St is fourth point (4)<br>
+707 Fort St is first point (1)
+
+Your application can then use the visitOrder to write out the stops in the optimal order:
+
+0. 1200 Douglas St
+1. 707 Fort St
+2. 851 Broughton St
+3. 1020 View St
+4. 835 Fisgard St
+
+
+##  optimalDirections Resource
+The optimalDirections resource represents the turn-by-turn directions, shortest or fastest route between given points and the length and duration of that route. Here are some examples:
+
+1. Shortest optimal route and directions in km and json between the following addresses in Victoria, BC:
+
+1200 Douglas St, 1020 View St, 851 Broughton St, 835 Fisgard St, and 707 Fort St 
+
+https://router.api.gov.bc.ca/optimalDirections.json?criteria=shortest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
+   
+2. Fastest optimal route and directions in km and kml between same addresses as example 1
+
+https://router.api.gov.bc.ca/optimalDirections.kml?criteria=fastest&points=-123.3651694%2C48.4254488%2C-123.3558749%2C48.4244505%2C-123.3605707%2C48.4232329%2C-123.3600244%2C48.4291533%2C-123.3647879%2C48.4245465&roundTrip=false&apikey=myapikey
+
+### HTTP response
+The optimalDirections resource will return the following representation:
+
+Attribute Name |	Type
+---------------------: | --- |
+[routeDescription](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeDescription) | String
+[searchTimestamp](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#searchTimestamp) | Datetime
+[executionTime](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#executionTime) | Real
+[version](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#version) | String 
+[disclaimer](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#disclaimer) | String
+[privacyStatement](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#privacyStatement) | String
+[srsCode](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#srsCode) | Integer
+[criteria](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#criteria) | String
+[distanceUnit](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distanceUnit) | String
+[points](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#points) | list of Point
+[routeFound](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#routeFound) | Boolean
+[distance](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#distance) | String
+[time](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#time) | Integer
+[timeText](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#timeText) | String
+[visitOrder](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#visitOrder) | list of Integer
+[route](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | Polyline
+[directions](https://github.com/bcgov/DBC-APIM/blob/master/api-specs/router/glossary.md#route) | list of String
+
+Here is a sample json response:
+
+    {
+	"routeDescription": "",
+	"searchTimestamp": "2018-02-20 16:09:36.298",
+	"executionTime": 325,
+	"routingExecutionTime": 15,
+	"optimizationExecutionTime": 304,
+	"version": "1.4.2",
+	"disclaimer": "http://www2.gov.bc.ca/gov/content/home/disclaimer",
+	"privacyStatement": "http://www2.gov.bc.ca/gov/content/home/privacy",
+	"copyrightNotice": "Copyright 2015 Province of British Columbia - Open Government License",
+	"copyrightLicense": "http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf",
+	"srsCode": 4326,
+	"criteria": "fastest",
+	"distanceUnit": "km",
+	"points": [
+		[-123.36517, 48.42545],
+		[-123.35587, 48.42445],
+		[-123.36057, 48.42323],
+		[-123.36002, 48.42915],
+		[-123.36479, 48.42455]
+	],
+	"routeFound": true,
+	"distance": 1.916,
+	"time": 157,
+	"timeText": "2 minutes 37 seconds",
+	"visitOrder": [0, 3, 2, 4, 1],
+	"route": [
+		[-123.36517, 48.42545],
+		[-123.36508, 48.42544],
+		[-123.36533, 48.42465],
+		[-123.36478, 48.42459],
+		[-123.36478, 48.42459],
+		[-123.36249, 48.42432],
+		[-123.36269, 48.42352],
+		[-123.36056, 48.42327],
+		[-123.36056, 48.42327],
+		[-123.35992, 48.42319],
+		[-123.35985, 48.42352],
+		[-123.35972, 48.42401],
+		[-123.3569, 48.42373],
+		[-123.35674, 48.42451],
+		[-123.35588, 48.42442],
+		[-123.35588, 48.42442],
+		[-123.35674, 48.42451],
+		[-123.35611, 48.42709],
+		[-123.35618, 48.42732],
+		[-123.35606, 48.42833],
+		[-123.35599, 48.42884],
+		[-123.35885, 48.42901],
+		[-123.35928, 48.42914],
+		[-123.36002, 48.42919]
+	],
+	"directions": [{
+		"text": "Continue onto View St for 7 m (0 seconds)",
+		"point": [-123.36517, 48.42545]
+	}, {
+		"text": "Turn right onto Douglas St for 90 m (6 seconds)",
+		"point": [-123.36508, 48.42544]
+	}, {
+		"text": "Turn left onto Fort St for 40 m (3 seconds)",
+		"point": [-123.36533, 48.42465]
+	}, {
+		"text": "Stopover 1",
+		"point": [-123.36478, 48.42459]
+	}, {
+		"text": "Continue onto Fort St for 150 m (15 seconds)",
+		"point": [-123.36478, 48.42459]
+	}, {
+		"text": "Turn right onto Blanshard St for 90 m (6 seconds)",
+		"point": [-123.36249, 48.42432]
+	}, {
+		"text": "Turn left onto Broughton St for 150 m (14 seconds)",
+		"point": [-123.36269, 48.42352]
+	}, {
+		"text": "Stopover 2",
+		"point": [-123.36056, 48.42327]
+	}, {
+		"text": "Continue onto Broughton St for 50 m (4 seconds)",
+		"point": [-123.36056, 48.42327]
+	}, {
+		"text": "Turn left onto Quadra St for 95 m (11 seconds)",
+		"point": [-123.35992, 48.42319]
+	}, {
+		"text": "Turn right onto Fort St for 200 m (15 seconds)",
+		"point": [-123.35972, 48.42401]
+	}, {
+		"text": "Turn left onto Vancouver St for 90 m (6 seconds)",
+		"point": [-123.3569, 48.42373]
+	}, {
+		"text": "Turn right onto View St for 65 m (5 seconds)",
+		"point": [-123.35674, 48.42451]
+	}, {
+		"text": "Stopover 3",
+		"point": [-123.35588, 48.42442]
+	}, {
+		"text": "Continue onto View St for 65 m (5 seconds)",
+		"point": [-123.35588, 48.42442]
+	}, {
+		"text": "Turn right onto Vancouver St for 500 m (39 seconds)",
+		"point": [-123.35674, 48.42451]
+	}, {
+		"text": "Turn left onto Balmoral Rd for 200 m (15 seconds)",
+		"point": [-123.35599, 48.42884]
+	}, {
+		"text": "Turn slight right onto Fisgard St for 90 m (6 seconds)",
+		"point": [-123.35885, 48.42901]
+	}, {
+		"text": "Finish!",
+		"point": [-123.36002, 48.42919]
+	}]
     }
