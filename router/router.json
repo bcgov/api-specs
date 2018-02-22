@@ -566,6 +566,16 @@
                         }
                     },
                     {
+                        "name": "roundTrip",
+                        "in": "query",
+                        "description": "If true, route ends at start point. Default is false.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
                         "name": "routeDescription",
                         "in": "query",
                         "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -661,6 +671,16 @@
                                 "mi"
                             ],
                             "default": "km"
+                        }
+                    },
+                    {
+                        "name": "roundTrip",
+                        "in": "query",
+                        "description": "If true, route ends at start point. Default is false.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
                         }
                     },
                     {
@@ -761,6 +781,16 @@
                                 "mi"
                             ],
                             "default": "km"
+                        }
+                    },
+                    {
+                        "name": "roundTrip",
+                        "in": "query",
+                        "description": "If true, route ends at start point. Default is false.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
                         }
                     },
                     {
