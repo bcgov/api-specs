@@ -1072,7 +1072,7 @@
                     {
                         "name": "roundTrip",
                         "in": "query",
-                        "description": "If true, route ends at start point.Default is false.",
+                        "description": "If true, route ends at start point. Default is false.",
                         "required": false,
                         "schema": {
                             "type": "boolean",
