@@ -11,6 +11,7 @@ There are no API changes in v3.2
 ## Resource Overview
 The Online Geocoder offers resources for validating and geocoding an address (including public and related business occupants); finding a given site, intersection, and occupant; and finding sites, intersections, and occupants near a point or within an area. 
 The current baseUrl for the online geocoder is:<br>
+
 https://geocoder.api.gov.bc.ca/<br><br>
 
 This URL now allows both anonymous and gated access (requiring an apikey).
