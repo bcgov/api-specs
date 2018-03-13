@@ -23,7 +23,7 @@ http://apps.gov.bc.ca/pub/geocoder<br><br>
 
 
 ## Cross-Origin Resource Sharing (CORS)
-CORS for the public geocoder is only enabled for gov.bc.ca. CORS for the gated geocoder is enabled for any domain. To request an apikey for the gated geocoder, please contact the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
+CORS is enabled for any domain if you provide an apikey. To request an apikey for the gated geocoder, please contact the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
 
 ## Addresses Resource
 The addresses resource represents all addresses in the geocoder. A request on this resource to find a query address will return one or more matching addresses that are standardized and geocoded (i.e., given a point location on the earth). 
