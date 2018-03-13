@@ -2227,7 +2227,7 @@
             }
         },
         "/parcels/pids/{siteID}.{outputFormat}": {
-            "get": {
+            "post": {
                 "summary": "Get a comma-separated string of all pids for a given site",
                 "description": "Represents all parcel identifiers associated with an individual site",
                 "tags": [
