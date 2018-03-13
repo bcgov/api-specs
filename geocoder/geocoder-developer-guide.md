@@ -5,8 +5,12 @@ This guide is aimed at developers and web masters that would like to incorporate
 ## Introduction
 The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). To simplify integration of the online geocoder into your client web application, you can use the [Javascript API](http://apps.gov.bc.ca/pub/geocoder/js/geocode.js) 
 <br>
-## API Changes in v3.2
-There are no API changes in v3.2
+## API Changes in v3.3.1
+There is one breaking API change:
+The following anonymous online geocoder URLs are deprecated as of Geocoder v3.3.1 (released Mar 13, 2018) and will be turned off Sep 1, 2018:
+
+https://apps.gov.bc.ca/pub/geocoder<br><br>
+http://apps.gov.bc.ca/pub/geocoder<br><br>
 
 ## Resource Overview
 The Online Geocoder offers resources for validating and geocoding an address (including public and related business occupants); finding a given site, intersection, and occupant; and finding sites, intersections, and occupants near a point or within an area. 
@@ -14,12 +18,7 @@ The current baseUrl for the online geocoder is:<br>
 
 https://geocoder.api.gov.bc.ca/<br><br>
 
-This URL now allows both anonymous and gated access (requiring an apikey).
-
-The following anonymous online geocoder URLs are deprecated as of Geocoder v3.3.1 (released Mar 13, 2018) and will be turned off Sep 1, 2018:
-
-https://apps.gov.bc.ca/pub/geocoder<br><br>
-http://apps.gov.bc.ca/pub/geocoder<br><br>
+This URL allows both public and gated access. Gated access requires an apikey.
 
 
 ## Cross-Origin Resource Sharing (CORS)
