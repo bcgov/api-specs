@@ -18,7 +18,7 @@ The current baseUrl for the online geocoder is:<br>
 
 https://geocoder.api.gov.bc.ca/<br><br>
 
-This URL allows both public and gated access. Gated access requires an apikey.
+This URL allows both public and gated access. Gated access requires an apikey. To get a sandbox apikey with a maximum rate of 1000 requests per minute, visit the [apiconsole](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). You can get an unrestricted apikey for use in government applications by contacting the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
 
 
 ## Cross-Origin Resource Sharing (CORS)
