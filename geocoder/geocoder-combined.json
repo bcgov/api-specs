@@ -2,24 +2,12 @@
     "openapi": "3.0.0",
     "servers": [
         {
-            "url": "https://apps.gov.bc.ca/pub/geocoder",
-            "description": "Production (public)"
-        },
-        {
             "url": "https://geocoder.api.gov.bc.ca/",
             "description": "Production (gated)"
         },
         {
-            "url": "https://test.apps.gov.bc.ca/pub/geocoder",
-            "description": "Test (public)"
-        },
-        {
             "url": "https://geocodertst.api.gov.bc.ca/",
             "description": "Test (gated)"
-        },
-        {
-            "url": "https://delivery.apps.gov.bc.ca/pub/geocoder",
-            "description": "Delivery (public)"
         },
         {
             "url": "https://geocoderdlv.api.gov.bc.ca/",
