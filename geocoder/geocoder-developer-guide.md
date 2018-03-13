@@ -10,12 +10,16 @@ There are no API changes in v3.2
 
 ## Resource Overview
 The Online Geocoder offers resources for validating and geocoding an address (including public and related business occupants); finding a given site, intersection, and occupant; and finding sites, intersections, and occupants near a point or within an area. 
-The current baseUrl for the public online geocoder is:<br>
-http://apps.gov.bc.ca/pub/geocoder<br><br>
-The baseUrl for the public online geocoder under the HTTP Secure protocol is:<br> 
+The current baseUrl for the online geocoder is:<br>
+https://geocoder.api.gov.bc.ca/<br><br>
+
+This URL now allows both anonymous and gated access (requiring an apikey).
+
+The following anonymous online geocoder URLs are deprecated as of Geocoder v3.3.1 (released Mar 13, 2018) and will be turned off Sep 1, 2018:
+
 https://apps.gov.bc.ca/pub/geocoder<br><br>
-The baseUrl for the gated online geocoder is:<br>
-https://geocoder.api.gov.bc.ca/
+http://apps.gov.bc.ca/pub/geocoder<br><br>
+
 
 ## Cross-Origin Resource Sharing (CORS)
 CORS for the public geocoder is only enabled for gov.bc.ca. CORS for the gated geocoder is enabled for any domain. To request an apikey for the gated geocoder, please contact the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
@@ -26,36 +30,36 @@ The addresses resource represents all addresses in the geocoder. A request on th
 A query address can be specified in two different ways:
 
 1.	A single address string containing all elements of an address as in:<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?addressString=525%20superior%20st,%20victoria,%20bc<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.geojson?addressString=525%20superior%20st,%20victoria,%20bc<br><br> 
 2.	Individual address elements as in:<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?civicNumber=525&streetName=superior&streetType=st&localityName=victoria&provinceCode=BC
+https://geocoder.api.gov.bc.ca/addresses.geojson?civicNumber=525&streetName=superior&streetType=st&localityName=victoria&provinceCode=BC
 
 Here are some more example geocoder requests:
 
 1.	Geocode 456 Gorge Rd E, Victoria, BC<br> 
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=456%20Gorge%20Rd%20e%20victoria%20bc<br><br>
+https://geocoder.api.gov.bc.ca/addresses.xhtml?addressString=456%20Gorge%20Rd%20e%20victoria%20bc<br><br>
 2.	Geocode 7-955 13th Ave, Valemount, BC<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=7-955%2013th%20ave,%20Valemount,bc<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.xhtml?addressString=7-955%2013th%20ave,%20Valemount,bc<br><br> 
 3.	Geocode the intersection at Johnson and Government<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?addressString=johnson%20and%20government<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.xhtml?addressString=johnson%20and%20government<br><br> 
 4.	Geocode 5671 Malibu Terrace, Nanaimo, BC and return results in GEOJSON and BC Albers projection<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.geojson?outputSRS=3005&addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br>
+https://geocoder.api.gov.bc.ca/addresses.geojson?outputSRS=3005&addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br>
 5.	Geocode 5670 Malibu Terrace, Nanaimo and return the location along the road centreline for using in routing<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.kml?locationDescriptor=routingPoint&addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br>
+https://geocoder.api.gov.bc.ca/addresses.kml?locationDescriptor=routingPoint&addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br>
 6.	Geocode 5670 Malibu Terrace, Nanaimo and return accessPoint set back four metres from the curb towards the inside of the property. Note that only accessPoints can be set back<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.kml?locationDescriptor=accessPoint&setBack=4&addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br>  
+https://geocoder.api.gov.bc.ca/addresses.kml?locationDescriptor=accessPoint&setBack=4&addressString=5670%20malibu%20terrace%20nanaimo%20bc<br><br>  
 7.	Geocode 5671 Malibu Terrace, Nanaimo, BC without interpolation. In other words, if the geocoder doesn’t have a site with a civic number of 5671, it will fail instead of looking for an address range that contains 5671<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?interpolation=none&addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br>
+https://geocoder.api.gov.bc.ca/addresses.xhtml?interpolation=none&addressString=5671%20malibu%20terrace%20nanaimo%20bc<br><br>
 8.	Geocode 200 Gorge Rd W, Saanich, BC and limit results to Victoria. It will return 200 Gorge Rd E, Victoria, BC since Gorge Rd E is in Victoria<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?localities=victoria&addressString=200%20gorge%20rd%20w%20saanich%20bc<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.xhtml?localities=victoria&addressString=200%20gorge%20rd%20w%20saanich%20bc<br><br> 
 9.	Geocode 1434 Graham St, Kelowna, BC and limit results to ten matches within the greater Kelowna area<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?&bbox=-119.8965522070019%2C49.70546831817266%2C-119.2157397287486%2C50.06954472056336&addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC&maxResults=10<br><br>
+https://geocoder.api.gov.bc.ca/addresses.xhtml?&bbox=-119.8965522070019%2C49.70546831817266%2C-119.2157397287486%2C50.06954472056336&addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC&maxResults=10<br><br>
 10.	Geocode 1434 Graham St, Kelowna, BC and limit results to ten street-level matches<br>
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?&addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC%20&matchPrecision=street&maxResults=10<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.xhtml?&addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC%20&matchPrecision=street&maxResults=10<br><br> 
 11.	Extrapolate the known location of 12 Bushby St from a parcelPoint to get an accessPoint<br> 
-http://apps.gov.bc.ca/pub/geocoder/addresses.xhtml?setBack=0&minScore=1&maxResults=1&maxDistance=0&interpolation=adaptive&echo=true&outputSRS=4326&addressString=12%20bushby%20st%20victoria%20bc&locationDescriptor=any&extrapolate=true&parcelPoint=-123.349174,2048.407134<br><br> 
+https://geocoder.api.gov.bc.ca/addresses.xhtml?setBack=0&minScore=1&maxResults=1&maxDistance=0&interpolation=adaptive&echo=true&outputSRS=4326&addressString=12%20bushby%20st%20victoria%20bc&locationDescriptor=any&extrapolate=true&parcelPoint=-123.349174,2048.407134<br><br> 
 12.	Find the nearest courthouse to a given point<br>
-http://apps.gov.bc.ca/pub/geocoder/occupants/nearest.geojson?point=-123.7064038,48.8498537&tags=courts<br><br>
+https://geocoder.api.gov.bc.ca/occupants/nearest.geojson?point=-123.7064038,48.8498537&tags=courts<br><br>
 <br>
 
 ### Resource representations in HTTP Responses
