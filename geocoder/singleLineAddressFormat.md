@@ -80,7 +80,7 @@ Address Element |	Value
 civicNumber |	5745
 streetName |	3
 streetType |	HWY
-isStreeTypePredirectional | true
+isStreetTypePredirectional | true
 localityName |	BRIDESVILLLE
 provinceCode |	BC
 
@@ -95,7 +95,7 @@ Address Element |	Value
 civicNumber |17270
 streetName |	Cariboo
 streetType |	HWY
-isStreeTypePredirectional | false
+isStreetTypePredirectional | false
 localityName |	Buckhorn, BC
 provinceCode |	BC
 
