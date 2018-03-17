@@ -35,7 +35,7 @@ frontGate is the double dash separator as in “--“ .
 
 ## Examples
 
-### Example 1 - Civic Address
+### Example 1 - Civic Address with street direction
 
 420A GORGE RD E, VICTORIA, BC
 
@@ -48,11 +48,59 @@ civicNumberSuffix |	A
 streetName |	GORGE
 streetType |	RD
 streetDirection |	E
+isStreetDirectionPrefix | false
+localityName |	VICTORIA
+provinceCode |	BC
+
+### Example 2 - Civic Address with prefix street direction
+
+420A GORGE RD E, VICTORIA, BC
+
+which contains the following address elements:
+
+Address Element |	Value
+----: | -----------
+civicNumber |	420
+civicNumberSuffix |	A
+streetName |	GORGE
+streetType |	RD
+streetDirection |	E
+isStreetDirectionPrefix | false
 localityName |	VICTORIA
 provinceCode |	BC
 
 
-### Example 2 - Civic address with unit
+### Example 3 - Civic Address on highway
+
+5745 HWY 3, BRIDESVILLE, BC
+
+which contains the following address elements:
+
+Address Element |	Value
+----: | -----------
+civicNumber |	5745
+streetName |	3
+streetType |	HWY
+isStreeTypePredirectional | true
+localityName |	BRIDESVILLLE
+provinceCode |	BC
+
+### Example 3 - Civic Address on named highway
+
+17270 Cariboo Hwy, Buckhorn, BC
+
+which contains the following address elements:
+
+Address Element |	Value
+----: | -----------
+civicNumber |17270
+streetName |	Cariboo
+streetType |	HWY
+isStreeTypePredirectional | false
+localityName |	Buckhorn, BC
+provinceCode |	BC
+
+### Example 5 - Civic address with unit
 
 UNIT 1A -- 433 CEDAR RAPIDS BLVD, PEMBERTON, BC 
 
@@ -69,7 +117,7 @@ streetType |	BLVD
 localityName |	PEMBERTON
 provinceCode |	BC
 
-### Example 3 - Non-civic address with a street qualifier:
+### Example 6 - Non-civic address with a street qualifier:
 
 JOHNSON ST BRIDGE, VICTORIA, BC 
 
@@ -83,35 +131,35 @@ streetQualifier |	BRIDGE
 localityName |	VICTORIA
 provinceCode |	BC
 
-### Example 4 - Civic address with an occupant
+### Example 7 - Civic address with an occupant
 
 UVIC Main Campus -- 3800 Finnerty Rd, Saanich, BC
 
-### Example 5.	Civic addresses with a unit within a named complex 
+### Example 8.	Civic addresses with a unit within a named complex 
 
 PAD 433, SHAWNIGAN LAKE MOBILE HOME PARK -- 2785 Wallbank Rd., Shawnigan Lake, BC   
 ROOM 103A, CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC   
 ROOM 230, WEST BLOCK, ROYAL JUBILEE HOSPITAL -- 1952 BAY ST, VICTORIA, BC   
 
-### Example 6.	Non-civic addresses with a unit within a named complex 
+### Example 9.	Non-civic addresses with a unit within a named complex 
 
 PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
 PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC   
 
 
-### Example 7.	Non-civic addresses containing a street, locality, and  province 
+### Example 10.	Non-civic addresses containing a street, locality, and  province 
 
 WILLOW DRIVE, 70 MILE HOUSE, BC   
 HORSE LAKE ROAD, 100 MILE HOUSE, BC  
 JOHNSON ST BRIDGE, VICTORIA, BC   
 
-### Example 8.	Non-civic addresses containing only locality and province 
+### Example 11.	Non-civic addresses containing only locality and province 
 
 PEACE RIVER REGIONAL DISTRICT, BC   
 100 MILE HOUSE, BC   
 PYPER LAKE, BC 
 
-### Example 9.	Intersection addresses 
+### Example 12.	Intersection addresses 
 
 Douglas St and Johnson St, Victoria, BC  
 Douglas St and Gorge Rd E and Hillside Ave, Victoria, BC
