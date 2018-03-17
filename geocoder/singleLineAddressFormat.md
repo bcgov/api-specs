@@ -35,7 +35,7 @@ frontGate is the double dash separator as in “--“ .
 
 ## Examples
 
-### Example 1 - Civic Address with street direction
+### Example 1 - Civic address with street direction
 
 420A GORGE RD E, VICTORIA, BC
 
@@ -52,21 +52,20 @@ isStreetDirectionPrefix | false
 localityName |	VICTORIA
 provinceCode |	BC
 
-### Example 2 - Civic Address with prefix street direction
+### Example 2 - Civic address with prefix street direction
 
-420A GORGE RD E, VICTORIA, BC
+2233 SW MARINE DR, VANCOUVER, BC
 
 which contains the following address elements:
 
 Address Element |	Value
 ----: | -----------
-civicNumber |	420
-civicNumberSuffix |	A
-streetName |	GORGE
-streetType |	RD
-streetDirection |	E
-isStreetDirectionPrefix | false
-localityName |	VICTORIA
+civicNumber |	2233
+streetName |	MARINE
+streetType |	DR
+streetDirection |	SW
+isStreetDirectionPrefix | true
+localityName |	VANCOUVER
 provinceCode |	BC
 
 
