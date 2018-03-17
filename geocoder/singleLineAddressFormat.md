@@ -132,7 +132,7 @@ provinceCode |	BC
 
 ### Example 7 - Civic address with an occupant
 
-UVIC Main Campus -- 3800 Finnerty Rd, Saanich, BC
+UVIC Main Campus ** 3800 Finnerty Rd, Saanich, BC
 
 ### Example 8.	Civic addresses with a unit within a named complex 
 
