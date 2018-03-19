@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: 'http://gwells.api.gov.bc.ca/gwells/registries/api/v1'
+  - url: 'https://gwells.api.gov.bc.ca/gwells/registries/api/v1'
 info:
   title: Well Driller and Pump Installer Registry API
   description: >-
