@@ -1,11 +1,12 @@
 openapi: 3.0.0
 servers:
-  - url: 'http://gwells.api.gov.bc.ca/gwells/registries/api/v1'
+  - url: 'https://gwells.api.gov.bc.ca/gwells/registries/api/v1'
 info:
-  title: Well Driller and Pump Installer Registry API
+  title: Registers of Well Drillers and Well Pump Installers
   description: >-
-    The Well Driller and Pump Installer Registry is a database of qualified well
-    drillers and pump installers registered to operate in British Columbia.
+    The registers of well drillers and well pump installers are lists of individuals who are authorized
+    under the Water Sustainability Act (WSA) to operate in British Columbia. Registered well drillers and
+    well pump installers are responsible for safe drilling practices and installation of pumps and other works.
   termsOfService: 'http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88'
   contact:
     email: groundwater@gov.bc.ca
