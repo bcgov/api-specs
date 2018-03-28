@@ -10,7 +10,7 @@
             "description": "Test"
         },
         {
-            "url": "https://delivery.apps.gov.bc.ca/pub/geomark",
+            "url": "http://bcgov.local.revolsys.com/pub/geomark",
             "description": "Delivery"
         }
     ],
