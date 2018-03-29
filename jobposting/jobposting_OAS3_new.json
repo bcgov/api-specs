@@ -186,7 +186,7 @@
             "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
             "required": false,
             "schema": {
-              "type": "array"
+              "type": "integer"
             }
           },
           {
