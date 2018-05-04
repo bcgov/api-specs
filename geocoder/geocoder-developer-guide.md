@@ -99,6 +99,8 @@ Attribute Name |	Type
 [isStreetDirectionPrefix](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isStreetDirectionPrefix) | Boolean
 [streetQualifier](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier) | String
 [localityName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName) | String
+[localityType](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityType) | String
+[electoralArea](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#electoralArea) | String
 [provinceCode](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#provinceCode) |	String
 [locationPositionalAccuracy](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationPositionalAccuracy) |	String
 [locationDescriptor](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#locationDescriptor) |	String
