@@ -107,12 +107,11 @@ Attribute Name |	Type
 [siteID](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteID) |	string
 [blockID](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#blockID) |	String
 [fullSiteDescriptor](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#fullSiteDescriptor) |	String
-[narrativeLocation](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#narrativeLocation) |	String
 [accessNotes](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#accessNotes) |	String
 [siteStatus](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteStatus) |	String
 [siteRetireDate](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#siteRetireDate) |	Date
 [changeDate](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#changeDate) |	string
-[isPrimary](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isPrimary) |	string
+[isOfficial](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isOfficial) |	string
 
 #### Intersection Address Representation
 Attribute Name |	Type
