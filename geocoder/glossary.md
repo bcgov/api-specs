@@ -1,7 +1,7 @@
 # Geocoder Glossary of Terms
 Term | Definition
 ----: | -----------
-<a name="accessNotes">accessNotes</a> | Contains additional information that is helpful in determining the access location and any restrictions on mode of access (e.g., boat only, floatplane only).
+<a name="accessNotes">accessNotes</a> | Contains additional information that is helpful in determining the access location and any restrictions on mode of access (e.g., boat only, floatplane only). For example, turn by turn directions from a named road to a site in the woods could be helpful as in the following: From Tlell, travel north on Highway 16 till you see a big golden spruce tree on your left, hike west for about one kilometre.
 <a name="accessPoint">accessPoint</a> | A point that lies on the curb or road edge of the site's assigned street and in the middle of a site’s driveway or access lane. If a site has no driveway or access lane, the accessPoint will be located in the middle of the entrance walkway.
 <a name="accessPointRetireDate">accessPointRetireDate</a> | The date the access point was retired.
 <a name="accessPointStatus">accessPointStatus</a> | The status of the access point (active, or retired). A civic access point is usually only Retired if the associated site is renumbered, destroyed, or combined with another site. A non-civic access point is usually retired when its associated site is assigned a civic number or the site becomes unoccupied.
