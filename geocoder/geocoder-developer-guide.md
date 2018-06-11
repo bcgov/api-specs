@@ -7,7 +7,7 @@ The BC Physical Address Online Geocoder REST API lets you integrate real-time st
 <br>
 ## API Changes in v3.4.1
 There are two breaking API changes but they only affect the occupants/addresses resource.<br>
-1. In occupants/addresses, if no occupant separator, currently "**", is found in addressString, addressString is assumed to be an occupant name, not a civic address. In previous versions, if no frontGate ("--") was found, addressString was assumed to be a civic address.
+1. In occupants/addresses, if no occupant separator ("**") is found in addressString, addressString is assumed to be an occupant name, not a civic address. In previous versions, if no frontGate ("--") was found, addressString was assumed to be a civic address.
 
 2. In occupants/addresses, fullAddress now includes an occupant separator "**" as in "Sir Jame Douglas Elementary ** 401 Moss St, Victoria, BC"
  
