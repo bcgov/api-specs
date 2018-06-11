@@ -6,8 +6,8 @@ This guide is aimed at developers and web masters that would like to incorporate
 The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). To simplify integration of the online geocoder into your client web application, you can use the [Javascript API](http://apps.gov.bc.ca/pub/geocoder/js/geocode.js) 
 <br>
 ## API Changes in v3.4.1
-There are two breaking API changes but they only affect the occupants/addresses resource<br>
-1. In occupants/addresses, if no occupant separator, currently "**", is found in addressString, addressString is assumed to be an occupant name, not a civic address. In previous versions of occupants/addresses, if no frontGate ("--") was found, addressString was assumed to be a civic address.
+There are two breaking API changes but they only affect the occupants/addresses resource.<br>
+1. In occupants/addresses, if no occupant separator, currently "**", is found in addressString, addressString is assumed to be an occupant name, not a civic address. In previous versions, if no frontGate ("--") was found, addressString was assumed to be a civic address.
 
 2. In occupants/addresses, fullAddress now includes an occupant separator "**" as in "Sir Jame Douglas Elementary ** 401 Moss St, Victoria, BC"
  
