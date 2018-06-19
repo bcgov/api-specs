@@ -106,4 +106,5 @@ Term | Definition
 <a name="unitDesignator">unitDesignator</a> | The type of unit. Examples include APT, BLDG, BSMT, FLR, LOBBY, LWR, PAD, PH, REAR, RM, SIDE, SITE, SUITE, TH, UNIT, UPPR.
 <a name="version">version</a> | Software version of the REST Web Service
 <a name="websiteUrl">websiteUrl</a> | Web site URL of occupant
+<a name="yourId">yourId<a> | Unique identifier you have assigned to an address occupant
 
