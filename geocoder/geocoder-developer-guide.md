@@ -69,10 +69,10 @@ https://geocoder.api.gov.bc.ca/addresses.xhtml?setBack=0&minScore=1&maxResults=1
 ## occupants/addresses resource
 The occupants/addresses resource represents all occupant addresses in the geocoder. A request on this resource to find a query address will return one or more matching addresses that are standardized and geocoded (i.e., given a point location on the earth). 
 
-12. Find up to 10 schools named Sir James Douglas Elementary
+12. Find up to 10 schools named Sir James Douglas Elementary<br>
 https://geocoder.api.gov.bc.ca/occupants/addresses.json?addressString=Sir%20James%20Douglas%20Elementary&maxResults=10
 
-13. Find a school named Sir James Douglas Elementary in Victoria
+13. Find a school named Sir James Douglas Elementary in Victoria<br>
 https://geocoder.api.gov.bc.ca/occupants/addresses.json?addressString=Sir%20James%20Douglas%20Elementary%20%2A%2A%20Victoria
 
 ## occupants/nearest resource
