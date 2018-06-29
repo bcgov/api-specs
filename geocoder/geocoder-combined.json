@@ -465,12 +465,12 @@
                     {
                         "name": "addressString",
                         "in": "query",
-                        "description": "Occupant name followed by a frontGate delimiter ('--') followed by an optional address",
+                        "description": "Occupant name OR Occupant name ** address",
                         "required": false,
                         "schema": {
                             "type": "string"
                         },
-                        "example": "Redfish Elementary --"
+                        "example": "Sir James Douglas Elementary"
                     },
                     {
                         "name": "tags",
