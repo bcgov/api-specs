@@ -65,7 +65,20 @@ https://geocoder.api.gov.bc.ca/addresses.xhtml?&bbox=-119.8965522070019%2C49.705
 https://geocoder.api.gov.bc.ca/addresses.xhtml?&addressString=1434%20Graham%20St%2C%20Kelowna%2C%20BC%20&matchPrecision=street&maxResults=10<br><br> 
 11.	Extrapolate the known location of 12 Bushby St from a parcelPoint to get an accessPoint<br> 
 https://geocoder.api.gov.bc.ca/addresses.xhtml?setBack=0&minScore=1&maxResults=1&maxDistance=0&interpolation=adaptive&echo=true&outputSRS=4326&addressString=12%20bushby%20st%20victoria%20bc&locationDescriptor=any&extrapolate=true&parcelPoint=-123.349174,2048.407134<br><br> 
-12.	Find the nearest courthouse to a given point<br>
+
+## occupants/addresses resource
+The occupants/addresses resource represents all occupant addresses in the geocoder. A request on this resource to find a query address will return one or more matching addresses that are standardized and geocoded (i.e., given a point location on the earth). 
+
+12. Find up to 10 schools named Sir James Douglas Elementary
+https://geocoder.api.gov.bc.ca/occupants/addresses.json?addressString=Sir%20James%20Douglas%20Elementary&maxResults=10
+
+13. Find a school named Sir James Douglas Elementary in Victoria
+https://geocoder.api.gov.bc.ca/occupants/addresses.json?addressString=Sir%20James%20Douglas%20Elementary%20%2A%2A%20Victoria
+
+## occupants/nearest resource
+The occupants/nearest resource represents the nearest site to a given point location
+
+14.	Find the nearest courthouse to a given point<br>
 https://geocoder.api.gov.bc.ca/occupants/nearest.geojson?point=-123.7064038,48.8498537&tags=courts<br><br>
 <br>
 
