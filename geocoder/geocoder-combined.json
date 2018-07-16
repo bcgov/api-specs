@@ -2250,7 +2250,7 @@
                             "default": "json"
                         },
                         "example": "json"
-                    },
+                    }
                 ],
                 "responses": {
                     "200": {
