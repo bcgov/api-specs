@@ -2,7 +2,8 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "https://workbcjobs.api.gov.bc.ca/v1"
+      "url": "https://workbcjobs-qa.api.gov.bc.ca/v1",
+      "url": "https://workbcjobs.api.gov.bc.ca/v1"      
     }
   ],
   "info": {
