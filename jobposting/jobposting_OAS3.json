@@ -8,6 +8,7 @@
     {
       "url": "https://workbcjobs.api.gov.bc.ca/v1",
       "description": "Production"
+    }  
   ],
   "info": {
     "title": "WorkBC Job Posting API",
