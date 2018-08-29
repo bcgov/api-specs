@@ -257,7 +257,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": null,
             "application/json": {
               "schema": {
                 "type": "object",
