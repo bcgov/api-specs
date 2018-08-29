@@ -8,7 +8,7 @@
     {
       "url": "https://workbcjobs.api.gov.bc.ca/v1",
       "description": "Production"
-    }  
+    }
   ],
   "info": {
     "title": "WorkBC Job Posting API",
@@ -257,53 +257,15 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/x-www-form-urlencoded": null,
+            "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "lastRequestDate": {
                     "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.",
                     "type": "string",
-                    "format": "date-time"
-                  },
-                  "region": {
-                    "description": "The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region.",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "city": {
-                    "description": "The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.",
-                    "type": "string"
-                  },
-                  "jobTypes": {
-                    "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    }
-                  },
-                  "majorProjects": {
-                    "description": "When true, only include job postings that have a Major Project associated with them.  When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.",
-                    "type": "boolean"
-                  },
-                  "majorProjectID": {
-                    "description": "The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used.",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "industries": {
-                    "description": "ID values for industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by industry.",
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    }
-                  },
-                  "subIndustries": {
-                    "description": "ID values for sub industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by sub industry.",
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    }
+                    "format": "date"
                   }
                 }
               },
