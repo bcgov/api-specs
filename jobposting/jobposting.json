@@ -4,10 +4,6 @@
     {
       "url": "https://workbcjobs.api.gov.bc.ca/v1",
       "description": "Production"
-    },
-    {
-      "url": "https://workbcjobs-qa.api.gov.bc.ca/v1",
-      "description": "QA"
     }
   ],
   "info": {
