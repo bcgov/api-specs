@@ -153,82 +153,71 @@
         "tags": [
           "Job Feed"
         ],
-        "parameters": [
-          {
-            "name": "lastRequestDate",
-            "in": "query",
-            "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is today - 10 days.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "region",
-            "in": "query",
-            "description": "The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "city",
-            "in": "query",
-            "description": "The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "jobTypes",
-            "in": "query",
-            "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "majorProjects",
-            "in": "query",
-            "description": "When true, only include job postings that have a Major Project associated with them. When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "majorProjectID",
-            "in": "query",
-            "description": "The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "industries",
-            "in": "query",
-            "description": "ID values for industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by industry.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "subIndustries",
-            "in": "query",
-            "description": "ID values for sub industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by sub industry.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
         "summary": "Job Feed",
         "description": "The job feed endpoint returns an array of job records that satisfy the supplied criteria.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lastRequestDate": {
+                    "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.",
+                    "type": "string",
+                    "enum": [
+                      "2018-08-29T00:00:00.000Z"
+                    ],
+                    "default": "2018-08-29"
+                  },
+                  "region": {
+                    "description": "The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region",
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2
+                    ],
+                    "default": 1
+                  },
+                  "city": {
+                    "description": "The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.",
+                    "type": "string",
+                    "enum": [
+                      "Victoria",
+                      "Vancouver"
+                    ],
+                    "default": "Victoria"
+                  },
+                  "jobTypes": {
+                    "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
+                    "type": "integer",
+                    "enum": [
+                      [
+                        1
+                      ],
+                      [
+                        2
+                      ]
+                    ],
+                    "default": [
+                      1
+                    ]
+                  },
+                  "majorProjects": {
+                    "description": "When true, only include job postings that have a Major Project associated with them. When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.",
+                    "type": "boolean",
+                    "default": true
+                  }
+                }
+              },
+              "encoding": {
+                "color": {
+                  "style": "form",
+                  "explode": true
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "A set of job records.",
@@ -246,28 +235,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "lastRequestDate": {
-                    "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.",
-                    "type": "string",
-                    "format": "date"
-                  }
-                }
-              },
-              "encoding": {
-                "industries": {
-                  "style": "form",
-                  "explode": "true"
                 }
               }
             }
