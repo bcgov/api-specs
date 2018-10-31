@@ -4,10 +4,6 @@
     {
       "url": "https://workbcjobs.api.gov.bc.ca/v1",
       "description": "Production"
-    },
-    {
-      "url": "https://workbcjobs-qa.api.gov.bc.ca/v1",
-      "description": "QA"
     }
   ],
   "info": {
@@ -264,15 +260,25 @@
                   "lastRequestDate": {
                     "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.",
                     "type": "string",
-                    "format": "date"
+                    "format": "date",
+                    "default": "2018-10-20"
+                  },
+                  "region": {
+                    "description": "The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region",
+                    "type": "integer",
+                    "default": 1
+                  },
+                  "city": {
+                    "description": "The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.",
+                    "type": "string",
+                    "default": "Victoria"
+                  },
+                  "jobTypes": {
+                    "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
+                    "type": "array",
+                    "default": [1]
                   }
-                }
               },
-              "encoding": {
-                "industries": {
-                  "style": "form",
-                  "explode": "true"
-                }
               }
             }
           }
