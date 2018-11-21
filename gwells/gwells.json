@@ -935,7 +935,7 @@
     },
     "servers": [
         {
-            "url": "http://gwells-prod.pathfinder.gov.bc.ca/gwells/api/v1"
+            "url": "https://apps.nrs.gov.bc.ca/gwells/api/v1/"
         }
     ],
     "components": {
