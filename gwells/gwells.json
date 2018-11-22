@@ -12,8 +12,8 @@
         }
     ],
     "info": {
-        "title": "Well Driller and Pump Installer Registry API",
-        "description": "The Well Driller and Pump Installer Registry is a database of qualified well drillers and pump installers registered to operate in British Columbia.",
+        "title": "Groundwater Wells, Aquifers and Registry API",
+        "description": "The groundwater wells, aquifers and registry API contains information related to groudwater wells and aquifers as well as a register of qualified well drillers and well pump installers registered to operate in B.C.",
         "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
         "contact": {
             "email": "groundwater@gov.bc.ca"
