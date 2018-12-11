@@ -17,18 +17,25 @@ Unit number suffix, if present, should be place after unitNumber without a space
 
 
 frontGate is the double dash separator as in “--“ . 
+occupantSeparator is double star as in "**"
 
 ## Format 1 – Civic address
 
-{occupantName[,]}[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate civicNumber[civicNumberSuffix] {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier], localityName, provinceCode
+[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate civicNumber[civicNumberSuffix] {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier], localityName, provinceCode
 
+## Format 2 – Civic occupant address
 
-## Format 2 – Non-civic address
+occupantName occupantSeparator [[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate civicNumber[civicNumberSuffix] {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier], localityName, provinceCode
 
-{occupantName[,]}[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate [{streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier],] localityName, provinceCode
+## Format 3 – Non-civic address
 
+[[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate [{streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier],] localityName, provinceCode
 
-## Format 3 – Intersection address
+## Format 4 – Non-civic occupant address
+
+occupantName occupantSeparator [[unitDesignator unitNumber[unitNumberSuffix]] [siteName],]* frontGate [{streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier],] localityName, provinceCode
+
+## Format 5 – Intersection address
 
 {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier] [ and {streetDirection} {streetType} streetName {streetType} {streetDirection} [streetQualifier] ]+ , localityName, provinceCode
 
@@ -130,7 +137,7 @@ streetQualifier |	BRIDGE
 localityName |	VICTORIA
 provinceCode |	BC
 
-### Example 7 - Civic address with an occupant
+### Example 7 - Civic occupant address
 
 UVIC Main Campus ** 3800 Finnerty Rd, Saanich, BC
 
@@ -145,20 +152,24 @@ ROOM 230, WEST BLOCK, ROYAL JUBILEE HOSPITAL -- 1952 BAY ST, VICTORIA, BC
 PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
 PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC   
 
+### Example 10.	Non-civic occupant address with a unit within a named complex 
 
-### Example 10.	Non-civic addresses containing a street, locality, and  province 
+Paws N Suds ** PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
+Paws N Suds ** PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC 
+
+### Example 11.	Non-civic addresses containing a street, locality, and  province 
 
 WILLOW DRIVE, 70 MILE HOUSE, BC   
 HORSE LAKE ROAD, 100 MILE HOUSE, BC  
 JOHNSON ST BRIDGE, VICTORIA, BC   
 
-### Example 11.	Non-civic addresses containing only locality and province 
+### Example 12.	Non-civic addresses containing only locality and province 
 
 PEACE RIVER REGIONAL DISTRICT, BC   
 100 MILE HOUSE, BC   
 PYPER LAKE, BC 
 
-### Example 12.	Intersection addresses 
+### Example 13.	Intersection addresses 
 
 Douglas St and Johnson St, Victoria, BC  
 Douglas St and Gorge Rd E and Hillside Ave, Victoria, BC
