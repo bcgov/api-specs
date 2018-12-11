@@ -1,1359 +1,1358 @@
 {
-    "openapi": "3.0.0",
-    "servers": [
-        {
-            "url": "https://router.api.gov.bc.ca/",
-            "description": "Production"
-        },
-        {
-            "url": "https://routertst.api.gov.bc.ca/",
-            "description": "Test"
-        },
-        {
-            "url": "https://routerdlv.api.gov.bc.ca/",
-            "description": "Delivery"
-        }
-    ],
-    "info": {
-        "title": "BC Route Planner REST API",
-        "description": "Finds shortest/fastest route between a start point and one or more stop points on British Columbia's public road network. The BC Route planner [webpage](https://www2.gov.bc.ca/gov/content?id=9D99E684CCD042CD88FADC51E079B4B5) provides additional information.  Here are some geocoded addresses to play with:<br>18 Douglas St,Victoria -123.36962,48.40892<br>1002 Johnson St, Victoria -123.355745,48.426206<br>543 Johnson St, Victoria, BC -123.36907,48.42770 <br>14 Centennial Sq, Victoria, BC -123.36564,48.42863<br>1105 Royal Ave,New Westminster  -122.92009,49.20063<br>808 Jackson Cres, New Westminster -122.90762,49.22558<br>10810 McDonald Rd, Chilliwack -121.93808,49.19859<br>3950 June Springs Rd, Kelowna -119.40751,49.83960<br>1201 Riondel Rd, Kootenay Bay -116.85402,49.74448<br>1201 Riondel Rd, Kootenay Bay -116.832759,49.730500 (parcelPoint)<br>2499 Walbran Pl, Courtenay -124.97295,49.71518<br>2013 Smoke Bluff Rd, Squamish -123.13946,49.70401<br>235 Kelvin Grove Way, Lions Bay -123.23524,49.45035<br>   Please see our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).",
-
-        "version": "1.3.0",
-        "license": {
-            "name": "Copyright 2018 Province of British Columbia - Access only",
-            "url": "https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA"
-        },
-        "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
-        "contact": {
-            "name": "DataBC",
-            "url": "https://data.gov.bc.ca/",
-            "email": "IDDDBCLS@Victoria1.gov.bc.ca"
-        }
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "https://router.api.gov.bc.ca/",
+      "description": "Production"
     },
-    "externalDocs": {
-        "description": "Developer Guide",
-        "url": "https://github.com/bcgov/api-specs/blob/master/router/router-developer-guide.md"
+    {
+      "url": "https://routertst.api.gov.bc.ca/",
+      "description": "Test"
     },
-    "tags": [
-        {
-            "name": "directions"
-        },
-        {
-            "name": "distance"
-        },
-        {
-            "name": "route"
-        }
-    ],
-    "security": [
-        {
-            "apikey": []
-        }
-    ],
-    "paths": {
-        "/distance.{outputFormat}": {
-            "get": {
-                "summary": "Get distance and travel time between two geographic points",
-                "description": "Represents the distance and time of the shortest or fastest path between given start and end points.",
-                "tags": [
-                    "distance"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Distance and time of the shortest or fastest route"
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get distance and travel time between two geographic points",
-                "description": "Represents the distance and time of the shortest or fastest path between given start and end points.",
-                "tags": [
-                    "distance"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Distance and time of the shortest or fastest route"
-                    }
-                }
-            }
-        },
-        "/distance/betweenPairs.{outputFormat}": {
-            "get": {
-                "summary": "Get distance and travel time between each pair of geographic points",
-                "description": "Represents the distance and time of the shortest or fastest paths between all pairs of fromPoints and toPoints. The number of fromPoints times the number of toPoints should not exceed 100 or the request will time out.",
-                "tags": [
-                    "distance"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "fromPoints",
-                        "in": "query",
-                        "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "toPoints",
-                        "in": "query",
-                        "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-124.972951,49.715181,-123.139464,49.704015"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    },
-                    {
-                        "name": "maxPairs",
-                        "in": "query",
-                        "description": "The maximum number of pairs to return for each toPoint.  Pairs are ordered by distance/time from fromPoint. For example, given 1 fromPoint, and 10 toPoints, and maxPairs=1 , return the nearest toPoint to the fromPoint. Given 3 fromPoints and 10 toPoints, maxPairs=3 means return the 3 nearest toPoints to each fromPoint.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A list of routes and their route distances/times."
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get distance and travel time between each pair of geographic points",
-                "description": "Represents the distance and time of the shortest or fastest paths between all pairs of fromPoints and toPoints. The number of fromPoints times the number of toPoints should not exceed 100 or the request will time out.",
-                "tags": [
-                    "distance"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "fromPoints",
-                        "in": "query",
-                        "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "toPoints",
-                        "in": "query",
-                        "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-124.972951,49.715181,-123.139464,49.704015"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    },
-                    {
-                        "name": "maxPairs",
-                        "in": "query",
-                        "description": "The maximum number of pairs to return for each toPoint.  Pairs are ordered by distance/time from fromPoint. For example, given 1 fromPoint, and 10 toPoints, and maxPairs=1 , return the nearest toPoint to the fromPoint. Given 3 fromPoints and 10 toPoints, maxPairs=3 means return the 3 nearest toPoints to each fromPoint.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A list of routes and their route distances/times."
-                    }
-                }
-            }
-        },
-        "/route.{outputFormat}": {
-            "get": {
-                "summary": "Get the path, distance and travel time between a series of geographic points",
-                "description": "Represents the geometry, distance, and time of the shortest or fastest path between given start and end points.",
-                "tags": [
-                    "route"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Geometry, distance, and time of the shortest or fastest route"
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get the path, distance and travel time between a series of geographic points",
-                "description": "Represents the geometry, distance, and time of the shortest or fastest path between given start and end points.",
-                "tags": [
-                    "route"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Geometry, distance, and time of the shortest or fastest route"
-                    }
-                }
-            }
-        },
-        "/directions.{outputFormat}": {
-            "get": {
-                "summary": "Get the directions, path, distance and travel time between a series of geographic points",
-                "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between given start and end points",
-                "tags": [
-                    "directions"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route"
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get the directions, path, distance and travel time between a series of geographic points",
-                "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between given start and end points",
-                "tags": [
-                    "directions"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route"
-                    }
-                }
-            }
-        },
-        "/optimalRoute.{outputFormat}": {
-            "get": {
-                "summary": "Get the optimal path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
-                "description": "Represents the geometry, distance, and time of the shortest or fastest path between a start point and a series of end points which are reordered to minimize distance or time",
-                "tags": [
-                    "route"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time"
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get the path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
-                "description": "Represents the geometry, distance, and time of the shortest or fastest path between a start point and a series of end points which are reordered to minimize total distance or time.",
-                "tags": [
-                    "route"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
-                    }
-                }
-            }
-        },
-        "/optimalDirections.{outputFormat}": {
-            "get": {
-                "summary": "Get the directions, optimal path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
-                "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between a start point and a series of end points which are reordered to minimize distance/time",
-                "tags": [
-                    "directions"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
-                    }
-                }
-            },
-            "post": {
-                "summary": "Get the directions, optimal path, distance and travel time between a start point and one or more end points which are reordered to minimize total distance or time.",
-                "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between a start point and one or more end points which are reordered to minimize distance or time.",
-                "tags": [
-                    "directions"
-                ],
-                "parameters": [
-                    {
-                        "name": "outputFormat",
-                        "in": "path",
-                        "description": "Format of representation",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "kml",
-                                "html"
-                            ],
-                            "default": "json"
-                        },
-                        "example": "json"
-                    },
-                    {
-                        "name": "points",
-                        "in": "query",
-                        "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "-123.70794,48.77869,-123.53785,48.38200"
-                    },
-                    {
-                        "name": "outputSRS",
-                        "in": "query",
-                        "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                4326,
-                                4269,
-                                3005,
-                                26907,
-                                26908,
-                                26909,
-                                26910,
-                                26911
-                            ],
-                            "default": 4326
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "shortest",
-                                "fastest"
-                            ],
-                            "default": "shortest"
-                        }
-                    },
-                    {
-                        "name": "distanceUnit",
-                        "in": "query",
-                        "description": "distance unit of measure (e.g., km, mi). Default is km.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "km",
-                                "mi"
-                            ],
-                            "default": "km"
-                        }
-                    },
-                    {
-                        "name": "roundTrip",
-                        "in": "query",
-                        "description": "If true, route ends at start point. Default is false.",
-                        "required": false,
-                        "schema": {
-                            "type": "boolean",
-                            "default": false
-                        }
-                    },
-                    {
-                        "name": "routeDescription",
-                        "in": "query",
-                        "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "Routing results"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
-                    }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {},
-        "securitySchemes": {
-            "apikey": {
-                "type": "apiKey",
-                "in": "header",
-                "name": "apikey"
-            }
-        }
+    {
+      "url": "https://routerdlv.api.gov.bc.ca/",
+      "description": "Delivery"
     }
+  ],
+  "info": {
+    "title": "BC Route Planner REST API",
+    "description": "Finds shortest/fastest route between a start point and one or more stop points on British Columbia's public road network. The BC Route planner [webpage](https://www2.gov.bc.ca/gov/content?id=9D99E684CCD042CD88FADC51E079B4B5) provides additional information.  Here are some geocoded addresses to play with:<br>18 Douglas St,Victoria -123.36962,48.40892<br>1002 Johnson St, Victoria -123.355745,48.426206<br>543 Johnson St, Victoria, BC -123.36907,48.42770 <br>14 Centennial Sq, Victoria, BC -123.36564,48.42863<br>1105 Royal Ave,New Westminster  -122.92009,49.20063<br>808 Jackson Cres, New Westminster -122.90762,49.22558<br>10810 McDonald Rd, Chilliwack -121.93808,49.19859<br>3950 June Springs Rd, Kelowna -119.40751,49.83960<br>1201 Riondel Rd, Kootenay Bay -116.85402,49.74448<br>1201 Riondel Rd, Kootenay Bay -116.832759,49.730500 (parcelPoint)<br>2499 Walbran Pl, Courtenay -124.97295,49.71518<br>2013 Smoke Bluff Rd, Squamish -123.13946,49.70401<br>235 Kelvin Grove Way, Lions Bay -123.23524,49.45035<br>   Please see our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers. \n\n[Developer API keys](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys) are unique and provide the ability to make up to 2 requests per second. Production government applications may use organization API keys which are further described in [the Developer guide](https://github.com/bcgov/gwa/wiki/Developer-Guide#developer-api-keys).\n\n**To acquire an API key please visit the [API Key Request](https://kq.apps.gov.bc.ca) application.**",
+    "version": "1.3.0",
+    "license": {
+      "name": "Copyright 2018 Province of British Columbia - Access only",
+      "url": "https://www2.gov.bc.ca/gov/content?id=1AAACC9C65754E4D89A118B875E0FBDA"
+    },
+    "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
+    "contact": {
+      "name": "DataBC",
+      "url": "https://data.gov.bc.ca/",
+      "email": "IDDDBCLS@Victoria1.gov.bc.ca"
+    }
+  },
+  "externalDocs": {
+    "description": "Developer Guide",
+    "url": "https://github.com/bcgov/api-specs/blob/master/router/router-developer-guide.md"
+  },
+  "tags": [
+    {
+      "name": "directions"
+    },
+    {
+      "name": "distance"
+    },
+    {
+      "name": "route"
+    }
+  ],
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "paths": {
+    "/distance.{outputFormat}": {
+      "get": {
+        "summary": "Get distance and travel time between two geographic points",
+        "description": "Represents the distance and time of the shortest or fastest path between given start and end points.",
+        "tags": [
+          "distance"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distance and time of the shortest or fastest route"
+          }
+        }
+      },
+      "post": {
+        "summary": "Get distance and travel time between two geographic points",
+        "description": "Represents the distance and time of the shortest or fastest path between given start and end points.",
+        "tags": [
+          "distance"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distance and time of the shortest or fastest route"
+          }
+        }
+      }
+    },
+    "/distance/betweenPairs.{outputFormat}": {
+      "get": {
+        "summary": "Get distance and travel time between each pair of geographic points",
+        "description": "Represents the distance and time of the shortest or fastest paths between all pairs of fromPoints and toPoints. The number of fromPoints times the number of toPoints should not exceed 100 or the request will time out.",
+        "tags": [
+          "distance"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "fromPoints",
+            "in": "query",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "toPoints",
+            "in": "query",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-124.972951,49.715181,-123.139464,49.704015"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          },
+          {
+            "name": "maxPairs",
+            "in": "query",
+            "description": "The maximum number of pairs to return for each toPoint.  Pairs are ordered by distance/time from fromPoint. For example, given 1 fromPoint, and 10 toPoints, and maxPairs=1 , return the nearest toPoint to the fromPoint. Given 3 fromPoints and 10 toPoints, maxPairs=3 means return the 3 nearest toPoints to each fromPoint.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of routes and their route distances/times."
+          }
+        }
+      },
+      "post": {
+        "summary": "Get distance and travel time between each pair of geographic points",
+        "description": "Represents the distance and time of the shortest or fastest paths between all pairs of fromPoints and toPoints. The number of fromPoints times the number of toPoints should not exceed 100 or the request will time out.",
+        "tags": [
+          "distance"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "fromPoints",
+            "in": "query",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "toPoints",
+            "in": "query",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-124.972951,49.715181,-123.139464,49.704015"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          },
+          {
+            "name": "maxPairs",
+            "in": "query",
+            "description": "The maximum number of pairs to return for each toPoint.  Pairs are ordered by distance/time from fromPoint. For example, given 1 fromPoint, and 10 toPoints, and maxPairs=1 , return the nearest toPoint to the fromPoint. Given 3 fromPoints and 10 toPoints, maxPairs=3 means return the 3 nearest toPoints to each fromPoint.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of routes and their route distances/times."
+          }
+        }
+      }
+    },
+    "/route.{outputFormat}": {
+      "get": {
+        "summary": "Get the path, distance and travel time between a series of geographic points",
+        "description": "Represents the geometry, distance, and time of the shortest or fastest path between given start and end points.",
+        "tags": [
+          "route"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geometry, distance, and time of the shortest or fastest route"
+          }
+        }
+      },
+      "post": {
+        "summary": "Get the path, distance and travel time between a series of geographic points",
+        "description": "Represents the geometry, distance, and time of the shortest or fastest path between given start and end points.",
+        "tags": [
+          "route"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geometry, distance, and time of the shortest or fastest route"
+          }
+        }
+      }
+    },
+    "/directions.{outputFormat}": {
+      "get": {
+        "summary": "Get the directions, path, distance and travel time between a series of geographic points",
+        "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between given start and end points",
+        "tags": [
+          "directions"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route"
+          }
+        }
+      },
+      "post": {
+        "summary": "Get the directions, path, distance and travel time between a series of geographic points",
+        "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between given start and end points",
+        "tags": [
+          "directions"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route"
+          }
+        }
+      }
+    },
+    "/optimalRoute.{outputFormat}": {
+      "get": {
+        "summary": "Get the optimal path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
+        "description": "Represents the geometry, distance, and time of the shortest or fastest path between a start point and a series of end points which are reordered to minimize distance or time",
+        "tags": [
+          "route"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time"
+          }
+        }
+      },
+      "post": {
+        "summary": "Get the path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
+        "description": "Represents the geometry, distance, and time of the shortest or fastest path between a start point and a series of end points which are reordered to minimize total distance or time.",
+        "tags": [
+          "route"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
+          }
+        }
+      }
+    },
+    "/optimalDirections.{outputFormat}": {
+      "get": {
+        "summary": "Get the directions, optimal path, distance and travel time between a start point and a series of end points which are reordered to minimize total distance or time.",
+        "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between a start point and a series of end points which are reordered to minimize distance/time",
+        "tags": [
+          "directions"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
+          }
+        }
+      },
+      "post": {
+        "summary": "Get the directions, optimal path, distance and travel time between a start point and one or more end points which are reordered to minimize total distance or time.",
+        "description": "Represents the turn-by-turn directions, geometry, distance, and time of the shortest path or fastest path between a start point and one or more end points which are reordered to minimize distance or time.",
+        "tags": [
+          "directions"
+        ],
+        "parameters": [
+          {
+            "name": "outputFormat",
+            "in": "path",
+            "description": "Format of representation",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "kml",
+                "html"
+              ],
+              "default": "json"
+            },
+            "example": "json"
+          },
+          {
+            "name": "points",
+            "in": "query",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-123.70794,48.77869,-123.53785,48.38200"
+          },
+          {
+            "name": "outputSRS",
+            "in": "query",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                4269,
+                3005,
+                26907,
+                26908,
+                26909,
+                26910,
+                26911
+              ],
+              "default": 4326
+            }
+          },
+          {
+            "name": "criteria",
+            "in": "query",
+            "description": "Routing criteria to optimize (e.g., shortest, fastest). Default is shortest.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "shortest",
+                "fastest"
+              ],
+              "default": "shortest"
+            }
+          },
+          {
+            "name": "distanceUnit",
+            "in": "query",
+            "description": "distance unit of measure (e.g., km, mi). Default is km.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "km",
+                "mi"
+              ],
+              "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "routeDescription",
+            "in": "query",
+            "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Routing results"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "turn-by-turn directions, geometry, distance, and time of the shortest or fastest route. End points are reordered to minimize total distance or time."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "apikey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "apikey"
+      }
+    }
+  }
 }
