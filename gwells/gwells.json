@@ -1,19 +1,10 @@
+
+
 {
     "openapi": "3.0.0",
-    "x-origin": [
-        {
-            "url": "https://apps.nrs.gov.bc.ca/gwells/api/?format=openapi",
-            "format": "swagger",
-            "version": "2.0",
-            "converter": {
-                "url": "https://github.com/mermade/oas-kit",
-                "version": "3.2.13"
-            }
-        }
-    ],
     "info": {
         "title": "Groundwater Wells, Aquifers and Registry API",
-        "description": "The groundwater wells, aquifers and registry API contains information related to groudwater wells and aquifers as well as a register of qualified well drillers and well pump installers registered to operate in B.C.",
+        "description": "The groundwater wells, aquifers and registry API contains information related to groundwater wells and aquifers as well as a register of qualified well drillers and well pump installers registered to operate in B.C.",
         "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
         "contact": {
             "email": "groundwater@gov.bc.ca"
@@ -580,6 +571,42 @@
             },
             "parameters": []
         },
+        "/aquifers/names/": {
+            "get": {
+                "operationId": "aquifers_names_list",
+                "description": "List all aquifers in a simplified format",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "A search term.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AquiferSerializerBasic"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "aquifers"
+                ]
+            },
+            "parameters": []
+        },
         "/aquifers/{aquifer_id}/": {
             "get": {
                 "operationId": "aquifers_read",
@@ -604,10 +631,71 @@
                 {
                     "name": "aquifer_id",
                     "in": "path",
-                    "description": "A unique value identifying this aquifer.",
+                    "description": "A unique integer value identifying this aquifer.",
                     "required": true,
                     "schema": {
                         "type": "integer"
+                    }
+                }
+            ]
+        },
+        "/aquifers/{aquifer_id}/files": {
+            "get": {
+                "operationId": "aquifers_files_list",
+                "description": "list files found for the aquifer identified in the uri",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "public": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "private": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "aquifers"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "aquifer_id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
                     }
                 }
             ]
@@ -779,6 +867,67 @@
         "/drillers/options/": {
             "parameters": []
         },
+        "/drillers/{person_guid}/files/": {
+            "get": {
+                "operationId": "drillers_files_list",
+                "description": "list files found for the aquifer identified in the uri",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "public": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "private": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "drillers"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "person_guid",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
         "/keycloak": {
             "get": {
                 "operationId": "keycloak_list",
@@ -790,6 +939,21 @@
                 },
                 "tags": [
                     "keycloak"
+                ]
+            },
+            "parameters": []
+        },
+        "/submissions/options/": {
+            "get": {
+                "operationId": "submissions_options_list",
+                "description": "Options required for submitting activity report forms",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "submissions"
                 ]
             },
             "parameters": []
@@ -884,6 +1048,9 @@
             },
             "parameters": []
         },
+        "/wells/extracts": {
+            "parameters": []
+        },
         "/wells/tags/": {
             "get": {
                 "operationId": "wells_tags_list",
@@ -893,6 +1060,15 @@
                         "name": "search",
                         "in": "query",
                         "description": "A search term.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ordering",
+                        "in": "query",
+                        "description": "Which field to use when ordering the results.",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -921,6 +1097,55 @@
             "parameters": []
         },
         "/wells/{tag}/files": {
+            "get": {
+                "operationId": "wells_files_list",
+                "description": "list files found for the well identified in the uri",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "public": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "private": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "wells"
+                ]
+            },
             "parameters": [
                 {
                     "name": "tag",
@@ -931,11 +1156,43 @@
                     }
                 }
             ]
+        },
+        "/wells/{well_tag_number}": {
+            "get": {
+                "operationId": "wells_read",
+                "description": "Return well detail.\nThis view is open to all, and has no permissions.",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WellDetail"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "wells"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "well_tag_number",
+                    "in": "path",
+                    "description": "A unique integer value identifying this well.",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            ]
         }
     },
     "servers": [
         {
-            "url": "https://apps.nrs.gov.bc.ca/gwells/api/v1/"
+            "url": "http://127.0.0.1:8000/gwells/api/v1"
         }
     ],
     "components": {
@@ -1080,16 +1337,12 @@
                 }
             },
             "Aquifer": {
-                "required": [
-                    "aquifer_id"
-                ],
                 "type": "object",
                 "properties": {
                     "aquifer_id": {
                         "title": "Aquifer ID Number",
                         "type": "integer",
-                        "maximum": 2147483647,
-                        "minimum": 0
+                        "readOnly": true
                     },
                     "aquifer_name": {
                         "title": "Aquifer name",
@@ -1131,9 +1384,9 @@
                     },
                     "mapping_year": {
                         "title": "Date of Mapping",
-                        "description": "Use the following format: <YYYY>",
+                        "description": "Use the following format: ",
                         "type": "integer",
-                        "maximum": 2018,
+                        "maximum": 2019,
                         "minimum": 1990
                     },
                     "material_description": {
@@ -1185,6 +1438,21 @@
                     "vulnerability": {
                         "title": "Aquifer Vulnerabiliy",
                         "type": "string"
+                    }
+                }
+            },
+            "AquiferSerializerBasic": {
+                "type": "object",
+                "properties": {
+                    "aquifer_id": {
+                        "title": "Aquifer ID Number",
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "readOnly": true
                     }
                 }
             },
@@ -1517,6 +1785,23 @@
                     }
                 }
             },
+            "RegistrationsNumber": {
+                "required": [
+                    "registries_activity"
+                ],
+                "type": "object",
+                "properties": {
+                    "registration_no": {
+                        "title": "Registration no",
+                        "type": "string",
+                        "maxLength": 15
+                    },
+                    "registries_activity": {
+                        "title": "Registries activity",
+                        "type": "string"
+                    }
+                }
+            },
             "PersonName": {
                 "type": "object",
                 "properties": {
@@ -1529,6 +1814,13 @@
                         "title": "Person UUID",
                         "type": "string",
                         "format": "uuid",
+                        "readOnly": true
+                    },
+                    "registrations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RegistrationsNumber"
+                        },
                         "readOnly": true
                     }
                 }
@@ -1558,7 +1850,8 @@
                         "enum": [
                             "w",
                             "r",
-                            "s"
+                            "s",
+                            "a"
                         ]
                     }
                 }
@@ -1707,6 +2000,21 @@
                         "type": "string",
                         "maxLength": 500
                     },
+                    "id_plate_attached_by": {
+                        "title": "Well identification plate attached by",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "water_supply_system_name": {
+                        "title": "Water Supply System Name",
+                        "type": "string",
+                        "maxLength": 80
+                    },
+                    "water_supply_system_well_name": {
+                        "title": "Water Supply System Well Name",
+                        "type": "string",
+                        "maxLength": 80
+                    },
                     "latitude": {
                         "title": "Latitude",
                         "type": "string",
@@ -1716,6 +2024,10 @@
                         "title": "Longitude",
                         "type": "string",
                         "format": "decimal"
+                    },
+                    "coordinate_acquisition_code": {
+                        "title": "Location Accuracy Code",
+                        "type": "string"
                     },
                     "ground_elevation": {
                         "title": "Ground Elevation",
@@ -1760,6 +2072,11 @@
                     "surface_seal_method": {
                         "title": "Surface Seal Installation Method",
                         "type": "string"
+                    },
+                    "surface_seal_depth": {
+                        "title": "Surface Seal Depth",
+                        "type": "string",
+                        "format": "decimal"
                     },
                     "backfill_type": {
                         "title": "Backfill Material Above Surface Seal",
@@ -1824,6 +2141,838 @@
                         "title": "Specify Other Screen Bottom",
                         "type": "string",
                         "maxLength": 50
+                    },
+                    "screen_information": {
+                        "title": "Screen Information",
+                        "type": "string",
+                        "maxLength": 300
+                    },
+                    "filter_pack_from": {
+                        "title": "Filter Pack From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "filter_pack_to": {
+                        "title": "Filter Pack To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "filter_pack_thickness": {
+                        "title": "Filter Pack Thickness",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "filter_pack_material": {
+                        "title": "Filter Pack Material",
+                        "type": "string"
+                    },
+                    "filter_pack_material_size": {
+                        "title": "Filter Pack Material Size",
+                        "type": "string"
+                    },
+                    "development_method": {
+                        "title": "Developed By",
+                        "type": "string"
+                    },
+                    "development_hours": {
+                        "title": "Development Total Duration",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "development_notes": {
+                        "title": "Development Notes",
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "yield_estimation_method": {
+                        "title": "Estimation Method",
+                        "type": "string"
+                    },
+                    "yield_estimation_rate": {
+                        "title": "Estimation Rate",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "yield_estimation_duration": {
+                        "title": "Estimation Duration",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "well_yield_unit": {
+                        "title": "Well yield unit",
+                        "type": "string"
+                    },
+                    "static_level_before_test": {
+                        "title": "SWL Before Test",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "drawdown": {
+                        "title": "Drawdown",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "hydro_fracturing_performed": {
+                        "title": "Hydro-fracturing Performed?",
+                        "type": "boolean",
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    "hydro_fracturing_yield_increase": {
+                        "title": "Well Yield Increase Due to Hydro-fracturing",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "recommended_pump_depth": {
+                        "title": "Recommended pump depth",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "recommended_pump_rate": {
+                        "title": "Recommended pump rate",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "water_quality_characteristics": {
+                        "type": "array",
+                        "items": {
+                            "title": "Obvious Water Quality Characteristics",
+                            "type": "string"
+                        },
+                        "uniqueItems": true
+                    },
+                    "water_quality_colour": {
+                        "title": "Water Quality Colour",
+                        "type": "string",
+                        "maxLength": 60
+                    },
+                    "water_quality_odour": {
+                        "title": "Water Quality Odour",
+                        "type": "string",
+                        "maxLength": 60
+                    },
+                    "total_depth_drilled": {
+                        "title": "Total Depth Drilled",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "finished_well_depth": {
+                        "title": "Finished Well Depth",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "final_casing_stick_up": {
+                        "title": "Final Casing Stick Up",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "bedrock_depth": {
+                        "title": "Depth to Bedrock",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "static_water_level": {
+                        "title": "Static Water Level (BTOC)",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "well_yield": {
+                        "title": "Estimated Well Yield",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "artesian_flow": {
+                        "title": "Artesian Flow",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "artesian_pressure": {
+                        "title": "Artesian Pressure",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "well_cap_type": {
+                        "title": "Well Cap",
+                        "type": "string",
+                        "maxLength": 40
+                    },
+                    "well_disinfected": {
+                        "title": "Well Disinfected",
+                        "type": "boolean",
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    "comments": {
+                        "title": "Comments",
+                        "type": "string",
+                        "maxLength": 3000
+                    },
+                    "alternative_specs_submitted": {
+                        "title": "Alternative specs submitted (if required)",
+                        "type": "boolean",
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    "diameter": {
+                        "title": "Diameter",
+                        "type": "string",
+                        "maxLength": 9
+                    },
+                    "observation_well_number": {
+                        "title": "Observation Well Number",
+                        "type": "string",
+                        "maxLength": 30
+                    },
+                    "observation_well_status": {
+                        "title": "Observation Well Status",
+                        "type": "string"
+                    },
+                    "ems": {
+                        "title": "Environmental Monitoring System (EMS) ID",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "aquifer": {
+                        "title": "Aquifer ID Number",
+                        "type": "integer"
+                    },
+                    "utm_zone_code": {
+                        "title": "Zone",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "utm_northing": {
+                        "title": "UTM Northing",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": -2147483648
+                    },
+                    "utm_easting": {
+                        "title": "UTM Easting",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": -2147483648
+                    },
+                    "bcgs_id": {
+                        "title": "BCGS Mapsheet Number",
+                        "type": "integer"
+                    },
+                    "decommission_reason": {
+                        "title": "Reason for Decommission",
+                        "type": "string",
+                        "maxLength": 250
+                    },
+                    "decommission_method": {
+                        "title": "Method of Decommission",
+                        "type": "string"
+                    },
+                    "sealant_material": {
+                        "title": "Sealant Material",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "backfill_material": {
+                        "title": "Backfill Material",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "decommission_details": {
+                        "title": "Decommission Details",
+                        "type": "string",
+                        "maxLength": 250
+                    },
+                    "aquifer_vulnerability_index": {
+                        "title": "AVI",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "storativity": {
+                        "title": "Storativity",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "transmissivity": {
+                        "title": "Transmissivity",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "hydraulic_conductivity": {
+                        "title": "Hydraulic Conductivity",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "specific_storage": {
+                        "title": "Specific Storage",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "specific_yield": {
+                        "title": "Specific Yield",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "testing_method": {
+                        "title": "Testing Method",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "testing_duration": {
+                        "title": "Testing duration",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": 0
+                    },
+                    "analytic_solution_type": {
+                        "title": "Analytic Solution Type",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "boundary_effect": {
+                        "title": "Boundary Effect",
+                        "type": "string",
+                        "format": "decimal"
+                    }
+                }
+            },
+            "WellTagSearch": {
+                "required": [
+                    "owner_full_name"
+                ],
+                "type": "object",
+                "properties": {
+                    "well_tag_number": {
+                        "title": "Well Tag Number",
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "owner_full_name": {
+                        "title": "Owner Name",
+                        "type": "string",
+                        "maxLength": 200
+                    }
+                }
+            },
+            "PersonBasic": {
+                "title": "Person responsible",
+                "type": "object",
+                "properties": {
+                    "person_guid": {
+                        "title": "Person UUID",
+                        "type": "string",
+                        "format": "uuid",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "readOnly": true
+                    }
+                }
+            },
+            "OrganizationNameList": {
+                "title": "Company of person responsible",
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "org_guid": {
+                        "title": "Organization UUID",
+                        "type": "string",
+                        "format": "uuid",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "maxLength": 200
+                    },
+                    "org_verbose_name": {
+                        "title": "Org verbose name",
+                        "type": "string",
+                        "readOnly": true
+                    }
+                }
+            },
+            "Casing": {
+                "required": [
+                    "start",
+                    "end",
+                    "diameter"
+                ],
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "title": "From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "end": {
+                        "title": "To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "diameter": {
+                        "title": "Diameter",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "casing_code": {
+                        "title": "Casing Type Code",
+                        "type": "string"
+                    },
+                    "casing_material": {
+                        "title": "Casing Material Code",
+                        "type": "string"
+                    },
+                    "drive_shoe": {
+                        "title": "Drive Shoe",
+                        "type": "boolean",
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    "wall_thickness": {
+                        "title": "Wall Thickness",
+                        "type": "string",
+                        "format": "decimal"
+                    }
+                }
+            },
+            "Screen": {
+                "required": [
+                    "start",
+                    "end",
+                    "assembly_type"
+                ],
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "title": "From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "end": {
+                        "title": "To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "internal_diameter": {
+                        "title": "Diameter",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "assembly_type": {
+                        "title": "Assembly type",
+                        "type": "string"
+                    },
+                    "slot_size": {
+                        "title": "Slot Size",
+                        "type": "string",
+                        "format": "decimal"
+                    }
+                }
+            },
+            "LinerPerforation": {
+                "required": [
+                    "start",
+                    "end"
+                ],
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "title": "Perforated From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "end": {
+                        "title": "Perforated To",
+                        "type": "string",
+                        "format": "decimal"
+                    }
+                }
+            },
+            "DecommissionDescription": {
+                "required": [
+                    "start",
+                    "end",
+                    "material"
+                ],
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "title": "Decommissioned From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "end": {
+                        "title": "Decommissioned To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "material": {
+                        "title": "Material",
+                        "type": "string"
+                    },
+                    "observations": {
+                        "title": "Observations",
+                        "type": "string",
+                        "maxLength": 255
+                    }
+                }
+            },
+            "LithologyDescription": {
+                "type": "object",
+                "properties": {
+                    "lithology_from": {
+                        "title": "From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "lithology_to": {
+                        "title": "To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "lithology_raw_data": {
+                        "title": "Raw Data",
+                        "type": "string",
+                        "maxLength": 250
+                    },
+                    "lithology_colour": {
+                        "title": "Colour",
+                        "type": "string"
+                    },
+                    "lithology_hardness": {
+                        "title": "Hardness",
+                        "type": "string"
+                    },
+                    "lithology_moisture": {
+                        "title": "Moisture",
+                        "type": "string"
+                    },
+                    "water_bearing_estimated_flow": {
+                        "title": "Water Bearing Estimated Flow",
+                        "type": "string",
+                        "format": "decimal"
+                    }
+                }
+            },
+            "WellDetail": {
+                "required": [
+                    "well",
+                    "owner_full_name",
+                    "person_responsible",
+                    "company_of_person_responsible",
+                    "casing_set",
+                    "screen_set",
+                    "linerperforation_set",
+                    "decommission_description_set",
+                    "lithologydescription_set"
+                ],
+                "type": "object",
+                "properties": {
+                    "well_guid": {
+                        "title": "Well guid",
+                        "type": "string",
+                        "format": "uuid",
+                        "readOnly": true
+                    },
+                    "well": {
+                        "title": "Well",
+                        "type": "integer"
+                    },
+                    "well_tag_number": {
+                        "title": "Well Tag Number",
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "identification_plate_number": {
+                        "title": "Well Identification Plate Number",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": 0
+                    },
+                    "owner_full_name": {
+                        "title": "Owner Name",
+                        "type": "string",
+                        "maxLength": 200
+                    },
+                    "well_class": {
+                        "title": "Well Class",
+                        "type": "string"
+                    },
+                    "well_subclass": {
+                        "title": "Well Subclass",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "intended_water_use": {
+                        "title": "Intended Water Use",
+                        "type": "string"
+                    },
+                    "well_status": {
+                        "title": "Well Status",
+                        "type": "string"
+                    },
+                    "licenced_status": {
+                        "title": "Licenced Status",
+                        "type": "string"
+                    },
+                    "street_address": {
+                        "title": "Street Address",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "city": {
+                        "title": "Town/City",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "legal_lot": {
+                        "title": "Lot",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "legal_plan": {
+                        "title": "Plan",
+                        "type": "string",
+                        "maxLength": 20
+                    },
+                    "legal_district_lot": {
+                        "title": "District Lot",
+                        "type": "string",
+                        "maxLength": 20
+                    },
+                    "legal_block": {
+                        "title": "Block",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "legal_section": {
+                        "title": "Section",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "legal_township": {
+                        "title": "Township",
+                        "type": "string",
+                        "maxLength": 20
+                    },
+                    "legal_range": {
+                        "title": "Range",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "land_district": {
+                        "title": "Land District",
+                        "type": "string"
+                    },
+                    "legal_pid": {
+                        "title": "Property Identification Description (PID)",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": 0
+                    },
+                    "well_location_description": {
+                        "title": "Description of Well Location",
+                        "type": "string",
+                        "maxLength": 500
+                    },
+                    "construction_start_date": {
+                        "title": "Construction Start Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "construction_end_date": {
+                        "title": "Construction Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "alteration_end_date": {
+                        "title": "Alteration Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "decommission_start_date": {
+                        "title": "Decommission Start Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "decommission_end_date": {
+                        "title": "Decommission Date",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "person_responsible": {
+                        "$ref": "#/components/schemas/PersonBasic"
+                    },
+                    "company_of_person_responsible": {
+                        "$ref": "#/components/schemas/OrganizationNameList"
+                    },
+                    "drilling_company": {
+                        "title": "Drilling Company",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "well_identification_plate_attached": {
+                        "title": "Well Identification Plate Is Attached",
+                        "type": "string",
+                        "maxLength": 500
+                    },
+                    "id_plate_attached_by": {
+                        "title": "Well identification plate attached by",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "water_supply_system_name": {
+                        "title": "Water Supply System Name",
+                        "type": "string",
+                        "maxLength": 80
+                    },
+                    "water_supply_system_well_name": {
+                        "title": "Water Supply System Well Name",
+                        "type": "string",
+                        "maxLength": 80
+                    },
+                    "latitude": {
+                        "title": "Latitude",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "longitude": {
+                        "title": "Longitude",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "coordinate_acquisition_code": {
+                        "title": "Location Accuracy Code",
+                        "type": "string"
+                    },
+                    "ground_elevation": {
+                        "title": "Ground Elevation",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "ground_elevation_method": {
+                        "title": "Elevation Determined By",
+                        "type": "string"
+                    },
+                    "drilling_method": {
+                        "title": "Drilling Method",
+                        "type": "string"
+                    },
+                    "other_drilling_method": {
+                        "title": "Specify Other Drilling Method",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "well_orientation": {
+                        "title": "Orientation of Well",
+                        "type": "boolean",
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    },
+                    "surface_seal_material": {
+                        "title": "Surface Seal Material",
+                        "type": "string"
+                    },
+                    "surface_seal_length": {
+                        "title": "Surface Seal Length",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "surface_seal_thickness": {
+                        "title": "Surface Seal Thickness",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "surface_seal_method": {
+                        "title": "Surface Seal Installation Method",
+                        "type": "string"
+                    },
+                    "surface_seal_depth": {
+                        "title": "Surface Seal Depth",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "backfill_type": {
+                        "title": "Backfill Material Above Surface Seal",
+                        "type": "string",
+                        "maxLength": 250
+                    },
+                    "backfill_depth": {
+                        "title": "Backfill Depth",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "liner_material": {
+                        "title": "Liner Material",
+                        "type": "string"
+                    },
+                    "liner_diameter": {
+                        "title": "Liner Diameter",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "liner_thickness": {
+                        "title": "Liner Thickness",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "liner_from": {
+                        "title": "Liner From",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "liner_to": {
+                        "title": "Liner To",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "screen_intake_method": {
+                        "title": "Intake Method",
+                        "type": "string"
+                    },
+                    "screen_type": {
+                        "title": "Type",
+                        "type": "string"
+                    },
+                    "screen_material": {
+                        "title": "Material",
+                        "type": "string"
+                    },
+                    "other_screen_material": {
+                        "title": "Specify Other Screen Material",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "screen_opening": {
+                        "title": "Opening",
+                        "type": "string"
+                    },
+                    "screen_bottom": {
+                        "title": "Bottom",
+                        "type": "string"
+                    },
+                    "other_screen_bottom": {
+                        "title": "Specify Other Screen Bottom",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "screen_information": {
+                        "title": "Screen Information",
+                        "type": "string",
+                        "maxLength": 300
                     },
                     "filter_pack_from": {
                         "title": "Filter Pack From",
@@ -1900,16 +3049,6 @@
                         "type": "string",
                         "format": "decimal"
                     },
-                    "water_supply_system_name": {
-                        "title": "Water Supply System Name",
-                        "type": "string",
-                        "maxLength": 80
-                    },
-                    "water_supply_system_well_name": {
-                        "title": "Water Supply System Well Name",
-                        "type": "string",
-                        "maxLength": 80
-                    },
                     "static_water_level": {
                         "title": "Static Water Level (BTOC)",
                         "type": "string",
@@ -1968,7 +3107,7 @@
                     "observation_well_number": {
                         "title": "Observation Well Number",
                         "type": "string",
-                        "maxLength": 3
+                        "maxLength": 30
                     },
                     "observation_well_status": {
                         "title": "Observation Well Status",
@@ -1978,6 +3117,10 @@
                         "title": "Environmental Monitoring System (EMS) ID",
                         "type": "string",
                         "maxLength": 10
+                    },
+                    "aquifer": {
+                        "title": "Aquifer ID Number",
+                        "type": "integer"
                     },
                     "utm_zone_code": {
                         "title": "Zone",
@@ -1995,11 +3138,6 @@
                         "type": "integer",
                         "maximum": 2147483647,
                         "minimum": -2147483648
-                    },
-                    "utm_accuracy_code": {
-                        "title": "Location Accuracy Code",
-                        "type": "string",
-                        "maxLength": 10
                     },
                     "bcgs_id": {
                         "title": "BCGS Mapsheet Number",
@@ -2028,27 +3166,138 @@
                         "title": "Decommission Details",
                         "type": "string",
                         "maxLength": 250
-                    }
-                }
-            },
-            "WellTagSearch": {
-                "required": [
-                    "owner_full_name"
-                ],
-                "type": "object",
-                "properties": {
-                    "well_tag_number": {
-                        "title": "Well Tag Number",
-                        "type": "integer",
-                        "readOnly": true
                     },
-                    "owner_full_name": {
-                        "title": "Owner Name",
+                    "aquifer_vulnerability_index": {
+                        "title": "AVI",
                         "type": "string",
-                        "maxLength": 200
+                        "format": "decimal"
+                    },
+                    "storativity": {
+                        "title": "Storativity",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "transmissivity": {
+                        "title": "Transmissivity",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "hydraulic_conductivity": {
+                        "title": "Hydraulic Conductivity",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "specific_storage": {
+                        "title": "Specific Storage",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "specific_yield": {
+                        "title": "Specific Yield",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "testing_method": {
+                        "title": "Testing Method",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "testing_duration": {
+                        "title": "Testing duration",
+                        "type": "integer",
+                        "maximum": 2147483647,
+                        "minimum": 0
+                    },
+                    "analytic_solution_type": {
+                        "title": "Analytic Solution Type",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "boundary_effect": {
+                        "title": "Boundary Effect",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "yield_estimation_method": {
+                        "title": "Estimation Method",
+                        "type": "string"
+                    },
+                    "yield_estimation_rate": {
+                        "title": "Estimation Rate",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "yield_estimation_duration": {
+                        "title": "Estimation Duration",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "static_level_before_test": {
+                        "title": "SWL Before Test",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "drawdown": {
+                        "title": "Drawdown",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "hydro_fracturing_performed": {
+                        "title": "Hydro-fracturing Performed?",
+                        "type": "boolean",
+                        "enum": [
+                            false,
+                            true
+                        ]
+                    },
+                    "hydro_fracturing_yield_increase": {
+                        "title": "Well Yield Increase Due to Hydro-fracturing",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "recommended_pump_depth": {
+                        "title": "Recommended pump depth",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "recommended_pump_rate": {
+                        "title": "Recommended pump rate",
+                        "type": "string",
+                        "format": "decimal"
+                    },
+                    "casing_set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Casing"
+                        }
+                    },
+                    "screen_set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Screen"
+                        }
+                    },
+                    "linerperforation_set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LinerPerforation"
+                        }
+                    },
+                    "decommission_description_set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DecommissionDescription"
+                        }
+                    },
+                    "lithologydescription_set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LithologyDescription"
+                        }
                     }
                 }
             }
         }
     }
 }
+
