@@ -801,7 +801,7 @@ paths:
         schema:
           type: integer
 servers:
-  - url: http://127.0.0.1:8000/gwells/api/v1
+  - url: https://apps.nrs.gov.bc.ca/gwells/api/v1/
 components:
   securitySchemes:
     Bearer:
