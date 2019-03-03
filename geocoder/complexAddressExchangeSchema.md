@@ -1,7 +1,7 @@
 # Complex Address Exchange Schema
 
 Field Name |	Data Type |	Description | Required for Civic Address|Required for Non-civic address
-----------: | -------------- | -------------- | -------------| ------
+---: | --- | --- | ---| ---
 YOUR_ID |String|Unique identifier in your local address management system (eg X0233212)| yes|yes
 SITE_NAME |String|building or landmark name (eg Centennial Candle)|yes|yes
 SUPER_FULL_SITE_DESCRIPTOR|String|names of all sites in parent site hierarchy separated by double-dash (eg Student Union Building -- University of Victoria)|No|No
@@ -10,7 +10,11 @@ UNIT_NUMBER|String|unit number or sequence of unit number ranges separated by co
 UNIT_NUMBER_SUFFIX|String|Canada Post unit number suffix (eg C)|No|No
 CIVIC_NUMBER|Number| civic number, usually a positive integer (eg 1321)|yes|no
 CIVIC_NUMBER_SUFFIX|String|Canada Post civic number suffix (eg A)
-STREET_NAME	char(50)	Full street name including directionals, types and descriptors	yes	
+STREET_NAME|String|Street name|Yes|No
+STREET_TYPE|String|Street type|No|No
+IS_STREET_TYPE_PREFIX|Boolean| True if street type appears before street name as in HWY 17
+STREET_DIRECTION|String|Canada Post street direction (eg NW); Note CP does not allow prefix and suffix street type in same address|No|No
+IS_STREET_DIRECTION_PREFIX|Boolean|true if street direction appears before street name as in SW Marine Dr
 LOCALITY|String|Locality (eg Victoria)|Yes|Yes
 LOCALITY_DESCRIPTOR|String|type of locality|(eg Municipality)|Yes|Yes
 IS_NON_CIVIC_ADDRESS|Boolean|True if address has no assigned civic number|Yes|Yes
