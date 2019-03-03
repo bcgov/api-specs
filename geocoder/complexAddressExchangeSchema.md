@@ -1,9 +1,13 @@
-Field Name |	Data Type	Description	Required for CAP	Required for NCAP
-DATABC_ID	number(8,0)	ID used by DataBC; this will be retained internally as the geocoder YourID	yes	yes
-SITE_NAME	char(240)			yes
-UNIT_DESIGNATOR	char(10)			N/A
-UNIT_NUMBER_OR_RANGE	char(50)	See ticket #250, e.g. 100-119,200-219		N/A
-UNIT_NUMBER_SUFFIX	char(3)			N/A
+# Complex Address Exchange Schema
+
+Field Name |	Data Type |	Description |	Example | Required for CAP |	Required for NCAP
+----------: | -------------- | --------------------- | ------------------| ------------- | ---------
+YOUR_ID |String|Unique identifier in your local address management system|X0233212| yes|yes
+SITE_NAME |String|building or landmark name|Centennial Candle|yes|yes
+SUPER_FULL_SITE_DESCRIPTOR|String|names of all sites in parent site hierarchy|Student Union Building -- University of Victoria|No|No
+UNIT_DESIGNATOR |String|Canada Post unit designator|APT|No|No
+UNIT_NUMBER|String| unit number or sequence of unit number ranges separated by commas|100-119,200-219|No|No
+UNIT_NUMBER_SUFFIX| Canada Post unit number suffix|C|No|No
 CIVIC_NUMBER	number(6,0)		yes	N/A
 CIVIC_NUMBER_SUFFIX	char(3)			N/A
 STREET_NAME	char(50)	Full street name including directionals, types and descriptors	yes	
