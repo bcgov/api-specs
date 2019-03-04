@@ -12,12 +12,12 @@ The Physical Address Exchange Schema can be used to exchange physical addresses 
 An address can have rooftop, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
 
 Vancouver International Airport
-    Terminal A
-         Gate 1-35
-    Terminal B
-         Gate 1-40
-    Terminal C
-         Gate 1-20
+    - Terminal A
+         - Gate 1-35
+    - Terminal B
+         - Gate 1-40
+    - Terminal C
+         - Gate 1-20
 
 
 
