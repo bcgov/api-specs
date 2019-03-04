@@ -21,6 +21,11 @@ STREET_NAME|Olympia
 STREET_TYPE|Ave
 LOCALITY|Victoria
 PROVINCE_CODE|BC
+SITE_POINT_DESCRIPTOR|Parcel
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 
 ## Example 2 - Multiple buildings distinguished by unit number prefix
@@ -39,6 +44,10 @@ STREET_NAME|Esquimalt
 STREET_TYPE|Rd
 LOCALITY|Esquimalt
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
@@ -68,6 +77,10 @@ STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 Field | Value
 ----:|----
@@ -79,7 +92,8 @@ STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
-
+SITE_LAT| 
+SITE_LON|
 
 Field | Value
 ----:|----
@@ -91,6 +105,8 @@ STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
 
 The gates of terminals B and C are represented similarly.
 
@@ -121,6 +137,10 @@ STREET_NAME|Finnerty
 STREET_TYPE|Rd
 LOCALITY|Victoria
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 Field | Value
 ----:|----
@@ -131,6 +151,10 @@ STREET_NAME|Finnerty
 STREET_TYPE|Rd
 LOCALITY|Saanich
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 Field | Value
 ----:|----
@@ -141,6 +165,10 @@ STREET_NAME|Finnerty
 STREET_TYPE|Rd
 LOCALITY|Saanich
 PROVINCE_CODE|BC
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 Field | Value
 ----:|----
@@ -151,7 +179,10 @@ STREET_NAME|Finnerty
 STREET_TYPE|Rd
 LOCALITY|Saanich
 PROVINCE_CODE|BC
-
+SITE_LAT| 
+SITE_LON|
+AP_LAT|
+AP_LON|
 
 Field | Value
 ----:|----
