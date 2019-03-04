@@ -13,13 +13,13 @@ An address can have rooftop, vehicle access, and other locations. Units within b
 
 ## Example 1 - Multiple buildings distinguished by unit number prefix
 
-810 Esquimalt Rd, Esquimalt, BC has three buildings A,B,C and each building contains units 100-110 
+810 Esquimalt Rd, Esquimalt, BC has three buildings A,B,C. Each building has four floors with 10 units each numbered 100-110, 200-210, 300-310, and 400-410
 
 Field | Value
 -----: | ------
 UNIT_DESIGNATOR| APT
 UNIT_NUMBER_PREFIX|A-C
-UNIT_NUMBER_RANGE|100-110
+UNIT_NUMBER_RANGE|100-110,200-210,300-310,400-410
 CIVIC_NUMBER|810
 STREET_NAME|Esquimalt
 STREET_TYPE|Rd
@@ -29,7 +29,8 @@ PROVINCE_CODE|BC
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
 APT A100 -- 810 Esquimalt Rd,BC
-APT B107 -- 810 Esquimalt Rd,BC
+APT B407 -- 810 Esquimalt Rd,BC
+APT C210 -- 810 Esquimalt Rd,BC
 
 ## Example 2 - A complex with multiple levels of units
 
@@ -77,7 +78,7 @@ STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
 
-Terminal B and C gates are represented similarly.
+The gates of terminals B and C are represented similarly.
 
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
@@ -86,6 +87,61 @@ Terminal C, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmo
 Gate 23, Terminal A, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC 
 Gate 7, Terminal B, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC 
 
+Each Terminal and Gate can have its own site and access locations
+
+## Example 3 - A complex of buildings
+
+Given the following addresses for UBC in Vancouver:
+
+University of British Columbia -- 2329 West Mall,Vancouver,BC 
+Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
+
+
+and assume that the Koerner library has three floors of rooms numbered 100-120,200-220, and 300-320
+
+the university itself is represented as follows:
+
+Field | Value
+----:|----
+SITE_NAME|University of British Columbia
+CIVIC_NUMBER|2329
+STREET_NAME|West Mall
+LOCALITY|Vancouver
+PROVINCE_CODE|BC
+
+The library is represented as:
+
+Field | Value
+----:|----
+SITE_NAME|Koerner Library
+SUPER_SITE_FULL_DESCRIPTOR|University of British Columbia
+CIVIC_NUMBER|1958
+STREET_NAME|Main Mall
+LOCALITY|Vancouver
+PROVINCE_CODE|BC
+EXTRA_POINT1_DESCRIPTOR|emergencyAccess
+EXTRA_POINT_LAT|<latitude of Koerner Library emergency access point>
+EXTRA_POINT_LAT|<longitude of Koerner Library emergency access point>
+
+The representation above includes a special emergency access point. Regular access and front door points are not shown.
+
+The rooms within the library are represented as:
+
+Field | Value
+----:|----
+UNIT_DESIGNATOR|Room
+UNIT_NUMBER|100-120,200-220,300-320
+SUPER_SITE_FULL_DESCRIPTOR|Koerner Library, University of British Columbia
+CIVIC_NUMBER|1958
+STREET_NAME|Main mall
+LOCALITY|Richmond
+PROVINCE_CODE|BC
+
+and the BC Address Geocoder would derive addresses such as:
+
+University of British Columbia -- 2329 West Mall,Vancouver,BC 
+Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
+Room 105, Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
 
 ## Schema Definition
 This schema can be used in any common text format that supports named properties including CSV,TSV,JSON, and XML
