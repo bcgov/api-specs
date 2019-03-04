@@ -27,6 +27,8 @@ PROVINCE_CODE|BC
 
 810 Esquimalt Rd, Esquimalt, BC has three buildings A,B,C. Each building has four floors with 10 units each numbered 100-110, 200-210, 300-310, and 400-410
 
+The following exchange data record will represent the above addresses:
+
 Field | Value
 -----: | ------
 UNIT_DESIGNATOR| APT
@@ -56,7 +58,7 @@ Vancouver International Airport, 3211 Grant McConachie Way, Richmond, BC has the
 - Terminal C
   - Gate 1-20
 
-The airport itself is represented as follows:
+The following data exchange records will represent the above addresses:
 
 Field | Value
 ----:|----
@@ -66,8 +68,6 @@ STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
-
-The terminals are represented as follows:
 
 Field | Value
 ----:|----
@@ -80,7 +80,6 @@ STREET_TYPE|Way
 LOCALITY|Richmond
 PROVINCE_CODE|BC
 
-The Terminal A gates are represented as follows:
 
 Field | Value
 ----:|----
@@ -106,56 +105,65 @@ Each Terminal and Gate can have its own site and access locations
 
 ## Example 4 - A complex of buildings
 
-Given the following addresses for UBC in Vancouver:
+Given the following addresses for UVIC:
 
-University of British Columbia -- 2329 West Mall,Vancouver,BC 
-Koerner Library -- 958 Main Mall,Vancouver,BC
+Rooms 100-110 in the CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC
+Michele Pujol Room, Student Union Building, University of Victoria -- 38800 Finnerty Rd, Victoria, BC
 
+The following exchange data records will represent the above addresses:
 
-and assume that the Koerner library has three floors of rooms numbered 100-120,200-220, and 300-320
-
-the university itself is represented as follows:
 
 Field | Value
 ----:|----
-SITE_NAME|University of British Columbia
-CIVIC_NUMBER|2329
-STREET_NAME|West Mall
-LOCALITY|Vancouver
+SITE_NAME|University of Victoria
+CIVIC_NUMBER|3800
+STREET_NAME|Finnerty
+STREET_TYPE|Rd
+LOCALITY|Victoria
 PROVINCE_CODE|BC
-
-The library is represented as:
 
 Field | Value
 ----:|----
-SITE_NAME|Koerner Library
-CIVIC_NUMBER|1958
-STREET_NAME|Main Mall
-LOCALITY|Vancouver
+SITE_NAME|STUDENT UNION BUILDING
+SUPER_FULL_SITE_DESCRIPTOR|University of Victoria
+CIVIC_NUMBER|3800
+STREET_NAME|Finnerty
+STREET_TYPE|Rd
+LOCALITY|Saanich
 PROVINCE_CODE|BC
-EXTRA_POINT1_DESCRIPTOR|emergencyAccess
-EXTRA_POINT_LAT|<latitude of Koerner Library emergency access point>
-EXTRA_POINT_LAT|<longitude of Koerner Library emergency access point>
 
-The representation above includes a special emergency access point. Regular access and front door points are not shown.
+Field | Value
+----:|----
+SITE_NAME|CLEARIHUE BUILDING
+SUPER_FULL_SITE_DESCRIPTOR|University of Victoria
+CIVIC_NUMBER|3800
+STREET_NAME|Finnerty
+STREET_TYPE|Rd
+LOCALITY|Saanich
+PROVINCE_CODE|BC
 
-The rooms within the library are represented as:
+Field | Value
+----:|----
+SITE_NAME|Michele Pujol Room
+SUPER_FULL_SITE_DESCRIPTOR|Student Union Building, University of Victoria
+CIVIC_NUMBER|3800
+STREET_NAME|Finnerty
+STREET_TYPE|Rd
+LOCALITY|Saanich
+PROVINCE_CODE|BC
+
 
 Field | Value
 ----:|----
 UNIT_DESIGNATOR|Room
-UNIT_NUMBER|100-120,200-220,300-320
-SUPER_SITE_FULL_DESCRIPTOR|Koerner Library, University of British Columbia
-CIVIC_NUMBER|1958
-STREET_NAME|Main mall
-LOCALITY|Richmond
+UNIT_NUMBER|100-110
+SUPER_FULL_SITE_DESCRIPTOR|Clearhue Building -- University of Victoria
+CIVIC_NUMBER|3800
+STREET_NAME|Finnerty
+STREET_TYPE|Rd
+LOCALITY|Saanich
 PROVINCE_CODE|BC
 
-and the BC Address Geocoder would derive addresses such as:
-
-University of British Columbia -- 2329 West Mall,Vancouver,BC 
-Koerner Library -- 958 Main Mall,Vancouver,BC
-Room 105, Koerner Library -- 958 Main Mall,Vancouver,BC
 
 ## Schema Definition
 This schema can be used in any common text format that supports named properties including CSV,TSV,JSON, and XML
