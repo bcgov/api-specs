@@ -1,5 +1,26 @@
 # Physical Address Exchange Schema
 
+The Physical Address Exchange Schema can be used to exchange physical addresses between software systems. The schema supports the exchange of the following types of address situations:
+
+- Addresses of buildings without units
+- Addresses of buildings assigned single or multiple civic numbers
+- Addresses that have no civic number (landmark or non-civic addresses)
+- Addresses of buildings with multiple units
+- Addresses of complexes that contain multiple buildings
+- Addresses of buildings that contain sub-buildings (e.g., floors, wards, wings)
+
+An address can have rooftop, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
+
+Vancouver International Airport
+    Terminal A
+         Gate 1-35
+    Terminal B
+         Gate 1-40
+    Terminal C
+         Gate 1-20
+
+
+
 Field Name |	Data Type |	Description | Required for Civic Address|Required for Non-civic address
 ---: | --- | --- | ---| ---
 YOUR_ID |String|Unique identifier in your local address management system (eg X0233212)| yes|yes
