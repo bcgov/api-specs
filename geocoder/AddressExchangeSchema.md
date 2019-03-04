@@ -107,8 +107,8 @@ Each Terminal and Gate can have its own site and access locations
 
 Given the following addresses for UVIC:
 
-Rooms 100-110 in the CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC
-Michele Pujol Room, Student Union Building, University of Victoria -- 38800 Finnerty Rd, Victoria, BC
+Rooms 100-110 in the Clearihue Building, University of Victoria -- 3800 Finnerty Rd, Saanich BC
+Michele Pujol Room, Student Union Building, University of Victoria -- 38800 Finnerty Rd, Saanich, BC
 
 The following exchange data records will represent the above addresses:
 
