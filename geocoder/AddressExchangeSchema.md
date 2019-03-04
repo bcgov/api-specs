@@ -1,4 +1,4 @@
-# Complex Address Exchange Schema
+# Physical Address Exchange Schema
 
 Field Name |	Data Type |	Description | Required for Civic Address|Required for Non-civic address
 ---: | --- | --- | ---| ---
