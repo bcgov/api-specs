@@ -182,14 +182,11 @@ PROVINCE_CODE|String|Canada Post two-character province code|Yes|Yes
 IS_NON_CIVIC_ADDRESS|Boolean|True if address has no assigned civic number|Yes|Yes
 IS_OFFICIAL_ADDRESS|Boolean|True if address is official; False if unofficial (e.g., former address)|Yes|Yes
 NARRATIVE_LOCATION|String|step by step directions to a non-civic address location|No|Yes	
-SITE_POINT_DESCRIPTOR|String|centroid (e.g., parcel centroid), parcel (e.g., somewhere in parcel),rooftop,frontDoor (eg parcel)|Yes|Yes
-SITE_POSITIONAL_ACCURACY|Number|positional accuracy of N represents +/- metres|yes|yes
+SITE_POINT_DESCRIPTOR|String|parcel (e.g.,somewhere in parcel),rooftop,frontDoor (eg parcel)|Yes|Yes
 SITE_LAT|number(13,9)|site latitude|yes|yes
 SITE_LON|	number(13,9)|site longitude|yes|yes
-AP_POSITIONAL_ACCURACY|Number|access point positional accuracy in metres|yes|yes
 AP_LAT|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes
 AP_LON|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes	
 EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (eg serviceAccess)|Yes|Yes
-EXTRA_POINT1_POSITIONAL_ACCURACY|Number|positional accuracy of N represents +/- N metres|yes|yes
 EXTRA_POINT1_LAT|number(13,9)||yes|yes
 EXTRA_POINT1_LON|number(13,9)||yes|yes
