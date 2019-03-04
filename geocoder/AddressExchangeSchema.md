@@ -28,11 +28,11 @@ PROVINCE_CODE|BC
 
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
-APT A100 -- 810 Esquimalt Rd,BC
+APT A100 -- 810 Esquimalt Rd,Esquimalt,BC
 
-APT B407 -- 810 Esquimalt Rd,BC
+APT B407 -- 810 Esquimalt Rd,Esquimalt,BC
 
-APT C210 -- 810 Esquimalt Rd,BC
+APT C210 -- 810 Esquimalt Rd,Esquimalt,BC
 
 ## Example 2 - A complex with multiple levels of units
 
