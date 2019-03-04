@@ -11,7 +11,19 @@ The Physical Address Exchange Schema can be used to exchange physical addresses 
 
 An address can have rooftop, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
 
-## Example 1 - Multiple buildings distinguished by unit number prefix
+## Example 1 - A house with a single civic number and no units
+37 Olympia Ave, Victoria, BC
+
+Field | Value
+-----: | ------
+CIVIC_NUMBER|37
+STREET_NAME|Olympia
+STREET_TYPE|Ave
+LOCALITY|Victoria
+PROVINCE_CODE|BC
+
+
+## Example 2 - Multiple buildings distinguished by unit number prefix
 
 810 Esquimalt Rd, Esquimalt, BC has three buildings A,B,C. Each building has four floors with 10 units each numbered 100-110, 200-210, 300-310, and 400-410
 
@@ -34,7 +46,7 @@ APT B407 -- 810 Esquimalt Rd,Esquimalt,BC
 
 APT C210 -- 810 Esquimalt Rd,Esquimalt,BC
 
-## Example 2 - A complex with multiple levels of units
+## Example 3 - A complex with multiple levels of units
 
 Vancouver International Airport, 3211 Grant McConachie Way, Richmond, BC has the following terminals and gates:
 - Terminal A
@@ -92,7 +104,7 @@ Gate 7, Terminal B, Vancouver International Airport -- 3211 Grant McConnachie Wa
 
 Each Terminal and Gate can have its own site and access locations
 
-## Example 3 - A complex of buildings
+## Example 4 - A complex of buildings
 
 Given the following addresses for UBC in Vancouver:
 
