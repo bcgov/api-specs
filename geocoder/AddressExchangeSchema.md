@@ -73,7 +73,7 @@ Field | Value
 ----:|----
 UNIT_DESIGNATOR|Terminal
 UNIT_NUMBER|A-C
-SUPER_SITE_FULL_DESCRIPTOR|Vancouver International Airport
+SUPER_FULL_SITE_DESCRIPTOR|Vancouver International Airport
 CIVIC_NUMBER|3211
 STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
