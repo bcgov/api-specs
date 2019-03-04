@@ -29,7 +29,9 @@ PROVINCE_CODE|BC
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
 APT A100 -- 810 Esquimalt Rd,BC
+
 APT B407 -- 810 Esquimalt Rd,BC
+
 APT C210 -- 810 Esquimalt Rd,BC
 
 ## Example 2 - A complex with multiple levels of units
@@ -67,11 +69,12 @@ LOCALITY|Richmond
 PROVINCE_CODE|BC
 
 The Terminal A gates are represented as follows:
+
 Field | Value
 ----:|----
 UNIT_DESIGNATOR|Gate
 UNIT_NUMBER|1-35
-SUPER_SITE_FULL_DESCRIPTOR|Terminal A -- Vancouver International Airport
+SUPER_FULL_SITE_DESCRIPTOR|Terminal A -- Vancouver International Airport
 CIVIC_NUMBER|3211
 STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
@@ -94,7 +97,7 @@ Each Terminal and Gate can have its own site and access locations
 Given the following addresses for UBC in Vancouver:
 
 University of British Columbia -- 2329 West Mall,Vancouver,BC 
-Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
+Koerner Library -- 958 Main Mall,Vancouver,BC
 
 
 and assume that the Koerner library has three floors of rooms numbered 100-120,200-220, and 300-320
@@ -114,7 +117,6 @@ The library is represented as:
 Field | Value
 ----:|----
 SITE_NAME|Koerner Library
-SUPER_SITE_FULL_DESCRIPTOR|University of British Columbia
 CIVIC_NUMBER|1958
 STREET_NAME|Main Mall
 LOCALITY|Vancouver
@@ -140,8 +142,8 @@ PROVINCE_CODE|BC
 and the BC Address Geocoder would derive addresses such as:
 
 University of British Columbia -- 2329 West Mall,Vancouver,BC 
-Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
-Room 105, Koerner Library, University of British Columbia -- 958 Main Mall,Vancouver,BC
+Koerner Library -- 958 Main Mall,Vancouver,BC
+Room 105, Koerner Library -- 958 Main Mall,Vancouver,BC
 
 ## Schema Definition
 This schema can be used in any common text format that supports named properties including CSV,TSV,JSON, and XML
