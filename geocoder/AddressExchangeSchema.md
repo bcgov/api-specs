@@ -113,8 +113,11 @@ The gates of terminals B and C are represented similarly.
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
 Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC
+
 Terminal C, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC
+
 Gate 23, Terminal A, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC 
+
 Gate 7, Terminal B, Vancouver International Airport -- 3211 Grant McConnachie Way,Richmond,BC 
 
 Each Terminal and Gate can have its own site and access locations
