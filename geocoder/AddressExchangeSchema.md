@@ -54,7 +54,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|building
-FOOTPRINT|<multiPolygon>
+FOOTPRINT|(multiPolygon)
 
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
@@ -90,7 +90,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|complex
-FOOTPRINT|<multiPolygon>
+FOOTPRINT|(multiPolygon)
 
 Field | Value
 ----:|----
@@ -106,7 +106,7 @@ SITE_POINT_DESCRIPTOR|frontDoor
 SITE_LAT| 
 SITE_LON|
 FOOTPRINT_DESCRIPTOR|building
-FOOTPRINT|<polygon>
+FOOTPRINT|(polygon)
 
 Field | Value
 ----:|----
@@ -161,7 +161,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|complex
-FOOTPRINT|<multiPolygon>
+FOOTPRINT|(multiPolygon)
 
 Field | Value
 ----:|----
@@ -178,7 +178,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|building
-FOOTPRINT|<polygon>
+FOOTPRINT|(polygon)
 
 Field | Value
 ----:|----
@@ -195,7 +195,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|building
-FOOTPRINT|<polygon>
+FOOTPRINT|(polygon)
 
 Field | Value
 ----:|----
@@ -212,7 +212,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|indoorArea
-FOOTPRINT|<polygon>
+FOOTPRINT|(polygon)
 
 Field | Value
 ----:|----
