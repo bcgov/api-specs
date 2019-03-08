@@ -11,6 +11,8 @@ The Physical Address Exchange Schema can be used to exchange physical addresses 
 
 An address can have rooftop, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
 
+Buildings, complexes, outdoor areas, and any other site that can be assigned an address can also have its own footprint.
+
 ## Example 1 - A house with a single civic number and no units
 37 Olympia Ave, Victoria, BC
 
@@ -26,6 +28,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|building
+FOOTPRINT|<polygon>
 
 
 ## Example 2 - Multiple buildings distinguished by unit number prefix
@@ -49,6 +53,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|building
+FOOTPRINT|<multi-polygon>
 
 If this example was provided as reference data to the BC Address Geocoder, the Geocoder would derive full addresses such as:
 
@@ -83,6 +89,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|complex
+FOOTPRINT|<multipolygon>
 
 Field | Value
 ----:|----
@@ -93,10 +101,12 @@ CIVIC_NUMBER|3211
 STREET_NAME|Grant McConnachie
 STREET_TYPE|Way
 LOCALITY|Richmond
-SITE_POINT_DESCRIPTOR|frontDoor
 PROVINCE_CODE|BC
+SITE_POINT_DESCRIPTOR|frontDoor
 SITE_LAT| 
 SITE_LON|
+FOOTPRINT_DESCRIPTOR|building
+FOOTPRINT|<polygon>
 
 Field | Value
 ----:|----
@@ -150,6 +160,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|complex
+FOOTPRINT_DESCRIPTOR|<multipolygon>
 
 Field | Value
 ----:|----
@@ -165,6 +177,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|building
+FOOTPRINT_DESCRIPTOR|<polygon>
 
 Field | Value
 ----:|----
@@ -180,6 +194,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|building
+FOOTPRINT_DESCRIPTOR|<polygon>
 
 Field | Value
 ----:|----
@@ -195,6 +211,8 @@ SITE_LAT|
 SITE_LON|
 AP_LAT|
 AP_LON|
+FOOTPRINT_DESCRIPTOR|indoorArea
+FOOTPRINT_DESCRIPTOR|<polygon>
 
 Field | Value
 ----:|----
