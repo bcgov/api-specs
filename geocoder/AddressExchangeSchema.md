@@ -9,7 +9,7 @@ The Physical Address Exchange Schema can be used to exchange physical addresses 
 - Addresses of complexes that contain multiple buildings
 - Addresses of buildings that contain sub-buildings (e.g., floors, wards, wings)
 
-An address can have rooftop, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
+An address can have rooftop, front door, parcel, vehicle access, and other locations. Units within buildings and buildings within complexes can have their own rooftop and vehicle access locations (e.g., townhouse units within a complex, buildings within a campus).
 
 Buildings, complexes, outdoor areas, and any other site that can be assigned an address can also have its own footprint.
 
