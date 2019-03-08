@@ -184,7 +184,7 @@ AP_LON|
 Field | Value
 ----:|----
 SITE_NAME|Michele Pujol Room
-SUPER_FULL_SITE_DESCRIPTOR|Student Union Building, University of Victoria
+SUPER_FULL_SITE_DESCRIPTOR|Student Union Building -- University of Victoria
 CIVIC_NUMBER|3800
 STREET_NAME|Finnerty
 STREET_TYPE|Rd
@@ -219,7 +219,7 @@ UNIT_NUMBER_PREFIX|String|a single letter or sequence of letter ranges separated
 UNIT_NUMBER|String|unit number or letter or sequence of unit number/letter ranges separated by commas (eg 100-119,200-219)|No|No
 UNIT_NUMBER_SUFFIX|String|Canada Post unit number suffix (eg C)|No|No
 SITE_NAME |String|building or landmark name (eg Centennial Candle)|yes|yes
-SUPER_FULL_SITE_DESCRIPTOR|String|names of all sites in parent site hierarchy separated by double-dash (eg Student Union Building -- University of Victoria)|No|No
+SUPER_FULL_SITE_DESCRIPTOR|String|names of all units and sites in parent site hierarchy separated by double-dash (eg Student Union Building -- University of Victoria)|No|No
 CIVIC_NUMBER|Number| civic number, usually a positive integer (eg 1321)|Yes|No
 CIVIC_NUMBER_SUFFIX|String|Canada Post civic number suffix (eg A)|No|No
 STREET_NAME|String|Street name|Yes|No
