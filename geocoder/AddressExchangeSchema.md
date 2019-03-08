@@ -29,7 +29,7 @@ SITE_LON|
 AP_LAT|
 AP_LON|
 FOOTPRINT_DESCRIPTOR|building
-FOOTPRINT|<polygon>
+FOOTPRINT| (polygon)
 
 
 ## Example 2 - Multiple buildings distinguished by unit number prefix
