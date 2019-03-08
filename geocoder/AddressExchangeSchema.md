@@ -257,7 +257,7 @@ SITE_LON|	number(13,9)|site longitude|Yes|Yes
 AP_LAT|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes
 AP_LON|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes
 FOOTPRINT_DESCRIPTOR|String|nature of the footprint (e.g.,building,outdoorArea,indoorArea)
-FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats|No|No
+FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats (e.g., GML GeoJson)|No|No
 EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (eg serviceAccess)|No|No
 EXTRA_POINT1_LAT|number(13,9)||No|No
 EXTRA_POINT1_LON|number(13,9)||No|No
