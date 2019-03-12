@@ -1,4 +1,4 @@
-# Physical Address Exchange Schema
+# BC Physical Address Exchange Schema
 
 The Physical Address Exchange Schema can be used to exchange physical addresses between software systems. The schema supports the exchange of the following types of address situations:
 
@@ -261,3 +261,9 @@ FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can 
 EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (eg serviceAccess)|No|No
 EXTRA_POINT1_LAT|number(13,9)||No|No
 EXTRA_POINT1_LON|number(13,9)||No|No
+EXTRA_POINT2_DESCRIPTOR|String|type of extra point 2 if needed (eg emergencyAccess)|No|No
+EXTRA_POINT2_LAT|number(13,9)||No|No
+EXTRA_POINT2_LON|number(13,9)||No|No
+EXTRA_POINT3_DESCRIPTOR|String|type of extra point 2 if needed (eg serviceAccess)|No|No
+EXTRA_POINT3_LAT|number(13,9)||No|No
+EXTRA_POINT3_LON|number(13,9)||No|No
