@@ -133,6 +133,46 @@
             }
           },
           {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "correctSide",
+            "in": "query",
+            "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "disable",
+            "in": "query",
+            "description": "A comma-separated list of time-related modules to disable (e.g., sc,tf,ev,td).<br>Module names include:<br> sc – ferry schedules; disabled by default; disabled by default and only suitable for demos<br>tf – historic traffic congestion; disabled by default and only suitable for demos<br>ev – road events; disabled by default and only suitable for demos<br>td – time-dependency; disabling this disables sc, tf, and ev modules<br>tr – turn restrictions; if td is disabled, time-dependent turn restrictions are ignored<br>tc - turn costs (e.g., left turns take longer than right turns)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "sc,tf,ev,td"
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -228,6 +268,46 @@
                 "mi"
               ],
               "default": "km"
+            }
+          },
+          {
+            "name": "roundTrip",
+            "in": "query",
+            "description": "If true, route ends at start point. Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "correctSide",
+            "in": "query",
+            "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "disable",
+            "in": "query",
+            "description": "A comma-separated list of time-related modules to disable (e.g., sc,tf,ev,td).<br>Module names include:<br> sc – ferry schedules; disabled by default; disabled by default and only suitable for demos<br>tf – historic traffic congestion; disabled by default and only suitable for demos<br>ev – road events; disabled by default and only suitable for demos<br>td – time-dependency; disabling this disables sc, tf, and ev modules<br>tr – turn restrictions; if td is disabled, time-dependent turn restrictions are ignored<br>tc - turn costs (e.g., left turns take longer than right turns)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "sc,tf,ev,td"
             }
           },
           {
@@ -337,6 +417,36 @@
                 "mi"
               ],
               "default": "km"
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "correctSide",
+            "in": "query",
+            "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "disable",
+            "in": "query",
+            "description": "A comma-separated list of time-related modules to disable (e.g., sc,tf,ev,td).<br>Module names include:<br> sc – ferry schedules; disabled by default; disabled by default and only suitable for demos<br>tf – historic traffic congestion; disabled by default and only suitable for demos<br>ev – road events; disabled by default and only suitable for demos<br>td – time-dependency; disabling this disables sc, tf, and ev modules<br>tr – turn restrictions; if td is disabled, time-dependent turn restrictions are ignored<br>tc - turn costs (e.g., left turns take longer than right turns)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "sc,tf,ev,td"
             }
           },
           {
@@ -453,6 +563,36 @@
                 "mi"
               ],
               "default": "km"
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "correctSide",
+            "in": "query",
+            "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "disable",
+            "in": "query",
+            "description": "A comma-separated list of time-related modules to disable (e.g., sc,tf,ev,td).<br>Module names include:<br> sc – ferry schedules; disabled by default; disabled by default and only suitable for demos<br>tf – historic traffic congestion; disabled by default and only suitable for demos<br>ev – road events; disabled by default and only suitable for demos<br>td – time-dependency; disabling this disables sc, tf, and ev modules<br>tr – turn restrictions; if td is disabled, time-dependent turn restrictions are ignored<br>tc - turn costs (e.g., left turns take longer than right turns)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "sc,tf,ev,td"
             }
           },
           {
@@ -572,6 +712,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
@@ -700,6 +850,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
@@ -833,6 +993,16 @@
             }
           },
           {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
             "name": "correctSide",
             "in": "query",
             "description": "If true, route starts and ends on same side of road as start/end point.Default is false.",
@@ -958,6 +1128,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
@@ -1091,6 +1271,16 @@
             }
           },
           {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
             "name": "correctSide",
             "in": "query",
             "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
@@ -1216,6 +1406,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
@@ -1349,6 +1549,16 @@
             }
           },
           {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
             "name": "correctSide",
             "in": "query",
             "description": "If true, route starts and ends on same side of road as start and end points.Default is false.",
@@ -1474,6 +1684,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            }
+          },
+          {
+            "name": "departure",
+            "in": "query",
+            "description": "departure date and time in internet timestamp notation as defined in RFC 3339, section 5.6 (e.g., 2019-02-28T11:36:00-08:00);<br> Ignored if time-dependency modules are disabled",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
