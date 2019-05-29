@@ -10,7 +10,7 @@
       "description": "Test"
     },
     {
-      "url": "https://routerdlv.api.gov.bc.ca/",
+      "url": "https://router-dev.api.gov.bc.ca/",
       "description": "Delivery"
     }
   ],
