@@ -257,7 +257,7 @@ SITE_LON|Number)|site longitude|Yes|Yes
 SITE_TAGS|String| Comma-separated list of descriptive tags (e.g. stadium)|No|No
 ACCESS_POINT_LAT|Number|Only needed if access point is different than site point or super site point|No|Yes
 ACCESS_POINT_LON|Number|Only needed if access point is different than site point or super site point|No|Yes
-FOOTPRINT_DESCRIPTOR|String| one of building,outdoorArea,indoorArea,controlledAccessOutdoorArea (e.g., inner courtyard)
+FOOTPRINT_DESCRIPTOR|String| one of building,outdoorArea,indoorArea,controlledAccessOutdoorArea (e.g., inner courtyard, football field associated with a stadium)
 FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats (e.g., GML GeoJson)|No|No
 EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (e.g., serviceAccess)|No|No
 EXTRA_POINT1_LAT|Number||No|No
