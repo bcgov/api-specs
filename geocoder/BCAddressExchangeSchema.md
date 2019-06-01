@@ -251,12 +251,12 @@ PROVINCE_CODE|String|Canada Post two-character province code|Yes|Yes
 IS_NON_CIVIC_ADDRESS|Boolean|True if address has no assigned civic number|Yes|Yes
 IS_OFFICIAL_ADDRESS|Boolean|True if address is official; False if unofficial (e.g., former address)|Yes|Yes
 NARRATIVE_LOCATION|String|step by step directions to a non-civic address location|No|Yes	
-SITE_POINT_DESCRIPTOR|String|one of parcel (e.g.,somewhere in parcel),rooftop,frontDoor (e.g., parcel)|Yes|Yes
+SITE_POINT_DESCRIPTOR|String|one of parcel,rooftop,frontDoor|Yes|Yes
 SITE_LAT|number(13,9)|site latitude|Yes|Yes
 SITE_LON|	number(13,9)|site longitude|Yes|Yes
 ACCESS_POINT_LAT|Number(13,9)|Only needed if access point is different than site point or super site point|No|Yes
 ACCESS_POINT_LON|Number(13,9)|Only needed if access point is different than site point or super site point|No|Yes
-FOOTPRINT_DESCRIPTOR|String|nature of the footprint (e.g.,building,outdoorArea,indoorArea)
+FOOTPRINT_DESCRIPTOR|String| one of building,outdoorArea,indoorArea,controlledAccessOutdoorArea (e.g., inner courtyard)
 FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats (e.g., GML GeoJson)|No|No
 EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (e.g., serviceAccess)|No|No
 EXTRA_POINT1_LAT|number(13,9)||No|No
