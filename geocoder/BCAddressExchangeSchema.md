@@ -1,4 +1,4 @@
-# BC Physical Address Exchange Schema Draft v0.1
+# BC Physical Address Exchange Schema Draft v0.2
 
 The Physical Address Exchange Schema can be used to exchange physical addresses between software systems. The schema supports the exchange of the following types of address situations:
 
