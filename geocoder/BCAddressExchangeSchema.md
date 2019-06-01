@@ -254,6 +254,7 @@ NARRATIVE_LOCATION|String|step by step directions to a non-civic address locatio
 SITE_POINT_DESCRIPTOR|String|one of parcel,rooftop,frontDoor|Yes|Yes
 SITE_LAT|number(13,9)|site latitude|Yes|Yes
 SITE_LON|	number(13,9)|site longitude|Yes|Yes
+SITE_TAGS|String| Comma-separated list of descriptive tags (e.g. stadium)|No|No
 ACCESS_POINT_LAT|Number(13,9)|Only needed if access point is different than site point or super site point|No|Yes
 ACCESS_POINT_LON|Number(13,9)|Only needed if access point is different than site point or super site point|No|Yes
 FOOTPRINT_DESCRIPTOR|String| one of building,outdoorArea,indoorArea,controlledAccessOutdoorArea (e.g., inner courtyard)
