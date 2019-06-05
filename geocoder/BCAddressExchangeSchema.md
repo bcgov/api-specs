@@ -251,7 +251,7 @@ PROVINCE_CODE|String|Canada Post two-character province code|Yes|Yes
 IS_NON_CIVIC_ADDRESS|Boolean|True if address has no assigned civic number|Yes|Yes
 IS_OFFICIAL_ADDRESS|Boolean|True if address is official; False if unofficial (e.g., former address)|Yes|Yes
 NARRATIVE_LOCATION|String|step by step directions to a non-civic address location|No|Yes	
-SITE_POINT_DESCRIPTOR|String|one of parcel,rooftop,frontDoor|Yes|Yes
+SITE_POINT_DESCRIPTOR|String|one of parcel,rooftop,frontDoor,|Yes|Yes
 SITE_LAT|Number|site latitude|Yes|Yes
 SITE_LON|Number)|site longitude|Yes|Yes
 SITE_TAGS|String| Comma-separated list of descriptive tags (e.g. stadium)|No|No
@@ -259,12 +259,12 @@ ACCESS_POINT_LAT|Number|Only needed if access point is different than site point
 ACCESS_POINT_LON|Number|Only needed if access point is different than site point or super site point|No|Yes
 FOOTPRINT_DESCRIPTOR|String| one of building,complex,parcel,outdoorArea,indoorArea,securedOutdoorArea (e.g., inner courtyard, football field associated with a stadium)
 FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats (e.g., GML GeoJson)|No|No
-EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (e.g., serviceAccess)|No|No
+EXTRA_POINT1_DESCRIPTOR|String|one of (serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop)|No|No
 EXTRA_POINT1_LAT|Number||No|No
 EXTRA_POINT1_LON|Number||No|No
-EXTRA_POINT2_DESCRIPTOR|String|type of extra point 2 if needed (e.g., emergencyAccess)|No|No
+EXTRA_POINT2_DESCRIPTOR|String|one of (serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop)|No|No
 EXTRA_POINT2_LAT|Number||No|No
 EXTRA_POINT2_LON|Number||No|No
-EXTRA_POINT3_DESCRIPTOR|String|type of extra point 2 if needed (e.g., serviceAccess)|No|No
+EXTRA_POINT3_DESCRIPTOR|String|one of (serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop)|No|No
 EXTRA_POINT3_LAT|Number||No|No
 EXTRA_POINT3_LON|Number||No|No
