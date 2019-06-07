@@ -1,12 +1,12 @@
 ---
 
-title: "BCGOV Open API Specifications"
+title: "BC Government OpenAPI Specifications"
 description: "A collection of BC Government hosted RESTFul API specifications."
 
 ---
 
 
-# API-Management
+# BC Government OpenAPI specs
 
 DataBC offers an API management service for RESTful APIs owned and managed by the Province of BC. 
 
