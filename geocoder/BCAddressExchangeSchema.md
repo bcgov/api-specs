@@ -1,4 +1,4 @@
-# BC Physical Address Exchange Schema Draft v0.1
+# BC Physical Address Exchange Schema Draft v0.3
 
 The Physical Address Exchange Schema can be used to exchange physical addresses between software systems. The schema supports the exchange of the following types of address situations:
 
@@ -26,8 +26,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|Parcel
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|building
 FOOTPRINT| (polygon)
 
@@ -51,8 +51,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|Parcel
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|building
 FOOTPRINT|(multiPolygon)
 
@@ -87,8 +87,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|parcel
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|complex
 FOOTPRINT|(multiPolygon)
 
@@ -158,8 +158,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|Parcel
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|complex
 FOOTPRINT|(multiPolygon)
 
@@ -175,8 +175,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|frontDoor
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|building
 FOOTPRINT|(polygon)
 
@@ -192,8 +192,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|frontDoor
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|building
 FOOTPRINT|(polygon)
 
@@ -209,8 +209,8 @@ PROVINCE_CODE|BC
 SITE_POINT_DESCRIPTOR|frontDoor
 SITE_LAT| 
 SITE_LON|
-AP_LAT|
-AP_LON|
+ACCESS_POINT_LAT|
+ACCESS_POINT_LON|
 FOOTPRINT_DESCRIPTOR|indoorArea
 FOOTPRINT|(polygon)
 
@@ -231,39 +231,40 @@ This schema can be used in any common text format that supports named properties
 
 Field Name | Data Type |	Description | Required for Civic Address|Required for Non-civic address
 ---: | --- | --- | ---| ---
-YOUR_ID |String|Unique identifier in your local address management system (eg X0233212)| No|No
-UNIT_DESIGNATOR |String|Canada Post unit designator (eg APT)|No|No
-UNIT_NUMBER_PREFIX|String|a single letter or sequence of letter ranges separated by commas (eg A-D,J,M-P)|No|No
-UNIT_NUMBER|String|unit number or letter or sequence of unit number/letter ranges separated by commas (eg 100-119,200-219)|No|No
-UNIT_NUMBER_SUFFIX|String|Canada Post unit number suffix (eg C)|No|No
-SITE_NAME |String|building or landmark name (eg Centennial Candle)|yes|yes
-SUPER_FULL_SITE_DESCRIPTOR|String|names of all units and sites in parent site hierarchy separated by double-dash (eg Student Union Building -- University of Victoria)|No|No
-CIVIC_NUMBER|Number| civic number, usually a positive integer (eg 1321)|Yes|No
-CIVIC_NUMBER_SUFFIX|String|Canada Post civic number suffix (eg A)|No|No
+YOUR_ID |String|Unique identifier in your local address management system (e.g., X0233212)| No|No
+UNIT_DESIGNATOR |String|Canada Post unit designator (e.g., APT)|No|No
+UNIT_NUMBER_PREFIX|String|a single letter or sequence of letter ranges separated by commas (e.g., A-D,J,M-P)|No|No
+UNIT_NUMBER|String|unit number or letter or sequence of unit number/letter ranges separated by commas (e.g., 100-119,200-219)|No|No
+UNIT_NUMBER_SUFFIX|String|Canada Post unit number suffix (e.g., C)|No|No
+SITE_NAME |String|building or landmark name (e.g., Centennial Candle)|yes|yes
+SUPER_FULL_SITE_DESCRIPTOR|String|names of all units and sites in parent site hierarchy separated by double-dash (e.g., Student Union Building -- University of Victoria)|No|No
+CIVIC_NUMBER|Number| civic number, usually a positive integer (e.g., 1321)|Yes|No
+CIVIC_NUMBER_SUFFIX|String|Canada Post civic number suffix (e.g., A)|No|No
 STREET_NAME|String|Street name|Yes|No
 STREET_TYPE|String|Street type|No|No
 IS_STREET_TYPE_PREFIX|Boolean| True if street type appears before street name as in HWY 17|No|No
-STREET_DIRECTION|String|Canada Post street direction (eg NW); Note CP does not allow prefix and suffix street type in same address|No|No
+STREET_DIRECTION|String|Canada Post street direction (e.g., NW); Note CP does not allow prefix and suffix street type in same address|No|No
 IS_STREET_DIRECTION_PREFIX|Boolean|true if street direction appears before street name as in SW Marine Dr|No|No
-LOCALITY|String|Locality (eg Victoria)|Yes|Yes
-LOCALITY_DESCRIPTOR|String|type of locality|(eg Municipality)|Yes|Yes
+LOCALITY|String|Locality (e.g., Victoria)|Yes|Yes
+LOCALITY_DESCRIPTOR|String|type of locality|(e.g., Municipality)|Yes|Yes
 PROVINCE_CODE|String|Canada Post two-character province code|Yes|Yes
 IS_NON_CIVIC_ADDRESS|Boolean|True if address has no assigned civic number|Yes|Yes
 IS_OFFICIAL_ADDRESS|Boolean|True if address is official; False if unofficial (e.g., former address)|Yes|Yes
 NARRATIVE_LOCATION|String|step by step directions to a non-civic address location|No|Yes	
-SITE_POINT_DESCRIPTOR|String|one of parcel (e.g.,somewhere in parcel),rooftop,frontDoor (eg parcel)|Yes|Yes
-SITE_LAT|number(13,9)|site latitude|Yes|Yes
-SITE_LON|	number(13,9)|site longitude|Yes|Yes
-AP_LAT|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes
-AP_LON|Number(13,9)|Only needed if access point is different than main civic address access point|No|Yes
-FOOTPRINT_DESCRIPTOR|String|nature of the footprint (e.g.,building,outdoorArea,indoorArea)
+SITE_POINT_DESCRIPTOR|String|one of parcel,rooftop,frontDoor,internalDoor,entrance,frontGate|Yes|Yes
+SITE_LAT|Number|site latitude|Yes|Yes
+SITE_LON|Number)|site longitude|Yes|Yes
+SITE_TAGS|String| Comma-separated list of descriptive tags (e.g. stadium)|No|No
+ACCESS_POINT_LAT|Number|Only needed if access point is different than site point or super site point|No|Yes
+ACCESS_POINT_LON|Number|Only needed if access point is different than site point or super site point|No|Yes
+FOOTPRINT_DESCRIPTOR|String| one of building,complex,parcel,outdoorArea,indoorArea,secureOutdoorArea (e.g., inner courtyard, football field associated with a stadium)
 FOOTPRINT|OGC WKT|geometry of site footprint in OGC Well-Known Text format. Can use other geometry standards in other formats (e.g., GML GeoJson)|No|No
-EXTRA_POINT1_DESCRIPTOR|String|type of extra point 1 if needed (eg serviceAccess)|No|No
-EXTRA_POINT1_LAT|number(13,9)||No|No
-EXTRA_POINT1_LON|number(13,9)||No|No
-EXTRA_POINT2_DESCRIPTOR|String|type of extra point 2 if needed (eg emergencyAccess)|No|No
-EXTRA_POINT2_LAT|number(13,9)||No|No
-EXTRA_POINT2_LON|number(13,9)||No|No
-EXTRA_POINT3_DESCRIPTOR|String|type of extra point 2 if needed (eg serviceAccess)|No|No
-EXTRA_POINT3_LAT|number(13,9)||No|No
-EXTRA_POINT3_LON|number(13,9)||No|No
+EXTRA_POINT1_DESCRIPTOR|String|one of serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop|No|No
+EXTRA_POINT1_LAT|Number||No|No
+EXTRA_POINT1_LON|Number||No|No
+EXTRA_POINT2_DESCRIPTOR|String|one of serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop|No|No
+EXTRA_POINT2_LAT|Number||No|No
+EXTRA_POINT2_LON|Number||No|No
+EXTRA_POINT3_DESCRIPTOR|String|one of serviceAccess,emergencyAccess,internalDoor,frontDoor,parcel,rooftop|No|No
+EXTRA_POINT3_LAT|Number||No|No
+EXTRA_POINT3_LON|Number||No|No
