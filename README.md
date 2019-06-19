@@ -5,6 +5,8 @@ description: "A collection of BC Government hosted RESTFul API specifications."
 
 ---
 
+# BC Govenment API Guidelines
+[BC Govenment API Guidelines](https://github.com/bcgov/api-guidelines/blob/master/government-of-british-columbia-api-guidelines.md)
 
 # BC Government OpenAPI specs
 
