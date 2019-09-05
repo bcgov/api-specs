@@ -19,7 +19,7 @@ There are two breaking API changes but they only affect the occupants/addresses 
 
 ## API Changes in v3.3.1
 There is one breaking API change:<br>
-The following anonymous online geocoder URLs are deprecated as of Geocoder v3.3.1 (released Mar 13, 2018) and will be turned off Sep 1, 2018:
+The following anonymous online geocoder URLs are deprecated, no longer supported and may be shut down in the future:
 
 https://apps.gov.bc.ca/pub/geocoder<br><br>
 http://apps.gov.bc.ca/pub/geocoder<br><br>
