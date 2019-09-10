@@ -1,5 +1,10 @@
-on: push
-name: Build Pipeline
+on:
+  push:
+    branches:
+    - master
+    
+name: OpenAPI Specs lint
+
 jobs:
   spectralChecks:
     name: Spectral checks
