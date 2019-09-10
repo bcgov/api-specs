@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Spectral checks
-        uses: ./
+        uses: XVincentX/spectral-action@v0.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_CI_TOKEN }}
           SPECTRAL_FILE_PATH: ./*/*.json
