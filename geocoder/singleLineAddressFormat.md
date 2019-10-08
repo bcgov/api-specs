@@ -141,21 +141,91 @@ provinceCode |	BC
 
 UVIC Main Campus ** 3800 Finnerty Rd, Saanich, BC
 
+which contains the following occupant address elements:
+
+Address Element |	Value
+----: | -----------
+occupantName|UVIC Main Campus
+civicNumber |3800
+streetName |	Finnerty
+streetType |	Rd
+localityName |	Saanich
+provinceCode |	BC
+
 ### Example 8.	Civic addresses with a unit within a named complex 
 
-PAD 433, SHAWNIGAN LAKE MOBILE HOME PARK -- 2785 Wallbank Rd., Shawnigan Lake, BC   
-ROOM 103A, CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 FINNERTY RD, VICTORIA, BC   
+PAD 433, SHAWNIGAN LAKE MOBILE HOME PARK -- 2785 Wallbank Rd., Shawnigan Lake, BC  
+
+which contains the following address elements:
+
+Address Element |	Value
+----: | -----------
+unitDesignator |	Pad
+unitNumber |	433
+siteName|SHAWNIGAN LAKE MOBILE HOME PARK
+civicNumber |	2785
+streetName |	WallBank
+streetType |	Rd
+localityName |	Shawnigan Lake
+provinceCode |	BC
+
+ROOM 103A, CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA -- 3800 Finnerty Rd, Saanich, BC
+
+which contains the following address elements:
+
+unitDesignator |	Room
+unitNumber |	103A
+siteName|CLEARHUE BUILDING
+fullSiteDescriptor|CLEARIHUE BUILDING, UNIVERSITY OF VICTORIA
+civicNumber |	3800
+streetName |	Finnerty
+streetType |	Rd
+localityName |	Saanich
+provinceCode |	BC
+
 ROOM 230, WEST BLOCK, ROYAL JUBILEE HOSPITAL -- 1952 BAY ST, VICTORIA, BC   
 
-### Example 9.	Non-civic addresses with a unit within a named complex 
+which contains the following address elements:
 
-PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
+unitDesignator |	Room
+unitNumber |	230
+siteName|WEST BLOCK
+fullSiteDescriptor|WEST BLOCK, ROYAL JUBILEE HOSPITAL
+civicNumber |	1952
+streetName |	Bay
+streetType |	St
+localityName |	Victoria
+provinceCode |	BC
+
+
+### Example 9.	Non-civic address with a unit within a named complex 
+
 PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC   
 
-### Example 10.	Non-civic occupant address with a unit within a named complex 
+which contains the following address elements:
 
-Paws N Suds ** PAD 2, HAPPY MOBILE HOME PARK -- NIMPO LAKE, BC   
+unitDesignator |	Pad
+unitNumber |	2
+siteName| Happy Mobile Home Park
+streetName|Remote
+streetType|Rd
+localityName |	Nimpo Lake
+provinceCode |	BC
+
+### Example 10.	Non-civic occupant address with a unit within a named complex 
+ 
 Paws N Suds ** PAD 2, HAPPY MOBILE HOME PARK -- REMOTE RD, NIMPO LAKE, BC 
+
+which contains the following occupant address elements:
+
+occupantName|Paws N Suds
+unitDesignator |Pad
+unitNumber |2
+siteName| appy Mobile Home Park
+streetName|Remote
+streetType|Rd
+localityName |Nimpo Lake
+provinceCode |BC
 
 ### Example 11.	Non-civic addresses containing a street, locality, and  province 
 
