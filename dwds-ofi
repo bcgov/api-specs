@@ -1,0 +1,678 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Data Download Order Fulfiller Interface (DWDS-OFI)",
+		"description": "This REST Web Service is designed to create and manage Data Distribution\nrequests for the BC Geographic Warehouse.",
+		"termsOfService": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/api-terms-of-use-for-ogl-information",
+		"contact": {
+			"name": "Data BC",
+			"url": "http://data.gov.bc.ca/",
+			"email": "DataBCDA@gov.bc.ca"
+		},
+		"license": {
+			"name": "Open Government License - British Columbia",
+			"url": "http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/open-data/open-government-license-bc"
+		},
+		"version": "6.1.0"
+	},
+	"externalDocs": {
+		"description": "There are no additional external documents.",
+		"url": "http://www2.gov.bc.ca/gov/content/data/geographic-data-services"
+	},
+	"tags": [
+		{
+			"name": "public user"
+		},
+		{
+			"name": "authenticated user"
+		},
+		{
+			"name": "administrator"
+		},
+		{
+			"name": "order"
+		},
+		{
+			"name": "info"
+		},
+		{
+			"name": "security"
+		}
+	],
+	"paths": {
+		"/order/createOrderFiltered": {
+			"post": {
+				"description": "Create a request for publicly accessible data. Packaged products and feature type extractions may be requested. In the case of feature type requests, they can be further refined with a spatial extent and an attribute filter.",
+				"tags": [
+					"order",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "Order request has been received. JSON returned will be either contain the order number or a failure.  An example of a successful response is\n\n{ Status: SUCCESS,\n\nDescription: FME Server Status,\n\nreturned: success,\n\nValue: 1579408 }\n\nThe value provided is the order id.\n\nAn example of failed response is\n\n{ Status: FAILURE,\n\nDescription: An Unknown feature type was specified,\n\nValue: 12 }\n\nThe value provided is the error number (a value from 1-30 with descriptions to match)."
+					}
+				},
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"inputJsonObj": {
+										"description": "Contains parameters for the database search query.\n\nExample:\n\n{  \"emailAddress\": \"my_email@email.com\", \"aoiType\": \"8\", \"aoi\": \"\", \"crsType\": \"0\", \"clippingMethodType\": \"0\", \"formatType\": \"3\", \"useAOIBounds\": \"0\", \"aoiName\": \"092B061,092C070\", \"prepackagedItems\": \"\", \"orderingApplication\": \"DWDS-OFI-Tester\", \"featureItems\": [{ \"featureItem\": \"WHSE_ADMIN_BOUNDARIES.CLAB_INDIAN_RESERVES\", \"filterValue\": \"objectid > 0\" }, { \"featureItem\": \"WHSE_ADMIN_BOUNDARIES.CLAB_NATIONAL_PARKS\", \"filterValue\": \"ENGLISH_NAME like '%UNNAMED%'\"}] \n}\n\nDescription of the parameters inside the JSON object:\n\nemailAddress: Optional. The email address of the requestor. If no email address is provided, the user will receive no notifications from DWDS; the calling application will be required to check for the completed order and notify the user.\n\naoiType: Required. The format being used for the Area of Interest per aoiTypes end point. Obtained using the info/aoiTypes.\n\naoi: Optional. The GML Representation of the AOI. If mapsheet or geomark is used, this entry is null for the intial order.  Example:  \n    <areaOfInterest xmlns:gml=\\\"http://www.opengis.net/gml\\\"><gml:Polygon xmlns:gml=\\\"urn:gml\\\"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates> 987936.6955,807829.278200001 961545.022600001,807829.278200001 961545.02260000 ,821143.995999999 987936.6955,821143.995999999 987936.6955,807829.278200001</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></areaOfInterest> \n\n\ncrsType: Required. The output coordinate system reference. Use the id provided by the /info/crsTypes method.\n\nclippingMethodType: Required. The clipping method type to use when comparing the requested data to the aoi. Use the id provided by /info/clippingMethods\n\nformatType: Required. The output format requested. Use the id provided by the /info/fileformats method.\n\nuseAOIBounds: Optional. Replace the aoi with a bounding box to reduce complicated aois. 0=NO, 1=YES\n\naoiName: Optional. The name of the area of interest.\n\nprepackagedItems: Optional. The list of prepackaged items to include based on DW_PACKAGED_PRODUCTS.PACKAGED_PRODUCT_NAME. Separated by a semicolon. Example: EBM\\SUNSHADE\\94b.jpg;SHAPE\\UTM\\92e.250shputm.pos.zip\n\norderingApplication: Optional. A short name to describe the application that is using the call.\n\nfeatureItems: Optional. This is an array of feature items as defined using the SCHEMA_NAME.TABLE_NAME, each having a filter value. The filter attribute must always be included, but can be an empty string.",
+										"type": "string",
+										"required": [
+											"inputJsonObj"
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/createOrderFilteredSM": {
+			"post": {
+				"description": "Create a request for secure data or a combination of secure and publicly\naccessible data. Packaged products and feature type extractions may be\nrequested. In the case of feature type requests, they can be further\nrefined with a spatial extent and an attribute filter. Unlike\ncreateOrderFiltered, this end point does not return an orderid. Instead,\nit returns an identifier that must then be submitted to\nsecure/order/createOrderFiltered (see below). This two step process has\nbeen put in place to allow large orders with specific security\nlimitations around POSTing.",
+				"tags": [
+					"order",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				},
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"inputJsonObj": {
+										"description": "Please see description and example from the previous method: order/createOrderFiltered",
+										"type": "string"
+									}
+								},
+								"required": [
+									"inputJsonObj"
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/createOrder": {
+			"post": {
+				"description": "A legacy (deprecated) end point for creating orders that takes in parameters as form data. Only publicly accessible data is available through this end point. Orders created this way cannot be filtered by attribute. New applications should use the order/createOrderFiltered.",
+				"tags": [
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				},
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"emailAddress": {
+										"description": "The email address of the requestor. If no email address is provided, the user will receive no notifications from DWDS; the calling application will be required to check for the completed order and notify the user.",
+										"type": "string"
+									},
+									"featureItems": {
+										"description": "This is an array of feature items as defined using the SCHEMA_NAME.TABLE_NAME, each having a filter value. The filter attribute must always be included, but can be an\n\nExample:\n{\n  \"featureItem\": \"WHSE_ADMIN_BOUNDARIES.CLAB_INDIAN_RESERVES\",\n\n  \"filterValue\": \"objectid > 0\" \n  \n  \n}, {\n  \"featureItem\": \"WHSE_ADMIN_BOUNDARIES.CLAB_NATIONAL_PARKS\",\n\n\n  \"filterValue\": \"ENGLISH_NAME like '%UNNAMED%'\" \n  \n}",
+										"type": "string"
+									},
+									"aoiType": {
+										"description": "The format being used for the Area of Interest per aoiTypes end point. Obtained using the info/aoiTypes.",
+										"type": "string"
+									},
+									"aoi": {
+										"description": "The GML Representation of the AOI. If mapsheet or geomark is used, this entry is null for the intial order. Example:\n  <areaOfInterest xmlns:gml=\\\"http://www.opengis.net/gml\\\"><gml:Polygon xmlns:gml=\\\"urn:gml\\\"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>987936.6955,807829.278200001 961545.022600001,807829.278200001 961545.022600001,821143.995999999 987936.6955,821143.995999999 987936.6955,807829.278200001</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></areaOfInterest>",
+										"type": "string"
+									},
+									"useAOIBounds": {
+										"description": "Replace the aoi with a bounding box to reduce complicated aois. 0=NO, 1=YES Example: \"0\"",
+										"type": "string"
+									},
+									"prepackagedItems": {
+										"description": "The list of prepackaged items to include based on DW_PACKAGED_PRODUCTS.PACKAGED_PRODUCT_NAME. Separated by a semicolon.\n\nExample: EBM\\SUNSHADE\\94b.jpg;SHAPE\\UTM\\92e.250shputm.pos.zip",
+										"type": "string"
+									},
+									"orderingApplication": {
+										"description": "Optional. A short name to describe the application that is using the call.",
+										"type": "string"
+									},
+									"userId": {
+										"description": "The ID of the user logged in to the application",
+										"type": "string"
+									},
+									"formatType": {
+										"description": "The output format requested. Use the id provided by the rest/info/fileformats method.",
+										"type": "string"
+									},
+									"crsType": {
+										"description": "The output coordinate system reference. Use the id provided by the rest/info/crsTypes method.",
+										"type": "string"
+									},
+									"clippingMethodType": {
+										"description": "The clipping method type to use when comparing the requested data to the aoi. Use the id provided by rest/info/clippingMethods",
+										"type": "string"
+									},
+									"aoiName": {
+										"description": "The name of the area of interest.",
+										"type": "string"
+									},
+									"orderingApp": {
+										"description": "A short name to describe the application that is using the call.",
+										"type": "string"
+									}
+								},
+								"required": [
+									"featureItems",
+									"formatType",
+									"crsType",
+									"clippingMethodType"
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/{id}": {
+			"get": {
+				"description": "This end point will return detailed status information about an order.\nIf the order is not complete then a status will be returned. If the\norder is complete, then a status will be returned along with a link to\nthe download location.",
+				"tags": [
+					"order",
+					"public user"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The id of the order.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/order/OrderSizeValues": {
+			"post": {
+				"description": "Used as a validation step, this end point Will calculate the size of the\norder and its components, allowing the user to determine if they have\nrequested to much data. Does NOT result in an order being placed - that\nmust be done by submitting to one of the createOrderFiltered end points.",
+				"tags": [
+					"order",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				},
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"inputJsonObj": {
+										"description": "Please see description and example from the method: order/createOrderFiltered.",
+										"type": "string"
+									}
+								},
+								"required": [
+									"inputJsonObj"
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/info/fileFormats": {
+			"get": {
+				"summary": "Returns the available destination file formats for data orders",
+				"description": "Returns all of the available destination file formats for data in an\norder. The file format identifer can be used as part of a data request\ne.g. createOrderFiltered.",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/info/clippingMethods": {
+			"get": {
+				"summary": "Returns the available clipping options for data orders",
+				"description": "Returns the available clipping options for data in an order. The\nclipping method type id can be used as part of a dat request e.g.\ncreateOrderFiltered.",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/info/crsTypes": {
+			"get": {
+				"description": "Returns the available CRS (Coordinate Reference System) options for data\nin an order. The CRS ID can be used as part of a data request e.g.\ncreateOrderFiltered.",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/info/aoiTypes": {
+			"get": {
+				"description": "Returns the available AOI (Area of Interest) options for data in an\norder. The AOI ID can be used as part of a data request e.g.\ncreateOrderFiltered.",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/info/statusTypes": {
+			"get": {
+				"description": "Returns the available status options for data orders.",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/info/productConfiguredForDownload{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload. Not tied to security, simply whether the feature type is\nincluded in the Data Download configuration tables. The feature type is\nexpected as schema_name.table_name. The json returned is a boolean of\n\"allowed\".",
+				"tags": [
+					"info",
+					"public user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "schema_name.table_name of the feature type in the BCGW",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/security/productAllowedByFeatureType/{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload without authentication. The feature type is expected as\nschema_name.table_name. The json returned is a boolean of \"allowed\".",
+				"tags": [
+					"security",
+					"public user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "schema_name.table_name of the feature type in the BCGW",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/security/productAllowedByFeatureTypeJS/{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload without authentication. The feature type is expected as\nschema_name.table_name. The json returned is a boolean of \"allowed\".\nThis end point is primarily used by the iMapBC module.",
+				"tags": [
+					"public user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "Feature Type.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/order/createOrderFiltered/{OrderUID}": {
+			"get": {
+				"description": "Processes a request for secure data or a combination of secure and\npublicly accessible data. Requests to this end point require a BC\nGovernment siteminder header. This can be obtained by logging into any\nBC Government web application within the same session. This end point is\nthe second of a two-part process that will allow the user to order\nsecure or a combination of secure and public data.",
+				"tags": [
+					"order",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "OrderUID",
+						"in": "path",
+						"description": "The unique identifer returned by createOrderFilteredSM",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Order request has been received. JSON returned will be either contain the order number or a failure.\n  An example of a successful response is:\n\n  { Status: SUCCESS,\n  \n  Description: FME Server Status\n  \n  returned: success, \n  \n  Value: 1579408 }\n  \n  The value provided is the order id. \n  \n  An example of failed response is: \n  \n  { Status: FAILURE,\n  \n  Description: An Unknown feature type was specified, \n  \n  Value: 12 }\n\n  The value provided is the error number (a value from 1-30 with descriptions to match)."
+					}
+				}
+			}
+		},
+		"/secure/order/PastOrders/{numberOfOrders}": {
+			"get": {
+				"description": "Returns the JSON required for createOrderFiltered for the number of past\norders specified for the the current user. Only applies to currently\nauthenticated users, does not have a public equivalent.",
+				"tags": [
+					"order",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "numberOfOrders",
+						"in": "path",
+						"description": "The number of previous orders to display.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/security/productAllowedByUID/{UID}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload by the current user. The feature type is expected as\nschema_name.table_name. The json returned is a boolean of \"allowed\".\nRequests to this end point requires a BC Government siteminder header.\nThis can be obtained by logging into any BC Government web application\nwithin the same session.",
+				"tags": [
+					"security",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "UID",
+						"in": "path",
+						"description": "the user ID of the current user",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/security/productAllowedByFeatureType/{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload by the current user. The feature type is expected as\nschema_name.table_name. The json returned is a boolean of \"allowed\".\nRequests to this end point require a BC Government siteminder header.\nThis can be obtained by logging into any BC Government web application\nwithin the same session.",
+				"tags": [
+					"security",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "schema_name.table_name of the feature type in the BCGW",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/security/productAllowedByFeatureTypeJS/{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload by the current user. The feature type is expected as\nschema_name.table_name. The json returned is a boolean of \"allowed\".\nThis end point is primarily used by the iMapBC module. Requests to this\nend point require a BC Government siteminder header. This can be\nobtained by logging into any BC Government web application within the\nsame session.",
+				"tags": [
+					"security",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "schema_name.table_name of the feature type in the BCGW",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "the callback url",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/security/productAllowedByFTWithMaxAOIHa/{FeatureType}": {
+			"get": {
+				"description": "Returns json that indicates whether a feature type is configured for\ndownload by the current user and the maximum AOI size allowed (in\nhectares). The feature type is expected as schema_name.table_name. The\njson returned is a boolean of \"allowed\" and a number. Requests to this\nend point require a BC Government siteminder header. This can be\nobtained by logging into any BC Government web application within the\nsame session.",
+				"tags": [
+					"security",
+					"authenticated user"
+				],
+				"parameters": [
+					{
+						"name": "FeatureType",
+						"in": "path",
+						"description": "schema_name.table_name of the feature type in the BCGW",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/jobs/queued": {
+			"get": {
+				"description": "Gets a list of FME Server queued orders. This function is only available\nto Data Distribution administrators.",
+				"tags": [
+					"info",
+					"administrator",
+					"authenticated user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/jobs/running": {
+			"get": {
+				"description": "Gets a list of orders currently running on FME Server. This function is\nonly available to Data Distribution administrators.",
+				"tags": [
+					"info",
+					"administrator",
+					"authenticated user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/order/startOrder/{Id}": {
+			"post": {
+				"description": "Starts an order manually. This function is only available to Data\nDistribution administrators. The POST is made from the DWDS-RASP server.",
+				"tags": [
+					"order",
+					"administrator"
+				],
+				"parameters": [
+					{
+						"name": "Id",
+						"in": "path",
+						"description": "The id of the order.",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/jobs/FMElogfile/{FMEJobID}": {
+			"post": {
+				"description": "Gets the log file details from the FME Server job by job ID. This\nfunction is only available to Data Distribution administrators. The POST\nis made from the DWDS-RASP server.",
+				"tags": [
+					"administrator"
+				],
+				"parameters": [
+					{
+						"name": "FMEJobID",
+						"in": "path",
+						"description": "the FME Server job id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				}
+			}
+		},
+		"/secure/legacy/cancelOrder": {
+			"post": {
+				"description": "Cancel an order that has been submitted for processing. This function is\nonly available to Data Distribution administrators.",
+				"tags": [
+					"order",
+					"administrator",
+					"authenticated user"
+				],
+				"responses": {
+					"200": {
+						"description": "OK."
+					}
+				},
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"OrderId": {
+										"description": "The id of the order.",
+										"type": "string"
+									}
+								},
+								"required": [
+									"OrderId"
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "https://apps.gov.bc.ca/pub/dwds-ofi",
+      "description": "Production"
+		},
+		{
+			"url": "https://test.apps.gov.bc.ca/pub/dwds-ofi",
+      "description": "Test"
+		},
+		{
+			"url": "https://delivery.gov.bc.ca/pub/dwds-ofi",
+      "description": "Delivery"
+		}    
+	]
+}
