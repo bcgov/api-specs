@@ -31,7 +31,7 @@
   },
   "externalDocs": {
     "description": "Developer Guide",
-    "url": "https://github.com/bcgov/api-specs/blob/master/router/router-developer-guide.md"
+    "url": "https://github.com/bcgov/ols-router/blob/gh-pages/router-developer-guide.md"
   },
   "tags": [
     {
