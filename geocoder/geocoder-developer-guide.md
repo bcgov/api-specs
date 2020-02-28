@@ -119,9 +119,9 @@ Attribute Name |	Type
 [civicNumberSuffix](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumberSuffix) | String
 [streetName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetName) | String
 [streetType](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetType) | String
-[isStreetTypePrefix] | Boolean
+isStreetTypePrefix | Boolean
 [streetDirection](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection) | String
-[isStreetDirectionPrefix] | Boolean
+isStreetDirectionPrefix | Boolean
 [streetQualifier](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier) | String
 [localityName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName) | String
 [localityType](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityType) | String
