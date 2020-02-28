@@ -8,7 +8,7 @@ description: Locate and standardize your addresses with the BC Address Geocoder.
 This guide is aimed at developers and web masters that would like to incorporate the Physical Address Geocoder into their applications and websites.
 <br>
 ## Introduction
-The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0).
+The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://catalogue.data.gov.bc.ca/dataset/bc-address-geocoder-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0).
 <br>
 ## API Changes in v3.4.1
 There are two breaking API changes but they only affect the occupants/addresses resource.<br>
@@ -30,7 +30,7 @@ The current baseUrl for the online geocoder is:<br>
 
 https://geocoder.api.gov.bc.ca/<br><br>
 
-This URL allows both public and gated access. Gated access requires an apikey. To get a sandbox apikey with a maximum rate of 1000 requests per minute, visit the [geocoder api console](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). You can get an unrestricted apikey for use in government applications by contacting the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
+This URL allows both public and gated access. Gated access requires an apikey. To get a sandbox apikey with a maximum rate of 1000 requests per minute, visit the [geocoder api console](https://catalogue.data.gov.bc.ca/dataset/bc-address-geocoder-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). You can get an unrestricted apikey for use in government applications by contacting the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
 
 
 ## Cross-Origin Resource Sharing (CORS)
@@ -119,9 +119,9 @@ Attribute Name |	Type
 [civicNumberSuffix](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#civicNumberSuffix) | String
 [streetName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetName) | String
 [streetType](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetType) | String
-[isStreetTypePrefix](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isStreetTypePrefix) | Boolean
+[isStreetTypePrefix] | Boolean
 [streetDirection](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetDirection) | String
-[isStreetDirectionPrefix](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#isStreetDirectionPrefix) | Boolean
+[isStreetDirectionPrefix] | Boolean
 [streetQualifier](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#streetQualifier) | String
 [localityName](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityName) | String
 [localityType](https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#localityType) | String
