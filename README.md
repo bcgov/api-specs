@@ -1,10 +1,10 @@
-[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 ---
 
 title: "BC Government OpenAPI Specifications"
 description: "A collection of BC Government hosted RESTFul API specifications."
 
 ---
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 
 # BC Govenment API Guidelines
 [BC Govenment API Guidelines](https://github.com/bcgov/api-guidelines/blob/master/government-of-british-columbia-api-guidelines.md)
