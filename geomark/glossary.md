@@ -1,7 +1,7 @@
 # Geomark Glossary of Terms
 Term | Definition
 ----: | -----------
-<a name="allowOverlap">Allow Overlap</a> | In cases where [Geometry Count](https://github.com/bcgov/api-specs/blob/master/geomark/glossary.md#geometryCount) is set to Many, this option will allow overlapping geometries if set to 'true'.
+<a name="allowOverlap">Allow Overlap</a> | If [Geometry Count](https://github.com/bcgov/api-specs/blob/master/geomark/glossary.md#geometryCount) is set to Many, this option will allow overlapping geometries if set to 'true'.
 <a name="area">Area (area)</a> | Area of the placemark in hectares.
 <a name="placemarkKml">Placemark KML (placemarkKml)</a> | KML text that specifies geometry or geometries of a geomark.
 <a name="boundingBox">Bounding Box (boundingBox)</a> |  A comma separated list of the western, southern, eastern, and northern extent of the geomark in geographic coordinates. Western and eastern extent are displayed as decimal degrees of longitude. Northern and southern extent are displayed as decimal degrees of latitude. 
