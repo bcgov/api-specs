@@ -6,11 +6,11 @@
       "description": "Production"
     },
     {
-      "url": "https://routertst.pathfinder.gov.bc.ca/",
+      "url": "https://routertst.api.gov.bc.ca/",
       "description": "Test"
     },
     {
-      "url": "https://router-dev.pathfinder.gov.bc.ca/",
+      "url": "https://routerdlv.api.gov.bc.ca/",
       "description": "Delivery"
     }
   ],

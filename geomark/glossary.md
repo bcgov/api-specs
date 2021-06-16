@@ -1,6 +1,7 @@
 # Geomark Glossary of Terms
 Term | Definition
 ----: | -----------
+<a name="allowOverlap">Allow Overlap</a> | If [Geometry Count](https://github.com/bcgov/api-specs/blob/master/geomark/glossary.md#geometryCount) is set to Many, this option will allow overlapping geometries if set to 'true'.
 <a name="area">Area (area)</a> | Area of the placemark in hectares.
 <a name="placemarkKml">Placemark KML (placemarkKml)</a> | KML text that specifies geometry or geometries of a geomark.
 <a name="boundingBox">Bounding Box (boundingBox)</a> |  A comma separated list of the western, southern, eastern, and northern extent of the geomark in geographic coordinates. Western and eastern extent are displayed as decimal degrees of longitude. Northern and southern extent are displayed as decimal degrees of latitude. 
@@ -8,6 +9,7 @@ Term | Definition
 <a name="bufferJoin">Buffer Join (bufferJoin)</a> | The style of buffer to use for joins between the line segments for lines and polygons (e.g., round, mitre,bevel).
 <a name="bufferMitreLimit">Buffer Mitre Limit (bufferMitreLimit)</a> | The number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be a positive number.
 <a name="bufferMetres">Buffer Width (bufferMetres)</a> | The amount to buffer the geometry (in metres). Must be a positive integer (e.g., 10). If left blank, no buffer will be added to input geometries and points and lines will stay points and lines. If a buffer is specified, point and line inputs will become polygons.
+<a name="bufferSegments">Buffer Segments</a> | The number of line segments used in each quadrant to approximate the curve of a buffer for round end-cap and join styles. Larger numbers will produce a smoother curve (must be greater than 0).
 <a name="centroid)">Centroid (centroid)</a> | The latitude and longitude of a point at or near the centre of a geomark or, if the centre is outside the polygon, some point guaranteed to be inside the polygon
 <a name="creationDate">Creation Date (creationDate)</a> | The date the geomark was created.
 <a name="expiryDate)">Expiry Date (expiryDate)</a> | The date a geomark expires. Once expired, it will no longer be accessible. If a geomark is in use by a government application, it will never expire until it is no longer required by that application.
