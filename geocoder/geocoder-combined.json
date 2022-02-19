@@ -25,7 +25,7 @@
     "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
     "contact": {
       "name": "DataBC",
-      "url": "data.gov.bc.ca"
+      "url": "https://data.gov.bc.ca/"
     }
   },
   "externalDocs": {
