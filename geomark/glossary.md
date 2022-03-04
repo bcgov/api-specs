@@ -7,8 +7,8 @@ Term | Definition
 <a name="bufferCap">Buffer Cap (bufferCap)</a> | The style of buffer to use at each end of a buffered line (e.g., round, square, flat).
 <a name="bufferJoin">Buffer Join (bufferJoin)</a> | The style of buffer to use for joins between the line segments for lines and polygons (e.g., round, mitre,bevel).
 <a name="bufferMitreLimit">Buffer Mitre Limit (bufferMitreLimit)</a> | The number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be a positive number.
-<a name="bufferMetres">Buffer Width (bufferMetres)</a> | The amount to buffer the geometry (in metres). Must be a positive integer (e.g., 10). If left blank, no buffer will be added to input geometries and points and lines will stay points and lines. If a buffer is specified, point and line inputs will become polygons.
 <a name="bufferSegments">Buffer Segments</a> | The number of line segments used in each quadrant to approximate the curve of a buffer for round end-cap and join styles. Larger numbers will produce a smoother curve (must be greater than 0).
+<a name="bufferMetres">Buffer Width (bufferMetres)</a> | The amount to buffer the geometry (in metres). Must be a positive integer (e.g., 10). If left blank, no buffer will be added to input geometries and points and lines will stay points and lines. If a buffer is specified, point and line inputs will become polygons.
 <a name="centroid">Centroid (centroid)</a> | The latitude and longitude of a point at or near the centre of a geomark or, if the centre is outside the polygon, some point guaranteed to be inside the polygon
 <a name="creationDate">Creation Date (creationDate)</a> | The date the geomark was created.
 <a name="expiryDate">Expiry Date (expiryDate)</a> | The date a geomark expires. Once expired, it will no longer be accessible. If a geomark is in use by a government application, it will never expire until it is no longer required by that application.
