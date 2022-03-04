@@ -12,7 +12,7 @@ Term | Definition
 <a name="centroid">Centroid (centroid)</a> | The latitude and longitude of a point at or near the centre of a geomark or, if the centre is outside the polygon, some point guaranteed to be inside the polygon
 <a name="creationDate">Creation Date (creationDate)</a> | The date the geomark was created.
 <a name="expiryDate">Expiry Date (expiryDate)</a> | The date a geomark expires. Once expired, it will no longer be accessible. If a geomark is in use by a government application, it will never expire until it is no longer required by that application.
-<a name="fileFormatExtension">File Format (fileFormatExtension)</a> | The file format name extension used to represent the geomark download.
+<a name="format">File Format (format)</a> | The file format name extension used to represent the geomark download.
 <a name="geomark">geomark</a> | A point, line, or polygon of interest that can be shared in a variety of formats and map projections. Geomarks are created by the <a href="https://apps.gov.bc.ca/pub/geomark/">Geomark Service</a>.
 <a name="geomarkURL">Geomark URL (geomarkURL)</a> | The URL of a polygon geomark that should be used by the geocoder as a bounding box in the /bgeo/sites/within query. Point and line geomarks will not work. When specifying this URL programmatically, it should be url-encoded without format and projection parameters.
 <a name="geometryCount">Geometry Count (geometryCount)</a> | The number of geometries in the geomark. If you select One, the first geometry in a feature, feature collection or geometry collection will be used. If you select Many, all geometries of the selected geometry type will be used. Multiple geometries, buffered or not, can’t overlap. (1mm tolerance)
