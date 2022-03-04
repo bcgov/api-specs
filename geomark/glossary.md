@@ -1,7 +1,7 @@
 # Geomark Glossary of Terms
 Term | Definition
 ----: | -----------
-<a name="allowOverlap">Allow Overlap (allowOverlap)</a> | If [Geometry Count](https://github.com/bcgov/api-specs/blob/master/geomark/glossary.md#geometryCount) is set to Many, this option will allow overlapping geometries if set to 'true'.
+<a name="allowOverlap">Allow Overlap (allowOverlap)</a> | If [Geometry Count](https://github.com/bcgov/api-specs/blob/master/geomark/glossary.md#multiple) is set to true, this option will allow overlapping geometries if set to 'true'.
 <a name="area">Area (area)</a> | Area of the placemark in hectares.
 <a name="boundingBox">Bounding Box (boundingBox)</a> |  A comma separated list of the western, southern, eastern, and northern extent of the geomark in geographic coordinates. Western and eastern extent are displayed as decimal degrees of longitude. Northern and southern extent are displayed as decimal degrees of latitude. 
 <a name="bufferCap">Buffer Cap (bufferCap)</a> | The style of buffer to use at each end of a buffered line (e.g., round, square, flat).
@@ -15,7 +15,7 @@ Term | Definition
 <a name="format">File Format (format)</a> | The file format name extension used to represent the geomark download.
 <a name="geomark">geomark</a> | A point, line, or polygon of interest that can be shared in a variety of formats and map projections. Geomarks are created by the <a href="https://apps.gov.bc.ca/pub/geomark/">Geomark Service</a>.
 <a name="geomarkURL">Geomark URL (geomarkURL)</a> | The URL of a polygon geomark that should be used by the geocoder as a bounding box in the /bgeo/sites/within query. Point and line geomarks will not work. When specifying this URL programmatically, it should be url-encoded without format and projection parameters.
-<a name="geometryCount">Geometry Count (geometryCount)</a> | The number of geometries in the geomark. If you select One, the first geometry in a feature, feature collection or geometry collection will be used. If you select Many, all geometries of the selected geometry type will be used. Multiple geometries, buffered or not, can’t overlap. (1mm tolerance)
+<a name="multiple">Geometry Count (multiple)</a> | The number of geometries in the geomark. If you select false, the first geometry in a feature, feature collection or geometry collection will be used. If you select true, all geometries of the selected geometry type will be used. Multiple geometries, buffered or not, can’t overlap. (1mm tolerance)
 <a name="geometryType">Geometry Type (geometryType)</a> | Type of input geometry. Valids types are Point, Line, Polygon, Any. 
 <a name="geomarkId">ID (geomarkId)</a> | A unique, immutable, and meaningless identifier assigned to the geomark. Example : gm-abcdefghijklmnopqrstuv0bcislands
 <a name="isRobust">Is Geometry Robust (isRobust)</a> | A geometry that has a minimum clearance of less than one millimetre is not robust. Minimum clearance is the shortest distance between any two points or between a line and a point in the geometry. A geometry that is not robust will self-intersect when loaded into a spatial data store or application. For more info, see Interchange of Spatial Data – Inhibiting Factors (PDF)
