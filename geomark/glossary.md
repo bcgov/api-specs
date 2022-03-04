@@ -23,6 +23,7 @@ Term | Definition
 <a name="isValid">Is Geometry Valid (isValid)</a> | A geometry is valid if it meets the validity conditions for the given geometry type. For example, a linear ring must be simple. A polygon must consist of one outer boundary and zero or more inner boundaries, all of which must be simple. All inner boundaries must be contained within the outer boundary without touching. For more info, see ST_IsValid - PostGIS
 <a name="length">Length (length)</a> | Length of the geomark in kilometers.
 <a name="placemarkKml">Placemark KML (placemarkKml)</a> | KML text that specifies geometry or geometries of a geomark.
+<a name="resultFormat">Result File Format (resultFormat)</a> | The file format the geomark info resource should be returned using. 
 <a name="srid">Spatial Reference System (srid)</a> | The srid of the coordinate system the geometry should be converted to. Available values : 4326, 3005, 3857, 26907, 26908, 26909, 26910, 26911 (default value: 4326)
 <a name="validationError">Validation Error (validationError)</a> | Detailed validation error message if geometry is not valid; blank otherwise.
 <a name="version">version</a> | Software version of the REST Web Service
