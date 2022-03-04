@@ -22,7 +22,7 @@ Term | Definition
 <a name="length">Length (length)</a> | Length of the geomark in kilometers.
 <a name="numVertices">Vertex Count (numVertices)</a> | Number of vertices in all polygon boundaries of the geomark. A polygon without holes has a single, outer boundary, a polygon with one hole has one outer boundary and one inner boundary.
 <a name="validationError">Validation Error (validationError)</a> | Detailed validation error message if geometry is not valid; blank otherwise.
-<a name="bbox">bbox</a> | A rectangular geographic area used to filter results of a query. Coordinates are specified as xmin,ymin,xmax,ymax . By default, coordinates are longitude minimum, latitude minimum, longitude maximum, latitude maximum in the default output SRS, 4326 (WGS84).
+minimum, longitude maximum, latitude maximum in the default output SRS, 4326 (WGS84).
 <a name="centre">centre</a> | The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. centre and maxDistance together define a search area.
 <a name="changeDate">changeDate</a> | The date a site or intersection address was last changed.
 <a name="geomark">geomark</a> | A point, line, or polygon of interest that can be shared in a variety of formats and map projections. Geomarks are created by the <a href="https://apps.gov.bc.ca/pub/geomark/">Geomark Service</a>.
