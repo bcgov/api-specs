@@ -23,8 +23,6 @@ Term | Definition
 <a name="numVertices">Vertex Count (numVertices)</a> | Number of vertices in all polygon boundaries of the geomark. A polygon without holes has a single, outer boundary, a polygon with one hole has one outer boundary and one inner boundary.
 <a name="validationError">Validation Error (validationError)</a> | Detailed validation error message if geometry is not valid; blank otherwise.
 minimum, longitude maximum, latitude maximum in the default output SRS, 4326 (WGS84).
-<a name="centre">centre</a> | The coordinates of a centre point (x,y) used to define a bounding circle that will limit the search area. centre and maxDistance together define a search area.
-<a name="changeDate">changeDate</a> | The date a site or intersection address was last changed.
 <a name="geomark">geomark</a> | A point, line, or polygon of interest that can be shared in a variety of formats and map projections. Geomarks are created by the <a href="https://apps.gov.bc.ca/pub/geomark/">Geomark Service</a>.
 <a name="geomarkURL">geomarkURL</a> | The URL of a polygon geomark that should be used by the geocoder as a bounding box in the /bgeo/sites/within query. Point and line geomarks will not work. When specifying this URL programmatically, it should be url-encoded without format and projection parameters.
 <a name="version">version</a> | Software version of the REST Web Service
