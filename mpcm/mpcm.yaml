@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  title: Mapping Presentation Configuration Manager (MPCM)
+  contact:
+    name: DataBC
+    url: https://data.gov.bc.ca/
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.4.0
+servers:
+  - url: https://apps.gov.bc.ca/pub/mpcm/services
+    description: Production
+  - url: https://test.apps.gov.bc.ca/pub/mpcm/services
+    description: Test
+  - url: https://delivery.apps.gov.bc.ca/pub/mpcm/services
+    description: Delivery
+paths:
+  /catalog/{environment}:
+    get:
+      summary: Get a layer catalog by environment
+      responses:
+        '200': 
+          description: An XML representation of the catalog containing folders and layers
+    parameters:
+    - name: environment
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - 'PROD'
+        - 'TEST'
+        - 'DLVR'
+  /catalogV2/{environment}:
+    get:
+      summary: Get a layer catalog by environment. Uses version 2 of the webservice that includes transparencyOverride object.
+      responses:
+        '200': 
+          description: An XML representation of the catalog containing folders and layers
+    parameters:
+    - name: environment
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - 'PROD'
+        - 'TEST'
+        - 'DLVR'
+  /catalog/{environment}/{layerId}:
+    get:
+      summary: Get the layer details for a specified environment and set of layers
+      responses:
+        '200': 
+          description: An XML representation of a GIS layer
+    parameters:
+    - name: environment
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - 'PROD'
+        - 'TEST'
+        - 'DLVR'
+    - name: layerId
+      in: path
+      required: true
+      schema:
+        type: integer
+  /catalogV2/{environment}/{layerId}:
+    get:
+      summary: Get the layer details for a specified environment and set of layers. Uses version 2 of the webservice that includes transparencyOverride object.
+      responses:
+        '200': 
+          description: An XML representation of a GIS layer
+    parameters:
+    - name: environment
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - 'PROD'
+        - 'TEST'
+        - 'DLVR'
+    - name: layerId
+      in: path
+      required: true
+      schema:
+        type: integer        
