@@ -89,6 +89,7 @@
                                             "shpz",
                                             "geojson",
                                             "gml",
+                                            "gpkg",
                                             "wkt"
                                         ]
                                     },
@@ -119,6 +120,7 @@
                                             "shpz",
                                             "geojson",
                                             "gml",
+                                            "gpkg",
                                             "wkt"
                                         ]
                                     },
@@ -231,6 +233,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
@@ -381,6 +384,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
@@ -457,6 +461,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
@@ -533,6 +538,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
@@ -609,6 +615,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
@@ -685,6 +692,7 @@
                                 "shpz",
                                 "geojson",
                                 "gml",
+                                "gpkg",
                                 "wkt"
                             ]
                         },
