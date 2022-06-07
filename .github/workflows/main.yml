@@ -6,13 +6,13 @@ on:
 name: OpenAPI Specs lint
 
 jobs:
-  spectralChecks:
+  build:
     name: Spectral checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Spectral checks
-        uses: XVincentX/spectral-action@v0.3.0
+      - uses: actions/checkout@v2
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: './*/*.json'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_CI_TOKEN }}
-          SPECTRAL_FILE_PATH: ./*/*.json
