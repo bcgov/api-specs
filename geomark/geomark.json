@@ -722,11 +722,11 @@
                     },
                     "400": {
                         "description": "**Coordinate system with srid = <srid> is not supported.**  
-                        Check the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
+                        "Check the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
                     },
                     "404": {
                         "description": "**The geomark <geomarkId> could not be found.**  
-                        Check for extra characters on the end of the URL. The geomark may have expired and been deleted."
+                        "Check for extra characters on the end of the URL. The geomark may have expired and been deleted."
                     },
                     "500": {
                         "description": "**Internal Server Error**"
