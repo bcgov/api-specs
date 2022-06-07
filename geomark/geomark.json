@@ -342,10 +342,10 @@
                 ],
                 "responses": {
                     "400": {
-                        "description": "Couldn't create geomark."
+                        "description": "Couldn't create Geomark."
                     },
                     "500": {
-                        "description": "Internal Server Error."
+                        "description": "**Internal Server Error**"
                     }
                 }
             }
@@ -416,13 +416,13 @@
                         "description": "The geomark will be returned in the body of the HTTP response encoded in the requested [file format](https://apps.gov.bc.ca/pub/geomark/docs/fileFormats.html)."
                     },
                     "400": {
-                        "description": "Coordinate system with srid = <srid> is not supported. Check the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
+                        "description": "**Coordinate system with srid = <srid> is not supported.**\n\nCheck the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
                     },
                     "404": {
-                        "description": "The geomark <geomarkId> could not be found. Check for extra characters on the end of the URL. The geomark may have expired and been deleted."
+                        "description": "**The geomark <geomarkId> could not be found.**\n\nCheck for extra characters on the end of the URL. The geomark may have expired and been deleted."
                     },
                     "500": {
-                        "description": "Internal Server Error."
+                        "description": "**Internal Server Error**"
                     }
                 }
             }
@@ -493,13 +493,13 @@
                         "description": "The geomark will be returned in the body of the HTTP response encoded in the requested [file format](https://apps.gov.bc.ca/pub/geomark/docs/fileFormats.html)."
                     },
                     "400": {
-                        "description": "Coordinate system with srid = <srid> is not supported. Check the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
+                        "description": "**Coordinate system with srid = <srid> is not supported.**\n\nCheck the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
                     },
                     "404": {
-                        "description": "The geomark <geomarkId> could not be found. Check for extra characters on the end of the URL. The geomark may have expired and been deleted."
+                        "description": "**The geomark <geomarkId> could not be found.**\n\nCheck for extra characters on the end of the URL. The geomark may have expired and been deleted."
                     },
                     "500": {
-                        "description": "Internal Server Error."
+                        "description": "**Internal Server Error**"
                     }
                 }
             }
@@ -567,13 +567,13 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The geomark will be returned in the body of the HTTP response encoded in the requested file format."
+                        "description": "The geomark will be returned in the body of the HTTP response encoded in the requested [file format](https://apps.gov.bc.ca/pub/geomark/docs/fileFormats.html)."
                     },
                     "404": {
-                        "description": "The geomark <geomarkId> could not be found."
+                        "description": "**The geomark <geomarkId> could not be found.**\n\nCheck for extra characters on the end of the URL. The geomark may have expired and been deleted."
                     },
                     "500": {
-                        "description": "Internal Server Error."
+                        "description": "**Internal Server Error**"
                     }
                 }
             }
@@ -644,13 +644,13 @@
                         "description": "The geomark will be returned in the body of the HTTP response encoded in the requested [file format](https://apps.gov.bc.ca/pub/geomark/docs/fileFormats.html)."
                     },
                     "400": {
-                        "description": "Coordinate system with srid = <srid> is not supported. Check the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
+                        "description": "**Coordinate system with srid = <srid> is not supported.**\n\nCheck the list of supported [coordinate systems](https://apps.gov.bc.ca/pub/geomark/docs/coordinateSystems.html)."
                     },
                     "404": {
-                        "description": "The geomark <geomarkId> could not be found. Check for extra characters on the end of the URL. The geomark may have expired and been deleted."
+                        "description": "**The geomark <geomarkId> could not be found.**\n\nCheck for extra characters on the end of the URL. The geomark may have expired and been deleted."
                     },
                     "500": {
-                        "description": "Internal Server Error."
+                        "description": "**Internal Server Error**"
                     }
                 }
             }
