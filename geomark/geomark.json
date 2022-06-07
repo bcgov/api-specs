@@ -344,12 +344,6 @@
                     "200": {
                         "description": "If the geomark was created via a web service call."
                     },
-                    "302": {
-                        "description": "If the geomark was created and a redirectUrl was specified then the response will redirect to the redirectUrl with the query string parameters geomarkId and geomarkUrl of the created geomark."
-                    },
-                    "400": {
-                        "description": "**Couldn't create Geomark.**\n\nPossible reasons:\n\n* No Polygon, Multi-Polygon, or folder(set) of Polygons provided.\n* A point or line was provided without a buffer width."
-                    },
                     "500": {
                         "description": "**Internal Server Error**"
                     }
