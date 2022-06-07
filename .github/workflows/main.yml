@@ -13,6 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: stoplightio/spectral-action@latest
         with:
-          file_glob: './*/*.json'
+          file_glob: '*.json'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_CI_TOKEN }}
