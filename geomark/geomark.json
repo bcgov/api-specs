@@ -341,8 +341,20 @@
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "If the geomark was created via a web service call."
+                    },
+                    "302": {
+                        "description": "If the geomark was created and a redirectUrl was specified then the response will redirect to the redirectUrl with the query string parameters geomarkId and geomarkUrl of the created geomark."
+                    },
+                    "302": {
+                        "description": "If the geomark was created and a redirectUrl was NOT specified then the response will redirect to the geomark info resource of the created geomark. If resultFormat was specified then the redirect will be to the geomark info resource for that [file format](https://apps.gov.bc.ca/pub/geomark/docs/fileFormats.html). If the resultFormat was 'json' and a callback was specified the callback query string parameter will be added to the URL."
+                    },
+                    "302": {
+                        "description": "	If there was an error creating the geomark and a failureRedirectUrl was specified then the response will be redirected to the failureRedirectUrl with a <fieldName>_Error query string parameter with the error message. Otherwise one of the 400 status codes below will be returned."
+                    },
                     "400": {
-                        "description": "Couldn't create Geomark."
+                        "description": "**Couldn't create Geomark.**\n\nPossible reasons:\n\n* No Polygon, Multi-Polygon, or folder(set) of Polygons provided.\n* A point or line was provided without a buffer width."
                     },
                     "500": {
                         "description": "**Internal Server Error**"
