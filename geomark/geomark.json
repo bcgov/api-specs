@@ -569,9 +569,6 @@
                     "200": {
                         "description": "The geomark will be returned in the body of the HTTP response encoded in the requested file format."
                     },
-                    "400": {
-                        "description": "Coordinate system with srid = <srid> is not supported."
-                    },
                     "404": {
                         "description": "The geomark <geomarkId> could not be found."
                     },
