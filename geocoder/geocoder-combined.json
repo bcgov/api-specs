@@ -64,7 +64,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -444,7 +444,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -833,7 +833,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -966,7 +966,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1088,7 +1088,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1183,7 +1183,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1326,7 +1326,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1458,7 +1458,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1563,7 +1563,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1697,7 +1697,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1820,7 +1820,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormattarget=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -1925,7 +1925,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2027,7 +2027,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2130,7 +2130,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2233,7 +2233,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
@@ -2278,7 +2278,7 @@
           {
             "name": "outputFormat",
             "in": "path",
-            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>",
+            "description": "Results format. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#outputFormat target=\"_blank\">outputFormat</a>. \n\nNote: GeoJSON and KML formats only support EPSG:4326 (outputSRS=4326)",
             "required": true,
             "schema": {
               "type": "string",
