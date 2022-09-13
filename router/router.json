@@ -76,7 +76,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -86,7 +86,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -214,7 +214,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -224,7 +224,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -353,7 +353,7 @@
           {
             "name": "fromPoints",
             "in": "query",
-            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#fromPoints target='_blank'>fromPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -363,7 +363,7 @@
           {
             "name": "toPoints",
             "in": "query",
-            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#toPoints target='_blank'>toPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -373,7 +373,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -499,7 +499,7 @@
           {
             "name": "fromPoints",
             "in": "query",
-            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#fromPoints target='_blank'>fromPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -509,7 +509,7 @@
           {
             "name": "toPoints",
             "in": "query",
-            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#toPoints target='_blank'>toPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -519,7 +519,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -648,7 +648,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -658,7 +658,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -786,7 +786,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -796,7 +796,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -926,7 +926,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -936,7 +936,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1064,7 +1064,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1074,7 +1074,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1204,7 +1204,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1214,7 +1214,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1342,7 +1342,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1352,7 +1352,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1482,7 +1482,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1492,7 +1492,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1620,7 +1620,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1630,7 +1630,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1760,7 +1760,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1770,7 +1770,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1898,7 +1898,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -1908,7 +1908,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2037,7 +2037,7 @@
           {
             "name": "fromPoints",
             "in": "query",
-            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#fromPoints target='_blank'>fromPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2047,7 +2047,7 @@
           {
             "name": "toPoints",
             "in": "query",
-            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#toPoints target='_blank'>toPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2057,7 +2057,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2183,7 +2183,7 @@
           {
             "name": "fromPoints",
             "in": "query",
-            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#fromPoints target='_blank'>fromPoints</a>",
+            "description": "A comma-separated list of origin points.  See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#fromPoints target='_blank'>fromPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2193,7 +2193,7 @@
           {
             "name": "toPoints",
             "in": "query",
-            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#toPoints target='_blank'>toPoints</a>",
+            "description": "A comma-separated list of destination points. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#toPoints target='_blank'>toPoints</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2203,7 +2203,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2332,7 +2332,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2342,7 +2342,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2470,7 +2470,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2480,7 +2480,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2610,7 +2610,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2620,7 +2620,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2748,7 +2748,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2758,7 +2758,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2888,7 +2888,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -2898,7 +2898,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3026,7 +3026,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -3036,7 +3036,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3166,7 +3166,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -3176,7 +3176,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3304,7 +3304,7 @@
           {
             "name": "points",
             "in": "query",
-            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#points target='_blank'>points</a>",
+            "description": "A list of any number of route points in start to end order. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#points target='_blank'>points</a>",
             "required": true,
             "schema": {
               "type": "string"
@@ -3314,7 +3314,7 @@
           {
             "name": "outputSRS",
             "in": "query",
-            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/api-specs/blob/master/router/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
+            "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-router/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
             "required": false,
             "schema": {
               "type": "integer",
