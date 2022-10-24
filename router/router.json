@@ -2698,7 +2698,7 @@
           {
             "name": "partition",
             "in": "query",
-            "description": "A comma-separated list of values to identify sections of the route that correspond to truck routes, non-truck routes, ferry routes and locality names.  The response includes a partitions attribute, which is an array of objects, each of which has an index (into the route coordinate array) and a value for each of the attributes requested in the partition parameter. Any or all of the following values can be used. <br><br>Partition values:<br> isTruckRoute – Will distibguish between truck routes and non-truck routes <br> isFerry – Will identify portions of the route that use a ferry. <br> locality – Will include the locality name for the route partition.",
+            "description": "A comma-separated list of values to identify sections of the route that correspond to truck routes, non-truck routes, ferry routes and locality names.  The response includes a partitions attribute, which is an array of objects, each of which has an index (into the route coordinate array) and a value for each of the attributes requested in the partition parameter. Any or all of the following values can be used. <br><br>Partition values:<br> isTruckRoute – Distibguish between truck routes and non-truck routes <br> isFerry – Identify portions of the route that use a ferry. <br> locality – Include the locality name for the route partition.",
             "required": false,
             "schema": {
               "type": "string",
