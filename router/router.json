@@ -2424,7 +2424,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -2572,7 +2572,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -2722,7 +2722,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -2870,7 +2870,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -3020,7 +3020,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -3168,7 +3168,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -3318,7 +3318,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
@@ -3466,7 +3466,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "isTruckRoute,isFerry,locality"
+              "default": ""
             }
           },
           {
