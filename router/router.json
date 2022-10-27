@@ -1851,8 +1851,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -2433,8 +2433,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -2591,8 +2591,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -2751,8 +2751,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -2909,8 +2909,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -3069,8 +3069,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -3227,8 +3227,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -3387,8 +3387,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
@@ -3545,8 +3545,8 @@
             "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
             "required": false,
             "schema": {
-              "type": "string",
-              "default": "9"
+              "type": "integer",
+              "default": 9
             }
           },
           {
