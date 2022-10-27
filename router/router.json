@@ -1846,6 +1846,16 @@
             }
           },
           {
+            "name": "truckRouteMultiplier",
+            "in": "query",
+            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "9"
+            }
+          },
+          {
             "name": "disable",
             "in": "query",
             "description": "A comma-separated list of time-related modules to disable (e.g., sc,tf,ev,td).<br><br>Module names include:<br> sc – ferry schedules; disabled by default; disabled by default and only suitable for demos<br>tf – historic traffic congestion; disabled by default and only suitable for demos<br>ev – road events; disabled by default and only suitable for demos<br>td – time-dependency; disabling this disables sc, tf, and ev modules<br>tr – turn restrictions; if td is disabled, time-dependent turn restrictions are ignored<br>tc - turn costs (e.g., left turns take longer than right turns)",
