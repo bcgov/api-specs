@@ -1166,7 +1166,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1344,7 +1344,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -1842,7 +1842,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2020,7 +2020,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3752,7 +3752,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4030,7 +4030,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4828,7 +4828,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -5106,7 +5106,7 @@
           {
             "name": "simplifyThreshold",
             "in": "query",
-            "description": "The default distance threshold to simplify directions is 250 metres. This can be adjusted to further simplify directions. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
+            "description": "The default distance threshold to simplify directions is 250 metres. Segments that are longer than this value will remain in the directions.<br><br>If simplifyDirections is false, this value will be ignored.",
             "required": false,
             "schema": {
               "type": "integer",
