@@ -57,8 +57,7 @@
         "summary": "Geocode an address",
         "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
         "tags": [
-          "sites",
-          "intersections"
+          "sites"
         ],
         "parameters": [
           {
