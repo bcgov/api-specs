@@ -2250,7 +2250,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -2488,7 +2488,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -2737,7 +2737,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -2984,7 +2984,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3244,7 +3244,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3502,7 +3502,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3782,7 +3782,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4060,7 +4060,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4320,7 +4320,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4578,7 +4578,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4858,7 +4858,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -5136,7 +5136,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager. Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
