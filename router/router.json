@@ -2180,7 +2180,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2190,7 +2190,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2200,7 +2200,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2210,7 +2210,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2270,7 +2270,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -2418,7 +2418,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2428,7 +2428,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2438,7 +2438,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2448,7 +2448,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2488,7 +2488,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -2508,7 +2508,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -2667,7 +2667,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2677,7 +2677,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2687,7 +2687,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2697,7 +2697,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2737,7 +2737,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -2757,7 +2757,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -2914,7 +2914,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2924,7 +2924,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2934,7 +2934,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2944,7 +2944,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -2984,7 +2984,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3004,7 +3004,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -3154,7 +3154,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3164,7 +3164,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3174,7 +3174,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3184,7 +3184,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3244,7 +3244,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3264,7 +3264,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -3412,7 +3412,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3422,7 +3422,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3432,7 +3432,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3442,7 +3442,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3502,7 +3502,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3522,7 +3522,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -3672,7 +3672,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3682,7 +3682,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3692,7 +3692,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3702,7 +3702,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3782,7 +3782,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -3802,7 +3802,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -3950,7 +3950,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3960,7 +3960,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3970,7 +3970,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -3980,7 +3980,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4060,7 +4060,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4080,7 +4080,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -4230,7 +4230,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4240,7 +4240,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4250,7 +4250,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4260,7 +4260,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4320,7 +4320,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4340,7 +4340,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -4488,7 +4488,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4498,7 +4498,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4508,7 +4508,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4518,7 +4518,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4578,7 +4578,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4598,7 +4598,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -4748,7 +4748,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4758,7 +4758,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4768,7 +4768,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4778,7 +4778,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -4858,7 +4858,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -4878,7 +4878,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
@@ -5026,7 +5026,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "The height of the truck in metres.",
+            "description": "The height of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -5036,7 +5036,7 @@
           {
             "name": "width",
             "in": "query",
-            "description": "The width of the truck in metres.",
+            "description": "The width of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -5046,7 +5046,7 @@
           {
             "name": "length",
             "in": "query",
-            "description": "The length of the truck in metres.",
+            "description": "The length of the truck in metres (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -5056,7 +5056,7 @@
           {
             "name": "weight",
             "in": "query",
-            "description": "The weight of the truck in kilograms.",
+            "description": "The weight of the truck in kilograms (**only suitable for demos**).",
             "required": false,
             "schema": {
               "type": "number",
@@ -5136,7 +5136,7 @@
           {
             "name": "restrictionSource",
             "in": "query",
-            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (only suitable for demos). Default is ITN.",
+            "description": "Specify the source of road restrictions. Options include:<br> ITN - Integrated Transportation Network. <br> RDM - Restriction Data Manager (**Note that the RDM option is only suitable for demos**). <br><br>Default is ITN.",
             "required": false,
             "schema": {
               "type": "string",
@@ -5156,7 +5156,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values. <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
             "required": false,
             "schema": {
               "type": "string",
