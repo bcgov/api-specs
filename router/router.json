@@ -2170,7 +2170,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2270,7 +2270,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -2408,7 +2408,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2508,7 +2508,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -2657,7 +2657,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2757,7 +2757,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -2904,7 +2904,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3004,7 +3004,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -3144,7 +3144,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3264,7 +3264,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -3402,7 +3402,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3522,7 +3522,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -3662,7 +3662,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -3802,7 +3802,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -3940,7 +3940,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4080,7 +4080,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -4220,7 +4220,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4340,7 +4340,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -4478,7 +4478,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4598,7 +4598,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -4738,7 +4738,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -4878,7 +4878,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
@@ -5016,7 +5016,7 @@
           {
             "name": "truckRouteMultiplier",
             "in": "query",
-            "description": "The truck route multiplier value is used to multiply the cost of using roads that are not truck routes.",
+            "description": "The truck route multiplier value is used to multiply the cost (friction factors) of using roads that are not truck routes.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -5156,7 +5156,7 @@
           {
             "name": "restrictionValues",
             "in": "query",
-            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue",
+            "description": "A comma-separated list of restriction types and their values (**only suitable for demos**). <br><br>If the parameters height, width, length and weight are provided but the restrictionValues parameter is not, those values will be translated into VERTICAL, HORIZONTAL, LENGTH and WEIGHT-GVW. If values are provided for both the vehicle dimension parameters and the restrictionValues parameter, only the restrictionValues parameter values will be used.<br><br> VERTICAL - Height in metres (e.g., VERTICAL:4.5). <br>HORIZONTAL - Width in metres (e.g., HORIZONTAL:3)<br>LENGTH - Length in metres (e.g., LENGTH:8.2)<br> WEIGHT-GVW - Gross vehicle weight in kilograms (e.g., WEIGHT-GVW:35000)<br>WEIGHT-1AXLE - Single axle weight (e.g., WEIGHT-1AXLE:10000)<br>WEIGHT-2AXLE - Tandem axle weight (e.g., WEIGHT-2AXLE:10000)<br>WEIGHT-3AXLE - Tridem axle weight (e.g., WEIGHT-3AXLE:15000)<br>NCV - No Commercial Vehicles (e.g., NCV:1)<br>NSI - No Self Issue (**not implemented**)",
             "required": false,
             "schema": {
               "type": "string",
