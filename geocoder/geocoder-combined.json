@@ -164,7 +164,7 @@
             }
           },
           {
-            "name": "exactSpelling",
+            "name": "exactSpelling (geocodertst)",
             "in": "query",
             "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address.",
             "required": false,
@@ -562,7 +562,7 @@
             }
           },
           {
-            "name": "exactSpelling",
+            "name": "exactSpelling (geocodertst)",
             "in": "query",
             "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address.",
             "required": false,
