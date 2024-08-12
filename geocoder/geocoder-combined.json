@@ -164,6 +164,16 @@
             }
           },
           {
+            "name": "exactSpelling",
+            "in": "query",
+            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address (**only available in geocodertst**).",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "setBack",
             "in": "query",
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
@@ -545,6 +555,16 @@
             "name": "autoComplete",
             "in": "query",
             "description": "If true, addressString is expected to contain a partial address that requires completion. Not supported for shp, csv, gml formats.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "exactSpelling",
+            "in": "query",
+            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address (**only available in geocodertst**).",
             "required": false,
             "schema": {
               "type": "boolean",
