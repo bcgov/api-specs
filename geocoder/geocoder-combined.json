@@ -176,7 +176,7 @@
           {
             "name": "fuzzyMatch",
             "in": "query",
-            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString. (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString (**only available in geocodertst**).",
             "required": false,
             "schema": {
               "type": "boolean",
@@ -584,7 +584,7 @@
           {
             "name": "fuzzyMatch",
             "in": "query",
-            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString. (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString (**only available in geocodertst**).",
             "required": false,
             "schema": {
               "type": "boolean",
