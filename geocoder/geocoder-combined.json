@@ -166,7 +166,7 @@
           {
             "name": "exactSpelling",
             "in": "query",
-            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address.",
             "required": false,
             "schema": {
               "type": "boolean",
@@ -176,7 +176,7 @@
           {
             "name": "fuzzyMatch",
             "in": "query",
-            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString.",
             "required": false,
             "schema": {
               "type": "boolean",
@@ -574,7 +574,7 @@
           {
             "name": "exactSpelling",
             "in": "query",
-            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are limited to addresses beginning with the provided partial address.",
             "required": false,
             "schema": {
               "type": "boolean",
@@ -584,7 +584,7 @@
           {
             "name": "fuzzyMatch",
             "in": "query",
-            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString (**only available in geocodertst**).",
+            "description": "If true, autoComplete suggestions are sorted using a fuzzy match comparison to the addressString.",
             "required": false,
             "schema": {
               "type": "boolean",
