@@ -192,6 +192,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -347,6 +357,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -519,6 +539,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -686,6 +716,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -846,6 +886,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -1001,6 +1051,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1184,6 +1244,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -1362,6 +1432,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -1522,6 +1602,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -1677,6 +1767,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1860,6 +1960,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "routeDescription",
             "in": "query",
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)",
@@ -2035,6 +2145,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -2245,6 +2365,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -2483,6 +2613,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -2733,6 +2873,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -2991,6 +3141,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -3274,6 +3434,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "listRestrictions",
             "in": "query",
             "description": "Include a list of all restriction IDs impacting the direction of travel along the base route. Default is false.",
@@ -3552,6 +3722,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "listRestrictions",
             "in": "query",
             "description": "Include a list of all restriction IDs impacting the direction of travel along the base route. Default is false.",
@@ -3812,6 +3992,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "listRestrictions",
             "in": "query",
             "description": "Include a list of all restriction IDs impacting the direction of travel along the base route. Default is false.",
@@ -4067,6 +4257,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -4350,6 +4550,16 @@
             }
           },
           {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
             "name": "listRestrictions",
             "in": "query",
             "description": "Include a list of all restriction IDs impacting the direction of travel along the base route. Default is false.",
@@ -4625,6 +4835,16 @@
             "schema": {
               "type": "integer",
               "default": 1000
+            }
+          },
+          {
+            "name": "minRoutingDistance",
+            "in": "query",
+            "description": "The minimum routing distance (in metres) that must exist between points to calculate a route. The default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           },
           {
