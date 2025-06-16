@@ -15,7 +15,7 @@
         }
     ],
     "info": {
-        "title": "GeoMark Web Service REST API",
+        "title": "Geomark Web Service REST API",
         "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats and coordinate systems. This service is especially helpful when you need to share an area of interest with people who require that the data be in a different format, or they use different mapping software. \n\nPlease note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs/tree/master/geomark) in other API console viewers.",
         "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
         "contact": {
@@ -111,20 +111,14 @@
                                         ],
                                         "default": 4326
                                     },
-                                    "resultFormat": {
-                                        "description": "The file format the geomark info resource should be returned using.",
+                                    "geometryType": {
+                                        "description": "Type of input geometry. Valids types are Point, LineString, Polygon, Any.",
                                         "type": "string",
                                         "enum": [
-                                            "json",
-                                            "xml",
-                                            "kml",
-                                            "kmz",
-                                            "shp",
-                                            "shpz",
-                                            "geojson",
-                                            "gml",
-                                            "gpkg",
-                                            "wkt"
+                                            "Point",
+                                            "LineString",
+                                            "Polygon",
+                                            "Any"
                                         ]
                                     },
                                     "multiple": {
@@ -145,6 +139,44 @@
                                         ],
                                         "default": false
                                     },
+                                    "body": {
+                                        "description": "The binary or character content representing the geometry or geometries",
+                                        "type": "string"
+                                    },
+                                    "bufferMetres": {
+                                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
+                                        "type": "integer"
+                                    },
+                                    "bufferSegments": {
+                                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
+                                        "type": "integer",
+                                        "default": 8
+                                    },
+                                    "bufferMitreLimit": {
+                                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
+                                        "type": "integer",
+                                        "default": 5
+                                    },
+                                    "bufferCap": {
+                                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
+                                        "type": "string",
+                                        "enum": [
+                                            "ROUND",
+                                            "SQUARE",
+                                            "FLAT"
+                                        ],
+                                        "default": "ROUND"
+                                    },
+                                    "bufferJoin": {
+                                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
+                                        "type": "string",
+                                        "enum": [
+                                            "ROUND",
+                                            "MITRE",
+                                            "BEVEL"
+                                        ],
+                                        "default": "ROUND"
+                                    },
                                     "callback": {
                                         "description": "The callback function a JSON result format would be wrapped in to support Ajax requests.",
                                         "type": "string"
@@ -157,43 +189,21 @@
                                         "description": "The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.",
                                         "type": "string"
                                     },
-                                    "bufferMetres": {
-                                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
-                                        "type": "integer"
-                                    },
-                                    "bufferJoin": {
-                                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
+                                    "resultFormat": {
+                                        "description": "The file format the geomark info resource should be returned using.",
                                         "type": "string",
                                         "enum": [
-                                            "ROUND",
-                                            "MITRE",
-                                            "BEVEL"
-                                        ],
-                                        "default": "ROUND"
-                                    },
-                                    "bufferCap": {
-                                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
-                                        "type": "string",
-                                        "enum": [
-                                            "ROUND",
-                                            "SQUARE",
-                                            "FLAT"
-                                        ],
-                                        "default": "ROUND"
-                                    },
-                                    "bufferMitreLimit": {
-                                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
-                                        "type": "integer",
-                                        "default": 5
-                                    },
-                                    "bufferSegments": {
-                                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
-                                        "type": "integer",
-                                        "default": 8
-                                    },
-                                    "body": {
-                                        "description": "The binary or character content representing the geometry or geometries",
-                                        "type": "string"
+                                            "json",
+                                            "xml",
+                                            "kml",
+                                            "kmz",
+                                            "shp",
+                                            "shpz",
+                                            "geojson",
+                                            "gml",
+                                            "gpkg",
+                                            "wkt"
+                                        ]
                                     }
                                 }
                             }
@@ -221,28 +231,6 @@
                         "example": "https://apps.gov.bc.ca/pub/geomark/geomarks/gm-abcdefghijklmnopqrstuv0bcislands"
                     },
                     {
-                        "name": "resultFormat",
-                        "in": "query",
-                        "description": "The file format the geomark info resource should be returned using.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "json",
-                                "xml",
-                                "kml",
-                                "kmz",
-                                "shp",
-                                "shpz",
-                                "geojson",
-                                "gml",
-                                "gpkg",
-                                "wkt"
-                            ]
-                        },
-                        "example": "json"
-                    },
-                    {
                         "name": "allowOverlap",
                         "in": "query",
                         "description": "Select this option to allow overlapping geometries",
@@ -254,6 +242,65 @@
                               true
                             ],
                             "default": false
+                        }
+                    },
+                    {
+                        "name": "bufferMetres",
+                        "in": "query",
+                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "bufferSegments",
+                        "in": "query",
+                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 8
+                        }
+                    },
+                    {
+                        "name": "bufferMitreLimit",
+                        "in": "query",
+                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 5
+                        }
+                    },
+                    {
+                        "name": "bufferCap",
+                        "in": "query",
+                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ROUND",
+                                "SQUARE",
+                                "FLAT"
+                            ],
+                            "default": "ROUND"
+                        }
+                    },
+                    {
+                        "name": "bufferJoin",
+                        "in": "query",
+                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "ROUND",
+                                "MITRE",
+                                "BEVEL"
+                            ],
+                            "default": "ROUND"
                         }
                     },
                     {
@@ -284,63 +331,26 @@
                         }
                     },
                     {
-                        "name": "bufferMetres",
+                        "name": "resultFormat",
                         "in": "query",
-                        "description": "The amount to buffer the geometry in metres, must only contain numerical digits (e.g 10). Leave blank and no buffer will be added to input geometries. If blank then any Point, LineString, MultiPoint and MultiLineString geometries will be ignored.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "bufferJoin",
-                        "in": "query",
-                        "description": "If bufferMetres is specified, The style of buffer to use for joins between the line segments for lines and polygons.",
+                        "description": "The file format the geomark info resource should be returned using.",
                         "required": false,
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "ROUND",
-                                "MITRE",
-                                "BEVEL"
-                            ],
-                            "default": "ROUND"
-                        }
-                    },
-                    {
-                        "name": "bufferCap",
-                        "in": "query",
-                        "description": "If bufferMetres is specified, The style of buffer to use at the ends of a buffered line.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "ROUND",
-                                "SQUARE",
-                                "FLAT"
-                            ],
-                            "default": "ROUND"
-                        }
-                    },
-                    {
-                        "name": "bufferMitreLimit",
-                        "in": "query",
-                        "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 5
-                        }
-                    },
-                    {
-                        "name": "bufferSegments",
-                        "in": "query",
-                        "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 8
-                        }
+                                "json",
+                                "xml",
+                                "kml",
+                                "kmz",
+                                "shp",
+                                "shpz",
+                                "geojson",
+                                "gml",
+                                "gpkg",
+                                "wkt"
+                            ]
+                        },
+                        "example": "json"
                     }
                 ],
                 "responses": {
