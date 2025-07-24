@@ -490,9 +490,13 @@
             "description": "Occupant name OR Occupant name ** address",
             "required": false,
             "schema": {
-              "type": "string"
-            },
-            "example": "Sir James Douglas Elementary"
+              "type": "string",
+              "examples": [
+                "Sir James Douglas Elementary",
+                "Swartz Bay Ferry Terminal",
+                "Kamloops Airport"
+              ]
+            }
           },
           {
             "name": "tags",
