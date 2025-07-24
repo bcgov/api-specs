@@ -86,9 +86,13 @@
             "description": "Civic or intersection address as a single string. See <a href=https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#addressString target=\"_blank\">addressString</a>",
             "required": false,
             "schema": {
-              "type": "string"
-            },
-            "examples": ["525 Superior Street, Victoria, BC", "4000 Seymour Place, Saanich, BC", "976 Meares Road, Victoria, BC"]
+              "type": "string",
+              "examples": [
+                "525 Superior Street, Victoria, BC",
+                "4000 Seymour Place, Saanich, BC",
+                "976 Meares Road, Victoria, BC"
+              ]
+            }
           },
           {
             "name": "locationDescriptor",
