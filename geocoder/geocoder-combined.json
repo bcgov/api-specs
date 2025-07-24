@@ -89,7 +89,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "525 Superior Street, Victoria, BC"
+            "examples": ["525 Superior Street, Victoria, BC", "4000 Seymour Place, Saanich, BC", "976 Meares Road, Victoria, BC"]
           },
           {
             "name": "locationDescriptor",
