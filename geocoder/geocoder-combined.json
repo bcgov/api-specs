@@ -88,9 +88,11 @@
             "schema": {
               "type": "string",
               "examples": [
-                "525 Superior Street, Victoria, BC",
-                "4000 Seymour Place, Saanich, BC",
-                "976 Meares Street, Victoria, BC"
+                "UNIT 401 -- 1010 View St, Victoria, BC",
+                "456 Gorge Rd E, Victoria, BC",
+                "Lakeshore Dr E and Veterans Way, Penticton, BC",
+                "Malibu Terrace, Nanaimo, BC",
+                "Kamloops, BC"
               ]
             }
           },
