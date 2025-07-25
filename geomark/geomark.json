@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.0",
+    "openapi": "3.1.0",
     "servers": [
         {
             "url": "https://apps.gov.bc.ca/pub/geomark",
@@ -124,19 +124,11 @@
                                     "multiple": {
                                         "description": "Boolean flag indicating if multiple geometries are to be used for the geomark (true) or only a single geometry from the first geometry (false).",
                                         "type": "boolean",
-                                        "enum": [
-                                            false,
-                                            true
-                                        ],
                                         "default": false
                                     },
                                     "allowOverlap": {
                                         "description": "When multiple=true select this option to allow overlapping geometries",
                                         "type": "boolean",
-                                        "enum": [
-                                            false,
-                                            true
-                                        ],
                                         "default": false
                                     },
                                     "body": {
@@ -237,10 +229,6 @@
                         "required": false,
                         "schema": {
                             "type": "boolean",
-                            "enum": [
-                              false,
-                              true
-                            ],
                             "default": false
                         }
                     },
