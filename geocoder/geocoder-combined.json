@@ -502,7 +502,7 @@
           {
             "name": "tagCondition",
             "in": "query",
-            "description": "The 'or' condition will return occupants having one or more of the tags in their keyword list. The 'and' condition will return occupants having all of the tags in their keyword list. **Only available in the DLV and TST environments.**",
+            "description": "The 'or' condition will return occupants having one or more of the tags in their keyword list. The 'and' condition will return occupants having all of the tags in their keyword list.",
             "required": false,
             "schema": {
               "type": "string",
@@ -1065,20 +1065,6 @@
             }
           },
           {
-            "name": "tagCondition",
-            "in": "query",
-            "description": "The 'or' condition will return occupants having one or more of the tags in their keyword list. The 'and' condition will return occupants having all of the tags in their keyword list. **Only available in the DLV and TST environments.**",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "or",
-                "and"
-              ],
-              "default": "or"
-            },
-          },
-          {
             "name": "outputSRS",
             "in": "query",
             "description": "The EPSG code of the spatial reference system (SRS) to use for output geometries. See <a href=https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#outputSRS target=\"_blank\">outputSRS</a>",
@@ -1428,20 +1414,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "tagCondition",
-            "in": "query",
-            "description": "The 'or' condition will return occupants having one or more of the tags in their keyword list. The 'and' condition will return occupants having all of the tags in their keyword list. **Only available in the DLV and TST environments.**",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "or",
-                "and"
-              ],
-              "default": "or"
-            },
           },
           {
             "name": "maxDistance",
@@ -1813,20 +1785,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "tagCondition",
-            "in": "query",
-            "description": "The 'or' condition will return occupants having one or more of the tags in their keyword list. The 'and' condition will return occupants having all of the tags in their keyword list. **Only available in the DLV and TST environments.**",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "or",
-                "and"
-              ],
-              "default": "or"
-            },
           },
           {
             "name": "outputSRS",
