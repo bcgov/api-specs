@@ -2314,7 +2314,7 @@
         }
       }
     },
-    "/status": {
+    "/status.json": {
       "get": {
         "summary": "Get a data summary and list of any startup warnings or errors",
         "description": "Includes data vintage, address count, and details of any startup warning or errors",
