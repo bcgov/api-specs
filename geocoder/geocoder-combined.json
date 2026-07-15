@@ -514,7 +514,7 @@
                 "and"
               ],
               "default": "or"
-            },
+            }
           },
           {
             "name": "locationDescriptor",
