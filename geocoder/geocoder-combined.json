@@ -94,6 +94,30 @@
             "example": "525 Superior Street, Victoria, BC"
           },
           {
+            "name": "preferredEncoding",
+            "in": "query",
+            "description": "Returns an ASCII alternative for a utf-8 street name, if one has been provided by the address authority.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ascii",
+                "extended-ascii",
+                "utf-8"
+              ],
+            }
+          },
+          {
+            "name": "hasPid",
+            "in": "query",
+            "description": "If true, only addresses with parcel IDs will be returned.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "locationDescriptor",
             "in": "query",
             "description": "Describes the nature of the address location. See <a href=https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#locationDescriptor target=\"_blank\">locationDescriptor</a>",
