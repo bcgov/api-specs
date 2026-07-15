@@ -24,7 +24,7 @@
     },
     "termsOfService": "https://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
     "contact": {
-      "name": "Contact DataBC",
+      "name": "Contact the Location Services team",
       "url": "https://dpdd.atlassian.net/servicedesk/customer/portal/1/group/7/"
     }
   },
@@ -44,6 +44,9 @@
     },
     {
       "name": "parcels"
+    },
+    {
+      "name": "status"
     }
   ],
   "security": [
@@ -2307,6 +2310,22 @@
         "responses": {
           "200": {
             "description": "A comma-separated string containing all the parcel identifiers associated with the requested siteID"
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "summary": "Get a data summary and list of any startup warnings or errors",
+        "description": "Includes data vintage, address count, and details of any startup warning or errors",
+        "tags": [
+          "status"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON response containing details on Geocoder data and any startup warning or errors"
           }
         }
       }
