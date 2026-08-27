@@ -13,6 +13,7 @@ This guide is aimed at developers and web masters that would like to incorporate
 [API Changes](#apichanges)<br>
 [Resource Overview](#resources)<br>
 [Cross-Origin Resource Sharing](#cors)<br>
+[URL encoding](#encoding)<br>
 [addresses Resource](#addresses)<br>
 [occupants\/addresses Resource](#occupantsaddresses)<br>
 [occupants\/nearest Resource](#occupantsnearest)<br>
@@ -23,37 +24,19 @@ This guide is aimed at developers and web masters that would like to incorporate
 [Intersection Address Representation](#intersectionaddressrepresentation)<br>
 [About faults](#aboutfaults)<br>
 [Implementing address autocompletion in your application](#implementingautocomplete)<br>
+[API response error code](#APIResponseErrorCodes)<br>
 
 
 <a name=intro></a>
 ## Introduction
-The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://catalogue.data.gov.bc.ca/dataset/physical-address-geocoding-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0).
+The BC Physical Address Online Geocoder REST API lets you integrate real-time standardization, validation, and geocoding of physical addresses into your own applications. This document defines aspects of the REST API that are not covered in the [OpenAPI definition](https://openapi.apps.gov.bc.ca/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder-combined.json).
 <br>
 
 
 <a name=apichanges></a>
-## API Changes in v4.1
-There are no breaking API changes in this release. There is one non-breaking API change:
+## API Changes
 
-- There is a new fault property called **value** that contains the string that caused the address match fault. This is useful when figuring out why a given address didn't geocode well. For details, see [About faults](#aboutFaults).
-
-## API Changes in v4.0.0
-There are no API changes in this release.
-
-
-## API Changes in v3.4.1
-There are two breaking API changes but they only affect the occupants/addresses resource.<br>
-1. In occupants/addresses, if no occupant separator ("**") is found in addressString, addressString is assumed to be an occupant name, not a civic address. In previous versions, if no frontGate ("--") was found, addressString was assumed to be a civic address.
-
-2. In occupants/addresses, fullAddress now includes an occupant separator "**" as in "Sir Jame Douglas Elementary ** 401 Moss St, Victoria, BC"
- 
-
-## API Changes in v3.3.1
-There is one breaking API change:<br>
-The following anonymous online geocoder URLs are deprecated, no longer supported and may be shut down in the future:
-
-https://apps.gov.bc.ca/pub/geocoder<br><br>
-http://apps.gov.bc.ca/pub/geocoder<br><br>
+A summary of changes to the BC Address Geocoder can be found on the [What's New](https://github.com/bcgov/ols-geocoder/blob/gh-pages/whats-new.md) page for each release.
 
 <br><br>
 <a name=resources></a>
@@ -63,12 +46,17 @@ The current baseUrl for the online geocoder is:<br>
 
 https://geocoder.api.gov.bc.ca/
 
-This URL allows both public and gated access. Gated access requires an apikey. To get a sandbox apikey with a maximum rate of 1000 requests per minute, visit the [geocoder api console](https://catalogue.data.gov.bc.ca/dataset/bc-address-geocoder-web-service/resource/40d6411e-ab98-4df9-a24e-67f81c45f6fa/view/1d3c42fc-53dc-4aab-ae3b-f4d056cb00e0). You can get an unrestricted apikey for use in government applications by contacting the [DataBC Help Desk](https://forms.gov.bc.ca/databc-contact-us/)
+To acquire an apikey with a rate limit of 3000 requests per minute, visit the [API Services Portal](https://api.gov.bc.ca/devportal/api-directory). Once an API key has been acquired, you can explore the API using the [API console](https://openapi.apps.gov.bc.ca/?url=https://raw.githubusercontent.com/bcgov/api-specs/master/geocoder/geocoder-combined.json).
 
 <br><br>
 <a name=cors></a>
 ## Cross-Origin Resource Sharing (CORS)
 CORS is enabled for any domain if you include an apikey with each request.
+
+<br><br>
+<a name=encoding></a>
+## URL Encoding
+Geocoder requests should use the ASCII character set. Characters found in an address that are not ASCII should be encoded. For example, a '#' would be encoded as '%23'.
 
 <br><br>
 <a name=addresses></a>
@@ -251,10 +239,50 @@ The *faults* property in a resource response is a list of one or more address ma
 <br><br>
 <a name=implementingautocomplete></a>
 ## Implementing address autocompletion in your application
-Using the autoComplete boolean request parameter is the key to successful implementation of address autocompletion in your application. Let's assume your application input form has an address text box and a search icon. 
+Using the [autoComplete](https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#autoComplete) boolean request parameter is the key to successful implementation of address autocompletion in your application. Let's assume your application input form has an address text box and a search icon. 
 
-A user starts entering the characters of an address. After three or so characters, the application should issue a get request on the addresses resource with autoComplete set to True every time a user enters an additional character. This tells the geocoder that addressString contains a partial address and to find the best N address prefix matches for display in a pick list below the address text box.
+A user starts entering the characters of an address. After three or so characters, the application should issue a get request on the addresses resource with autoComplete set to true every time a user enters an additional character. This tells the geocoder that addressString contains a partial address and to find the best N address prefix matches for display in a pick list below the address text box.
 
-If the user clicks on the search icon or presses the Enter key, the application should issue a get request on the addresses resource with autocomplete set to False. This tells the geocoder to use addressString as entered when trying to find the best N matches.
+If the user clicks on the search icon or presses the Enter key, the application should issue a get request on the addresses resource with autoComplete set to false. This tells the geocoder to use addressString as entered when trying to find the best N matches.
+
+You can also use the autoComplete and [exactSpelling](https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#exactSpelling) parameters in the same request. If exactSpelling is set to true (default is false), autoComplete suggestions will be limited to addresses beginning with the provided partial address. 
+
+In addition to [exactSpelling](https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#exactSpelling), the [fuzzyMatch](https://github.com/bcgov/ols-geocoder/blob/gh-pages/glossary.md#fuzzyMatch) parameter can be included in the same request. If fuzzyMatch is set to true (default is false), autoComplete suggestions will be sorted using a fuzzy match comparison to the addressString. 
 
 If you are using jQuery in your javascript app, check out our javascript code for autocompletion [here](https://github.com/bcgov/ols-devkit/tree/gh-pages/widget). To see the code in action, visit [here](https://bcgov.github.io/ols-devkit/examples/address_autocomplete.html)
+
+<br><br>
+<a name=APIResponseErrorCodes></a>
+## API reponse error codes
+### KONG API gateway errors
+We use Kong API gateway to manage Geocoder API calls. Below is a list of gateway errors. You can skip this section if you installed your own Geocoder.
+
+|Response Code|Error Message|Error Description
+|--|--|--|
+|404|This page is not found|The path is not defined
+|401|No API key found in request|The API endpoints requires an API key
+|401|Invalid authentication credentials|The provided API key is not found
+|403|You cannot consume this service|The provided API key is invalid, unapproved or expired.
+|429|API rate limit exceeded|Too many requests per minute
+
+### Geocoder specific errors 
+Geocoder can return a number of error responses.
+|Response Code|Error Message|Error Description
+|--|--|--|
+|400|Invalid parameter:[details]|The provided parameter is incorrect. Please refer to the details
+|404|no Route matched with those values|The path is not found. Please make sure it’s one in document
+|500|Anything|This is a general internal error
+
+In addition to above common error responses there are also a number of errors that can happen occasionally or during the initialization state. These errors usually come with 500s but could also be 400s.
+
+- **Invalid or no API key found in request:** check for invalid parcel API key.
+- **Invalid JDBC URL in properties file:** database related error.
+- **No JDBC URL found in properties file:** database related error.
+- **Invalid JDBC URL in properties file:** database related error.
+- **Exception loading database driver:** database related error.
+- **Error connecting to database:** database related error.
+- **Parameter must be in the format:** Request format not recognized.
+- **Unable to parse MatchFault string:** unknown internal/data error.
+- **Unexpected error in coordinate reprojection:** unknown data error.
+- **No value for parameter:** unknown internal/data error.
+- **Parameter must be in UUID format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:** invalid UUID
